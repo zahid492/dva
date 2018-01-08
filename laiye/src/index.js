@@ -14,15 +14,6 @@ import registerServiceWorker from './registerServiceWorker';
 const store = configureStore({});
 store.runSaga(rootSaga);
 
-store.dispatch({
-    type:"UP_REQUEST",
-    subject: "腾讯",
-    etitle: "stick",
-    ctitle: "敏感",
-    direction: 0,
-    page: 1,
-});
-
 render(
     <Provider store={store}>
         <App />

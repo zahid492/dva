@@ -5,9 +5,8 @@ export default function upNews(state = {}, action) {
         case ActionTypes.UP_SUCCESS:
             var obj = {
                 ...state,
-                products:{...action.products}
+                products:[...action.products]
             };
-            console.log(obj)
             return obj;
         default:
             return state
