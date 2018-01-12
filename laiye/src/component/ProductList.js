@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import ProductItem from './ProductItem'
 import {connect} from 'react-redux'
+import {List} from 'antd-mobile';
+
+const Item = List.Item;
 
 class ProductList extends Component {
     render() {
@@ -8,15 +10,20 @@ class ProductList extends Component {
 
         return (
             <div>
-                <h3>News</h3>
-                <div>
+                <List renderHeader={() => 'News'} className="my-list">
                     {products.map(product =>
-                        <ProductItem
+                        <Item
                             key={product.RId}
-                            product={product}
-                        />
+                            arrow="horizontal"
+                            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+                            multipleLine
+                            onClick={() => {
+                            }}
+                        >
+                            {product.Title}
+                        </Item>
                     )}
-                </div>
+                </List>
             </div>
         )
     }

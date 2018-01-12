@@ -8,6 +8,7 @@ export default class ProductItem extends Component {
     return (
       <div
         style={{ marginBottom: 20 }}>
+
         <Product
           title={product.Title} />
       </div>

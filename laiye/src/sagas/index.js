@@ -1,14 +1,12 @@
 /* eslint-disable no-constant-condition */
 
-import {all, put, call, fork, takeEvery} from 'redux-saga/effects'
+import {all, put, call, fork, take, select} from 'redux-saga/effects'
 import axios from 'axios'
-
 import * as actions from '../actions'
-
 
 export function fetchUpNewsApi(payload) {
     var payloads = Object.assign({
-        subject: "腾讯",
+        key: "腾讯",
         etitle: "stick",
         ctitle: "敏感",
         direction: 0,
@@ -27,7 +25,7 @@ export function fetchUpNewsApi(payload) {
     return axios({
         method: 'get',
         url: 'api/report/dataList.ashx',
-        params: {key: payloads.subject, page: payloads.page, pagesize: 10, type: type},
+        params: {key: payloads.key, page: payloads.page, pagesize: 10, type: type},
     }).then(function (result) {
 
         return result.data.Data;
@@ -39,19 +37,30 @@ export function fetchUpNewsApi(payload) {
 
 function* fetchUpNews(payload) {
 
+    yield put(actions.getAllNews(payload.key));
     const result = yield call(fetchUpNewsApi, payload);
-
     yield put(actions.receiveAllNews(result));
 
 }
 
-function* watchUpNews() {
-    yield takeEvery(actions.UP_REQUEST, fetchUpNews)
+export function* nextUpNews() {
+    while (true) {
+        const prePayload = yield select();
+        yield take(actions.UP_REQUEST);
+        const postPayload = yield select();
+        if (prePayload.key !== postPayload.key) {
+            yield fork(fetchUpNews, postPayload)
+        }
+    }
+}
+
+export function* startup() {
+    yield fork(fetchUpNews, {key: "腾讯"});
 }
 
 export default function* root() {
     yield all([
-        fork(fetchUpNews),
-        fork(watchUpNews)
+        fork(startup),
+        fork(nextUpNews),
     ])
 }
