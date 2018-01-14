@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import Tab from "./component/tab"
 
-
 const styles = {
     slide: {
         padding: 15,
