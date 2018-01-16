@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 const GITHUB_REPO = 'https://github.com/rackt/redux'
 
@@ -57,8 +57,8 @@ export default class Explore extends Component {
     )
   }
 }
-
-Explore.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
-}
+//
+// Explore.propTypes = {
+//   value: PropTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired
+// }

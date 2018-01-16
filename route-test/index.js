@@ -1,22 +1,25 @@
 import 'babel-polyfill'
 // React imports
 import React from 'react'
-import { render } from 'react-dom'
-
-// app specific imports
-import { history } from './services'
-import routes from './routes'
-import Root from './containers/Root'
+import * as ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
+import {renderRoutes} from 'react-router-config';
+import {BrowserRouter as Router} from 'react-router-dom';
 import configureStore from './store/configureStore'
 import rootSaga from './sagas'
+import routes from './routes'
+
+// import createHistory from 'history/createBrowserHistory';
+// const history = createHistory();
 
 const store = configureStore(window.__INITIAL_STATE__);
 store.runSaga(rootSaga);
 
-render(
-  <Root
-    store={store}
-    history={history}
-    routes={routes} />,
-  document.getElementById('root')
+ReactDOM.hydrate(
+    <Provider store={store}>
+        <Router>
+            {renderRoutes(routes)}
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );

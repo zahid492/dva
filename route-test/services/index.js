@@ -1,6 +1,4 @@
-
 import * as _api from './api'
-import { browserHistory } from 'react-router'
-
-export const api = _api
-export const history = browserHistory
+// import createHistory from "history/createBrowserHistory"
+export const api = _api;
+// export const history = createHistory();

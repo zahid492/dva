@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 
 export default class User extends Component {
@@ -18,10 +18,10 @@ export default class User extends Component {
   }
 }
 
-User.propTypes = {
-  user: PropTypes.shape({
-    login: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string.isRequired,
-    name: PropTypes.string
-  }).isRequired
-}
+// User.propTypes = {
+//   user: PropTypes.shape({
+//     login: PropTypes.string.isRequired,
+//     avatarUrl: PropTypes.string.isRequired,
+//     name: PropTypes.string
+//   }).isRequired
+// }

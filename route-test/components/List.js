@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 export default class List extends Component {
   renderLoadMore() {
@@ -36,16 +36,16 @@ export default class List extends Component {
     )
   }
 }
-
-List.propTypes = {
-  loadingLabel: PropTypes.string.isRequired,
-  pageCount: PropTypes.number,
-  renderItem: PropTypes.func.isRequired,
-  items: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool.isRequired,
-  onLoadMoreClick: PropTypes.func.isRequired,
-  nextPageUrl: PropTypes.string
-}
+//
+// List.propTypes = {
+//   loadingLabel: PropTypes.string.isRequired,
+//   pageCount: PropTypes.number,
+//   renderItem: PropTypes.func.isRequired,
+//   items: PropTypes.array.isRequired,
+//   isFetching: PropTypes.bool.isRequired,
+//   onLoadMoreClick: PropTypes.func.isRequired,
+//   nextPageUrl: PropTypes.string
+// }
 
 List.defaultProps = {
   isFetching: true,
