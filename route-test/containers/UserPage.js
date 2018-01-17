@@ -80,16 +80,15 @@ function mapStateToProps(state, ownProps) {
     const starredRepos = starredPagination.ids.map(id => repos[id])
     const starredRepoOwners = starredRepos.map(repo => users[repo.owner])
 
-    // console.log(users)
-
+    const puser = _.find(users, function(v){
+        return v.login===login;
+    });
     return {
         login,
         starredRepos,
         starredRepoOwners,
         starredPagination,
-        user: _.find(users, function(v){
-            return v.login===login;
-        })
+        user: puser
     }
 }
 

@@ -36,10 +36,8 @@ const initState = (initialState) => (`
         window.__INITIAL_STATE__= ${initialState}
     </script>
 `);
-
-const layout = (body) => (`
-    ${body}
-`);
+// 包含空白节点会报警告
+const layout = (body) => (`${body}`);
 
 app.use(function (req, res) {
     console.log('req', req.url);
