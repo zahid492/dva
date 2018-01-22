@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types';
 import {navigate, updateRouterState, resetErrorMessage} from '../actions'
 import Explore from '../components/Explore'
 
@@ -68,17 +69,17 @@ class App extends Component {
     }
 }
 
-//
-// App.propTypes = {
-//   // Injected by React Redux
-//   errorMessage: PropTypes.string,
-//   inputValue: PropTypes.string.isRequired,
-//   navigate: PropTypes.func.isRequired,
-//   updateRouterState: PropTypes.func.isRequired,
-//   resetErrorMessage: PropTypes.func.isRequired,
-//   // Injected by React Router
-//   children: PropTypes.node
-// }
+
+App.propTypes = {
+    // Injected by React Redux
+    errorMessage: PropTypes.string,
+    inputValue: PropTypes.string.isRequired,
+    navigate: PropTypes.func.isRequired,
+    updateRouterState: PropTypes.func.isRequired,
+    resetErrorMessage: PropTypes.func.isRequired,
+    // Injected by React Router
+    children: PropTypes.node
+};
 
 function mapStateToProps(state) {
     return {

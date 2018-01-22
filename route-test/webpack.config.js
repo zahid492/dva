@@ -1,9 +1,18 @@
-var path = require('path');
-var webpack = require('webpack');
-//"redux-devtools": "^3.4.1",
-//"redux-devtools-dock-monitor": "^1.1.3",
-//"redux-devtools-log-monitor": "^1.4.0",
-// const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+let pathsToClean = [
+    'public'
+];
+
+let cleanOptions = {
+    root:     __dirname,
+    exclude:  ['favicon.ico'],
+    verbose:  true,
+    dry:      false
+};
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -17,9 +26,13 @@ module.exports = {
         publicPath: '/public/'
     },
     plugins: [
+        new webpack.NoEmitOnErrorsPlugin(),
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
+        new ManifestPlugin(),
+        new ProgressBarPlugin(),
         // new FriendlyErrorsPlugin()
     ],
     resolve: {

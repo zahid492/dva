@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {loadUserPage, loadMoreStarred} from '../actions'
 import User from '../components/User'
@@ -57,31 +58,29 @@ class UserPage extends Component {
     }
 }
 
-// UserPage.propTypes = {
-//   login: PropTypes.string.isRequired,
-//   user: PropTypes.object,
-//   starredPagination: PropTypes.object,
-//   starredRepos: PropTypes.array.isRequired,
-//   starredRepoOwners: PropTypes.array.isRequired,
-//   loadUserPage: PropTypes.func.isRequired,
-//   loadMoreStarred: PropTypes.func.isRequired
-// }
+UserPage.propTypes = {
+    login: PropTypes.string.isRequired,
+    user: PropTypes.object,
+    starredPagination: PropTypes.object,
+    starredRepos: PropTypes.array.isRequired,
+    starredRepoOwners: PropTypes.array.isRequired,
+    loadUserPage: PropTypes.func.isRequired,
+    loadMoreStarred: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state, ownProps) {
-    console.log("userPage ownProps:", ownProps);
-    console.log("userPage state:", state);
     const {login} = ownProps.match.params;
     const {
         pagination: {starredByUser},
         entities: {users, repos}
     } = state;
 
-    const starredPagination = starredByUser[login] || {ids: []}
-    const starredRepos = starredPagination.ids.map(id => repos[id])
-    const starredRepoOwners = starredRepos.map(repo => users[repo.owner])
+    const starredPagination = starredByUser[login] || {ids: []};
+    const starredRepos = starredPagination.ids.map(id => repos[id]);
+    const starredRepoOwners = starredRepos.map(repo => users[repo.owner]);
 
-    const puser = _.find(users, function(v){
-        return v.login===login;
+    const puser = _.find(users, function (v) {
+        return v.login === login;
     });
     return {
         login,

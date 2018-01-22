@@ -1,5 +1,4 @@
 import 'babel-polyfill'
-// React imports
 import React from 'react'
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
@@ -18,7 +17,7 @@ store.runSaga(rootSaga);
 ReactDOM.hydrate(
     <Provider store={store}>
         <Router>
-            {renderRoutes(routes)}
+                {renderRoutes(routes)}
         </Router>
     </Provider>,
     document.getElementById('root')

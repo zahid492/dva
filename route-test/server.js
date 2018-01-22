@@ -16,9 +16,6 @@ import routes from './routes'
 import configureStore from './store/configureStore'
 import rootSaga from './sagas'
 
-// import {createMemoryHistory} from 'history';
-// const history = createMemoryHistory();
-
 const _template = require('lodash/template');
 const baseTemplate = fs.readFileSync('./index.html');
 const template = _template(baseTemplate);
@@ -40,7 +37,6 @@ const initState = (initialState) => (`
 const layout = (body) => (`${body}`);
 
 app.use(function (req, res) {
-    console.log('req', req.url);
     let context = {};
     const store = configureStore();
     const loadBranchData = () => {
@@ -56,14 +52,12 @@ app.use(function (req, res) {
     const content = ReactDOMServer.renderToString(
         <Provider store={store}>
             <StaticRouter location={req.url} context={context}>
-                {renderRoutes(routes)}
+                    {renderRoutes(routes)}
             </StaticRouter>
         </Provider>
     );
 
     store.runSaga(rootSaga).done.then(() => {
-        console.log('sagas complete');
-
         loadBranchData()
             .then(() => {
                 res.status(200).send(
@@ -83,21 +77,6 @@ app.use(function (req, res) {
     });
 
     store.close();
-
-
-    //res.status(200).send(layout('','{}'))
-    // Note that req.url here should be the full URL path from
-    // the original request, including the query string.
-    // match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
-    //     if (error) {
-    //         res.status(500).send(error.message)
-    //     } else if (redirectLocation) {
-    //         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-    //     } else if (renderProps && renderProps.components) {
-    //     } else {
-    //         res.status(404).send('Not found')
-    //     }
-    // })
 });
 
 
@@ -105,6 +84,6 @@ app.listen(port, function (error) {
     if (error) {
         console.error(error)
     } else {
-        console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
+        console.info("==> Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
     }
 });

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 export default class Repo extends Component {
 
   render() {
-    const { repo, owner } = this.props
-    const { login } = owner
-    const { name, description } = repo
+    const { repo, owner } = this.props;
+    const { login } = owner;
+    const { name, description } = repo;
 
     return (
       <div className="Repo">
@@ -26,13 +27,13 @@ export default class Repo extends Component {
     )
   }
 }
-//
-// Repo.propTypes = {
-//   repo: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     description: PropTypes.string
-//   }).isRequired,
-//   owner: PropTypes.shape({
-//     login: PropTypes.string.isRequired
-//   }).isRequired
-// }
+
+Repo.propTypes = {
+    repo: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string
+    }).isRequired,
+    owner: PropTypes.shape({
+        login: PropTypes.string.isRequired
+    }).isRequired
+};
