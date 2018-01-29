@@ -1,9 +1,8 @@
 /* eslint-disable no-constant-condition */
 import {take, put, call, fork, select, all} from 'redux-saga/effects'
-import {api} from '../services'
+import article from '../api/article'
 // import {createMemoryHistory} from 'history';
 import * as actions from '../actions'
-import {getUser, getRepo, getStarredByUser, getStargazersByRepo} from '../reducers/selectors'
 
 // const history = createMemoryHistory();
 // each entity defines 3 creators { request, success, failure }

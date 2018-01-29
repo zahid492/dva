@@ -17,7 +17,7 @@ store.runSaga(rootSaga);
 ReactDOM.hydrate(
     <Provider store={store}>
         <Router>
-                {renderRoutes(routes)}
+            {renderRoutes(routes)}
         </Router>
     </Provider>,
     document.getElementById('root')
