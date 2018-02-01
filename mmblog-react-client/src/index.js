@@ -16,7 +16,6 @@ import 'element-theme-default';
 
 import store from './store/configureStore'
 
-
 render(
     <Provider store={store}>
         <Router>

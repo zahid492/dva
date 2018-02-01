@@ -9,40 +9,40 @@ const {posts} = actions;
 function* fetchEntity(entity, apiFn, opt) {
     // 发送请求 action
     yield put(entity.request());
-    const {response, error} = yield call(apiFn, opt.tag, opt.page, opt.limit);
-    console.log(response)
+    const response = yield call(apiFn, opt.tag, opt.page, opt.limit);
+
     if (response)
     // 成功 action
-        yield put(entity.success(response));
+        yield put(entity.success({
+            posts: response.articleArr,
+            total: response.aCount,
+            page: opt.page,
+            pageSize: opt.limit
+        }));
     else
     // 失败 action
-        yield put(entity.failure(error))
+        yield put(entity.failure())
 }
 
 // yeah! we can also bind Generators 绑定剩余参数传递
-export const fetchPosts = fetchEntity.bind(null, posts, article.getAllPublishArticles);
+export const fetchPosts = fetchEntity.bind(null, posts, article.getAllArticles);
 
 // load user unless it is cached
-function* loadPosts() {
+function* loadPosts(page, tag, limit) {
     // 选择操作参数， 调用选择器
-    const arg = {
-        tag: '',
-        page: 1,
-        limit: 5,
-    };
-
-    // 操作条件判断
-
-    // 进行操作
-    yield call(fetchPosts, arg)
+    const post = yield select(getPosts);
+    if(post.page != page || post.tag != tag || post.limit != limit){
+        yield call(fetchPosts, page, tag, limit)
+    }
 
 }
 
 /******************************* WATCHERS *************************************/
 function* watchLoadPostsPage() {
-    // while (true) {
-    // }
-    yield fork(loadPosts)
+    while (true) {
+        const {page, tag, limit} = yield take(actions.LOAD_POST);
+        yield fork(loadPosts, page, tag, limit)
+    }
 }
 
 export default function* root() {

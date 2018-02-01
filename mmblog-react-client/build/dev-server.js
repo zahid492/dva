@@ -49,7 +49,7 @@ const devMid = devMiddleware(clientCompiler, {
 
 const hotMid = hotMiddleware(clientCompiler, {
     log: false,
-    heartbeat: 2000
+    heartbeat: 10000
 });
 
 app.use(hotMid);

@@ -1,11 +1,32 @@
 import * as ActionTypes from '../actions/vindex'
-import _ from 'lodash'
 import {combineReducers} from 'redux'
 
 // Updates an entity cache in response to any action with response.entities.
-function posts(state = {posts: []}, action) {
-    if (action.response && action.response.posts) {
-        return _.merge({}, state, action.response.posts)
+function posts(state = [], action) {
+    if (action.response) {
+        return [...action.response.posts]
+    }
+
+    return state
+}
+
+function total(state = 0, action) {
+    if (action.response) {
+        return action.response.total
+    }
+
+    return state
+}
+function page(state = 1, action) {
+    if (action.response) {
+        return action.response.page
+    }
+
+    return state
+}
+function pageSize(state = 2, action) {
+    if (action.response) {
+        return action.response.pageSize
     }
 
     return state
@@ -36,6 +57,9 @@ function router(state = {
 }
 
 const rootReducer = combineReducers({
+    total,
+    page,
+    pageSize,
     posts,
     errorMessage,
     router

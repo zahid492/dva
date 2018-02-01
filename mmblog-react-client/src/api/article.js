@@ -7,11 +7,18 @@ export default {
         return Axios.post('/api/articles', {title, content, publish, tags})
     },
     getAllArticles(tag = '', page = 1, limit = 0) {
-        return Axios.get(`/api/articles?tag=${tag}&page=${page}&limit=${limit}`)
+        return Axios.get(`/api/articles?tag=${tag}&page=${page}&limit=${limit}`).then(res => {
+            if(res.status == 200){
+                return res.data
+            }
+
+        });
     },
     getAllPublishArticles(tag = '', page = 1, limit = 0) {
         return Axios.get(`/api/articles?tag=${tag}&page=${page}&limit=${limit}&publish=1`).then(res => {
-            return res
+            if(res.status === 200){
+                return res.data
+            }
         });
     },
     saveArticle(id, article) {

@@ -12,7 +12,7 @@ spinner.start();
 const assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory);
 rm('-rf', assetsPath);
 mkdir('-p', assetsPath);
-cp('-R', './static/*', assetsPath);
+cp('-R', '../static/*', assetsPath);
 config.silent = false;
 
 webpack(webpackConfig, function (err, stats) {
