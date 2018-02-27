@@ -231,8 +231,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json", ".less", ".scss", ".css"],
     alias: {
-      simplemde$: "simplemde/dist/simplemde.min.js",
-      "highlight.js$": "highlight.js/lib/highlight.js",
+      // simplemde$: "simplemde/dist/simplemde.min.js",
+      // "highlight.js$": "highlight.js/lib/highlight.js",
       "@": resolve("src"),
       api: resolve("src/api")
     }

@@ -23,7 +23,7 @@ export const posts = {
     failure: (error) => action(POSTS[FAILURE], {error}),
 };
 
-export const loadPosts = (page=1, tag="", limit=2)=> action(LOAD_POST, {page, tag, limit});
+export const loadPosts = ({page=1, tag="", limit=2})=> action(LOAD_POST, {page, tag, limit});
 
 export const resetErrorMessage = () => action(RESET_ERROR_MESSAGE);
 

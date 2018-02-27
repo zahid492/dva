@@ -31,8 +31,9 @@ export const fetchPosts = fetchEntity.bind(null, posts, article.getAllArticles);
 function* loadPosts(page, tag, limit) {
     // 选择操作参数， 调用选择器
     const post = yield select(getPosts);
+
     if(post.page != page || post.tag != tag || post.limit != limit){
-        yield call(fetchPosts, page, tag, limit)
+        yield call(fetchPosts, {page, tag, limit})
     }
 
 }

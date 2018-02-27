@@ -1,5 +1,5 @@
 'use strict';
-const config = require("../config");
+const config = require("./config");
 const express = require('express');
 const path = require('path');
 const opn = require('opn');

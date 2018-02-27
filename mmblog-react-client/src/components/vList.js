@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import { loadPosts } from '../actions/vindex'
 import { Pagination } from 'antd';
-// import 'antd/lib/Pagination/style'
 
 class List extends Component {
     constructor(props) {
         super(props);
-        // this.onChange = this.onChange.bind(this);
     }
 
     componentWillMount(){
@@ -20,7 +18,7 @@ class List extends Component {
     };
 
     render() {
-        const {posts, total} = this.props;
+        const {posts, total, pageSize} = this.props;
 
         if (posts.length === 0) {
             return <h3>没有内容</h3>
@@ -33,7 +31,7 @@ class List extends Component {
                         return <li key={v.id}>{v.title}--{v.content}</li>
                     })}
                 </ul>
-                <Pagination defaultCurrent={1} total={total} pageSize={2} onChange={this.onChange} />
+                <Pagination defaultCurrent={1} total={total} pageSize={pageSize} onChange={this.onChange} />
             </div>
         )
     }
@@ -47,12 +45,12 @@ List.propTypes = {
 //     posts: []
 // };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
     return {
         total: state.total,
         posts: state.posts,
         page: state.page,
-        pageSize: state.pageSize
+        pageSize: parseInt(props.pageSize, 10)
     }
 }
 

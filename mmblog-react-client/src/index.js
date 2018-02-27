@@ -7,13 +7,6 @@ import App from './containers/App'
 
 import NotFound from './router/NotFound'
 
-// import {renderRoutes} from 'react-router-config';
-// import routes from './routes'
-// import createBrowserHistory from 'history/createBrowserHistory'
-import 'element-theme-default';
-
-// const history = createBrowserHistory();
-
 import store from './store/configureStore'
 
 render(

@@ -9,7 +9,7 @@ class App extends Component {
 
         return (
             <div>
-                <List pageSize="2" />
+                <List pageSize="3" />
             </div>
         )
     }
