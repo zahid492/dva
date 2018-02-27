@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import { loadPosts } from '../actions/vindex'
 import { Pagination } from 'antd';
-import 'antd/lib/Pagination/style'
+// import 'antd/lib/Pagination/style'
 
 class List extends Component {
     constructor(props) {
         super(props);
-        this.onChange = this.onChange.bind(this);
+        // this.onChange = this.onChange.bind(this);
     }
 
     componentWillMount(){
         this.props.loadPosts({page:this.props.page || 1, limit: this.props.pageSize})
     }
 
-    onChange(page, pageSize){
+    onChange = (page, pageSize) => {
        this.props.loadPosts({page: page, limit: pageSize})
-    }
+    };
 
     render() {
         const {posts, total} = this.props;
