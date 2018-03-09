@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Animation</title>
+    <script src="./lib/lodash.min.js"></script>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/zrender.js"></script>
+    <script src="./lib/echarts4.js"></script>
+    <script src="./lib/wordcloud2.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    @media (min-width: 980px) {
+        body {
+            padding-top: 60px;
+        }
+    }
+
+    *[hidden] {
+        display: none;
+    }
+
+    #canvas-container {
+        width: 600px;
+        overflow-x: auto;
+        overflow-y: visible;
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .canvas {
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .canvas.hide {
+        display: none;
+    }
+
+    #html-canvas>span {
+        transition: text-shadow 1s ease, opacity 1s ease;
+        -webkit-transition: text-shadow 1s ease, opacity 1s ease;
+        -ms-transition: text-shadow 1s ease, opacity 1s ease;
+    }
+
+    #html-canvas>span:hover {
+        text-shadow: 0 0 10px, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
+        opacity: 0.5;
+    }
+
+    #box {
+        pointer-events: none;
+        position: absolute;
+        box-shadow: 0 0 50px 50px rgba(88, 255, 255, 0.5);
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    @-webkit-keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12" id="canvas-container">
+                <canvas id="canvas" class="canvas"></canvas>
+                <div id="html-canvas" class="canvas hide"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/maptest-wordcloud.js"></script>
+</body>
+
+</html>

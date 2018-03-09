@@ -1,0 +1,151 @@
+From: <Saved by Blink>
+Subject: Treemap
+Date: Sat, 9 Mar 2018 01:41:46 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--gvl5AotjPdLuV17TVVcuXOE3nIXqbcGa695oNBeGxU----"
+
+------MultipartBoundary--gvl5AotjPdLuV17TVVcuXOE3nIXqbcGa695oNBeGxU----
+Content-Type: text/html
+Content-ID: <frame-45-ee43fe85-5261-479d-b927-345383dbfc5c@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ourd3js.com/demo/G-4.0/treemap.html
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"> =20
+         =20
+        <title>Treemap</title> =20
+  <style>
+  .nodeRect {
+	stroke: white;
+	stroke-width: 2px;
+  }
+ =20
+  .nodeName {
+	fill: white;
+	font-size: 12px;
+	font-family: simsun;
+  }
+  </style></head>=20
+ =20
+<body>
+
+<svg width=3D"1000" height=3D"500"><g><rect class=3D"nodeRect" x=3D"256" y=
+=3D"311" width=3D"189" height=3D"189" style=3D"fill: rgb(31, 119, 180);"></=
+rect><text class=3D"nodeName" x=3D"256" y=3D"311" dx=3D"0.5em" dy=3D"1.5em"=
+>=E6=9D=AD=E5=B7=9E 8343</text></g><g><rect class=3D"nodeRect" x=3D"94" y=
+=3D"311" width=3D"162" height=3D"189" style=3D"fill: rgb(31, 119, 180);"></=
+rect><text class=3D"nodeName" x=3D"94" y=3D"311" dx=3D"0.5em" dy=3D"1.5em">=
+=E5=AE=81=E6=B3=A2 7128</text></g><g><rect class=3D"nodeRect" x=3D"344" y=
+=3D"141" width=3D"101" height=3D"170" style=3D"fill: rgb(31, 119, 180);"></=
+rect><text class=3D"nodeName" x=3D"344" y=3D"141" dx=3D"0.5em" dy=3D"1.5em"=
+>=E6=B8=A9=E5=B7=9E 4003</text></g><g><rect class=3D"nodeRect" x=3D"253" y=
+=3D"141" width=3D"91" height=3D"170" style=3D"fill: rgb(31, 119, 180);"></r=
+ect><text class=3D"nodeName" x=3D"253" y=3D"141" dx=3D"0.5em" dy=3D"1.5em">=
+=E7=BB=8D=E5=85=B4 3620</text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"=
+281" width=3D"94" height=3D"82" style=3D"fill: rgb(31, 119, 180);"></rect><=
+text class=3D"nodeName" x=3D"0" y=3D"281" dx=3D"0.5em" dy=3D"1.5em">=E6=B9=
+=96=E5=B7=9E 1803</text></g><g><rect class=3D"nodeRect" x=3D"94" y=3D"141" =
+width=3D"79" height=3D"170" style=3D"fill: rgb(31, 119, 180);"></rect><text=
+ class=3D"nodeName" x=3D"94" y=3D"141" dx=3D"0.5em" dy=3D"1.5em">=E5=98=89=
+=E5=85=B4 3147</text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"363" widt=
+h=3D"94" height=3D"137" style=3D"fill: rgb(31, 119, 180);"></rect><text cla=
+ss=3D"nodeName" x=3D"0" y=3D"363" dx=3D"0.5em" dy=3D"1.5em">=E9=87=91=E5=8D=
+=8E 2958</text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"233" width=3D"9=
+4" height=3D"48" style=3D"fill: rgb(31, 119, 180);"></rect><text class=3D"n=
+odeName" x=3D"0" y=3D"233" dx=3D"0.5em" dy=3D"1.5em">=E8=A1=A2=E5=B7=9E 105=
+6</text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"186" width=3D"94" heig=
+ht=3D"47" style=3D"fill: rgb(31, 119, 180);"></rect><text class=3D"nodeName=
+" x=3D"0" y=3D"186" dx=3D"0.5em" dy=3D"1.5em">=E8=88=9F=E5=B1=B1 1021</text=
+></g><g><rect class=3D"nodeRect" x=3D"173" y=3D"141" width=3D"80" height=3D=
+"170" style=3D"fill: rgb(31, 119, 180);"></rect><text class=3D"nodeName" x=
+=3D"173" y=3D"141" dx=3D"0.5em" dy=3D"1.5em">=E5=8F=B0=E5=B7=9E 3153</text>=
+</g><g><rect class=3D"nodeRect" x=3D"0" y=3D"141" width=3D"94" height=3D"45=
+" style=3D"fill: rgb(31, 119, 180);"></rect><text class=3D"nodeName" x=3D"0=
+" y=3D"141" dx=3D"0.5em" dy=3D"1.5em">=E4=B8=BD=E6=B0=B4 983</text></g><g><=
+rect class=3D"nodeRect" x=3D"287" y=3D"55" width=3D"158" height=3D"86" styl=
+e=3D"fill: rgb(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"287" y=
+=3D"55" dx=3D"0.5em" dy=3D"1.5em">=E5=8D=97=E5=AE=81 3148</text></g><g><rec=
+t class=3D"nodeRect" x=3D"287" y=3D"0" width=3D"158" height=3D"55" style=3D=
+"fill: rgb(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"287" y=3D"0=
+" dx=3D"0.5em" dy=3D"1.5em">=E6=9F=B3=E5=B7=9E 2016</text></g><g><rect clas=
+s=3D"nodeRect" x=3D"197" y=3D"62" width=3D"90" height=3D"79" style=3D"fill:=
+ rgb(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"197" y=3D"62" dx=
+=3D"0.5em" dy=3D"1.5em">=E6=A1=82=E6=9E=97 1657</text></g><g><rect class=3D=
+"nodeRect" x=3D"122" y=3D"85" width=3D"75" height=3D"56" style=3D"fill: rgb=
+(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"122" y=3D"85" dx=3D"0=
+.5em" dy=3D"1.5em">=E6=A2=A7=E5=B7=9E 991</text></g><g><rect class=3D"nodeR=
+ect" x=3D"60" y=3D"90" width=3D"62" height=3D"51" style=3D"fill: rgb(255, 1=
+27, 14);"></rect><text class=3D"nodeName" x=3D"60" y=3D"90" dx=3D"0.5em" dy=
+=3D"1.5em">=E5=8C=97=E6=B5=B7 734</text></g><g><rect class=3D"nodeRect" x=
+=3D"0" y=3D"103" width=3D"60" height=3D"38" style=3D"fill: rgb(255, 127, 14=
+);"></rect><text class=3D"nodeName" x=3D"0" y=3D"103" dx=3D"0.5em" dy=3D"1.=
+5em">=E9=98=B2=E5=9F=8E=E6=B8=AF 525</text></g><g><rect class=3D"nodeRect" =
+x=3D"122" y=3D"0" width=3D"75" height=3D"42" style=3D"fill: rgb(255, 127, 1=
+4);"></rect><text class=3D"nodeName" x=3D"122" y=3D"0" dx=3D"0.5em" dy=3D"1=
+.5em">=E9=92=A6=E5=B7=9E 734</text></g><g><rect class=3D"nodeRect" x=3D"122=
+" y=3D"42" width=3D"75" height=3D"43" style=3D"fill: rgb(255, 127, 14);"></=
+rect><text class=3D"nodeName" x=3D"122" y=3D"42" dx=3D"0.5em" dy=3D"1.5em">=
+=E8=B4=B5=E6=B8=AF 742</text></g><g><rect class=3D"nodeRect" x=3D"197" y=3D=
+"0" width=3D"90" height=3D"62" style=3D"fill: rgb(255, 127, 14);"></rect><t=
+ext class=3D"nodeName" x=3D"197" y=3D"0" dx=3D"0.5em" dy=3D"1.5em">=E7=8E=
+=89=E6=9E=97 1300</text></g><g><rect class=3D"nodeRect" x=3D"60" y=3D"45" w=
+idth=3D"62" height=3D"45" style=3D"fill: rgb(255, 127, 14);"></rect><text c=
+lass=3D"nodeName" x=3D"60" y=3D"45" dx=3D"0.5em" dy=3D"1.5em">=E7=99=BE=E8=
+=89=B2 656</text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"0" width=3D"6=
+0" height=3D"30" style=3D"fill: rgb(255, 127, 14);"></rect><text class=3D"n=
+odeName" x=3D"0" y=3D"0" dx=3D"0.5em" dy=3D"1.5em">=E8=B4=BA=E5=B7=9E 423</=
+text></g><g><rect class=3D"nodeRect" x=3D"0" y=3D"30" width=3D"60" height=
+=3D"36" style=3D"fill: rgb(255, 127, 14);"></rect><text class=3D"nodeName" =
+x=3D"0" y=3D"30" dx=3D"0.5em" dy=3D"1.5em">=E6=B2=B3=E6=B1=A0 497</text></g=
+><g><rect class=3D"nodeRect" x=3D"0" y=3D"66" width=3D"60" height=3D"37" st=
+yle=3D"fill: rgb(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"0" y=
+=3D"66" dx=3D"0.5em" dy=3D"1.5em">=E6=9D=A5=E5=AE=BE 519</text></g><g><rect=
+ class=3D"nodeRect" x=3D"60" y=3D"0" width=3D"62" height=3D"45" style=3D"fi=
+ll: rgb(255, 127, 14);"></rect><text class=3D"nodeName" x=3D"60" y=3D"0" dx=
+=3D"0.5em" dy=3D"1.5em">=E5=B4=87=E5=B7=A6 649</text></g><g><rect class=3D"=
+nodeRect" x=3D"581" y=3D"338" width=3D"234" height=3D"162" style=3D"fill: r=
+gb(44, 160, 44);"></rect><text class=3D"nodeName" x=3D"581" y=3D"338" dx=3D=
+"0.5em" dy=3D"1.5em">=E5=8D=97=E4=BA=AC 8820</text></g><g><rect class=3D"no=
+deRect" x=3D"581" y=3D"187" width=3D"234" height=3D"151" style=3D"fill: rgb=
+(44, 160, 44);"></rect><text class=3D"nodeName" x=3D"581" y=3D"187" dx=3D"0=
+.5em" dy=3D"1.5em">=E6=97=A0=E9=94=A1 8205</text></g><g><rect class=3D"node=
+Rect" x=3D"769" y=3D"0" width=3D"114" height=3D"187" style=3D"fill: rgb(44,=
+ 160, 44);"></rect><text class=3D"nodeName" x=3D"769" y=3D"0" dx=3D"0.5em" =
+dy=3D"1.5em">=E5=BE=90=E5=B7=9E 4964</text></g><g><rect class=3D"nodeRect" =
+x=3D"669" y=3D"0" width=3D"100" height=3D"187" style=3D"fill: rgb(44, 160, =
+44);"></rect><text class=3D"nodeName" x=3D"669" y=3D"0" dx=3D"0.5em" dy=3D"=
+1.5em">=E5=B8=B8=E5=B7=9E 4360</text></g><g><rect class=3D"nodeRect" x=3D"8=
+15" y=3D"187" width=3D"185" height=3D"313" style=3D"fill: rgb(44, 160, 44);=
+"></rect><text class=3D"nodeName" x=3D"815" y=3D"187" dx=3D"0.5em" dy=3D"1.=
+5em">=E8=8B=8F=E5=B7=9E 13500</text></g><g><rect class=3D"nodeRect" x=3D"88=
+3" y=3D"0" width=3D"117" height=3D"187" style=3D"fill: rgb(44, 160, 44);"><=
+/rect><text class=3D"nodeName" x=3D"883" y=3D"0" dx=3D"0.5em" dy=3D"1.5em">=
+=E5=8D=97=E9=80=9A 5038</text></g><g><rect class=3D"nodeRect" x=3D"445" y=
+=3D"0" width=3D"136" height=3D"56" style=3D"fill: rgb(44, 160, 44);"></rect=
+><text class=3D"nodeName" x=3D"445" y=3D"0" dx=3D"0.5em" dy=3D"1.5em">=E8=
+=BF=9E=E4=BA=91=E6=B8=AF 1785</text></g><g><rect class=3D"nodeRect" x=3D"44=
+5" y=3D"117" width=3D"136" height=3D"78" style=3D"fill: rgb(44, 160, 44);">=
+</rect><text class=3D"nodeName" x=3D"445" y=3D"117" dx=3D"0.5em" dy=3D"1.5e=
+m">=E6=B7=AE=E5=AE=89 2455</text></g><g><rect class=3D"nodeRect" x=3D"581" =
+y=3D"0" width=3D"88" height=3D"187" style=3D"fill: rgb(44, 160, 44);"></rec=
+t><text class=3D"nodeName" x=3D"581" y=3D"0" dx=3D"0.5em" dy=3D"1.5em">=E7=
+=9B=90=E5=9F=8E 3836</text></g><g><rect class=3D"nodeRect" x=3D"445" y=3D"3=
+83" width=3D"136" height=3D"117" style=3D"fill: rgb(44, 160, 44);"></rect><=
+text class=3D"nodeName" x=3D"445" y=3D"383" dx=3D"0.5em" dy=3D"1.5em">=E6=
+=89=AC=E5=B7=9E 3697</text></g><g><rect class=3D"nodeRect" x=3D"445" y=3D"1=
+95" width=3D"136" height=3D"93" style=3D"fill: rgb(44, 160, 44);"></rect><t=
+ext class=3D"nodeName" x=3D"445" y=3D"195" dx=3D"0.5em" dy=3D"1.5em">=E9=95=
+=87=E6=B1=9F 2950</text></g><g><rect class=3D"nodeRect" x=3D"445" y=3D"288"=
+ width=3D"136" height=3D"95" style=3D"fill: rgb(44, 160, 44);"></rect><text=
+ class=3D"nodeName" x=3D"445" y=3D"288" dx=3D"0.5em" dy=3D"1.5em">=E6=B3=B0=
+=E5=B7=9E 3006</text></g><g><rect class=3D"nodeRect" x=3D"445" y=3D"56" wid=
+th=3D"136" height=3D"61" style=3D"fill: rgb(44, 160, 44);"></rect><text cla=
+ss=3D"nodeName" x=3D"445" y=3D"56" dx=3D"0.5em" dy=3D"1.5em">=E5=AE=BF=E8=
+=BF=81 1930</text></g></svg>
+	=09
+     =20
+ =20
+</body></html>
+------MultipartBoundary--gvl5AotjPdLuV17TVVcuXOE3nIXqbcGa695oNBeGxU------
