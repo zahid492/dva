@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    circle {
+        fill: none;
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+    </style>
+</head>
+
+<body>
+    <button>Click Me</button>
+    <svg width="800" height="600" style="border: 1px solid">
+    </svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script>
+    $(function() {
+
+        var svg = d3.select("svg"),
+            margin = { top: 30, right: 30, bottom: 30, left: 30 },
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        // 时间线性比例尺。
+        var x = d3.scaleTime()
+            .range([0, width]);
+
+        var xAxis = d3.axisBottom(x);
+
+        var xAxisG = g.append("g")
+            .attr("transform", "translate(0, " + height + ")");
+
+        d3.timer(function() {
+            var now = Date.now();
+            x.domain([now - 20000, now]);
+            xAxisG.call(xAxis);
+        });
+
+        d3.select("button").on("click", function() {
+            var time = Date.now();
+
+            var circle = g.append("circle")
+                .attr("r", 80)
+                .attr("stroke-opacity", 0)
+                .attr("cy", Math.random() * height);
+
+            circle.transition("time")
+                .duration(5000)
+                .ease(d3.easeLinear)
+                .attrTween("cx", function(d) { return function(t) { return x(time); }; })
+
+            circle.transition()
+                .duration(750)
+                .ease(d3.easeCubicOut)
+                .attr("r", 3.5)
+                .attr("stroke-opacity", 1)
+                .transition()
+                .delay(5000 - 750 * 2)
+                .ease(d3.easeCubicIn)
+                .attr("r", 80)
+                .attr("stroke-opacity", 0)
+                .remove();
+        });
+
+
+    })
+    </script>
+</body>
+
+</html>

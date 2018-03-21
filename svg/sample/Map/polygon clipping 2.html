@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <svg width="960" height="600"></svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/d3-geo-projection.v1.min.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/d3-polygon-clip.js"></script>
+    <script>
+    $(function() {
+
+        var clip = [
+            [100, 400],
+            [480, 550],
+            [860, 400],
+            [860, 100],
+            [480, 50],
+            [100, 100]
+        ];
+
+        var svg = d3.select("svg");
+
+        svg.append("path")
+            .attr("fill", "blue")
+            .attr("d", "M" + clip.join("L") + "Z");
+
+        d3.json("lib/us-10m.v1.json", function(error, us) {
+            if (error) throw error;
+
+            var nation = topojson.feature(us, us.objects.nation),
+                rings = nation.features[0].geometry.coordinates.map(function(rings) { return rings[0]; });
+
+            svg.append("g")
+                .attr("fill", "red")
+                .selectAll("path")
+                .data(rings)
+                .enter().append("path")
+                .attr("d", function(d) { return "M" + d.join("L"); })
+
+            svg.append("g")
+                .attr("fill", "black")
+                .attr("stroke", "white")
+                .selectAll("path")
+                .data(rings)
+                .enter().append("path")
+                .attr("d", function(d) { return "M" + d3.polygonClip(clip, d).join("L"); })
+        });
+
+
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    svg {
+        font: 10px sans-serif;
+    }
+
+    .brush .selection {
+        fill: none;
+    }
+    </style>
+</head>
+
+<body>
+    <svg width="960" height="500">
+        <g>
+            <image xlink:href="img/mona-lisa.jpg" x="455" y="225" width="50" height="50"></image>
+        </g>
+    </svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/d3-scale-radial.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <!-- https://bl.ocks.org/mbostock/805115ebaa574e771db1875a6d828949 -->
+    <script>
+    $(function() {
+
+        var zoom = d3.zoom().on("zoom", zoomed),
+            svg = d3.select("svg").call(zoom),
+            g = svg.select("g"),
+            image = g.select("image"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height"),
+            x0 = +image.attr("x"),
+            y0 = +image.attr("y"),
+            x1 = +image.attr("width") + x0,
+            y1 = +image.attr("height") + y0;
+
+        // Don’t allow the zoomed area to be bigger than the viewport.
+        zoom.scaleExtent([1, Math.min(width / (x1 - x0), height / (y1 - y0))]);
+
+        function zoomed() {
+            var t = d3.event.transform;
+            console.log(t, t.invertX(0), x0, t.invertY(0), y0, t.invertY(height))
+            if (t.invertX(0) > x0) t.x = -x0 * t.k;
+            else if (t.invertX(width) < x1) t.x = width - x1 * t.k;
+            if (t.invertY(0) > y0) t.y = -y0 * t.k;
+            else if (t.invertY(height) < y1) t.y = height - y1 * t.k;
+            g.attr("transform", t);
+        }
+
+
+    })
+    </script>
+</body>
+
+</html>

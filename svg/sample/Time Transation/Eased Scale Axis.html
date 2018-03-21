@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        background: #fff;
+    }
+
+    svg {
+        font: 10px sans-serif;
+    }
+
+    .area {
+        fill: steelblue;
+        clip-path: url(#clip);
+    }
+
+    .zoom {
+        cursor: move;
+        fill: none;
+        pointer-events: all;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <!-- <script src="lib/topojson.v2.min.js"></script> -->
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg width="960" height="500"></svg>
+    <!-- <canvas width="960" height="500"></canvas> -->
+    <!-- https://bl.ocks.org/mbostock/2dd741099154a4da55a7db31fd96a892 -->
+    <script>
+    $(function() {
+
+
+        var svg = d3.select("svg"),
+            margin = { top: 210, right: 20, bottom: 220, left: 20 },
+            width = svg.attr("width") - margin.left - margin.right,
+            height = svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var x = d3.scaleLinear()
+            .domain([0, 1])
+            .range([0, width])
+            .interpolate(easeInterpolate(d3.easeQuadInOut));
+
+        g.append("g")
+            .attr("class", "axis axis--x")
+            .call(d3.axisBottom(x));
+
+        function easeInterpolate(ease) {
+            return function(a, b) {
+                var i = d3.interpolate(a, b);
+                return function(t) {
+                    return i(ease(t));
+                };
+            };
+        }
+
+
+    })
+    </script>
+</body>
+
+</html>

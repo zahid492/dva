@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <svg width="760" height="760"></svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/d3-scale-radial.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <!-- https://bl.ocks.org/mbostock/805115ebaa574e771db1875a6d828949 -->
+    <script>
+    $(function() {
+        var svg = d3.select("svg"),
+            margin = { top: 250, right: 40, bottom: 250, left: 40 },
+            width = svg.attr("width") - margin.left - margin.right,
+            height = svg.attr("height") - margin.top - margin.bottom;
+
+        d3.json("https://unpkg.com/d3-time-format@2/locale/en-US.json", function(error, locale) {
+            if (error) throw error;
+
+            d3.timeFormatDefaultLocale(locale);
+
+            var x = d3.scaleTime()
+                .domain([new Date(2000, 0, 1), new Date(2001, 0, 1)])
+                .range([0, width]);
+
+            svg.append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .call(d3.axisBottom(x));
+        });
+
+
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+https://bl.ocks.org/mbostock/29cddc0006f8b98eff12e60dd08f59a7
+This image shows every map projection class in d3-geo and d3-geo-projection.
+
+Airocean World
+https://www.jasondavies.com/maps/airocean/
+
+Peirce Equatorial d3.geoPierceQuincuncial
+https://bl.ocks.org/mbostock/1ab623030a9d563271f55c5c55dbaf77
+https://bl.ocks.org/mbostock/b11b839d12dbe873d9e6613bfc6582f0

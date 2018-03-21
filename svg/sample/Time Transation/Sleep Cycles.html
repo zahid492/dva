@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        font: 10px sans-serif;
+        position: relative;
+    }
+
+
+    .data {
+        fill: steelblue;
+    }
+
+    .axis--y .tick line {
+        stroke: #fff;
+        stroke-opacity: 0.8;
+    }
+
+    .axis--x .tick line {
+        stroke: #000;
+        stroke-opacity: 0.25;
+    }
+
+    .axis .domain {
+        display: none;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <!-- <script src="lib/topojson.v2.min.js"></script> -->
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg width="960" height="500"></svg>
+    <!-- <canvas width="960" height="500"></canvas> -->
+    <!-- https://bl.ocks.org/mbostock/2dd741099154a4da55a7db31fd96a892 -->
+    <script>
+    $(function() {
+
+        ar parseTime = d3.utcParse("%Y-%m-%dT%H:%M:%S.%L"),
+            formatHour = d3.utcFormat("%-I:%M %p"),
+            formatMonth = d3.utcFormat("%B");
+
+        var svg = d3.select("svg"),
+            margin = { top: 0, right: 0, bottom: 0, left: 70 },
+            width = svg.attr("width") - margin.left - margin.right,
+            height = svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var x = d3.scaleUtc()
+            .rangeRound([0, width]);
+
+        var y = d3.scaleUtc()
+            .domain([date(19.65 * 36e5), date(32.35 * 36e5)]) // about 7:40 PM to 8:20 AM
+            .rangeRound([0, height]);
+
+        var area = d3.area()
+            .curve(d3.curveStepAfter)
+            .x(function(d) { return x(d.day); })
+            .y0(function(d) { return y(date(d[0] - d.day)); })
+            .y1(function(d) { return y(date(d[1] - d.day)); });
+
+        g.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft(y)
+                .tickFormat(formatHour)
+                .tickSize(-width)
+                .tickPadding(10));
+
+        d3.csv("sleep.csv", type, function(error, data) {
+            if (error) throw error;
+
+            var date0 = data[0].day,
+                date1 = d3.utcDay.offset(data[data.length - 1].day, 1);
+
+            x.domain([date0, date1]);
+
+            g.append("g")
+                .attr("class", "axis axis--x")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x)
+                    .tickFormat(formatMonth)
+                    .tickSize(-height)
+                    .tickPadding(-10))
+                .selectAll("text")
+                .attr("text-anchor", "start")
+                .attr("x", 10)
+                .attr("dy", null);
+
+            g.insert("path", ".axis")
+                .datum(data.concat({ day: date1, 0: 0, 1: 0 })) // for step-after
+                .attr("class", "data")
+                .attr("d", area);
+        });
+
+        function type(d) {
+            d = [parseTime(d.asleep), parseTime(d.awake)];
+            d.day = d3.utcDay.floor(d[0]);
+            return d;
+        }
+
+        function date(offset) {
+            return new Date(offset);
+        }
+
+        // var hour = 36e5,
+        //     date0 = new Date(2016, 5, 1),
+        //     date1 = d3.timeMonth.offset(date0, 7),
+        //     timeFormat = d3.timeFormat("%Y-%m-%dT%H:%M:%S.%L"),
+        //     data = d3.timeDays(date0, date1).map(fakeDatum(22 * hour, 8 * hour, 0.5 * hour));
+
+        // process.stdout.write(d3.csvFormat(data) + "\n");
+
+        // function fakeDatum(offset, duration, deviation) {
+        //     var random = d3.randomNormal(0, deviation);
+        //     return function(date) {
+        //         return {
+        //             asleep: timeFormat(new Date(+date + random() + offset)),
+        //             awake: timeFormat(new Date(+date + random() + offset + duration))
+        //         };
+        //     };
+        // }
+
+
+    })
+    </script>
+</body>
+
+</html>

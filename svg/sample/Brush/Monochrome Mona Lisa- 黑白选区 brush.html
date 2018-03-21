@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    svg {
+        font: 10px sans-serif;
+    }
+
+    .brush .selection {
+        fill: none;
+    }
+    </style>
+</head>
+
+<body>
+    <svg width="960" height="1452">
+        <filter id="monochrome">
+            <feColorMatrix type="saturate" values="0"></feColorMatrix>
+        </filter>
+        <defs>
+            <image id="image" width="100%" height="100%" xlink:href="img/mona-lisa.jpg"></image>
+        </defs>
+        <use id="monochrome-image" filter="url(#monochrome)" xlink:href="#image"></use>
+        <use id="color-image" xlink:href="#image"></use>
+    </svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/d3-scale-radial.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <!-- https://bl.ocks.org/mbostock/805115ebaa574e771db1875a6d828949 -->
+    <script>
+    $(function() {
+        var brush = d3.brush();
+
+        var svg = d3.select("svg");
+
+        svg.append("g")
+            .attr("class", "brush")
+            .call(brush)
+            .call(brush.move, [
+                [307, 167],
+                [611, 539]
+            ])
+            .select(".selection")
+            .attr("id", "brush-selection");
+
+        svg.append("clipPath")
+            .attr("id", "brush-clip")
+            .append("use")
+            .attr("xlink:href", "#brush-selection");
+
+        svg.select("#color-image")
+            .attr("clip-path", "url(#brush-clip)");
+
+
+    })
+    </script>
+</body>
+
+</html>

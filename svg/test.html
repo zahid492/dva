@@ -9,21 +9,41 @@
     <script src="./lib/jquery.min.js"></script>
     <script src="./lib/d3.js"></script>
     <script src="./lib/d3.layout.cloud.js"></script>
-
-<style>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <style>
     .box {
-        width: 500px;
-        height: 500px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
     }
-</style>
 
+    body {
+        max-width: 960px;
+        margin: 1px;
+    }
+
+    div {
+        width: 10px;
+        height: 10px;
+        margin: 1px 0 0 1px;
+        float: left;
+        background: #eee;
+        display: inline-block;
+    }
+    </style>
 </head>
 
 <body>
-    <div class="box">
+    <div class="box">box</div>
 
-    </div>
-    <script src="./js/test.js"></script>
+ <!--    <ul id="list">
+        <li data-username="shawnbot">Shawn Allen</li>
+        <li data-username="mbostock">Mike Bostock</li>
+    </ul> -->
+    <!-- <script src="./js/test.js"></script>     -->
+    <script src="./js/test-cloud.js"></script>
+
+
 </body>
 
 </html>

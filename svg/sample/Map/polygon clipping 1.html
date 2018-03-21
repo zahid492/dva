@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <svg width="960" height="600"></svg>
+    <script src="lib/d3.js"></script>
+    <script src="lib/d3-geo-projection.v1.min.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var svg = d3.select("svg");
+
+        svg.append("rect")
+            .attr("fill", "blue")
+            .attr("x", 100)
+            .attr("y", 100)
+            .attr("width", 760)
+            .attr("height", 400);
+
+        d3.json("lib/us-10m.v1.json", function(error, us) {
+            if (error) throw error;
+
+            var path = d3.geoPath(),
+                clip = d3.geoIdentity().clipExtent([
+                    [100, 100],
+                    [860, 500]
+                ]),
+                nation = topojson.feature(us, us.objects.nation),
+                nationClipped = d3.geoProject(nation, clip);
+
+            svg.append("path")
+                .attr("fill", "red")
+                .attr("d", path(nation));
+
+            svg.append("path")
+                .attr("fill", "black")
+                .attr("stroke", "white")
+                .attr("d", path(nationClipped));
+
+        });
+
+
+    })
+    </script>
+</body>
+
+</html>

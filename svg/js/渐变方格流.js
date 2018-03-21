@@ -2,7 +2,7 @@
  * @Author: wsc
  * @Date:   2018-03-12 09:02:42
  * @Last Modified by:   wsc
- * @Last Modified time: 2018-03-14 09:31:09
+ * @Last Modified time: 2018-03-14 09:32:46
  */
 
 'use strict';
@@ -10,7 +10,7 @@
 var t = d3.transition()
     .duration(1550)
     .ease(d3.easeLinear);
-
+// 下落渐变方格流
 d3.select(".box")
     .style("color", "green")
     .transition(t)
