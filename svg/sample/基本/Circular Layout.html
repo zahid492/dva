@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    input {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        width: 240px;
+    }
+
+    body {
+        background: #012;
+    }
+
+    path {
+        stroke: #fff;
+        stroke-opacity: .5;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <!-- <script src="lib/topojson.v2.min.js"></script> -->
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <input type="range" min="0" max="358" step="2"> -->
+    <!--  https://bl.ocks.org/mbostock/847677 -->
+    <script>
+    $(function() {
+        //
+        // var radius = d3.scaleLinear()
+        //     .domain([0, 9])
+        //     .range([180, 240]);
+
+        // var fill = d3.scaleLinear()
+        //     .domain([0, 9])
+        //     .range(["brown", "steelblue"]);
+
+        // var svg = d3.select("body").append("svg")
+        //     .attr("width", 960)
+        //     .attr("height", 500)
+        //     .append("g")
+        //     .attr("transform", "translate(480,250)");
+
+        // var g = svg.selectAll("g")
+        //     .data(d3.range(0, 360, 30))
+        //     .enter().append("g")
+        //     .attr("transform", function(d) { return "rotate(" + d + ")"; });
+
+        // Circular Layout (Arc)
+        // var path = g.selectAll("path")
+        //     .data(d3.range(10))
+        //     .enter().append("path")
+        //     .attr("d", d3.arc()
+        //         .innerRadius(radius)
+        //         .outerRadius(function(d) {
+        //             return radius(d) + 9;
+        //         })
+        //         .startAngle(0)
+        //         .endAngle(Math.PI))
+        //     .attr("fill", fill)
+        //     .attr("stroke", "black");
+
+        // Circular Layout
+        // var circle = g.selectAll("circle")
+        //     .data(d3.range(10))
+        //     .enter().append("circle")
+        //     .attr("cx", d3.scale.linear().domain([0, 9]).range([180, 240]))
+        //     .attr("r", 4.5)
+        //     .attr("fill", d3.scale.linear().domain([0, 9]).range(["brown", "steelblue"]))
+        //     .attr("stroke", "black");
+
+        // Circular Layout (Recursive)
+        // var g = svg.selectAll("g")
+        //     .data(d3.range(10))
+        //     .enter().append("g")
+        //     .attr("fill", fill)
+        //     .attr("stroke", "black")
+        //     .each(path);
+
+        // function path(p, j) {
+        //     d3.select(this)
+        //         .selectAll("path")
+        //         .data(d3.range(0, 2 * Math.PI, Math.PI / 90))
+        //         .enter().append("path")
+        //         .attr("d", d3.svg.arc()
+        //             .innerRadius(radius(p))
+        //             .outerRadius(radius(p + 1))
+        //             .startAngle(function(d) { return d; })
+        //             .endAngle(function(d) { return d + Math.PI / 90; }))
+        // }
+        // Circular Layout (Slider)
+
+        // var path = g.selectAll("path")
+        //     .data(function(p) {
+        //         return d3.range(10).map(function(d) {
+        //             return {
+        //                 x: p, // outer dimension (angle)
+        //                 y: d, // inner dimension (radius)
+        //                 z: Math.random()
+        //             };
+        //         });
+        //     })
+        //     .enter().append("path")
+        //     .attr("d", d3.svg.arc()
+        //         .innerRadius(function(d) { return radius(d.y); })
+        //         .outerRadius(function(d) { return radius(d.y + 1); })
+        //         .startAngle(0)
+        //         .endAngle(Math.PI / 90))
+        //     .attr("fill", function(d) { return fill(d.z); })
+        //     .attr("fill-opacity", 1e-6);
+
+        // path.transition()
+        //     .delay(function(d) { return d.z * 1500; })
+        //     .attr("fill-opacity", 1);
+
+        // d3.select("input")
+        //     .on("input", changed)
+        //     .on("change", changed);
+
+        // function changed() {
+        //     var value = this.value;
+        //     path.attr("fill-opacity", function(d) {
+        //         return Math.max(0, 1 - Math.sqrt(Math.abs(d.x - value) / 80));
+        //     });
+        // }
+        // Circular Layout (Raindrops)
+
+        var width = 960,
+            height = 500;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        var gradient = svg.append("defs").append("linearGradient")
+            .attr("id", "gradient")
+            .attr("x1", "0%")
+            .attr("y1", "20%")
+            .attr("x2", "20%")
+            .attr("y2", "100%");
+
+        gradient.append("stop")
+            .attr("offset", "20%")
+            .attr("stop-color", "#ccf");
+
+        gradient.append("stop")
+            .attr("offset", "50%")
+            .attr("stop-color", "#1C425C");
+
+        gradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#19162B");
+
+        // could use transparent gradient overlay to vary raindrop color
+        svg.selectAll("path")
+            .data(d3.range(358))
+            .enter().append("path")
+            .attr("fill", "url(#gradient)")
+            .attr("d", function() { return raindrop(10 + Math.random() * 200); })
+            .attr("transform", function(d) {
+                // 旋转，平移，再旋转
+                return "rotate(" + d + ")" +
+                    "translate(" + (height / 4 + Math.random() * height / 6) + ",0)"
+                    +"rotate(90)";
+            });
+
+        // size is linearly proportional to square pixels (not exact, yet)
+        function raindrop(size) {
+            var r = Math.sqrt(size / Math.PI);
+            return "M" + r + ",0" +
+                "A" + r + "," + r + " 0 1,1 " + -r + ",0" +
+                "C" + -r + "," + -r + " 0," + -r + " 0," + -3 * r +
+                "C0," + -r + " " + r + "," + -r + " " + r + ",0" +
+                "Z";
+        }
+
+
+    })
+    </script>
+</body>
+
+</html>

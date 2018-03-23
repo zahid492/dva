@@ -27,7 +27,7 @@
         text-anchor: end;
     }
     </style>
-    <script src="lib/d3.js"></script>
+    <script src="lib/d3.v3.js"></script>
     <!-- <script src="lib/topojson.v2.min.js"></script> -->
     <script src="lib/jquery.min.js"></script>
 </head>
@@ -42,20 +42,12 @@
             width = 960 - margin.left - margin.right,
             height = 69 - margin.top - margin.bottom;
 
-        var parseDate = d3.timeParse("%b %Y");
+        var parseDate = d3.time.format("%b %Y").parse;
 
-        var x = d3.scaleTime()
+        var x = d3.time.scale()
             .range([0, width]);
 
-        var y = d3.local();
-
-        var area = d3.local();
-
-        var line = d3.local();
-
-        d3.tsv("stocks.tsv", type, function(error, data) {
-            if (error) throw error;
-
+        d3.tsv("lib/stocks.tsv", type, function(error, data) {
             var symbols = d3.nest()
                 .key(function(d) { return d.symbol; })
                 .entries(data);
@@ -72,33 +64,36 @@
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .each(function(d) {
-                    var ty = y.set(this, d3.scaleLinear()
-                        .domain([0, d3.max(d.values, function(d) { return d.price; })])
-                        .range([height, 0]));
-
-                    area.set(this, d3.area()
-                        .x(function(d) { return x(d.date); })
-                        .y0(height)
-                        .y1(function(d) { return ty(d.price); }));
-
-                    line.set(this, d3.line()
-                        .x(function(d) { return x(d.date); })
-                        .y(function(d) { return ty(d.price); }));
+                .each(function(symbol) {
+                    symbol.y = d3.scale.linear()
+                        .domain([0, d3.max(symbol.values, function(d) { return d.price; })])
+                        .range([height, 0]);
                 });
 
             svg.append("path")
                 .attr("class", "area")
-                .attr("d", function(d) { return area.get(this)(d.values); });
+                .attr("d", function(symbol) {
+                    return d3.svg.area()
+                        .x(function(d) { return x(d.date); })
+                        .y1(function(d) { return symbol.y(d.price); })
+                        .y0(height)
+                        (symbol.values);
+                });
 
             svg.append("path")
                 .attr("class", "line")
-                .attr("d", function(d) { return line.get(this)(d.values); });
+                .attr("d", function(symbol) {
+                    return d3.svg.line()
+                        .x(function(d) { return x(d.date); })
+                        .y(function(d) { return symbol.y(d.price); })
+                        (symbol.values);
+                });
 
             svg.append("text")
                 .attr("x", width - 6)
                 .attr("y", height - 6)
-                .text(function(d) { return d.key; });
+                .style("text-anchor", "end")
+                .text(function(symbol) { return symbol.key; });
         });
 
         function type(d) {

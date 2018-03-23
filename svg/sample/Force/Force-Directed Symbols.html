@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    .node {
+        cursor: pointer;
+        stroke: #3182bd;
+        stroke-width: 1.5px;
+    }
+
+    .link {
+        fill: none;
+        stroke: #9ecae1;
+        stroke-width: 1.5px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1062288 -->
+    <script>
+    $(function() {
+        //
+
+        var w = 960,
+            h = 500,
+            nodes = [],
+            node;
+
+        var vis = d3.select("body").append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var force = d3.layout.force()
+            .nodes(nodes)
+            .links([])
+            .size([w, h]);
+
+        force.on("tick", function(e) {
+            vis.selectAll("path")
+                .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        });
+
+        setInterval(function() {
+
+            // Add a new random shape.
+            nodes.push({
+                type: d3.svg.symbolTypes[~~(Math.random() * d3.svg.symbolTypes.length)],
+                size: Math.random() * 300 + 100
+            });
+
+            // Restart the layout.
+            force.start();
+
+            vis.selectAll("path")
+                .data(nodes)
+                .enter().append("path")
+                .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+                .attr("d", d3.svg.symbol()
+                    .size(function(d) { return d.size; })
+                    .type(function(d) { return d.type; }))
+                .style("fill", "steelblue")
+                .style("stroke", "white")
+                .style("stroke-width", "1.5px")
+                .call(force.drag);
+
+        }, 1000);
+
+
+
+    })
+    </script>
+</body>
+
+</html>

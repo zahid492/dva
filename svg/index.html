@@ -9,102 +9,180 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
     body {
-        font: 10px sans-serif;
-        margin: 0;
+        background: #222;
+        margin: auto;
+        width: 960px;
     }
 
-    .line {
+    .tracks {
         fill: none;
-        stroke: #666;
+        stroke: #000;
         stroke-width: 1.5px;
     }
 
-    .area {
-        fill: #e7e7e7;
+    .bodies path {
+        stroke: #000;
+        stroke-width: 1.5px;
     }
 
-    text {
-        text-anchor: end;
+    .bodies .text-path {
+        stroke: none;
+    }
+
+    .bodies text {
+        fill: #000;
+        font: 500 16px "Helvetica Neue";
     }
     </style>
     <script src="lib/d3.js"></script>
-    <!-- <script src="lib/topojson.v2.min.js"></script> -->
+    <script src="lib/topojson.v2.min.js"></script>
     <script src="lib/jquery.min.js"></script>
 </head>
 
 <body>
-    <svg width="960" height="500"></svg>
-    <!--  https://bl.ocks.org/mbostock/e1192fe405703d8321a5187350910e08 -->
+    <!-- <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">
+    console.log(returnCitySN)
+</script> -->
+    <!-- https://bl.ocks.org/mbostock/b89c89ec6b58435956a1 -->
+    <svg width="960" height="960"></svg>
     <script>
     $(function() {
+        //
+        var jb = {};
+        jb.ajx = {};
 
+        jb.config = {
+            ipUrl: 'http://whois.pconline.com.cn/jsFunction.jsp'
+        };
 
-        var margin = { top: 8, right: 10, bottom: 2, left: 10 },
-            width = 960 - margin.left - margin.right,
-            height = 69 - margin.top - margin.bottom;
+        jb.ajx.getIP = function() {
+            return new Promise(function(resolve, reject) {
+                $.ajax({
+                    type: 'get',
+                    url: jb.config.ipUrl,
+                    dataType: 'jsonp',
+                    success: function(result) {
 
-        var parseDate = d3.timeParse("%b %Y");
+                    },
+                    error: function() {
 
-        var x = d3.scaleTime()
-            .range([0, width]);
-
-        var y = d3.local();
-
-        var area = d3.local();
-
-        var line = d3.local();
-
-        d3.tsv("stocks.tsv", type, function(error, data) {
-            if (error) throw error;
-
-            var symbols = d3.nest()
-                .key(function(d) { return d.symbol; })
-                .entries(data);
-
-            x.domain([
-                d3.min(symbols, function(symbol) { return symbol.values[0].date; }),
-                d3.max(symbols, function(symbol) { return symbol.values[symbol.values.length - 1].date; })
-            ]);
-
-            var svg = d3.select("body").selectAll("svg")
-                .data(symbols)
-                .enter().append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .each(function(d) {
-                    var ty = y.set(this, d3.scaleLinear()
-                        .domain([0, d3.max(d.values, function(d) { return d.price; })])
-                        .range([height, 0]));
-
-                    area.set(this, d3.area()
-                        .x(function(d) { return x(d.date); })
-                        .y0(height)
-                        .y1(function(d) { return ty(d.price); }));
-
-                    line.set(this, d3.line()
-                        .x(function(d) { return x(d.date); })
-                        .y(function(d) { return ty(d.price); }));
+                    }
                 });
+            });
+        };
+    jb.ajx.getIP().then(function (data) {
+        console.log(data)
+    });
 
-            svg.append("path")
-                .attr("class", "area")
-                .attr("d", function(d) { return area.get(this)(d.values); });
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height"),
+            radius = Math.min(width, height) / 1.9,
+            bodyRadius = radius / 23,
+            dotRadius = bodyRadius - 8;
 
-            svg.append("path")
-                .attr("class", "line")
-                .attr("d", function(d) { return line.get(this)(d.values); });
+        var pi = Math.PI;
 
-            svg.append("text")
-                .attr("x", width - 6)
-                .attr("y", height - 6)
-                .text(function(d) { return d.key; });
-        });
+        var fields = [
+            { radius: 0.2 * radius, format: d3.timeFormat("%B"), interval: d3.timeYear },
+            { radius: 0.3 * radius, format: formatDate, interval: d3.timeMonth },
+            { radius: 0.4 * radius, format: d3.timeFormat("%A"), interval: d3.timeWeek },
+            { radius: 0.6 * radius, format: d3.timeFormat("%-H hours"), interval: d3.timeDay },
+            { radius: 0.7 * radius, format: d3.timeFormat("%-M minutes"), interval: d3.timeHour },
+            { radius: 0.8 * radius, format: d3.timeFormat("%-S seconds"), interval: d3.timeMinute }
+        ];
 
-        function type(d) {
-            d.price = +d.price;
-            d.date = parseDate(d.date);
+        var color = d3.scaleSequential()
+            .domain([0, 300])
+            .interpolator(d3.interpolateRainbow);
+
+        var arcBody = d3.arc()
+            .startAngle(function(d) { return bodyRadius / d.radius; })
+            .endAngle(function(d) { return -pi - bodyRadius / d.radius; })
+            .innerRadius(function(d) { return d.radius - bodyRadius; })
+            .outerRadius(function(d) { return d.radius + bodyRadius; })
+            .cornerRadius(bodyRadius);
+
+        var arcTextPath = d3.arc()
+            .startAngle(function(d) { return -bodyRadius / d.radius; })
+            .endAngle(-pi)
+            .innerRadius(function(d) { return d.radius; })
+            .outerRadius(function(d) { return d.radius; });
+
+        var g = svg.append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        g.append("g")
+            .attr("class", "tracks")
+            .selectAll("circle")
+            .data(fields)
+            .enter().append("circle")
+            .attr("r", function(d) { return d.radius; });
+
+        var body = g.append("g")
+            .attr("class", "bodies")
+            .selectAll("g")
+            .data(fields)
+            .enter().append("g");
+
+        body.append("path")
+            .attr("d", function(d) {
+                return arcBody(d) +
+                    "M0," + (dotRadius - d.radius) +
+                    "a" + dotRadius + "," + dotRadius + " 0 0,1 0," + -dotRadius * 2 +
+                    "a" + dotRadius + "," + dotRadius + " 0 0,1 0," + dotRadius * 2;
+            });
+
+        body.append("path")
+            .attr("class", "text-path")
+            .attr("id", function(d, i) { return "body-text-path-" + i; })
+            .attr("d", arcTextPath);
+
+        var bodyText = body.append("text")
+            .attr("dy", ".35em")
+            .append("textPath")
+            .attr("xlink:href", function(d, i) { return "#body-text-path-" + i; });
+
+        tick();
+
+        d3.timer(tick);
+
+        function tick() {
+            var now = Date.now();
+
+            fields.forEach(function(d) {
+                var start = d.interval(now),
+                    end = d.interval.offset(start, 1);
+                d.angle = Math.round((now - start) / (end - start) * 360 * 100) / 100;
+            });
+
+            body
+                .style("fill", function(d) { return color(d.angle); })
+                .attr("transform", function(d) { return "rotate(" + d.angle + ")"; });
+
+            bodyText
+                .attr("startOffset", function(d, i) { return d.angle <= 90 || d.angle > 270 ? "100%" : "0%"; })
+                .attr("text-anchor", function(d, i) { return d.angle <= 90 || d.angle > 270 ? "end" : "start"; })
+                .text(function(d) { return d.format(now); });
+        }
+
+        function formatDate(d) {
+            d = new Date(d).getDate();
+            switch (10 <= d && d <= 19 ? 10 : d % 10) {
+                case 1:
+                    d += "st";
+                    break;
+                case 2:
+                    d += "nd";
+                    break;
+                case 3:
+                    d += "rd";
+                    break;
+                default:
+                    d += "th";
+                    break;
+            }
             return d;
         }
 

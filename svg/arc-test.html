@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+
+    </style>
+    <script src="lib/d3.js"></script>
+    <!-- <script src="lib/topojson.v2.min.js"></script> -->
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <input type="range" min="0" max="358" step="2"> -->
+    <!--  https://bl.ocks.org/mbostock/847677 -->
+    <script>
+    $(function() {
+        //
+        var width = Math.max(960, innerWidth),
+            height = Math.max(500, innerHeight);
+        var x1 = width / 2,
+            y1 = height / 2;
+
+        var radius = d3.scaleLinear()
+            .domain([0, 9])
+            .range([0, 20]);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(480,250)");
+
+        var g = svg.selectAll("g")
+            .data(d3.range(1))
+            .enter().append("g")
+        // .attr("transform", function(d) { return "rotate(" + d + ")"; });
+
+        // Circular Layout (Arc)
+
+        var gradient = svg.append("defs").append("radialGradient")
+            .attr("id", "gradient")
+            .attr("x1", "0%")
+            .attr("y1", "20%")
+            .attr("x2", "20%")
+            .attr("y2", "100%");
+
+        gradient.append("stop")
+            .attr("offset", "20%")
+            .attr("stop-color", "#f90");
+
+        gradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#fff");
+        var path = g.append("path");
+
+        d3.timer(function() {
+            path.attr("d", d3.arc()
+                    .innerRadius(radius(0))
+                    .outerRadius(function(d) {
+                        return radius(Math.random() * 9) + 10;
+                    })
+                    .startAngle(0)
+                    .endAngle(2 * Math.PI)
+                )
+                .attr("fill", "url(#gradient)")
+
+            // .attr("stroke", "black");
+        }, 2000);
+
+        // Circular Layout
+        // var circle = g.selectAll("circle")
+        //     .data(d3.range(10))
+        //     .enter().append("circle")
+        //     .attr("cx", d3.scale.linear().domain([0, 9]).range([180, 240]))
+        //     .attr("r", 4.5)
+        //     .attr("fill", d3.scale.linear().domain([0, 9]).range(["brown", "steelblue"]))
+        //     .attr("stroke", "black");
+
+        // Circular Layout (Recursive)
+        // var g = svg.selectAll("g")
+        //     .data(d3.range(10))
+        //     .enter().append("g")
+        //     .attr("fill", fill)
+        //     .attr("stroke", "black")
+        //     .each(path);
+
+        // function path(p, j) {
+        //     d3.select(this)
+        //         .selectAll("path")
+        //         .data(d3.range(0, 2 * Math.PI, Math.PI / 90))
+        //         .enter().append("path")
+        //         .attr("d", d3.svg.arc()
+        //             .innerRadius(radius(p))
+        //             .outerRadius(radius(p + 1))
+        //             .startAngle(function(d) { return d; })
+        //             .endAngle(function(d) { return d + Math.PI / 90; }))
+        // }
+        // Circular Layout (Slider)
+
+        // var path = g.selectAll("path")
+        //     .data(function(p) {
+        //         return d3.range(10).map(function(d) {
+        //             return {
+        //                 x: p, // outer dimension (angle)
+        //                 y: d, // inner dimension (radius)
+        //                 z: Math.random()
+        //             };
+        //         });
+        //     })
+        //     .enter().append("path")
+        //     .attr("d", d3.svg.arc()
+        //         .innerRadius(function(d) { return radius(d.y); })
+        //         .outerRadius(function(d) { return radius(d.y + 1); })
+        //         .startAngle(0)
+        //         .endAngle(Math.PI / 90))
+        //     .attr("fill", function(d) { return fill(d.z); })
+        //     .attr("fill-opacity", 1e-6);
+
+        // path.transition()
+        //     .delay(function(d) { return d.z * 1500; })
+        //     .attr("fill-opacity", 1);
+
+        // d3.select("input")
+        //     .on("input", changed)
+        //     .on("change", changed);
+
+        // function changed() {
+        //     var value = this.value;
+        //     path.attr("fill-opacity", function(d) {
+        //         return Math.max(0, 1 - Math.sqrt(Math.abs(d.x - value) / 80));
+        //     });
+        // }
+        // Circular Layout (Raindrops)
+
+
+    })
+    </script>
+</body>
+
+</html>

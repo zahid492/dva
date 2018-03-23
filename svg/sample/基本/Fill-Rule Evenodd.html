@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        background: steelblue;
+    }
+
+    .feature {
+        fill-opacity: .5;
+        fill-rule: evenodd;
+    }
+
+    .hover {
+        fill: none;
+        stroke: #ccc;
+        pointer-events: all;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <input type="range" min="0" max="358" step="2"> -->
+    <!--  https://bl.ocks.org/mbostock/847677 -->
+    <script>
+    $(function() {
+        //
+
+        var width = 960,
+            height = 500;
+
+        var path = d3.geo.path()
+            .projection(d3.geo.albers()
+                .rotate([72.1, 0])
+                .center([0, 42.1])
+                .scale(5000));
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var feature = svg.append("g")
+            .attr("class", "feature")
+            .selectAll("path");
+
+        d3.json("lib/us.json", function(error, us) {
+            if (error) throw error;
+
+            var states = topojson.feature(us, us.objects.states);
+
+            feature = feature
+                .data(states.features)
+                .enter().append("path")
+                .style("display", "none")
+                // 划区着色根据路径
+                .attr("d", function(d) { return "M0,0H" + width + "V" + height + "H0Z" + path(d); });
+
+            svg.append("g")
+                .attr("class", "hover")
+                .selectAll("path")
+                .data(states.features)
+                .enter().append("path")
+                .attr("d", path)
+                .on("mouseover", mouseovered)
+                .on("mouseout", mouseouted);
+        });
+
+        function mouseovered(d) {
+            feature.style("display", function(p) { return d === p ? null : "none"; });
+        }
+
+        function mouseouted(d) {
+            feature.style("display", "none");
+        }
+
+    })
+    </script>
+</body>
+
+</html>

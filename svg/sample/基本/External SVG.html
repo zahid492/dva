@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1009139 -->
+    <script>
+    $(function() {
+        //
+
+        d3.xml("lib/rect01.svg").mimeType("image/svg+xml").get(function(error, xml) {
+            if (error) throw error;
+            document.body.appendChild(xml.documentElement);
+        });
+
+    })
+    </script>
+</body>
+
+</html>
