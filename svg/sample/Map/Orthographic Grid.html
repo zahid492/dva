@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    circle,
+    path {
+        fill: none;
+        stroke: #333;
+        stroke-opacity: .5;
+    }
+
+    circle {
+        stroke-width: 2px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <svg width="960" height="960"></svg> -->
+    <!-- https://bl.ocks.org/mbostock/2870030 -->
+    <script>
+    $(function() {
+
+
+
+        var width = 960,
+            height = 500;
+
+        var rotate = [0, 0],
+            velocity = [0.005, 0.001];
+
+        var projection = d3.geo.orthographic()
+            .scale(240)
+            .clipAngle(90);;
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        var graticule = d3.geo.graticule();
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var gradient = svg.append("defs").append("radialGradient")
+            .attr("id", "gradient")
+            .attr("cx", "75%")
+            .attr("cy", "25%");
+
+        gradient.append("stop")
+            .attr("offset", "5%")
+            .attr("stop-color", "#ffd");
+
+        gradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#ba9");
+
+        var fill = svg.append("circle")
+            .attr("cx", width / 2)
+            .attr("cy", height / 2)
+            .attr("r", 240)
+            .style("fill", "url(#gradient)");
+
+        var feature = svg.append("path")
+            .datum(graticule);
+
+        svg.append("circle")
+            .attr("cx", width / 2)
+            .attr("cy", height / 2)
+            .attr("r", 240);
+
+        d3.timer(function(elapsed) {
+            projection.rotate([rotate[0] + elapsed * velocity[0], rotate[1] + elapsed * velocity[1]]);
+            fill.attr("transform", "rotate(" + (rotate[0] + elapsed * velocity[0]) + " " + width / 2 + "," + height / 2 + ")");
+            feature.attr("d", path);
+        });
+
+
+
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    .states :hover {
+        fill: red;
+    }
+
+    .state-borders {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 0.5px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        pointer-events: none;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <svg width="960" height="570"></svg> -->
+    <!-- https://bl.ocks.org/mbostock/4062085 -->
+    <script>
+    $(function() {
+
+
+        var svg = d3.select("svg");
+
+        var path = d3.geoPath();
+
+        d3.json("lib/us-10m.v1.json", function(error, us) {
+            if (error) throw error;
+
+            svg.append("g")
+                .attr("class", "states")
+                .selectAll("path")
+                .data(topojson.feature(us, us.objects.states).features)
+                .enter().append("path")
+                .attr("d", path);
+
+            svg.append("path")
+                .attr("class", "state-borders")
+                .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+        });
+
+    })
+    </script>
+</body>
+
+</html>

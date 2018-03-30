@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        /* background: #222; */
+        margin: auto;
+        width: 960px;
+    }
+
+
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: 7px;
+        stroke-linejoin: round;
+    }
+
+    circle {
+        fill: #ccc;
+        stroke: #777;
+        stroke-width: 1px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1117287 -->
+    <!-- <svg width="960" height="960"></svg> -->
+    <script>
+    $(function() {
+
+
+        var width = 960,
+            height = 500;
+
+        var n = 4,
+            m = 64;
+
+        var x = d3.scale.linear()
+            .domain([0, m - 1])
+            .range([0, width]);
+
+        var y = d3.scale.linear()
+            .range([height - 20, 20]);
+
+        var z = d3.scale.linear()
+            .domain([0, Math.PI / 2, Math.PI])
+            .range(["#0f0", "#777", "#f00"]);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var line = d3.svg.line()
+            .x(function(d) { return x(d[0]); })
+            .y(function(d) { return y(d[1]); });
+
+        d3.json("lib/series.json", function(error, series) {
+            if (error) throw error;
+            y.domain([0, d3.max(d3.merge(series))]);
+
+            var g = svg.selectAll("g")
+                .data(series)
+                .enter().append("g");
+
+            var path = g.selectAll("path")
+                .data(segments)
+                .enter().append("path")
+                .attr("d", line)
+                .style("stroke", function(d) { return z(Math.atan2(d[1][0] - d[0][0], d[1][1] - d[0][1])); });
+
+            var circle = g.selectAll("circle")
+                .data(function(d) { return d; })
+                .enter().append("circle")
+                .attr("cx", function(d, i) { return x(i); })
+                .attr("cy", function(d, i) { return y(d); })
+                .attr("r", 3);
+        });
+
+        // Produce an array of two-element arrays [x, y] for each segment of values.
+        function segments(values) {
+            var i = 0,
+                n = values.length,
+                segments = new Array(n - 1);
+            while (++i < n) segments[i - 1] = [
+                [i - 1, values[i - 1]],
+                [i, values[i]]
+            ];
+            return segments;
+        }
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

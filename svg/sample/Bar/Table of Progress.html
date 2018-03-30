@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        margin: 40px;
+        font: 14px Helvetica Neue;
+    }
+
+    div {
+        position: relative;
+        overflow: hidden;
+    }
+
+    span {
+        display: inline-block;
+        position: absolute;
+        height: 16px;
+    }
+
+    .progress {
+        border: solid 1px #ccc;
+        background: #eee;
+    }
+
+    .progress .value {
+        background: #3182bd;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1386444 -->
+    <!-- <svg width="960" height="960"></svg> -->
+    <script>
+    $(function() {
+
+
+
+        var id = 0xffff;
+
+        function create() {
+            var duration = 5000 + Math.random() * 25000;
+
+            var div = d3.select("body").insert("div", "div");
+
+            div.append("span")
+                .style("width", "74px")
+                .style("text-align", "right")
+                .text(++id);
+
+            div.append("span")
+                .attr("class", "progress")
+                .style("width", "240px")
+                .style("left", "80px")
+                .append("span")
+                .attr("class", "value")
+                .transition()
+                .duration(duration)
+                .ease("linear")
+                .style("width", "100%");
+
+            div.transition()
+                .style("height", "20px")
+                .transition()
+                .delay(duration)
+                .style("height", "0px")
+                .remove();
+
+            setTimeout(create, Math.random() * 10000);
+        }
+
+        create();
+        create();
+        create();
+        create();
+        create();
+
+
+
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    #curve-text {
+        font: 40px sans-serif;
+    }
+
+    #curve-line {
+        stroke: #999;
+        fill: none;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/2565344 -->
+    <!-- <svg width="960" height="500"></svg> -->
+    <script>
+    $(function() {
+
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", 960)
+            .attr("height", 500)
+            .attr("viewBox", "0 0 1000 300");
+
+        svg.append("defs").append("path")
+            .attr("id", "curve")
+            .attr("d", "M100,200C200,100 300,0 400,100C500,200 600,300 700,200C800,100 900,100 900,100");
+
+        svg.append("text")
+            .attr("id", "curve-text")
+            .append("textPath")
+            .attr("xlink:href", "#curve")
+            .text("We go up, then we go down, then up again.");
+
+        svg.append("use")
+            .attr("id", "curve-line")
+            .attr("xlink:href", "#curve");
+
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

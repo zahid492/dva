@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        margin: 0;
+    }
+
+    rect {
+        stroke: #fff;
+        stroke-width: .1px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1345853 -->
+    <!-- <svg width="960" height="960"></svg> -->
+    <script>
+    $(function() {
+
+
+
+        var w = 960,
+            h = 500,
+            z = 20,
+            x = w / z,
+            y = h / z;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        svg.selectAll("rect")
+            .data(d3.range(x * y))
+            .enter().append("rect")
+            .attr("transform", translate)
+            .attr("width", z)
+            .attr("height", z)
+            .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+            .on("mouseover", mouseover);
+
+        function translate(d) {
+            return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+        }
+
+        function mouseover(d) {
+            this.parentNode.appendChild(this);
+
+            d3.select(this)
+                .style("pointer-events", "none")
+                .transition()
+                .duration(750)
+                .attr("transform", "translate(480,480)scale(23)rotate(180)")
+                .transition()
+                .delay(1500)
+                .attr("transform", "translate(240,240)scale(0)")
+                .style("fill-opacity", 0)
+                .remove();
+        }
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

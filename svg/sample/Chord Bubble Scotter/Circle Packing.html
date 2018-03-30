@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    circle {
+        fill: rgb(31, 119, 180);
+        fill-opacity: .25;
+        stroke: rgb(31, 119, 180);
+        stroke-width: 1px;
+    }
+
+    .leaf circle {
+        fill: #ff7f0e;
+        fill-opacity: 1;
+    }
+
+    text {
+        font: 10px sans-serif;
+        text-anchor: middle;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg width="960" height="960"></svg>
+    <!-- https://bl.ocks.org/mbostock/4062085 -->
+    <script>
+    $(function() {
+
+
+        var svg = d3.select("svg"),
+            diameter = +svg.attr("width"),
+            g = svg.append("g").attr("transform", "translate(2,2)"),
+            format = d3.format(",d");
+
+        var pack = d3.pack()
+            .size([diameter - 4, diameter - 4]);
+
+        d3.json("lib/flare.json", function(error, root) {
+            if (error) throw error;
+
+            root = d3.hierarchy(root)
+                .sum(function(d) { return d.size; })
+                .sort(function(a, b) { return b.value - a.value; });
+
+            var node = g.selectAll(".node")
+                .data(pack(root).descendants())
+                .enter().append("g")
+                .attr("class", function(d) { return d.children ? "node" : "leaf node"; })
+                .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+            node.append("title")
+                .text(function(d) { return d.data.name + "\n" + format(d.value); });
+
+            node.append("circle")
+                .attr("r", function(d) { return d.r; });
+
+            node.filter(function(d) { return !d.children; }).append("text")
+                .attr("dy", "0.3em")
+                .text(function(d) { return d.data.name.substring(0, d.r / 3); });
+        });
+
+
+
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        background: #ccc;
+        width: 960px;
+        height: 500px;
+    }
+
+    .palette {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: bottom;
+        margin: 4px 0 4px 6px;
+        padding: 4px;
+        background: #fff;
+        border: solid 1px #aaa;
+    }
+
+    .swatch {
+        display: block;
+        vertical-align: middle;
+        width: 37px;
+        height: 22px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/colorbrewer.min.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg width="960" height="1100"></svg>
+    <!-- https://bl.ocks.org/mbostock/4062085 -->
+    <script>
+    $(function() {
+
+
+        d3.select("body")
+            .selectAll(".palette")
+            .data(d3.entries(colorbrewer))
+            .enter().append("span")
+            .attr("class", "palette")
+            .attr("title", function(d) { return d.key; })
+            .on("click", function(d) { console.log(d3.values(d.value).map(JSON.stringify).join("\n")); })
+            .selectAll(".swatch")
+            .data(function(d) { return d.value[d3.keys(d.value).map(Number).sort(d3.descending)[0]]; })
+            .enter().append("span")
+            .attr("class", "swatch")
+            .style("background-color", function(d) { return d; });
+
+    })
+    </script>
+</body>
+
+</html>

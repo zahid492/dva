@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: .6px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <svg width="960" height="960"></svg> -->
+    <!-- https://bl.ocks.org/mbostock/2870030 -->
+    <script>
+    $(function() {
+
+
+        var width = 960,
+            height = 500,
+            size = 50,
+            offset = 0;
+
+        var voronoi = d3.geom.voronoi()
+            .clipExtent([
+                [-1, -1],
+                [width + 1, height + 1]
+            ]);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        var g = svg.selectAll("g")
+            .data(voronoi(vertices()))
+            .enter().append("g");
+
+        var path = g.append("path")
+            .attr("d", function(d) { return "M" + d.join("L") + "Z"; });
+
+        var circle = g.append("circle")
+            .attr("transform", function(d) { return "translate(" + d + ")"; })
+            .attr("r", 2);
+
+        d3.timer(function() {
+            ++offset;
+            if (offset > size) offset -= size;
+            var data = vertices();
+            path.data(voronoi(data)).attr("d", function(d) { return "M" + d.join("L") + "Z"; });
+            circle.data(vertices).attr("transform", function(d) { return "translate(" + d + ")"; });
+        });
+
+        function vertices() {
+            return d3.merge(d3.range(-size, width + size, size).map(function(x, i) {
+                return d3.range(-size, height + size, size).map(function(y, j) {
+                    return [x + (j & 1 ? -offset : offset), y];
+                });
+            }));
+        }
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

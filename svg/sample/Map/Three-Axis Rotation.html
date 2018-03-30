@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    .title {
+        display: inline-block;
+        font-size: 48px;
+        line-height: 90px;
+        text-align: center;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <svg width="960" height="570"></svg> -->
+    <!-- https://bl.ocks.org/mbostock/4062085 -->
+    <script>
+    $(function() {
+
+
+        var diameter = 960 / 3,
+            radius = diameter / 2,
+            velocity = 0.01;
+
+        var projection = d3.geoOrthographic()
+            .scale(radius - 2)
+            .translate([radius, radius])
+            .clipAngle(90)
+            .precision(0);
+
+        d3.select("body").selectAll(".title")
+            .data(["λ", "φ", "γ"])
+            .enter().append("div")
+            .attr("class", "title")
+            .style("width", diameter + "px")
+            .text(function(d) { return d; });
+
+        var canvas = d3.select("body").selectAll("canvas")
+            .data(d3.range(3))
+            .enter().append("canvas")
+            .datum(function() { return this.getContext("2d"); })
+            .attr("width", diameter)
+            .attr("height", diameter);
+
+        var path = d3.geoPath()
+            .projection(projection);
+
+        d3.json("lib/world-110m.json", function(error, world) {
+            if (error) throw error;
+
+            var land = topojson.feature(world, world.objects.land),
+                globe = { type: "Sphere" };
+
+            d3.timer(function(elapsed) {
+                var angle = velocity * elapsed;
+                canvas.each(function(context, i) {
+                    var rotate = [0, 0, 0];
+                    rotate[i] = angle, projection.rotate(rotate);
+                    context.clearRect(0, 0, diameter, diameter);
+                    context.beginPath(), path.context(context)(land), context.fill();
+                    context.beginPath(), path(globe), context.stroke();
+                });
+            });
+        });
+
+
+
+    })
+    </script>
+</body>
+
+</html>

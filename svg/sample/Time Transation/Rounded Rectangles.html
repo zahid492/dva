@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        /* background: #222; */
+        margin: auto;
+        width: 960px;
+    }
+
+
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: 7px;
+        stroke-linejoin: round;
+    }
+
+    circle {
+        fill: #ccc;
+        stroke: #777;
+        stroke-width: 1px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1123639 -->
+    <!-- <svg width="960" height="960"></svg> -->
+    <script>
+    $(function() {
+
+
+
+        var mouse = [480, 250],
+            count = 0;
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", 960)
+            .attr("height", 500);
+
+        var g = svg.selectAll("g")
+            .data(d3.range(25))
+            .enter().append("g")
+            .attr("transform", "translate(" + mouse + ")");
+
+        g.append("rect")
+            .attr("rx", 3)
+            .attr("ry", 3)
+            .attr("x", -12.5)
+            .attr("y", -12.5)
+            .attr("width", 25)
+            .attr("height", 25)
+            .attr("transform", function(d, i) { return "scale(" + (1 - d / 25) * 20 + ")"; })
+            .style("fill", d3.scale.category20c());
+
+        g.datum(function(d) {
+            return { center: mouse.slice(), angle: 0 };
+        });
+
+        svg.on("mousemove", function() {
+            mouse = d3.mouse(this);
+        });
+
+        d3.timer(function() {
+            count++;
+            g.attr("transform", function(d, i) {
+                d.center[0] += (mouse[0] - d.center[0]) / (i + 5);
+                d.center[1] += (mouse[1] - d.center[1]) / (i + 5);
+                d.angle += Math.sin((count + i) / 10) * 7;
+                return "translate(" + d.center + ")rotate(" + d.angle + ")";
+            });
+        });
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

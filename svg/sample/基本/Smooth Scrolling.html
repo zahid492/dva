@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        padding: 40px;
+    }
+
+    h1,
+    h2 {
+        font-family: "Helvetica Neue";
+        padding-bottom: 120px;
+    }
+
+    h2 {
+        padding-bottom: 240px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Get ready to scroll, in 3, 2, 1…</h2>
+    <h1>Whee!</h1>
+    <h1>Whee!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!!!!!!!!!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!!!!!!!!!!!!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!!!!</h1>
+    <h1>Whee!!!</h1>
+    <h1>Whee!!</h1>
+    <h2>All done!</h2>
+    <!-- https://bl.ocks.org/mbostock/1649463 -->
+    <!-- <svg width="960" height="500"></svg> -->
+    <script>
+    $(function() {
+
+
+
+        d3.transition()
+            .delay(1500)
+            .duration(7500)
+            .tween("scroll", scrollTween(document.body.getBoundingClientRect().height - window.innerHeight));
+
+        function scrollTween(offset) {
+            return function() {
+                var i = d3.interpolateNumber(window.pageYOffset || document.documentElement.scrollTop, offset);
+                return function(t) { scrollTo(0, i(t)); };
+            };
+        }
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

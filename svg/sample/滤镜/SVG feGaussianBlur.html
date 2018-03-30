@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    body {
+        position: relative;
+        width: 960px;
+        height: 500px;
+    }
+
+    input {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 200px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1341679 -->
+    <!-- <svg width="960" height="960"></svg> -->
+    <script>
+    $(function() {
+
+
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", 960)
+            .attr("height", 500);
+
+        var filter = svg.append("defs")
+            .append("filter")
+            .attr("id", "blur")
+            .append("feGaussianBlur")
+            .attr("stdDeviation", 5);
+
+        d3.select("body").append("input")
+            .attr("type", "range")
+            .attr("min", 0)
+            .attr("max", 100)
+            .attr("value", 25)
+            .on("change", blur);
+
+        var image = new Image;
+        image.src = "octocat.jpg";
+        image.onload = load;
+
+        function load() {
+            svg.append("image")
+                .attr("xlink:href", this.src)
+                .attr("width", "100%")
+                .attr("height", "100%")
+                .attr("filter", "url(#blur)");
+        }
+
+        function blur() {
+            filter.attr("stdDeviation", this.value / 5);
+        }
+
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

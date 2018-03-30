@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    path {
+        fill: #ccc;
+        stroke: #fff;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg width="960" height="960"></svg>
+    <!-- https://bl.ocks.org/mbostock/2870030 -->
+    <script>
+    $(function() {
+
+        var projection = d3.geo.orthographic()
+            .clipAngle(90)
+            .scale(240);
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        var svg = d3.select("svg");
+
+        d3.json("lib/countries.json", function(error, collection) {
+            if (error) throw error;
+
+            svg.selectAll("path")
+                .data(collection.features)
+                .enter().append("path")
+                .attr("d", path);
+        });
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

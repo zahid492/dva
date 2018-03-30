@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    circle {
+        fill: #000;
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1125997 -->
+    <svg width="960" height="960"></svg>
+    <script>
+    $(function() {
+
+
+        var svg = d3.select("svg"),
+            margin = { top: 40, right: 40, bottom: 40, left: 40 },
+            width = svg.attr("width") - margin.left - margin.right,
+            height = svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var y = d3.scalePoint()
+            .domain(d3.range(50))
+            .range([0, height]);
+
+        var z = d3.scaleLinear()
+            .domain([10, 0])
+            .range(["hsl(62,100%,90%)", "hsl(228,30%,20%)"])
+            .interpolate(d3.interpolateHcl);
+
+        g.selectAll("circle")
+            .data(y.domain())
+            .enter().append("circle")
+            .attr("r", 25)
+            .attr("cx", 0)
+            .attr("cy", y)
+            .style("fill", function(d) { return z(Math.abs(d % 20 - 10)); })
+            .transition()
+            .duration(2500)
+            .delay(function(d) { return d * 40; })
+            .on("start", function repeat() {
+                d3.active(this)
+                    .attr("cx", width)
+                    .transition()
+                    .attr("cx", 0)
+                    .transition()
+                    .on("start", repeat);
+            });
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>

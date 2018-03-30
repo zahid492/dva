@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+    }
+
+    circle {
+        fill: steelblue;
+        stroke: #fff;
+        stroke-width: 3px;
+    }
+    </style>
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- https://bl.ocks.org/mbostock/1649463 -->
+    <svg width="960" height="500"></svg>
+    <script>
+    $(function() {
+
+
+
+        var points = [
+            [480, 200],
+            [580, 400],
+            [680, 100],
+            [780, 300],
+            [180, 300],
+            [280, 100],
+            [380, 400]
+        ];
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", 960)
+            .attr("height", 500);
+
+        var path = svg.append("path")
+            .data([points])
+            .attr("d", d3.svg.line()
+                .tension(0) // Catmull–Rom 设置或获取径向基本样条线的张力
+                .interpolate("cardinal-closed"));
+
+        svg.selectAll(".point")
+            .data(points)
+            .enter().append("circle")
+            .attr("r", 4)
+            .attr("transform", function(d) { return "translate(" + d + ")"; });
+
+        var circle = svg.append("circle")
+            .attr("r", 13)
+            .attr("transform", "translate(" + points[0] + ")");
+
+        transition();
+
+        function transition() {
+            circle.transition()
+                .duration(10000)
+                .attrTween("transform", translateAlong(path.node()))
+                .each("end", transition);
+        }
+
+        // Returns an attrTween for translating along the specified path element.
+        function translateAlong(path) {
+            var l = path.getTotalLength();
+            return function(d, i, a) {
+                return function(t) {
+                    var p = path.getPointAtLength(t * l);
+                    return "translate(" + p.x + "," + p.y + ")";
+                };
+            };
+        }
+
+
+
+
+    })
+    </script>
+</body>
+
+</html>
