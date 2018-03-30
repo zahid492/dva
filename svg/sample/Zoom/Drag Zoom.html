@@ -26,9 +26,9 @@
         vector-effect: non-scaling-stroke;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
             .attr("x2", width)
             .attr("y2", function(d) { return d; });
 
-        d3.tsv("lib/dots.tsv", dottype, function(error, dots) {
+        d3.tsv("../../lib/dots.tsv", dottype, function(error, dots) {
             dot = container.append("g")
                 .attr("class", "dot")
                 .selectAll("circle")

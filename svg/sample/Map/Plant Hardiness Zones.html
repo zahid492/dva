@@ -32,9 +32,9 @@
         shape-rendering: crispEdges;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
             .attr("y", -6)
             .text("Avg. annual extreme minimum temperature, °F");
 
-        d3.json("lib/ophz.json", function(error, ophz) {
+        d3.json("../../lib/ophz.json", function(error, ophz) {
             if (error) throw error;
 
             topojson.feature(ophz, ophz.objects.b)

@@ -40,9 +40,9 @@
         text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -72,7 +72,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.csv("lib/cars.csv", function(error, cars) {
+        d3.csv("../../lib/cars.csv", function(error, cars) {
 
             // Extract the list of dimensions and create a scale for each.
             x.domain(dimensions = d3.keys(cars[0]).filter(function(d) {

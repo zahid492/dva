@@ -42,9 +42,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
             .attr("width", width)
             .attr("height", height + margin.top + margin.bottom);
 
-        d3.tsv("lib/schedule.tsv", type, function(error, trains) {
+        d3.tsv("../../lib/schedule.tsv", type, function(error, trains) {
             y.domain(d3.extent(stations, function(d) { return d.distance; }));
 
             var station = svg.append("g")

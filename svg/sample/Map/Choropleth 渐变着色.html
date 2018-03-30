@@ -18,10 +18,10 @@
         stroke-linejoin: round;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/d3-scale-chromatic.v1.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/d3-scale-chromatic.v1.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -82,8 +82,8 @@
             .remove();
 
         d3.queue()
-            .defer(d3.json, "lib/us-10m.v1.json")
-            .defer(d3.tsv, "lib/unemployment.tsv", function(d) { unemployment.set(d.id, +d.rate); })
+            .defer(d3.json, "../../lib/us-10m.v1.json")
+            .defer(d3.tsv, "../../lib/unemployment.tsv", function(d) { unemployment.set(d.id, +d.rate); })
             .await(ready);
 
         function ready(error, us) {

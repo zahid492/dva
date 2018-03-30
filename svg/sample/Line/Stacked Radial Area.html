@@ -25,9 +25,9 @@
         display: none;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -80,7 +80,7 @@
             .append("g")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        d3.csv("lib/stacked-radial.csv", type, function(error, data) {
+        d3.csv("../../lib/stacked-radial.csv", type, function(error, data) {
             if (error) throw error;
 
             var layers = stack(nest.entries(data));

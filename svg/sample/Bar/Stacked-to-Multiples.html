@@ -40,9 +40,9 @@
         top: 10px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -97,7 +97,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.tsv("lib/stm.tsv", function(error, data) {
+        d3.tsv("../../lib/stm.tsv", function(error, data) {
 
             data.forEach(function(d) {
                 d.date = parseDate(d.date);

@@ -27,9 +27,9 @@
         text-anchor: end;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <!-- <script src="lib/topojson.v2.min.js"></script> -->
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <!-- <script src="../../lib/topojson.v2.min.js"></script> -->
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
         var x = d3.time.scale()
             .range([0, width]);
 
-        d3.tsv("lib/stocks.tsv", type, function(error, data) {
+        d3.tsv("../../lib/stocks.tsv", type, function(error, data) {
             var symbols = d3.nest()
                 .key(function(d) { return d.symbol; })
                 .entries(data);

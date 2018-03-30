@@ -13,9 +13,9 @@
         text-align: left;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
         var formatCost = d3.format("$,.2f"),
             formatCount = d3.format(",d");
 
-        d3.tsv("lib/items.tsv", type, function(error, items) {
+        d3.tsv("../../lib/items.tsv", type, function(error, items) {
             var item = d3.select("#item-table tbody").selectAll(".item")
                 .data(items)
                 .enter().append(function() { return itemTemplate.cloneNode(true); });

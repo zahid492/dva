@@ -44,9 +44,9 @@
         stroke: #000;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -100,7 +100,7 @@
             .attr("width", width)
             .attr("height", height);
 
-        d3.csv("lib/readme.csv", type, function(error, data) {
+        d3.csv("../../lib/readme.csv", type, function(error, data) {
             if (error) throw error;
 
             // Compute the minimum and maximum date, and the maximum price.

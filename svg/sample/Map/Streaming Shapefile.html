@@ -21,10 +21,10 @@
         clip-path: url(#clip);
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/shapefile.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/shapefile.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -45,7 +45,7 @@
 
         context.lineWidth = 0.5;
 
-        shapefile.open("https://cdn.rawgit.com/matplotlib/basemap/v1.1.0/lib/mpl_toolkits/basemap/data/UScounties.shp", null)
+        shapefile.open("https://cdn.rawgit.com/matplot../../lib/basemap/v1.1.0/../../lib/mpl_toolkits/basemap/data/UScounties.shp", null)
             .then(function(source) {
                 return source.read().then(function next(result) {
                     if (result.done) return;

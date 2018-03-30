@@ -20,9 +20,9 @@
         stroke: #ccc;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
         var force = d3.layout.force()
             .size([width, height]);
 
-        d3.text("lib/can_161.mtx", function(error, text) {
+        d3.text("../../lib/can_161.mtx", function(error, text) {
             if (error) throw error;
 
             var graph = parseMtx(text);

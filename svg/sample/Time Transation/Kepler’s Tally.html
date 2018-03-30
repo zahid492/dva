@@ -72,9 +72,9 @@
         }
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -105,7 +105,7 @@
             "-moz-transform" in document.body.style ? "-moz-" :
             "";
 
-        d3.csv("lib/planets.csv", type, function(error, planets) {
+        d3.csv("../../lib/planets.csv", type, function(error, planets) {
             var systems = d3.nest()
                 .key(function(d) { return d.id; })
                 .entries(planets);

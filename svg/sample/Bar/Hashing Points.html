@@ -23,9 +23,9 @@
         display: none;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
 
         var bars = svg.selectAll(".bar rect")[0].map(d3.select);
 
-        d3.json("lib/us.json", function(error, us) {
+        d3.json("../../lib/us.json", function(error, us) {
             if (error) throw error;
 
             var collection = topojson.feature(us, us.objects.counties),

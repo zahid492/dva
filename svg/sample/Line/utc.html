@@ -60,9 +60,9 @@
         pointer-events: all;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -106,7 +106,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("lib/utc-offset.json", function(error, offsets) {
+        d3.json("../../lib/utc-offset.json", function(error, offsets) {
             if (error) throw error;
 
             var start = Date.UTC(1973, 0, 2),

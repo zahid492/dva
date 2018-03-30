@@ -39,9 +39,9 @@
         stroke: #333;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -109,7 +109,7 @@
             .attr("y", -6)
             .text("Population per square mile");
 
-        d3.json("lib/ky-counties.json", function(error, ky) {
+        d3.json("../../lib/ky-counties.json", function(error, ky) {
             if (error) throw error;
 
             var counties = topojson.feature(ky, ky.objects.counties);

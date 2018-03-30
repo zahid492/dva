@@ -16,9 +16,9 @@
         stroke: #fff;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
         var rect = svg.selectAll("rect");
 
-        d3.json("lib/readme.json", function(error, root) {
+        d3.json("../../lib/readme.json", function(error, root) {
             if (error) throw error;
 
             rect = rect

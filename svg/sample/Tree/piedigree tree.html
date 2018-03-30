@@ -27,9 +27,9 @@
         shape-rendering: crispEdges;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("lib/pedigree-tree.json", function(error, json) {
+        d3.json("../../lib/pedigree-tree.json", function(error, json) {
             if (error) throw error;
 
             var nodes = tree.nodes(json);

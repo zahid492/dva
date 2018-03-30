@@ -27,9 +27,9 @@
         text-anchor: end;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <!-- <script src="lib/topojson.v2.min.js"></script> -->
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <!-- <script src="../../lib/topojson.v2.min.js"></script> -->
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.price); });
 
-        d3.csv("lib/stocks.csv", type, function(error, data) {
+        d3.csv("../../lib/stocks.csv", type, function(error, data) {
 
             // Nest data by symbol.
             var symbols = d3.nest()

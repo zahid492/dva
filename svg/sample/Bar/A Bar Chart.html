@@ -37,9 +37,9 @@
         stroke: black;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
             .append("g")
             .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-        d3.csv("lib/sample-data.csv", function(error, data) {
+        d3.csv("../../lib/sample-data.csv", function(error, data) {
             if (error) throw error;
 
             // Parse numbers, and sort by value.

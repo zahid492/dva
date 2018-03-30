@@ -16,9 +16,9 @@
         stroke: #999;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
             .attr("width", width)
             .attr("height", height);
 
-        d3.json("lib/graph.json", function(error, graph) {
+        d3.json("../../lib/graph.json", function(error, graph) {
             if (error) throw error;
 
             var link = svg.selectAll("line")

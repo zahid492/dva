@@ -65,10 +65,10 @@
         fill: #999;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/bullet.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/bullet.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
             .width(width)
             .height(height);
 
-        d3.json("lib/bullets.json", function(error, data) {
+        d3.json("../../lib/bullets.json", function(error, data) {
             if (error) throw error;
 
             var svg = d3.select("body").selectAll("svg")

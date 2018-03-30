@@ -10,9 +10,9 @@
     <style>
 
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             .size([width, height])
             .padding(1.5);
 
-        d3.csv("lib/flare.csv", function(d) {
+        d3.csv("../../lib/flare.csv", function(d) {
             d.value = +d.value;
             if (d.value) return d;
         }, function(error, classes) {

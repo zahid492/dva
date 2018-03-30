@@ -39,10 +39,10 @@
         stroke-width: .5px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/d3.geo.projection.v0.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/d3.geo.projection.v0.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
             .attr("class", "graticule")
             .attr("d", path);
 
-        d3.json("lib/world-50m.json", function(error, world) {
+        d3.json("../../lib/world-50m.json", function(error, world) {
             if (error) throw error;
 
             svg.insert("path", ".graticule")

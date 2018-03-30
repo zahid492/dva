@@ -31,9 +31,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
             .size([2 * Math.PI, 500])
             .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
-        d3.csv("lib/flare.csv", function(error, data) {
+        d3.csv("../../lib/flare.csv", function(error, data) {
             if (error) throw error;
 
             var root = tree(stratify(data));

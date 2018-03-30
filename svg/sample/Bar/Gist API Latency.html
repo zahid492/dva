@@ -32,9 +32,9 @@
         shape-rendering: crispEdges;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -72,7 +72,7 @@
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis);
 
-        d3.tsv("lib/histogram.tsv", type, function(error, histogram) {
+        d3.tsv("../../lib/histogram.tsv", type, function(error, histogram) {
             var n = d3.sum(histogram, function(d) { return d.y = d.a + d.b; });
 
             y.domain([0, d3.max(histogram, function(d) { return d.y; })]);

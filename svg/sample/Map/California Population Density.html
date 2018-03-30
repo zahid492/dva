@@ -10,10 +10,10 @@
     <style>
 
     </style>
-    <script src="lib/d3.js"></script>
+    <script src="../../lib/d3.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -69,7 +69,7 @@
             .select(".domain")
             .remove();
 
-        d3.json("lib/topo.json", function(error, topology) {
+        d3.json("../../lib/topo.json", function(error, topology) {
             if (error) throw error;
 
             svg.append("g")

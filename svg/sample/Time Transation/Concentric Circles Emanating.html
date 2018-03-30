@@ -31,10 +31,10 @@
         stroke: #c7141a;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
     <script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -94,7 +94,7 @@
                 .remove();
         }, 750);
 
-        d3.json("lib/world-50m.json", function(error, world) {
+        d3.json("../../lib/world-50m.json", function(error, world) {
             if (error) throw error;
 
             svg.insert("path", ".graticule")

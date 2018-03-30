@@ -18,9 +18,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.temperature); });
 
-        d3.tsv("lib/Multi-Series-Line-Chart.tsv", type, function(error, data) {
+        d3.tsv("../../lib/Multi-Series-Line-Chart.tsv", type, function(error, data) {
             if (error) throw error;
 
             var cities = data.columns.slice(1).map(function(id) {

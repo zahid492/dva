@@ -18,9 +18,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
             .force("charge", d3.forceManyBody())
             .force("center", d3.forceCenter(width / 2, height / 2));
 
-        d3.json("lib/miserables.json", function(error, graph) {
+        d3.json("../../lib/miserables.json", function(error, graph) {
             if (error) throw error;
 
             var link = svg.append("g")

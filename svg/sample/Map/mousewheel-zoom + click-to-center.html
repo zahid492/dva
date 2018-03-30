@@ -26,9 +26,9 @@
         pointer-events: none;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -67,7 +67,7 @@
             .attr("width", width)
             .attr("height", height);
 
-        d3.json("lib/us.json", function(error, us) {
+        d3.json("../../lib/us.json", function(error, us) {
             if (error) throw error;
 
             g.append("g")

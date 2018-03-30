@@ -14,11 +14,11 @@
 
 <body>
     <svg width="960" height="600"></svg>
-    <script src="lib/d3.js"></script>
-    <script src="lib/d3-geo-projection.v1.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
-    <script src="lib/d3-polygon-clip.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/d3-geo-projection.v1.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../lib/d3-polygon-clip.js"></script>
     <script>
     $(function() {
 
@@ -37,7 +37,7 @@
             .attr("fill", "blue")
             .attr("d", "M" + clip.join("L") + "Z");
 
-        d3.json("lib/us-10m.v1.json", function(error, us) {
+        d3.json("../../lib/us-10m.v1.json", function(error, us) {
             if (error) throw error;
 
             var nation = topojson.feature(us, us.objects.nation),

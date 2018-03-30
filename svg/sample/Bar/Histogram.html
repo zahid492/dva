@@ -22,14 +22,15 @@
         font: 10px sans-serif;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <!-- <script src="lib/topojson.v2.min.js"></script> -->
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <!-- <script src="../../lib/topojson.v2.min.js"></script> -->
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
     <svg width="960" height="600"></svg>
     <canvas width="960" height="600"></canvas>
+    <!-- https://bl.ocks.org/mbostock/1283663 点击可变换的横向 bar -->
     <!-- https://bl.ocks.org/mbostock/aca51512895bd03855efa67aebec474b-->
     <script>
     $(function() {
@@ -49,9 +50,13 @@
         var y = d3.scaleLinear()
             .range([height, 0]);
 
+            // 直方图数据生成器
         var histogram = d3.histogram()
+        // 从数据集合里取什么值
             .value(function(d) { return d.date; })
+            // 映射 x轴做定义域
             .domain(x.domain())
+            // 如何取值，x轴刻度是以周划分
             .thresholds(x.ticks(d3.timeWeek));
 
         var svg = d3.select("body").append("svg")
@@ -65,7 +70,7 @@
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
-        d3.csv("lib/homicides.csv", type, function(error, data) {
+        d3.csv("../../lib/homicides.csv", type, function(error, data) {
             if (error) throw error;
 
             var bins = histogram(data);

@@ -28,9 +28,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -60,7 +60,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("lib/flare.json", function(error, flare) {
+        d3.json("../../lib/flare.json", function(error, flare) {
             if (error) throw error;
 
             root = flare;

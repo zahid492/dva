@@ -27,9 +27,9 @@
         shape-rendering: crispEdges;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -65,7 +65,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.tsv("lib/bcn.tsv", type, function(error, data) {
+        d3.tsv("../../lib/bcn.tsv", type, function(error, data) {
             x.domain(d3.extent(data, function(d) { return d.value; })).nice();
             y.domain(data.map(function(d) { return d.name; }));
 

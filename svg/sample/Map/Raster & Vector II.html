@@ -19,10 +19,10 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.js"></script>
+    <script src="../../lib/d3.js"></script>
     <script src="//d3js.org/d3-tile.v0.0.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -61,7 +61,7 @@
 
         var vector = svg.append("path");
 
-        d3.json("lib/us.json", function(error, us) {
+        d3.json("../../lib/us.json", function(error, us) {
             if (error) throw error;
 
             vector

@@ -14,10 +14,10 @@
 
 <body>
     <svg width="960" height="960"></svg>
-    <script src="lib/d3.js"></script>
-    <script src="lib/d3-scale-radial.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/d3-scale-radial.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 <!-- https://bl.ocks.org/mbostock/5479367295dfe8f21002fc71d6500392 -->
 <!-- https://bl.ocks.org/mbostock/3686329aa6e1f5938df8eef12ec353fe  weave -->
     <script>
@@ -40,7 +40,7 @@
         var z = d3.scaleOrdinal()
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-        d3.csv("lib/data.csv", function(d, i, columns) {
+        d3.csv("../../lib/data.csv", function(d, i, columns) {
             for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d.total = t;
             return d;

@@ -28,9 +28,9 @@
         stroke-width: 1px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -65,7 +65,7 @@
             .x(function(d) { return x(d[0]); })
             .y(function(d) { return y(d[1]); });
 
-        d3.json("lib/series.json", function(error, series) {
+        d3.json("../../lib/series.json", function(error, series) {
             if (error) throw error;
             y.domain([0, d3.max(d3.merge(series))]);
 

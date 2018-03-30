@@ -10,9 +10,9 @@
     <style>
 
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     $(function() {
         //
 
-        d3.xml("lib/rect01.svg").mimeType("image/svg+xml").get(function(error, xml) {
+        d3.xml("../../lib/rect01.svg").mimeType("image/svg+xml").get(function(error, xml) {
             if (error) throw error;
             document.body.appendChild(xml.documentElement);
         });

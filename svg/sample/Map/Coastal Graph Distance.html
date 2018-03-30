@@ -10,9 +10,9 @@
     <style>
 
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -33,8 +33,8 @@
             .range(["#081d58", "#253494", "#225ea8", "#1d91c0", "#41b6c4", "#7fcdbb", "#c7e9b4", "#edf8b1", "#ffffd9"]);
 
         d3.queue()
-            .defer(d3.json, "lib//us-10m.v1.json")
-            .defer(d3.tsv, "lib/coastal-counties.tsv")
+            .defer(d3.json, "../../lib//us-10m.v1.json")
+            .defer(d3.tsv, "../../lib/coastal-counties.tsv")
             .await(ready);
 
         function ready(error, us, coastals) {

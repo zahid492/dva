@@ -24,9 +24,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             .append("g")
             .attr("transform", "translate(40,0)");
 
-        d3.json("lib/readme-force.json", function(json) {
+        d3.json("../../lib/readme-force.json", function(json) {
             var nodes = cluster.nodes(json);
 
             var link = svg.selectAll(".link")

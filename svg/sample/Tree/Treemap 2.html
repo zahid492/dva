@@ -16,9 +16,9 @@
         font: 10px sans-serif;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             .round(true)
             .paddingInner(1);
 
-        d3.json("lib/flare.json", function(error, data) {
+        d3.json("../../lib/flare.json", function(error, data) {
             if (error) throw error;
 
             var root = d3.hierarchy(data)

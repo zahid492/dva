@@ -13,9 +13,9 @@
         stroke: #fff;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 
         var svg = d3.select("svg");
 
-        // d3.json("lib/states.json", function(error, collection) {
+        // d3.json("../../lib/states.json", function(error, collection) {
         //     if (error) throw error;
 
         //     svg.selectAll("path")
@@ -40,7 +40,7 @@
         //         .enter().append("path")
         //         .attr("d", path);
         // });
-        d3.json("lib/us.json", function(error, us) {
+        d3.json("../../lib/us.json", function(error, us) {
             if (error) throw error;
 
             d3.select("svg").append("path")

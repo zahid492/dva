@@ -33,10 +33,10 @@
         stroke: #ccc;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/box.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/box.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
             .width(width)
             .height(height);
 
-        d3.csv("lib/morley.csv", function(error, csv) {
+        d3.csv("../../lib/morley.csv", function(error, csv) {
             if (error) throw error;
 
             var data = [];

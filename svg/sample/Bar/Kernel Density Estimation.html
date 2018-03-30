@@ -12,9 +12,9 @@
         display: none;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
             .attr("transform", "translate(" + margin.left + ",0)")
             .call(d3.axisLeft(y).ticks(null, "%"));
 
-        d3.json("lib/faithful.json", function(error, faithful) {
+        d3.json("../../lib/faithful.json", function(error, faithful) {
             if (error) throw error;
 
             var n = faithful.length,

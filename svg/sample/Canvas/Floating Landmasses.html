@@ -23,9 +23,9 @@
         filter: blur(6px);
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -79,7 +79,7 @@
         context2.fillStyle = "rgba(0,0,0,.4)";
         context3.strokeStyle = "rgba(0,0,0,.2)";
 
-        d3.json("lib/world-110m.json", function(error, topo) {
+        d3.json("../../lib/world-110m.json", function(error, topo) {
             if (error) throw error;
 
             var land = topojson.feature(topo, topo.objects.land),

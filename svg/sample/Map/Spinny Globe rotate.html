@@ -13,9 +13,9 @@
         stroke-width: 1.5px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
             .projection(projection)
             .context(context);
 
-        d3.json("lib/world-110m.json", function(error, topo) {
+        d3.json("../../lib/world-110m.json", function(error, topo) {
             if (error) throw error;
 
             var land = topojson.feature(topo, topo.objects.land);

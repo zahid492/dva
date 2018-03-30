@@ -14,10 +14,10 @@
 
 <body>
     <svg width="960" height="600"></svg>
-    <script src="lib/d3.js"></script>
-    <script src="lib/d3-geo-projection.v1.min.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/d3-geo-projection.v1.min.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
     <script>
     $(function() {
         var svg = d3.select("svg");
@@ -29,7 +29,7 @@
             .attr("width", 760)
             .attr("height", 400);
 
-        d3.json("lib/us-10m.v1.json", function(error, us) {
+        d3.json("../../lib/us-10m.v1.json", function(error, us) {
             if (error) throw error;
 
             var path = d3.geoPath(),

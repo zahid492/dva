@@ -19,9 +19,9 @@
         shape-rendering: crispEdges;
     }
     </style>
-    <script src="lib/d3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
             "65 Years and Over"
         ];
 
-        d3.csv("lib/state-age.csv", type, function(error, states) {
+        d3.csv("../../lib/state-age.csv", type, function(error, states) {
             if (error) throw error;
             var stateById = d3.map();
             states.forEach(function(d) { stateById.set(d.id, d); });

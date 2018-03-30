@@ -50,9 +50,9 @@
         fill: #1f77b4;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -95,7 +95,7 @@
             .attr("dy", ".71em")
             .text(2000);
 
-        d3.csv("lib/population.csv", function(error, data) {
+        d3.csv("../../lib/population.csv", function(error, data) {
 
             // Convert strings to numbers.
             data.forEach(function(d) {

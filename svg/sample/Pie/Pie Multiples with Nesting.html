@@ -18,9 +18,9 @@
         stroke-width: 2px;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             .outerRadius(r);
 
         // Load the flight data asynchronously.
-        d3.csv("lib/flights.csv", function(error, flights) {
+        d3.csv("../../lib/flights.csv", function(error, flights) {
             if (error) throw error;
 
             // Nest the flight data by originating airport. Our data has the counts per

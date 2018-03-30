@@ -27,9 +27,9 @@
         fill: steelblue;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.tsv("lib/Bivariate-Area-Chart.tsv", function(error, data) {
+        d3.tsv("../../lib/Bivariate-Area-Chart.tsv", function(error, data) {
             if (error) throw error;
 
             data.forEach(function(d) {

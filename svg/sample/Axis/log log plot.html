@@ -27,9 +27,9 @@
         stroke-linecap: round;
     }
     </style>
-    <script src="lib/d3.v3.js"></script>
-    <script src="lib/topojson.v2.min.js"></script>
-    <script src="lib/jquery.min.js"></script>
+    <script src="../../lib/d3.v3.js"></script>
+    <script src="../../lib/topojson.v2.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
 </head>
 
 <body>
@@ -86,7 +86,7 @@
             .attr("class", "y axis")
             .call(yAxis);
 
-        d3.tsv("lib/data-x2-x3.tsv", type, function(error, data) {
+        d3.tsv("../../lib/data-x2-x3.tsv", type, function(error, data) {
             var seriesNames = d3.keys(data[0]);
 
             var series = seriesNames.map(function(key) {
