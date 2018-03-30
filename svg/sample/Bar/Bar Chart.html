@@ -45,6 +45,7 @@
         var g = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
         d3.tsv("../../lib/bar-chart.tsv", function(d) {
             d.frequency = +d.frequency;
             return d;
@@ -59,15 +60,25 @@
                 .attr("transform", "translate(0," + height + ")")
                 .call(d3.axisBottom(x));
 
+
             g.append("g")
                 .attr("class", "axis axis--y")
-                .call(d3.axisLeft(y).ticks(10, "%"))
+                .call(function(g) {
+                    var s = g.selection ? g.selection() : g;
+                    g.call(d3.axisLeft(y)
+                        .ticks(10, "%")
+                        .tickSize(-width));
+
+                    s.select(".domain").remove();
+                    s.selectAll(".tick line").filter(Number).attr("stroke", "#777").attr("stroke-dasharray", "2,2");
+                })
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", "0.71em")
                 .attr("text-anchor", "end")
                 .text("Frequency");
+
 
             g.selectAll(".bar")
                 .data(data)
