@@ -1,0 +1,320 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中国地图</title>
+</head>
+<style>
+svg {
+    background: #1B2D5C;
+}
+
+.province {
+    stroke: #324F97;
+    stroke-width: 2px;
+}
+
+.location circle {}
+
+.desHead {
+    font-size: 12px;
+}
+
+.desText {
+    font-size:  10px;
+}
+</style>
+
+<body>
+    <script src="./lib/d3.js"></script>
+    <script src="./lib/anime.js"></script>
+    <script src="./lib/lodash.min.js"></script>
+    <script>
+    var data = [{ name: "北京", value: 138 }, { name: "南京", value: 47 }, { name: "吉林", value: 74 }, { name: "上海", value: 183 }, { name: "成都", value: 192 }, { name: "哈尔滨", value: 35 }, { name: "沈阳", value: 0 }, { name: "武汉", value: 36 }, { name: "石家庄", value: 32 }, { name: "天津", value: 7 }, { name: "太原", value: 1 }, { name: "西安", value: 103 }, { name: "南宁", value: 29 }, { name: "南昌", value: 48 }, { name: "济南", value: 31 }];
+    var geoCoordMap = {
+        "北京": [116.46, 39.92],
+        "南京": [118.78, 32.04],
+        "吉林": [126.57, 43.87],
+        "上海": [121.48, 31.22],
+        "成都": [104.06, 30.67],
+        "哈尔滨": [126.63, 45.75],
+        "沈阳": [123.38, 41.8],
+        // "合肥":[117.27,31.86],
+        "武汉": [114.31, 30.52],
+        "石家庄": [114.48, 38.03],
+        "天津": [117.2, 39.13],
+        "太原": [112.53, 37.87],
+        "西安": [108.95, 34.27],
+        "南宁": [108.33, 22.84],
+        "南昌": [115.89, 28.68],
+        "济南": [117, 36.65],
+    };
+
+
+    // 降序5个水滴坐标数据
+    var pinData = function(data) {
+        var ndata = _.concat([], data);
+        var bdata = _.take(_.sortBy(data, function(v) {
+            return -v.value;
+        }), 5);
+
+        return _.map(bdata, function(v, i) {
+            var geoCoord = geoCoordMap[v.name];
+            var gv = geoCoord.concat(v.value);
+            gv[2] = i + 1;
+
+            if (geoCoord) {
+
+                return {
+                    name: v.name,
+                    value: gv,
+                };
+            }
+        })
+    };
+
+    var topData = pinData(data)
+
+    // 新进城市坐标数据
+    var convertData = function(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+
+    var rsData = _.reverse(_.sortBy(convertData(data), function(v, i) {
+        return v.value[2]
+    }));
+
+    var top5 = _.take(rsData, 5);
+
+    var xi = d3.extent(_.map(data, "value"));
+
+    var fontSize = d3.scaleLinear()
+        .domain(xi)
+        .range([8, 16]);
+
+    var circleRadius = d3.scaleLinear()
+        .domain(xi)
+        .range([3, 16]);
+
+
+    var xdomain = d3.scaleLinear()
+        .domain(xi)
+        .range([0, 1])
+
+
+    // -----------------------------------------------------
+    var width = 1400,
+        height = 750;
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var s = d3.interpolate(d3.rgb(249, 214, 0), d3.rgb(250, 81, 0));
+    // 右侧指示器颜色
+    var gradientIndicator = svg.append("defs").append("linearGradient")
+        .attr("id", "gradientIndicator")
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "0%")
+        .attr("y2", "100%");
+
+    gradientIndicator.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "rgb(250, 81, 0)");
+
+
+    gradientIndicator.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "rgb(249, 214, 0)");
+
+
+    var projection = d3.geoMercator()
+        .center([107, 37.5])
+        .scale(880)
+        .translate([width / 2, height / 2]);
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    d3.json("./lib/china.geojson", function(error, toporoot) {
+        if (error) {
+            return console.error(error);
+        }
+        //将TopoJSON对象转换成GeoJSON，保存在georoot中
+        // var georoot = topojson.feature(toporoot,toporoot.objects.china);
+        var georoot = toporoot;
+        var china = svg.append("g");
+
+        var provinces = china.selectAll("path")
+            .data(georoot.features)
+            .enter()
+            .append("path")
+            .attr("class", "province")
+            .style("fill", "#0A1646")
+            .attr("d", path);
+
+        var location = svg.selectAll(".location")
+            .data(rsData)
+            .enter()
+            .append("g")
+            .attr("class", "location")
+            .attr("transform", function(d) {
+                //计算标注点的位置
+                var coor = projection([d.value[0], d.value[1]]);
+                return "translate(" + coor[0] + "," + coor[1] + ")";
+            });
+
+
+        location.append("circle")
+            .attr("class", "slash")
+            .attr("fill", function(d, i) {
+                console.log(s(xdomain(d.value[2])))
+                console.log(d3.color(s(xdomain(d.value[2]))))
+                var gradient = svg.append("defs").append("radialGradient")
+                    .attr("id", "gradient" + i)
+                    .attr("x1", "0%")
+                    .attr("y1", "0%")
+                    .attr("x2", "100%")
+                    .attr("y2", "100%");
+
+                gradient.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", s(xdomain(d.value[2])));
+
+                gradient.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "rgba(255,142,0,0.05)");
+
+                return "url(#gradient" + i + ")";
+
+            })
+            .attr("opacity", 0.6)
+
+
+        //插入一个圆
+        location.append("circle")
+            .attr("fill", function(d) {
+                // console.log(d, s(xdomain(d.value[2])).toString())
+                return s(xdomain(d.value[2]))
+            })
+            .attr("r", function(d) {
+                return circleRadius(d.value[2]);
+            });
+
+        d3.selectAll(".slash").each(function(d, i, nodes) {
+            var rt = circleRadius(d.value[2]);
+            console.log(d, i, nodes[i], rt)
+            anime({
+                targets: nodes[i],
+                r: [
+                    { value: rt * 2 },
+                ],
+                easing: 'easeOutQuad',
+                duration: 1000,
+                delay: function(el) {
+                    return i * 100;
+                },
+                loop: true
+            });
+        })
+
+        location.append("text")
+            .attr("class", "cityName")
+            .attr("text-anchor", "middle ")
+            .attr("y", function(d) {
+                return circleRadius(d.value[2]) + 8;
+            })
+            .attr("font-size", function(d) {
+                return fontSize(d.value[2]);
+            })
+            .attr("dy", "0.5em")
+            .attr("fill", "#fff")
+            .text(function(d, i) {
+                return d.name;
+            });
+
+        location.append("text")
+            .attr("class", "tipNum")
+            .attr("text-anchor", "middle ")
+            .attr("font-size", function(d) {
+                return 12;
+            })
+            .attr("dy", "0.5em")
+            .attr("fill", "#fff")
+            .text(function(d, i) {
+                if (_.findIndex(top5, { name: d.name }) > -1) {
+                    return i + 1;
+                } else {
+                    return ""
+                }
+            });
+
+        // 右侧指示色带
+        var rIndicator = svg.append("g")
+            .attr("transform", "translate(" + (width - 150) + "," + (height - 300) + ")")
+            .attr("class", "rightIndicator");
+
+        rIndicator.append("path")
+            .attr("d", "M 53.148256,36.418525 54.428572,211.95536 62.744048,36.196428 Z")
+            .attr("fill", "url(#gradientIndicator)")
+
+        rIndicator.append("image")
+            .attr("x", 70)
+            .attr("y", 40)
+            .attr("xlink:href", "img/rindicator-top.jpg")
+            .attr("width", 15)
+            .attr("height", 20)
+
+        rIndicator.append("image")
+            .attr("x", 60)
+            .attr("y", 190)
+            .attr("xlink:href", "img/rindicator-bot.jpg")
+            .attr("width", 15)
+            .attr("height", 20)
+
+        //  左侧说明文字
+        var desText = svg.append("g")
+            .attr("transform", "translate(" + (20) + "," + (690) + ")")
+            .attr("class", "desText");
+
+        var dtxt = desText.append("text")
+        .attr("fill", "#fff")
+
+
+        dtxt.append("tspan")
+            .attr("class", "desHead")
+            .attr("x", 10)
+            .attr("y", 0)
+            .text("说明")
+
+        dtxt.append("tspan")
+            .attr("class", "desBody")
+            .attr("x", 10)
+            .attr("y", 20)
+            .text("1用户行为记录强制链接跳转，不管记录成功与否")
+
+        dtxt.append("tspan")
+            .attr("class", "desBody")
+            .attr("x", 10)
+            .attr("y", 40)
+            .text("2用户行为记录强制链接跳转，不管记录成功与否")
+
+
+
+    });
+
+    </script>
+</body>
+
+</html>

@@ -38,8 +38,8 @@ var option = {
         shape: "rect",
 
         sizeRange: [14, 62],
-        rotationRange: [-90, 90],
-        rotationStep: 45,
+        rotationRange: [0, 180],
+        rotationStep: 90,
         width: kww,
         height: kww,
         drawOutOfBound: false,

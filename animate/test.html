@@ -15,42 +15,28 @@
         height: 500px;
         z-index: 0;
         border: 1px solid #000;
-        background: #000;
     }
 
-    .box {
-        background: #ff9933;
-        width: 20px;
-        height: 20px;
-        left: 0;
-        top: 50px;
-        position: absolute;
-        z-index: 1;
-    }
-    .svg {
-        left: 0;
-        top: 150px;
-        position: absolute;
-        z-index: 1;
-    }
+    ul li { height: 1px; opacity: 0}
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="box" data-x="100">1</div>
-        <div class="box" data-x="150" style="top:45px;">2</div>
-        <div class="box" data-x="250"  style="top:95px;">3</div>
-        <svg class="svg" width="128" height="128" viewBox="0 0 128 128">
-            <polygon fill="#ff9933" points="64 68.73508918222262 8.574 99.9935923731656 63.35810017508558 67.62284396863708 64 3.993592373165592 64.64189982491442 67.62284396863708 119.426 99.9935923731656"></polygon>
-
-            <path fill="none" stroke="currentColor" stroke-width="1" d="M8,56 C8,33.90861 25.90861,16 48,16 C70.09139,16 88,33.90861 88,56 C88,78.09139 105.90861,92 128,92 C150.09139,92 160,72 160,56 C160,40 148,24 128,24 C108,24 96,40 96,56 C96,72 105.90861,92 128,92 C154,93 168,78 168,56 C168,33.90861 185.90861,16 208,16 C230.09139,16 248,33.90861 248,56 C248,78.09139 230.09139,96 208,96 L48,96 C25.90861,96 8,78.09139 8,56 Z"></path>
-
-        </svg>
+        <ul class="list">
+        </ul>
     </div>
-    <div class="logs"> <input class="log update-log"> <input class="log began-log"> <input class="log completed-log"> </div>
-
-    <script src="./js/test.js"></script>
+    <script id="tpl" type="text/html">
+        <% _.forEach(lists, function(v, i){ %>
+            <li>
+                <span><%= v.num %></span>
+                <a>
+                    <%= v.txt %>
+                </a>
+            </li>
+            <% }); %>
+    </script>
+    <script src="./js/test1.js"></script>
 </body>
 
 </html>

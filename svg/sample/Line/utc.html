@@ -76,6 +76,8 @@
             width = 960 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
+        var parseTime = d3.time.format("%Y-%m-%d %H:%M:%S");
+
         var format = d3.format("+.1f");
 
         var x = d3.time.scale()
@@ -137,16 +139,47 @@
 
             focus.append("line")
                 .attr("class", "x")
-                // .attr("y1", y(0) - 6)
-                // .attr("y2", y(1) + 6);
 
             focus.append("line")
                 .attr("class", "y")
-                .attr("x1", width - 6)
-                .attr("x2", width + 6);
 
             focus.append("circle")
                 .attr("r", 3.5);
+
+            var box = svg.append("g");
+
+            box.append("rect")
+                .attr("class", "box")
+                .attr("width", 100)
+                .attr("height", 50)
+                .attr("rx", 5)
+                .attr("ry", 5)
+                // .attr("fill", "#fff")
+                .attr("stroke", "#333")
+                .attr("stroke-width", 1)
+                .attr("opacity", 0.6)
+
+            var text = box.append("text")
+                .attr("x", 9)
+                .attr("y", 9)
+                .attr("dy", ".95em")
+                .attr("class", "btext")
+                .attr("font-size", 12)
+                .attr("stroke", "red")
+                // .attr("text-anchor", "middle")
+
+            text.append("tspan")
+                .attr("x", 9)
+                .attr("y", 19)
+                .attr("dy", "-.7em")
+                .attr("class", "t1")
+
+            text.append("tspan")
+                .attr("x", 9)
+                .attr("y", 39)
+                .attr("dy", "-.7em")
+                .attr("class", "t2")
+
 
             svg.append("rect")
                 .attr("class", "overlay")
@@ -156,11 +189,28 @@
 
             function mousemove() {
                 var d = offsets[Math.round((x.invert(d3.mouse(this)[0]) - start) / step)];
+                console.log(x(d[0]), y(d[1]))
                 focus.select("circle").attr("transform", "translate(" + x(d[0]) + "," + y(d[1]) + ")");
                 focus.select(".x")
-                .attr("transform", "translate(" + x(d[0]) + ",0)")
-                .attr("y1", height/2)
-                .attr("y2", y(d[1]))
+                    .attr("transform", "translate(" + x(d[0]) + ",0)")
+                    .attr("y1", height / 2)
+                    .attr("y2", y(d[1]))
+
+                focus.select(".y")
+                    .attr("transform", "translate(" + x(d[0]) + ",0)")
+                    .attr("x1", width)
+                    .attr("x2", x(d[0]))
+
+                box.attr("transform", "translate(" + x(d[0]) + "," + y(d[1]) + ")");
+
+                box.select(".t1")
+                    .text(parseTime(d[0]))
+                box.select(".t2")
+                    .text(d[1])
+
+
+
+                console.log(box.attr("x"), box.attr("y"))
 
                 focus.select(".y").attr("transform", "translate(0," + y(d[1]) + ")");
                 svg.selectAll(".x.axis path").style("fill-opacity", Math.random()); // XXX Chrome redraw bug

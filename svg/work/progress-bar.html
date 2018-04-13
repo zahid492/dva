@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    .bar--positive {
+
+        fill: steelblue;
+    }
+
+    .bar--negative {
+
+        fill: brown;
+    }
+    </style>
+    <script src="lib/d3.js"></script>
+    <script src="lib/topojson.v2.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+</head>
+
+<body>
+<!--     <div id="shadow">
+        <defs>
+            <filter id="fs">
+                <feGaussianBlur in="color" stdDeviation="4" result="blur"></feGaussianBlur>
+                <feOffset in="blur" dx="0" dy="0" result="offset"></feOffset>
+                <feMerge>
+                    <feMergeNode in="bg"></feMergeNode>
+                    <feMergeNode in="offset"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+        </defs>
+    </div> -->
+    <!-- <svg width="960" height="500"></svg> -->
+    <!-- https://bl.ocks.org/mbostock/4062085 -->
+    <script>
+    $(function() {
+
+
+
+        var margin = { top: 20, right: 30, bottom: 40, left: 30 },
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+            .domain([0, 12])
+            .range([0, width]);
+
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+
+        var gradient = svg.append("defs")
+            .append("linearGradient")
+            .attr("id", "gradient")
+            // 这里能控制方向
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "50%")
+            .attr("y2", "0%")
+            .attr("spreadMethod", "pad");
+
+        gradient.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#0c0")
+            .attr("stop-opacity", 1);
+
+        gradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#c00")
+            .attr("stop-opacity", 1);
+
+        var filter = svg.append("defs")
+            .append("filter")
+            .attr("id", "blur");
+
+            filter
+            .append("feGaussianBlur")
+            .attr("stdDeviation", 3);
+
+            filter.append("feOffset")
+            .attr("in", "blur")
+            .attr("dx", 0)
+            .attr("dy", 0)
+            .attr("result", "offset")
+
+        var g1 = svg.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        var g2 = svg.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        g1.append("rect")
+            .attr("class", "bar--positive")
+            .attr("x", function(d) {
+                return x(0);
+            })
+            .attr("y", function(d) { return 0; })
+            .attr("rx", 10)
+            .attr("ry", 10)
+            .attr("width", function(d) { return x(12); })
+            .attr("height", function(d) {
+                return 20;
+            })
+            .attr("filter", "url(#blur)")
+
+        g2.selectAll(".base")
+            .data([{ name: "A", value: 10 }])
+            .enter().append("rect")
+            // .attr("class", "bar--negative")
+            .attr("x", function(d) {
+                return x(Math.min(0, d.value));
+            })
+            .attr("y", function(d) { return 0; })
+            .attr("rx", 10)
+            .attr("ry", 10)
+            .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
+            .attr("height", function(d) {
+                return 20;
+            })
+            .attr("fill", "url(#gradient)")
+            .attr("filter", "url(#blur)")
+
+
+
+    })
+    </script>
+</body>
+
+</html>

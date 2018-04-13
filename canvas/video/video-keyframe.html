@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Animation</title>
+    <script src="./lib/lodash.min.js"></script>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/anime.js"></script>
+    <style>
+    body {
+        background: black;
+        color: #CCCCCC;
+    }
+
+    #c2 {
+        background-image: url("./assets/foo.png");
+        background-repeat: no-repeat;
+    }
+
+    div {
+        float: left;
+        border: 1px solid #444444;
+        padding: 10px;
+        margin: 10px;
+        background: #3B3B3B;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 视频复制改背景 -->
+    <div class="commondw videoimg" id="videoimg"><img src="./assets/foo.png" alt="" /></div>
+    <!-- <video id="video" src="./assets/video.ogv" controls="true" /> -->
+    <video class="vido" id="vidoid" poster="./assets/foo.png">
+        <source src="assets/movieclip.mp4" type="video/mp4">
+    </video>
+    <!--     <div>
+        <canvas id="c1" width="160" height="96"></canvas>
+        <canvas id="c2" width="160" height="96"></canvas>
+    </div> -->
+    <script src="./js/video-keyframe.js"></script>
+</body>
+
+</html>

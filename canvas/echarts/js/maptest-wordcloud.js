@@ -45,27 +45,7 @@ $(function() {
     $canvas.attr('width', pixelWidth);
     $canvas.attr('height', pixelHeight);
 
-    function drawBox(item, dimension, evt) {
-        console.log(item, dimension, evt)
-        if (!dimension) {
-            $box.prop('hidden', true);
-
-            return;
-        }
-
-        var dppx = devicePixelRatio;
-
-        $box.prop('hidden', false);
-        $box.css({
-            left: dimension.x / dppx + 'px',
-            top: dimension.y / dppx + 'px',
-            width: dimension.w / dppx + 'px',
-            height: dimension.h / dppx + 'px'
-        });
-    };
-
-
-    var list = _.map(KeywordsList, function(v) {
+     var list = _.map(KeywordsList, function(v) {
         return [v.Word, v.Frequency * 450]
     });
 
@@ -89,61 +69,16 @@ $(function() {
             }
             return getRandomDarkColor()
         },
-        minRotation: - Math.PI / 2,
-        maxRotation: Math.PI / 2,
-        // 自定义角度
-        rotateCustom: function(item) {
-            if (item[0] == "小米") {
-                return 0
-            }
-
-            return undefined;
-        },
-        // 1 为都旋转，小数位旋转概率
-        rotateRatio: 1,
-        // 2 在 -90°/90° range means just -90, 0 or 90 will be used.
-        rotationSteps: 45,
+        rotateRatio: 0,
+         rotationRange: [0, 0],
+        rotationSteps: 0,
 
         shape: 'square',
         ellipticity: 1,
-
         shuffle: false,
-        hover: drawBox,
         backgroundColor: '#fafafa'
     }
 
-    // Set devicePixelRatio options
-    if (devicePixelRatio !== 1) {
-        if (!('gridSize' in options)) {
-            options.gridSize = 8;
-        }
-        options.gridSize *= devicePixelRatio;
-
-        if (options.origin) {
-            if (typeof options.origin[0] == 'number')
-                options.origin[0] *= devicePixelRatio;
-            if (typeof options.origin[1] == 'number')
-                options.origin[1] *= devicePixelRatio;
-        }
-
-        if (!('weightFactor' in options)) {
-            options.weightFactor = 1;
-        }
-        if (typeof options.weightFactor == 'function') {
-            var origWeightFactor = options.weightFactor;
-            options.weightFactor =
-                function weightFactorDevicePixelRatioWrap() {
-                    return origWeightFactor.apply(this, arguments) * devicePixelRatio;
-                };
-        } else {
-            options.weightFactor *= devicePixelRatio;
-        }
-    }
-
-
     WordCloud($canvas[0], options);
 
-    // $canvas.on("wordclouddrawn", function(e) {
-    //     console.log("wordcloud", e)
-    // })
 });

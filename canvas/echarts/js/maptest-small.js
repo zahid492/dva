@@ -23,21 +23,9 @@ var geoCoordMap = {
     "济南": [117, 36.65],
 };
 // 各城市新进用户数
-var data = [{ name: "北京", value: 38 }, { name: "南京", value: 147 }, { name: "吉林", value: 74 }, { name: "上海", value: 33 }, { name: "成都", value: 192 }, { name: "哈尔滨", value: 35 }, { name: "沈阳", value: 0 }, { name: "武汉", value: 36 }, { name: "石家庄", value: 32 }, { name: "天津", value: 7 }, { name: "太原", value: 1 }, { name: "西安", value: 63 }, { name: "南宁", value: 29 }, { name: "南昌", value: 48 }, { name: "济南", value: 61 }];
-// 新进城市坐标数据
-var convertData = function(data) {
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-        var geoCoord = geoCoordMap[data[i].name];
-        if (geoCoord) {
-            res.push({
-                name: data[i].name,
-                value: geoCoord.concat(data[i].value)
-            });
-        }
-    }
-    return res;
-};
+var data = [{ name: "北京", value: 138 }, { name: "南京", value: 147 }, { name: "吉林", value: 74 }, { name: "上海", value: 133 }, { name: "成都", value: 192 }, { name: "哈尔滨", value: 35 }, { name: "沈阳", value: 0 }, { name: "武汉", value: 36 }, { name: "石家庄", value: 32 }, { name: "天津", value: 7 }, { name: "太原", value: 1 }, { name: "西安", value: 163 }, { name: "南宁", value: 29 }, { name: "南昌", value: 48 }, { name: "济南", value: 61 }];
+
+
 // 降序5个水滴坐标数据
 var pinData = function(data) {
     var ndata = _.concat([], data);
@@ -59,120 +47,74 @@ var pinData = function(data) {
         }
     })
 };
-// 左侧5个最多新进城市柱状图数据
-var leftBarData = _.reverse(_.map(pinData(data), function(v) {
-    var p = _.find(data, { name: v.name });
-    return {
-        name: v.name,
-        value: p.value
-    }
-}));
-// 柱状图最大数据
-var leftBarMaxValue = _.find(data, { name: pinData(data)[0].name }).value * 1.10;
 
-// 左侧5个最多新进城市柱状图最大数据
-var leftBarBgData = _.reverse(_.map(pinData(data), function(v) {
-    var p = _.find(data, { name: v.name });
-    return {
-        name: v.name,
-        value: leftBarMaxValue,
-        labelValue: p.value
+var topData = pinData(data)
+
+// 新进城市坐标数据
+var convertData = function(data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var geoCoord = geoCoordMap[data[i].name];
+        if (geoCoord) {
+            res.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value)
+            });
+        }
     }
-}));
-// 左侧5个最多新进城市柱状图Y轴坐标数据
-var leftBarYAxisData = _.reverse(_.map(pinData(data), function(v) {
-    return v.name
-}));
-// 数据汇总
-var cvData = {
-    njCityData: convertData(data),
-    pinCityData: pinData(data),
-    leftBarData: leftBarData,
-    leftBarBgData: leftBarBgData,
-    leftBarYAxisData: leftBarYAxisData,
+    return res;
 };
+
+var rsData = _.reverse(_.sortBy(convertData(data), function(v, i) {
+    return v.value[2]
+}));
+
+var top5 = _.take(rsData, 5);
+
+var xi = d3.extent(_.map(data, "value"));
+
+var fontSize = d3.scaleLinear()
+    .domain(xi)
+    .range([8, 18]);
+
+var circleRadius = d3.scaleLinear()
+    .domain(xi)
+    .range([5, 30]);
+
+
+var xdomain = d3.scaleLinear()
+    .domain(xi)
+    .range([0, 1])
+
+var s = d3.interpolate(d3.rgb(249, 214, 0), d3.rgb(250, 81, 0))
+
 // 获取区域宽高，作为祖先
 var gWidth = $("#main").width();
 var gHeight = $("#main").height();
+
+var xi = d3.extent(_.map(data, "value"))
+
+var xdomain = d3.scaleLinear()
+    .domain(xi)
+    .range([0, 1])
+
+var s = d3.interpolate(d3.rgb(249, 214, 0), d3.rgb(250, 81, 0))
+
 option = {
-    backgroundColor: '#404a59',
+    backgroundColor: '#2E3A6A',
     animation: true,
     animationDuration: 1000,
     animationEasing: 'cubicInOut',
     animationDurationUpdate: 1000,
     animationEasingUpdate: 'cubicInOut',
-    title: [{
 
-    }, {
-        text: '全国主要城市 业务量',
-        left: 'center',
-        top: gHeight * 0.12,
-        textStyle: {
-            fontSize: gWidth / 100,
-            color: '#fff'
-        }
-    }],
     xAxis: [{
         gridIndex: 0,
         show: false,
-    }, {
-        gridIndex: 1,
-        show: false,
-        type: 'category',
-        // type: 'value',
-        // scale: true,
-        // position: 'top',
-        boundaryGap: false,
-        splitLine: {
-            show: false
-        },
-        axisLine: {
-            show: false
-        },
-        axisTick: {
-            show: false
-        },
-    }, {
-        gridIndex: 3,
-        show: false,
-        type: 'value',
-        splitLine: {
-            show: false
-        },
     }],
     yAxis: [{
         gridIndex: 0,
         show: false,
-    }, {
-        gridIndex: 1,
-        show: false,
-    }, {
-        show: true,
-        gridIndex: 3,
-        type: 'category',
-        boundaryGap: true,
-        axisLine: false,
-        axisLabel: {
-            color: "#fff"
-        },
-        splitLine: {
-            show: false
-        },
-        data: leftBarYAxisData
-    }, {
-        show: false,
-        gridIndex: 3,
-        type: 'category',
-        boundaryGap: true,
-        axisLine: false,
-        axisLabel: {
-            fontSize: gWidth * 0.008,
-            color: "#fff"
-        },
-        splitLine: {
-            show: false
-        },
-        data: leftBarYAxisData
     }],
     geo: {
         map: 'china',
@@ -189,7 +131,10 @@ option = {
         roam: false,
         itemStyle: {
             areaColor: '#323c48',
-            borderColor: '#111'
+            borderColor: '#5A77D3',
+            borderWidth: 2,
+            shadowBlur: 50,
+            shadowColor: 'rgba(79,109,219,0.2)'
         }
     },
     grid: [{
@@ -199,43 +144,6 @@ option = {
         tooltip: {
             trigger: 'item'
         },
-    }, {
-        // 顶部正中数字柱状图
-        borderWidth: 0,
-        left: "center",
-        top: gHeight * 0.05,
-        width: gWidth * 0.1,
-        height: gHeight * 0.06,
-        textStyle: {
-            color: "#fff"
-        },
-        tooltip: {
-            show: false
-        },
-    }, {
-        // 顶部正中数字下白线
-        show: true,
-        borderWidth: gHeight * 0.001,
-        borderColor: "#fff",
-        left: "center",
-        top: gHeight * 0.12,
-        width: gWidth * 0.12,
-        height: gHeight * 0.001,
-        textStyle: {
-            color: "#fff"
-        },
-        tooltip: {
-            show: false
-        },
-    }, {
-        // 左侧柱状图
-        show: true,
-        borderWidth: 0,
-        // borderColor: "#f00",
-        x: '5%',
-        y: '10%',
-        width: '20%',
-        height: '80%'
     }],
     graphic: [{
         type: 'group',
@@ -272,156 +180,139 @@ option = {
     series: [{
             xAxisIndex: 0,
             yAxisIndex: 0,
+            name: 'Top 5',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbol: 'circle',
+            symbolSize: function(d) {
+                return circleRadius(d[2]);
+            },
+            label: {
+                show: true,
+                color: '#fff',
+                fontSize: 12,
+                fontWeight: "bold",
+                formatter: function(d) {
+                    if (_.findIndex(top5, function(v) {
+                            return v.name === d.name
+                        }) > -1) {
+                        return d.dataIndex + 1
+                    }
+                    return ""
+                }
+            },
+            itemStyle: {
+                color: function(params) {
+                    return s(xdomain(params.value[2])).toString()
+                },
+            },
+            zlevel: 6,
+            data: rsData,
+        }, {
+            xAxisIndex: 0,
+            yAxisIndex: 0,
             name: '城市',
             type: 'scatter',
             coordinateSystem: 'geo',
-            data: cvData.njCityData,
-            symbolSize: function(val) {
-                return Math.max(val[2] / 10, 8);
+            data: rsData,
+            symbolSize: function(d) {
+                return circleRadius(d[2]);
             },
             label: {
-                formatter: '{b}',
-                position: 'right',
-                color:"#fff",
-                fontSize: gWidth*0.005,
+                color: "#fff",
+                position: 'bottom',
+                fontWeight: "bold",
+                shadowColor: "rgba(0,0,0, 0.5)",
+                shadowBlur: 4,
+                fontFamily:"黑体",
+                fontSize: function(d) {
+                    console.log(d)
+                    return fontSize(d[2]);
+                },
+                formatter: function(p) {
+                    return p.name
+                },
                 show: true
             },
             itemStyle: {
-                color: '#ff6600',
-                position: 'right',
+                color: function(params) {
+                    return s(xdomain(params.value[2])).toString()
+                },
+                position: 'bottom',
                 show: true
             },
             emphasis: {
                 label: {
                     show: true
                 }
-            }
-        },
-        {
-            xAxisIndex: 0,
-            yAxisIndex: 0,
-            name: '城市水滴',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            symbol: 'pin',
-            symbolSize: function(val) {
-                return gWidth * 0.025;
-                // return 40+50/(val[2]+val[2]*0.3);
             },
-            label: {
-                show: true,
-                color: '#fff',
-                fontSize: gWidth * 0.006,
-                formatter: function(params) {
-                    return params.data.value[2]
-                }
-            },
-            itemStyle: {
-                color: '#F62157', //标志颜色
-            },
-            zlevel: 6,
-            data: cvData.pinCityData,
-        },
-        {
-            // 这里需要通过轮询，动态展示
-            name: "lian",
-            xAxisIndex: 0,
-            yAxisIndex: 0,
-            name: "涟漪标记",
-            type: 'effectScatter',
-            coordinateSystem: 'geo',
+            // zlevel:10
 
-            data: cvData.pinCityData,
-            symbol: "path://M 100 100 L 300 100 L 200 300 z",
-            symbolSize: function(val) {
-                return Math.max(gWidth*0.02/val[2], gWidth*0.008);
-            },
-            showEffectOn: 'render',
-            rippleEffect: {
-                brushType: 'stroke'
-            },
-            hoverAnimation: true,
-            label: {
-                show: false
-            },
-            itemStyle: {
-                color: '#f4e925',
-                shadowBlur: 10,
-                shadowColor: '#333'
-            },
-            zlevel: 1
         },
-        {
-            name: "数字",
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            type: "bar",
-            barMaxWidth: 35,
-            barGap: "10%",
-            itemStyle: {
-                color: "#fff",
-            },
-            label: {
-                show: true,
-                color: "#000",
-                fontSize: gWidth * 0.015,
-                position: "inside",
-                formatter: function(p) {
-                    return tip[p.dataIndex];
-                }
-            },
-            data: [
-                1, 1, 1, 1, 1
-            ],
-        },
-        {
-            name: 'bar 显示各城市新进',
-            type: 'bar',
-            smooth: true,
-            barCategoryGap: 25,
-            xAxisIndex: 2,
-            yAxisIndex: 2,
-            barWidth: '35%',
-            itemStyle: {
-                color: '#86c9f4'
-            },
-            label: {
-                show: false,
-            },
-            data: cvData.leftBarData,
-            zlevel: 1
-        },
-        {
-            name: 'bar 显示各城市新进背景',
-            type: 'bar',
-            smooth: true,
-            barCategoryGap: 25,
-            xAxisIndex: 2,
-            yAxisIndex: 3,
-            barWidth: '35%',
-            itemStyle: {
-                color: '#ff5504'
-            },
-            label: {
-                show: true,
-                position: "right",
-                fontSize: gWidth * 0.008,
-                color: "#fff",
-                formatter: function(params) {
-                    console.log(params)
-                    return params.data.labelValue;
-                }
-            },
-            data: cvData.leftBarBgData,
-            zlevel: 0
-        },
+
+        // {
+        //     xAxisIndex: 0,
+        //     yAxisIndex: 0,
+        //     name: '城市水滴',
+        //     type: 'scatter',
+        //     coordinateSystem: 'geo',
+        //     symbol: 'pin',
+        //     symbolSize: function(val) {
+
+        //         return gWidth * 0.025;
+        //         // return 40+50/(val[2]+val[2]*0.3);
+        //     },
+        //     label: {
+        //         show: true,
+        //         color: '#fff',
+        //         fontSize: gWidth * 0.006,
+        //         formatter: function(params) {
+        //             return params.data.value[2]
+        //         }
+        //     },
+        //     itemStyle: {
+        //         color: '#F62157', //标志颜色
+        //     },
+        //     zlevel: 6,
+        //     data: cvData.pinCityData,
+        // },
+        // {
+        //     // 这里需要通过轮询，动态展示
+        //     name: "lian",
+        //     xAxisIndex: 0,
+        //     yAxisIndex: 0,
+        //     name: "涟漪标记",
+        //     type: 'effectScatter',
+        //     coordinateSystem: 'geo',
+
+        //     data: cvData.pinCityData,
+        //     // symbol: "path://M 100 100 L 300 100 L 200 300 z",
+        //     symbolSize: function(val) {
+        //         return Math.max(gWidth*0.02/val[2], gWidth*0.008);
+        //     },
+        //     showEffectOn: 'render',
+        //     rippleEffect: {
+        //         brushType: 'stroke'
+        //     },
+        //     hoverAnimation: true,
+        //     label: {
+        //         show: false
+        //     },
+        //     itemStyle: {
+        //         color: '#f4e925',
+        //         shadowBlur: 10,
+        //         shadowColor: '#333'
+        //     },
+        //     zlevel: 1
+        // },
+
     ]
 };
 
 // 重绘影响缩放，固定大小等于。
 var myChart = echarts.init(document.getElementById('main'));
 myChart.setOption(option);
-
+console.log(echarts, myChart)
 // setInterval(function() {
 //     option.title[0].text = new Date();
 //     option.title[0].subtext = "sub " + new Date();

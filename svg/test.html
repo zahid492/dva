@@ -1,49 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Animation</title>
-    <script src="./lib/lodash.min.js"></script>
-    <script src="./lib/jquery.min.js"></script>
-    <script src="./lib/d3.js"></script>
-    <script src="./lib/d3.layout.cloud.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="description" content="Using D3v4 to create a Bubble chart. Based on NYT visualization">
+    <meta name="author" content="Jim Vallandingham">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <style>
-    .box {
-        width: 100px;
-        height: 100px;
-        border: 1px solid #000;
-    }
-
     body {
-        max-width: 960px;
-        margin: 1px;
+        margin: 0;
+        background: #222;
+        min-width: 960px;
     }
 
-    div {
-        width: 10px;
-        height: 10px;
-        margin: 1px 0 0 1px;
-        float: left;
-        background: #eee;
-        display: inline-block;
+    rect {
+        fill: none;
+        pointer-events: all;
+    }
+
+    circle {
+        fill: none;
+        stroke-width: 2.5px;
     }
     </style>
+    <script src="./lib/d3.v3.js"></script>
+    <script src="./lib/topojson.v2.min.js"></script>
+    <script src="./lib/jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="box">box</div>
-
- <!--    <ul id="list">
-        <li data-username="shawnbot">Shawn Allen</li>
-        <li data-username="mbostock">Mike Bostock</li>
-    </ul> -->
-    <!-- <script src="./js/test.js"></script>     -->
-    <script src="./js/test-cloud.js"></script>
+    <!-- https://bl.ocks.org/mbostock/1062288 -->
+    <script>
+    $(function() {
+        //
 
 
+        var width = Math.max(960, innerWidth),
+            height = Math.max(500, innerHeight);
+
+        var x1 = width / 2,
+            y1 = height / 2,
+            x0 = x1,
+            y0 = y1,
+            i = 0,
+            r = 200,
+            τ = 2 * Math.PI;
+
+        var canvas = d3.select("body").append("canvas")
+            .attr("width", width)
+            .attr("height", height)
+            .on("ontouchstart" in document ? "touchmove" : "mousemove", move);
+
+        var context = canvas.node().getContext("2d");
+        context.globalCompositeOperation = "lighter";
+        context.lineWidth = 2;
+
+        d3.timer(function() {
+            context.clearRect(0, 0, width, height);
+
+            var z = d3.hsl(++i % 360, 1, .5).rgb(),
+                c = "rgba(" + z.r + "," + z.g + "," + z.b + ",",
+                x = x0 += (x1 - x0) * .1,
+                y = y0 += (y1 - y0) * .1;
+
+            d3.select({}).transition()
+                .duration(2000)
+                .ease(Math.sqrt)
+                .tween("circle", function() {
+                    return function(t) {
+
+                        context.strokeStyle = c + (1 - t) + ")";
+                        context.beginPath();
+                        context.arc(x, y, r * t, 0, τ);
+                        context.stroke();
+                    };
+                });
+        });
+
+        function move() {
+            var mouse = d3.mouse(this);
+            x1 = mouse[0];
+            y1 = mouse[1];
+            d3.event.preventDefault();
+        }
+
+
+
+
+    })
+    </script>
 </body>
 
 </html>

@@ -11,6 +11,7 @@
 
     </style>
     <script src="lib/d3.js"></script>
+    <script src="lib/anime.js"></script>
     <!-- <script src="lib/topojson.v2.min.js"></script> -->
     <script src="lib/jquery.min.js"></script>
 </head>
@@ -46,32 +47,68 @@
         var gradient = svg.append("defs").append("radialGradient")
             .attr("id", "gradient")
             .attr("x1", "0%")
-            .attr("y1", "20%")
-            .attr("x2", "20%")
+            .attr("y1", "0%")
+            .attr("x2", "100%")
             .attr("y2", "100%");
 
         gradient.append("stop")
-            .attr("offset", "20%")
+            .attr("offset", "0%")
             .attr("stop-color", "#f90");
 
         gradient.append("stop")
             .attr("offset", "100%")
             .attr("stop-color", "#fff");
-        var path = g.append("path");
 
-        d3.timer(function() {
-            path.attr("d", d3.arc()
-                    .innerRadius(radius(0))
-                    .outerRadius(function(d) {
-                        return radius(Math.random() * 9) + 10;
-                    })
-                    .startAngle(0)
-                    .endAngle(2 * Math.PI)
-                )
-                .attr("fill", "url(#gradient)")
+        g.append("circle")
+            .attr("class", "slash")
+            .attr("r", 20)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("fill", "url(#gradient)")
 
-            // .attr("stroke", "black");
-        }, 2000);
+        // d3.timer(function() {
+        //     var c = d3.select(".slash");
+        //     // console.log(c)
+        //     c.transition().attrTween("r", function(d) {
+        //         return function(t) {
+        //             var i = d3.interpolate(20, 35);
+        //             return Math.sin(Math.random()*10)*15+i(t)
+        //         };
+        //     });
+        // },1500);
+
+
+        g.append("circle")
+            .attr("r", 20)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("fill", "#f90");
+
+        var morphing = anime({
+            targets: '.slash',
+            r: [
+                { value: '35' },
+            ],
+            easing: 'easeOutQuad',
+            duration: 100,
+            loop: true
+        });
+
+
+
+        // var path = g.append("path");
+        // path.attr("d", d3.arc()
+        //         .innerRadius(radius(20))
+        //         .outerRadius(function(d) {
+        //             return 40;
+        //         })
+        //         .startAngle(0)
+        //         .endAngle(2 * Math.PI)
+        //     )
+        //     .attr("fill", "url(#gradient)")
+
+        // .attr("stroke", "black");
+
 
         // Circular Layout
         // var circle = g.selectAll("circle")
