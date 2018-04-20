@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script type="text/javascript" src="./lib/index.browser.js"></script>
+    <script type="text/javascript" src="./lib/libs.js"></script>
+    <!-- Demo styles -->
+    <style>
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        display: block;
+        width: 100%;
+        min-height: 100px;
+    }
+
+    ul li {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 0px;
+        opacity: 0
+    }
+
+    .swiper-container,
+    .swiper-head {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        z-index: 0;
+        border: 1px solid #000;
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .swiper-pagination-bullet-active {
+        color: #fff;
+        background: #007aff;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <script id="tpl" type="text/html">
+        <div class="swiper-slide" style="height:400px;">
+            <ul>
+                <% _.forEach(lists, function(v, i){ %>
+                    <li>
+                        <span><%= v %></span>
+                    </li>
+                    <% }); %>
+            </ul>
+        </div>
+    </script>
+    <!-- Swiper JS -->
+    <script src="lib/swiper.js"></script>
+    <script src="js/list3-swiper.js"></script>
+</body>
+
+</html>

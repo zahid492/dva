@@ -47,9 +47,6 @@ $(function() {
         });
     });
 
-    console.log(playerList)
-
-
     var psw = new Swiper('#s1', {
         autoplay: false,
         speed: 2000,
@@ -66,13 +63,14 @@ $(function() {
         },
         on: {
             slideChangeTransitionEnd: function() {
-                _.forEach(playerList, function(v) {
-                    v.pause();
-                });
+                pstop()
 
                 _.forEach(sw, function(v) {
                     v.autoplay.stop();
+                    v.slideTo(0, 100, false);
                 })
+
+                // sw[this.activeIndex].slideTo(0);
 
                 sw[this.activeIndex].autoplay.start();
 
@@ -80,7 +78,11 @@ $(function() {
         }
     });
 
-
+    function pstop() {
+        _.forEach(playerList, function(v, i) {
+            v.pause();
+        })
+    }
 
     childSlide.each(function(i, el) {
 
@@ -108,73 +110,63 @@ $(function() {
                     var curSlide = $(this.slides[this.activeIndex])
 
                     var hasVideo = curSlide.hasClass("video");
-
-                    console.log(hasVideo)
-
-                    function pstop(player) {
-                        player.pause();
-                    }
+                    // 手动切换过来，关闭前面的视频
+                    pstop();
                     // 需要提前确定视频的 index, 确定视频 video id
                     if (hasVideo) {
-
-                        var vid = curSlide.attr("id").slice(1)
-                        console.log(vid)
-                        playerList[vid].play();
-
+                        // 停止轮播
                         sw[i].autoplay.stop();
 
-                        // How about an event listener?
-                        playerList[vid].on('ended', function() {
-                            sw[i].autoplay.start();
-                            if (sw[i].isEnd && !sw[i].animating) {
-                                // 切换完或视频播放完才能结束
-                                console.log("end:", i)
-                                // sw[i].autoplay.stop();
-                                if (i === childLen - 1) {
-                                    psw.slideTo(0, function() {
-                                        pstop(playerList[vid]);
-                                        sw[0].slideTo(0, function() {
-                                            pstop(playerList[vid]);
-                                        });
+                        // 视频id
+                        var vid = curSlide.attr("id").slice(1)
+                        console.log(vid, playerList[vid].duration)
+                        // 播放视频
+                        playerList[vid].play();
 
+                        // 视频播放完毕
+                        playerList[vid].on('ended', function() {
+                            // 开始轮播
+                            sw[i].autoplay.start();
+                            // 最后一个 slide 并且动画完毕
+                            if (sw[i].isEnd && !sw[i].animating) {
+                                console.log("end:", i)
+
+                                if (i === childLen - 1) {
+                                    psw.slideTo(0, 2000, function() {
+                                        sw[0].autoplay.stop();
+                                        sw[0].slideTo(0);
                                         sw[0].autoplay.start();
+                                        return true;
                                     });
 
                                 } else {
-                                    psw.slideTo(i + 1, function() {
-                                        pstop(playerList[vid]);
-                                        sw[i + 1].slideTo(i + 1, function() {
-                                            pstop(playerList[vid]);
-                                        });
-
+                                    psw.slideTo(i + 1, 2000, function() {
                                         sw[i + 1].autoplay.start();
+                                        sw[i + 1].slideTo(0);
+                                        sw[i + 1].autoplay.start();
+                                        return true;
                                     });
                                 }
                             }
                         });
 
                     } else if (sw[i].isEnd && !sw[i].animating) {
-                        // 切换完或视频播放完才能结束
-                        console.log("else end:", i)
-                        // sw[i].autoplay.stop();
+                        sw[i].autoplay.stop();
+                        // 最后一个 slide 并且动画完毕
                         if (i === childLen - 1) {
-                            psw.slideTo(0, function() {
-                                pstop(playerList[vid]);
-                                sw[0].slideTo(0, function() {
-                                    pstop(playerList[vid]);
-                                });
-
+                            psw.slideTo(0, 2000, function() {
+                                sw[0].autoplay.stop();
+                                sw[0].slideTo(0);
                                 sw[0].autoplay.start();
+                                return true;
                             });
 
                         } else {
-                            psw.slideTo(i + 1, function() {
-                                pstop(playerList[vid]);
-                                sw[i + 1].slideTo(i + 1, function() {
-                                    pstop(playerList[vid]);
-                                });
-
+                            psw.slideTo(i + 1, 2000, function() {
+                                sw[i + 1].autoplay.stop();
+                                sw[i + 1].slideTo(0);
                                 sw[i + 1].autoplay.start();
+                                return true;
                             });
                         }
                     }

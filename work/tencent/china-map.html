@@ -21,14 +21,13 @@ svg {
 }
 
 .desText {
-    font-size:  10px;
+    font-size: 10px;
 }
 </style>
 
 <body>
     <script src="./lib/d3.js"></script>
-    <script src="./lib/anime.js"></script>
-    <script src="./lib/lodash.min.js"></script>
+    <script src="./lib/libs.js"></script>
     <script>
     var data = [{ name: "北京", value: 138 }, { name: "南京", value: 47 }, { name: "吉林", value: 74 }, { name: "上海", value: 183 }, { name: "成都", value: 192 }, { name: "哈尔滨", value: 35 }, { name: "沈阳", value: 0 }, { name: "武汉", value: 36 }, { name: "石家庄", value: 32 }, { name: "天津", value: 7 }, { name: "太原", value: 1 }, { name: "西安", value: 103 }, { name: "南宁", value: 29 }, { name: "南昌", value: 48 }, { name: "济南", value: 31 }];
     var geoCoordMap = {
@@ -141,21 +140,35 @@ svg {
 
     var projection = d3.geoMercator()
         .center([107, 37.5])
-        .scale(880)
+        .scale(800)
         .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
         .projection(projection);
 
+    d3.json("./lib/nh.geojson", function(error, toporoot) {
+        if (error) {
+            return console.error(error);
+        }
+
+                var georoot = toporoot;
+        var china = svg.append("g");
+        var provinces = china.selectAll("path")
+            .data(georoot.features)
+            .enter()
+            .append("path")
+            .attr("class", "province")
+            .style("fill", "#0A1646")
+            .attr("d", path);
+    });
+
     d3.json("./lib/china.geojson", function(error, toporoot) {
         if (error) {
             return console.error(error);
         }
-        //将TopoJSON对象转换成GeoJSON，保存在georoot中
-        // var georoot = topojson.feature(toporoot,toporoot.objects.china);
+
         var georoot = toporoot;
         var china = svg.append("g");
-
         var provinces = china.selectAll("path")
             .data(georoot.features)
             .enter()
@@ -179,8 +192,7 @@ svg {
         location.append("circle")
             .attr("class", "slash")
             .attr("fill", function(d, i) {
-                console.log(s(xdomain(d.value[2])))
-                console.log(d3.color(s(xdomain(d.value[2]))))
+
                 var gradient = svg.append("defs").append("radialGradient")
                     .attr("id", "gradient" + i)
                     .attr("x1", "0%")
@@ -214,7 +226,7 @@ svg {
 
         d3.selectAll(".slash").each(function(d, i, nodes) {
             var rt = circleRadius(d.value[2]);
-            console.log(d, i, nodes[i], rt)
+
             anime({
                 targets: nodes[i],
                 r: [
@@ -313,7 +325,6 @@ svg {
 
 
     });
-
     </script>
 </body>
 

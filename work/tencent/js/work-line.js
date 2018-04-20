@@ -7,25 +7,25 @@ $(function() {
         // },
         silent: false,
         animationDuration: 2000,
-        tooltip: {
-            trigger: 'axis',
-            alwaysShowContent: true,
-            backgroundColor: 'rgba(255,255,255, 0.6)',
-            textStyle: {
-                color: "000"
-            },
-            axisPointer: {
-                type: 'cross',
-                label: {
-                    backgroundColor: '#6a7985',
-                }
-            },
-            padding: [5, 10],
+        // tooltip: {
+        //     trigger: 'axis',
+        //     alwaysShowContent: true,
+        //     backgroundColor: 'rgba(255,255,255, 0.6)',
+        //     textStyle: {
+        //         color: "000"
+        //     },
+        //     axisPointer: {
+        //         type: 'cross',
+        //         label: {
+        //             backgroundColor: '#6a7985',
+        //         }
+        //     },
+        //     padding: [5, 10],
 
-            formatter: function(param) {
-                return param[0].axisValue + "<br/>" + param[0].seriesName + ": " + param[0].value + "<br/>" + param[1].seriesName + ": " + param[1].value
-            }
-        },
+        //     formatter: function(param) {
+        //         return param[0].axisValue + "<br/>" + param[0].seriesName + ": " + param[0].value + "<br/>" + param[1].seriesName + ": " + param[1].value
+        //     }
+        // },
         legend: {
             left: "center",
             itemGap: 30,
@@ -155,8 +155,8 @@ $(function() {
                     width: 4,
                     shadowColor: "#FE313E",
                     shadowBlur: 45,
-                    shadowOffsetX: 10,
-                    shadowOffsetY: 10,
+                    shadowOffsetX: 5,
+                    shadowOffsetY: 5,
                     color: {
                         type: 'linear',
                         x: 0,
@@ -186,17 +186,17 @@ $(function() {
                             offset: 0,
                             color: '#FE8CFE' // 0% 处的颜色
                         }, {
-                            offset: 0.3,
+                            offset: 0.35,
                             color: '#FE313E' // 0% 处的颜色
                         }, {
-                            offset: 1,
-                            color: '#2D3B6C' // 100% 处的颜色
+                            offset: 0.75,
+                            color: 'rgba(44,58,107, 0.1)' // 100% 处的颜色
                         }],
                         globalCoord: false // 缺省为 false
                     },
                     shadowColor: "rgba(240,58,76, 1)",
                     shadowBlur: 25,
-                    opacity: 0.2,
+                    opacity: 0.1,
 
                 },
                 itemStyle: {
@@ -231,31 +231,9 @@ $(function() {
                 lineStyle: {
                     width: 4,
                     shadowColor: "#92BCEE",
-                    // shadowColor:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    //     offset: 0,
-                    //     color: 'rgb(255, 158, 68)'
-                    // }, {
-                    //     offset: 1,
-                    //     color: 'rgb(255, 70, 0)'
-                    // }]),
-                    // shadowColor: {
-                    //     type: 'linear',
-                    //     x: 0,
-                    //     y: 0,
-                    //     x2: 1,
-                    //     y2: 0,
-                    //     colorStops: [{
-                    //         offset: 0,
-                    //         color: '#41FBB0' // 0% 处的颜色
-                    //     }, {
-                    //         offset: 1,
-                    //         color: '#40FCB0' // 100% 处的颜色
-                    //     }],
-                    //     globalCoord: false
-                    // },
                     shadowBlur: 45,
-                    shadowOffsetX: 10,
-                    shadowOffsetY: 10,
+                    shadowOffsetX: 5,
+                    shadowOffsetY: 5,
                     opacity: 1,
 
                     color: {
@@ -286,17 +264,17 @@ $(function() {
                             offset: 0,
                             color: '#40FCB0' // 0% 处的颜色
                         }, {
-                            offset: 0.3,
+                            offset: 0.35,
                             color: '#92BCEE' // 0% 处的颜色
                         }, {
-                            offset: 1,
-                            color: '#2D3B6C' // 100% 处的颜色
+                            offset: 0.75,
+                            color: 'rgba(44,58,107, 0.1)' // 100% 处的颜色
                         }],
                         globalCoord: false // 缺省为 false
                     },
                     shadowColor: "rgba(67,250,180, 1)",
-                    shadowBlur: 25,
-                    opacity: 0.2,
+                    shadowBlur: 45,
+                    opacity: 0.1,
 
                 },
 
@@ -319,31 +297,4 @@ $(function() {
 
 
     myChart.setOption(option);
-
-
-    const myoption = myChart.getOption();
-    // var dlen = myoption.series[0].data.length
-    // var i = 0;
-    // var timer = setInterval(function() {
-    //     myChart.dispatchAction({
-    //         type: 'showTip',
-    //         seriesIndex: 0,
-    //         dataIndex: i,
-    //         position: function(p) {
-
-    //             return [p[0], p[1] - 60]
-    //         }
-    //     });
-    //     i += 1;
-    //     if (i >= dlen) {
-    //         clearInterval(timer);
-    //     }
-    // }, 2000);
-//  ????
-    myChart.on('mouseover', function(params) {
-        console.log("clear:", params);
-        // window.clearInterval(timer);
-    });
-
-
 })
