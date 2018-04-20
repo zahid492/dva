@@ -1,0 +1,13 @@
+/*! Taken from the book, 'Sass and Compass for designers' by Ben Frain */
+
+// ====================================================================
+// Imports
+// ====================================================================
+@import "compass";
+@import "partials/variables"; //变量集中存储样式
+@import "partials/mixins"; //混合宏
+@import "partials/placeholders"; //占位符
+@import "partials/fonts"; //字体样式
+@import "partials/iconfonts"; //字体图标样式
+@import "partials/base"; //基础样式
+@import "partials/main"; //主体样式

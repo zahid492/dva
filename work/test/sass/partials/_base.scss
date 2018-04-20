@@ -1,0 +1,168 @@
+*,
+*:before,
+*:after {
+    @include box-sizing;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-size1;
+    background: $color2;
+    color: $color3;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+del,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+button,
+input,
+select,
+textarea,
+p,
+blockquote,
+th,
+td,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    color: $color1;
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/*渐变线*/
+
+.gradientLine {
+    display: block;
+    height: 0.01rem;
+    @include gradientLine;
+}
+
+.gradientLine--vertical {
+    display: block;
+    width: 0.01rem;
+    @include gradientLine--vertical;
+}
+
+.gradientLine--lr {
+    display: block;
+    height: 0.01rem;
+    @include gradientLine--lr;
+}
+
+.gradientLine--full {
+    display: block;
+    height: 0.01rem;
+    @include gradientLine(1);
+}
+
+/*模块标题*/
+
+.title-box {
+    background: $color1;
+    border-radius: 0.06rem 0.06rem 0 0;
+}
+
+.title {
+    height: 0.56rem;
+    line-height: 0.54rem;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -ms-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -moz-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -webkit-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -o-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    box-shadow: 0px 9px 62px #231d50;
+    .gradientLine {
+        @include gradientLine(0.38);
+    }
+    .title__txt {
+        font-size: 0.2rem;
+    }
+}
+
+.title--sub {
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -ms-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -moz-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -webkit-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    background: -o-linear-gradient(left, rgba(59, 74, 130, 0), rgba(59, 74, 130, 1), rgba(59, 74, 130, 0));
+    box-shadow: 0px 9px 62px #231d50;
+    .gradientLine {
+        @include gradientLine(0.38);
+    }
+    .title__box {
+        padding: 0.06rem 0;
+        .title__txt {
+            font-size: 0.2rem;
+        }
+        .title__sub {
+            font-size: $font-size0;
+            ;
+            color: $color7;
+            font-weight: normal;
+        }
+    }
+}
+
+/*解释说明文字*/
+
+.explain {
+    line-height: 0.24rem;
+    font-weight: bold;
+    color: $color7;
+}
+
+.description {
+    line-height: 0.24rem;
+    color: $color7;
+    font-size: $font-size0;
+    ;
+}
