@@ -127,7 +127,7 @@ $(function() {
 
                         // 视频id
                         var vid = curSlide.attr("id").slice(1)
-                        console.log(vid, playerList[vid].duration)
+                        console.log(curSlide.attr("id")， vid, playerList[vid].duration)
                         // 播放视频
                         playerList[vid].play();
 
