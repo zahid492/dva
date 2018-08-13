@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    .slide-in {
+        transform: scale(1.5);
+    }
+
+    .slide-out {
+        transform: scale(1);
+    }
+    svg.z-map .slash {
+        /*animation: 0.4s ease-in-out 0.2s slidein infinite;*/
+        /* transition: all .2s ease-in-out .1s; */
+
+    }
+    svg.z-map .slash:hover {
+        /*animation: 0.4s ease-in-out 0.2s slidein infinite;*/
+        /* transform: scale(1.5); */
+    }
+
+/*     .slash {
+        animation: 0.4s ease-in-out 0.5s slidein infinite;
+    }
+
+    @keyframes slidein {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(2);
+        }
+    } */
+    </style>
+    <script src="./lib/d3.v3.js"></script>
+    <script src="./lib/jquery.min.js"></script>
+</head>
+
+<body>
+    <svg class="z-map" width="1204" height="728">
+        <defs>
+            <radialGradient id="gradient0" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="rgb(250, 81, 0)"></stop>
+                <stop offset="100%" stop-color="rgba(255,142,0,0.05)"></stop>
+            </radialGradient>
+        </defs>
+        <!--       <g class="location" transform="translate(100,100)">
+            <circle class="bottomCircle" cx="0" cy="0" fill="rgb(249, 214, 0)" opacity="0.7" r="20"></circle>
+            <circle tdv="-1" class="outCircle" cx="0" cy="0" stroke="rgb(249, 214, 0)" stroke-width="1" r="20"></circle>
+        </g> -->
+        <g transform="translate(100,100)">
+            <circle class="slash slide-out" cx="0" cy="0" fill="url(#gradient0)" opacity="0.6" r="20"></circle>
+        </g>
+    </svg>
+    <script>
+    $(function() {
+
+    })
+    </script>
+</body>
+
+</html>

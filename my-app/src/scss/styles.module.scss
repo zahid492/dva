@@ -1,0 +1,18 @@
+@import "partials/_variables.scss";
+@import "partials/_mixins.scss";
+@import "partials/_main.scss";
+
+.app {
+  color: aqua;
+
+  &:hover {
+    color: lawngreen;
+  }
+}
+
+.ball {
+  width:30px;
+  height:30px;
+  border-radius:15px;
+  background: #f24944;
+}

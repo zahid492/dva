@@ -170,13 +170,13 @@ jb.ui.cpie = function(opt) {
         .outerRadius(opt.outRadius)
         .innerRadius(opt.inRadius)
         .startAngle(0)
-        .endAngle(opt.endAngle);
+    // .endAngle(opt.endAngle);
 
-    var pathShadow = d3.arc()
-        .outerRadius(opt.outRadius)
-        .innerRadius(opt.inRadius)
-        .startAngle(0)
-        .endAngle(opt.endAngle);
+    // var pathShadow = d3.arc()
+    //     .outerRadius(opt.outRadius)
+    //     .innerRadius(opt.inRadius)
+    //     .startAngle(0)
+    //     .endAngle(opt.endAngle);
 
     g1.append("path")
         .attr("class", "bg")
@@ -185,13 +185,24 @@ jb.ui.cpie = function(opt) {
 
     g1.append("path")
         .attr("class", "fb")
-        .attr("d", path)
-        .attr("fill", "url(#gradient)");
-
-    g1.append("path")
-        .attr("class", "fbs")
-        .attr("d", pathShadow)
-        .attr("opacity", 0.6)
+        // .attr("d", path)
         .attr("fill", "url(#gradient)")
-        .attr("filter", "url(#" + blurId + ")");
+        .transition()
+        .duration(1000)
+        .attrTween("d", function(d) {
+
+            var i = d3.interpolate(0, opt.endAngle);
+            return function(t) {
+                return path({ endAngle: i(t) });
+            };
+
+
+        });
+
+    // g1.append("path")
+    //     .attr("class", "fbs")
+    //     .attr("d", pathShadow)
+    //     .attr("opacity", 0.6)
+    //     .attr("fill", "url(#gradient)")
+    //     .attr("filter", "url(#" + blurId + ")");
 }

@@ -1,0 +1,15 @@
+@mixin clearfix {
+    zoom: 1;
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+@mixin header__title {
+    color: $color10;
+    font-size: $font-size4;
+}
