@@ -5,38 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Animation</title>
+    <script src="https://cdn.bootcss.com/rxjs/6.2.0/rxjs.umd.js"></script>
     <script src="./lib/lodash.min.js"></script>
     <script src="./lib/jquery.min.js"></script>
-    <script src="./lib/anime.js"></script>
+    <script src="./lib/dat.gui.js"></script>
+    <script src="./lib/rxjs.umd.js"></script>
+    <script src="./lib/pixi.js"></script>
+    <script src="./lib/dist/paper-core.js"></script>
+    <script src="./js/test1.js"></script>
     <style>
-    .container {
-        position: relative;
-        width: 500px;
-        height: 500px;
-        z-index: 0;
-        border: 1px solid #000;
-    }
 
-    ul li { height: 1px; opacity: 0}
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <ul class="list">
-        </ul>
-    </div>
-    <script id="tpl" type="text/html">
-        <% _.forEach(lists, function(v, i){ %>
-            <li>
-                <span><%= v.num %></span>
-                <a>
-                    <%= v.txt %>
-                </a>
-            </li>
-            <% }); %>
-    </script>
-    <script src="./js/test1.js"></script>
+    <input type="text" />
 </body>
 
 </html>
