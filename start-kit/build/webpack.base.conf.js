@@ -2,6 +2,8 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const rxPaths = require('rxjs/_esm5/path-mapping');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -18,13 +20,16 @@ module.exports = {
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath,
+    devtoolModuleFilenameTemplate: function (info) {
+      return "file:///" + info.absoluteResourcePath;
+    }
   },
   resolve: {
     extensions: ['.js', '.json'],
-    alias: {
+    alias: Object.assign({
       '@': resolve('src'),
-    }
+    }, rxPaths())
   },
   module: {
     rules: [
@@ -59,6 +64,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new DashboardPlugin(),
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
