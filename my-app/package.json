@@ -62,6 +62,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.6.5",
+    "babel-preset-stage-3": "^6.24.1",
     "node-sass": "^4.9.3",
     "react-app-rewire-css-modules": "codebandits/react-app-rewire-css-modules",
     "react-app-rewired": "^1.4.1",
@@ -104,7 +105,7 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "stage-3", "react-app"
     ]
   },
   "eslintConfig": {
