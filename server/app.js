@@ -8,8 +8,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var apis = require('./routes/apis');
 
 var app = express();
 var port = 3100;
@@ -41,9 +39,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
-// app.use('/users', users);
-app.use('/apis', apis);
-var data = [{
+
+var data1 = [{
     id: 1,
     author: "Pete Hunt",
     text: "This is one comment"
@@ -51,21 +48,28 @@ var data = [{
     id: 2,
     author: "Jordan Walke1",
     text: "This is *another* comment"
-}, {
+}];
+var data2 =  [{
     id: 3,
     author: "Jordan Walke2",
     text: "This is *another* comment3"
 }];
+
 app.get('/', function(req, res, next) {
     res.render('index', {
         title: 'Express'
     });
 });
 // react test data
-app.get('/api/test', function(req, res, next) {
-    console.log(data)
-    res.send(data);
+app.get('/api/test1', function(req, res, next) {
+    console.log(data1)
+    res.send({data: data1});
 });
+app.get('/api/test2', function(req, res, next) {
+    console.log(data2)
+    res.send({data: data2});
+});
+
 app.post('/api/test', function(req, res, next) {
     // console.log(req.body)
     var id = parseInt(data[data.length - 1].id, 10) + 1;
@@ -100,5 +104,5 @@ app.use(function(err, req, res, next) {
 var server = http.createServer(app);
 
 server.listen(port, function() {
-    console.log("App listening on port 3000");
+    console.log("App listening on port 3100");
 });

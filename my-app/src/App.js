@@ -9,13 +9,13 @@ import co from 'co';
 const API_ROOTS = 'http://localhost:3100/';
 
 class App extends Component {
-    constructor(props){
-        super(props);
-        // this.genG = this.gen.bind(this);
-
-        this.state = {
-        }
-    }
+    // constructor(props){
+    //     super(props);
+    //     // this.genG = this.gen.bind(this);
+    // }
+    state = {
+        count:0
+    };
 
     async gen (){
         let x, y, xx, yy;
@@ -32,16 +32,26 @@ class App extends Component {
     };
 
     async componentDidMount() {
-        let g = this.gen();
-
-        g.then((data)=>{
-            console.log(data)
-        })
+        const that = this;
+        // let g = this.gen();
+        //
+        // g.then((data)=>{
+        //     console.log(data)
+        // })
         // let docs = [request.get(API_ROOTS + "api/test1"), request.get(API_ROOTS + "api/test2")];
         // for await (let doc of docs){
         //     console.log(doc);
         // }
 
+        let x = await new Promise(function(resolve, reject){
+            window.setInterval(()=>{
+                that.setState({
+                    count: that.state.count+1
+                }, ()=>{
+                    resolve(that.state.count)
+                })
+            }, 1000)
+        })
 
     }
 
@@ -50,7 +60,7 @@ class App extends Component {
 
         return (
             <div className="app">
-
+                {this.state.count}
             </div>
         );
     }
