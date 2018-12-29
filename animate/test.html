@@ -2,25 +2,50 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Animation</title>
-    <script src="https://cdn.bootcss.com/rxjs/6.2.0/rxjs.umd.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .svgbox {
+            position: relative;
+            width: 850px;
+            height: 600px;
+            background: #efefef;
+            border: 1px solid #000000;
+        }
+
+        .el {
+            position: absolute;
+            left: 0px;
+            top: -60px;
+            display: block;
+            width: 20px;
+            height: 60px;
+            background: #1ed36f;
+        }
+    </style>
     <script src="./lib/lodash.min.js"></script>
     <script src="./lib/jquery.min.js"></script>
-    <script src="./lib/dat.gui.js"></script>
-    <script src="./lib/rxjs.umd.js"></script>
-    <script src="./lib/pixi.js"></script>
-    <script src="./lib/dist/paper-core.js"></script>
-    <script src="./js/test1.js"></script>
-    <style>
 
-    </style>
+    <script src="./lib/anime.js"></script>
     <script src="js/test1.js"></script>
 </head>
 
 <body>
-    <input type="text" />
+<div class="svgbox">
+    <div class="el"></div>
+    <svg id="tvbox" data-name="tvbox" xmlns="http://www.w3.org/2000/svg" width="850"
+         height="600"
+         viewBox="0 0 850 600">
+        <g fill="none" fill-rule="evenodd" stroke="red" stroke-width="1">
+            <path stroke-dasharray="850" style="stroke-dashoffset: 850px;"
+                  d="m 38.266017,271.85014 c 0,0 84.174413,-159.69937 271.530373,-126.51508 187.35597,33.18428 377.42723,161.77338 377.42723,161.77338 l 119.47337,80.8867"/>
+        </g>
+    </svg>
+</div>
+
 </body>
 
 </html>

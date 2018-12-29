@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anime timeline | anime.js</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:title" content="anime.js">
+  <meta property="og:url" content="http://animejs.com">
+  <meta property="og:description" content="Javascript Animation Engine">
+  <meta property="og:image" content="http://animejs.com/documentation/assets/img/icons/og.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="anime.js">
+  <meta name="twitter:site" content="@juliangarnier">
+  <meta name="twitter:description" content="Javascript Animation Engine">
+  <meta name="twitter:image" content="http://animejs.com/documentation/assets/img/icons/twitter.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/icons/favicon.png" >
+  <link href="../assets/css/anime.css" rel="stylesheet">
+  <script src="../../anime.js"></script>
+  <!-- <script src="../assets/js/anime.2.0.1.js"></script> -->
+  <style>
+
+    body {
+      display: flex;
+      flex-wrap: no-wrap;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .el {
+      width: 10px;
+      height: 10px;
+      background: white;
+      transform: scale(0);
+      margin: 10px;
+    }
+
+    .controls {
+      display: flex;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100px;
+      background: white;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .buttons button {
+      width: 100px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .progress {
+      flex-grow: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="el no-offset"></div>
+  <div class="el relative-offset" style="background: #f80"></div>
+
+
+</body>
+<script>
+
+  var noOffset = anime.timeline({
+    autoplay: true
+  });
+
+  noOffset
+    .add({
+      targets: '.no-offset',
+      translateX: -100,
+      translateY: -100,
+      scale: 1,
+      duration:1000,
+      background: '#FF1461',
+      begin: function() { console.log('noOffset animation 1 began')},
+      complete: function() { console.log('noOffset animation 1 completed')}
+    })
+    .add({
+      targets: '.no-offset',
+      translateX: -100,
+      translateY: 100,
+      scale: 1,
+      background: '#18FF92',
+      duration:1000,
+      begin: function() { console.log('noOffset animation 2 began')},
+      complete: function() { console.log('noOffset animation 2 completed')}
+    })
+
+  var relativeOffset = anime.timeline({
+    autoplay: true
+  });
+
+  relativeOffset
+    .add({
+      targets: '.relative-offset',
+      translateX: -100,
+      translateY: -100,
+      scale: 1,
+      background: '#FF1461',
+      offset: '+=1000'
+    })
+    .add({
+      targets: '.relative-offset',
+      translateX: -100,
+      translateY: 100,
+      scale: 1,
+      background: '#6f0F92',
+      duration:1000,
+
+    })
+
+
+  </script>
+  <script src="../assets/js/stats.js"></script>
+</html>

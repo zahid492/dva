@@ -4,15 +4,25 @@
  * @Last Modified by:   wsc
  * @Last Modified time: 2018-08-27 10:24:25
  */
-var Rx = rxjs;
-
-
 
 $(function () {
-    var input = Rx.fromEvent(document.querySelector('input'), 'input');
-    console.log(input)
-    input.pluck('target', 'value').pairwise()
-        .subscribe(value => console.log(value));
 
+    var path = anime.path('#tvbox path');
 
+    var motionPath = anime({
+        targets: '.el',
+        translateX: path('x'),
+        translateY: path('y'),
+        rotate: path('angle'),
+        easing: 'linear',
+        duration: 2000,
+    });
+
+    var lineDrawing = anime({
+        targets: '#tvbox path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'linear',
+        duration: 2000,
+        // direction: 'alternate',
+    });
 });
