@@ -54,6 +54,26 @@
                 .attr("cy", d.y = Math.max(radius, Math.min(height - radius, d3.event.y)));
         }
 
+        var sel = d3.select("#dragBox");
+
+        // var dd = d3.drag().on("drag", (d) => dragged(d))
+        //     .on("start", () => started())
+        //     .on("end", () => ended());
+        // sel.call(dd);
+
+
+        // function dragged(d) {
+        //     console.log("drag:", d3.event)
+        //     sel.raise().attr("cx", d3.event.x).attr("cy", d3.event.y);
+        // }
+
+        // function ended() {
+        //     sel.classed("dragging", false);
+        // }
+
+        // function started() {
+        //     sel.classed("dragging", true);
+        // }
 
 
     })

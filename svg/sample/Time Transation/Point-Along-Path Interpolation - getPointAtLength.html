@@ -31,8 +31,37 @@
     <!-- <svg width="960" height="960"></svg> -->
     <script>
     $(function() {
+        // method 1 跟踪现有路径
+        // var svg = d3.select("svg");
+        //     var pathk = svg.select(".k");
+        //     d3.select("#pen2")
+        //         .transition().duration(2000)
+        //         .attrTween("transform", translateAlong(pathk.node()))
 
+        // method 2
 
+        // var motionPath = MorphSVGPlugin.pathDataToBezier(".k", {align: "#pen2", offsetY: -40});
+        //     TweenMax.set("#pen2", {x: 10, y: 5});
+        //     var tween = TweenMax.to("#pen2", 2, {delay:2, bezier: {values: motionPath, type: "cubic"}});
+
+        // method 3
+        // <g id="pen2">
+        //     <image xlink:href="../assets/pen.png" width="50px" height="50px" class="pen"/>
+        // </g>
+        // var path2 = anime.path('.home svg path');
+        //     //
+        // var motionPath2 = anime({
+        //     targets: '#pen2',
+        //     translateX: path2('x'),
+        //     translateY: path2('y'),
+        //     // rotate: path1('angle'),
+        //     easing: 'linear',
+        //     duration: 2000,
+        //     delay: 1000,
+        // });
+        // .pen{
+        //     transform: translate(0, -40px);
+        // }
 
         var width = 960,
             height = 500;

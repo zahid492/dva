@@ -30,11 +30,11 @@
 	var color = d3.scale.category20();
 
 
-	d3.json("../../lib/china.geojson", function(error, root) {
+	d3.json("../../lib/cc/china.geojson", function(error, root) {
 
 		if (error)
 			return console.error(error);
-		console.log(root.features);
+		console.log(root);
 
 		svg.selectAll("path")
 			.data( root.features )
@@ -43,17 +43,12 @@
 			.attr("stroke","#000")
 			.attr("stroke-width",1)
 			.attr("fill", function(d,i){
+			    if(d.properties.name==="南海诸岛"){
+			        return "none";
+                }
 				return color(i);
 			})
 			.attr("d", path )
-			.on("mouseover",function(d,i){
-                d3.select(this)
-                    .attr("fill","yellow");
-            })
-            .on("mouseout",function(d,i){
-                d3.select(this)
-                    .attr("fill",color(i));
-            });
 
 	});
 
