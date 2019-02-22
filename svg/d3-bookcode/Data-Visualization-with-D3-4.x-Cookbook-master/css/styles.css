@@ -2,6 +2,10 @@ body {
     font-family: "helvetica";
 }
 
+svg {
+    border: 1px solid #e9967a;
+}
+
 button {
     margin: 0 7px 0 0;
     background-color: #f5f5f5;
@@ -102,7 +106,8 @@ button {
     width: 70%;
 }
 
-.table td, th {
+.table td,
+th {
     padding: 5px;
 }
 
@@ -129,28 +134,28 @@ button {
     margin-bottom: 10px;
 }
 
-.countdown{
+.countdown {
     width: 150px;
     height: 150px;
     font-size: 5em;
     font-weight: bold;
 }
 
-.axis .grid-line{
+.axis .grid-line {
     stroke: black;
     shape-rendering: crispEdges;
     stroke-opacity: .2;
 }
 
-.line{
-    fill: none;    
+.line {
+    fill: none;
     stroke: steelblue;
     stroke-width: 2;
 }
 
 .dot {
-  fill: #fff;
-  stroke: steelblue;
+    fill: #fff;
+    stroke: steelblue;
 }
 
 .area {
@@ -159,12 +164,12 @@ button {
     fill-opacity: .2;
 }
 
-.pie text{
+.pie text {
     fill: white;
     font-weight: bold;
 }
 
-._0{
+._0 {
     stroke: none;
     fill: darkred;
     fill-opacity: .7;
@@ -188,23 +193,23 @@ button {
     fill-opacity: .7;
 }
 
-._4{
+._4 {
     stroke: none;
     fill: yellow;
     fill-opacity: .7;
 }
 
-._5{
+._5 {
     stroke: none;
     fill: blueviolet;
     fill-opacity: .7;
 }
 
-.bubble{
+.bubble {
     fill-opacity: .3;
 }
 
-.bar{
+.bar {
     stroke: none;
     fill: steelblue;
 }
