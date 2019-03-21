@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TweenMax中文网</title>
+<meta name="description" content="Tweenmax是GreenSock开发的一套用于在所有主流浏览器中制作高性能HTML5动画的工具。它包含了TweenMax、TweenLite、TimelineMax、TimelineLite四个主体功能和其他一些小插件。" />
+<meta name="keywords" content="TweenMax，TweenMax.js，tweenmax使用方法，TweenLite，TimelineMax，TimelineLite，tweenmax官网，greensock中文教程，tweenmax参数，tweenmax动画效果库，tweenmax中文文档" />
+<link href="/templets/default/style/style.css" rel="stylesheet" media="screen" type="text/css" />
+<script src="/templets/default/js/jquery-1.10.1.min.js"></script>
+</head>
+<body id="demo-page">
+
+<div id="header">
+
+<div class="container">
+    <a href="http://www.tweenmax.com.cn" id="logo"><img src="/templets/default/images/logo.png"  alt="TweenMax中文网"/></a>
+    
+    	<ul id="nav">
+          <li class="top">Tweenmax演示<ul><li><a href="/demo">TweenMax demo</a></li><li><a href="/cool">TweenMax实际应用</a></li></ul></li>
+          <li><a href="/start">使用方法</a></li>
+          <li class="top">中文API<ul><li><a href="/api/tweenmax">TweenMax API</a></li><li><a href="/api/timelinemax">TimelineMax API</a></li></ul></li>
+          <li class="top">下载Tweenmax<ul><li><a href="/source">下载Tweenmax</a></li><li><a href="/cdn">TweenMax CDN</a></li></ul></li>
+          <li class="top">关于我们<ul><li><a href="/about">Tweenmax简介</a></li><li><a href="/license">Tweenmax许可</a></li></ul></li>
+          <li><a href="https://greensock.com/" target="_blank">GSAP</a></li>
+    	</ul>
+        </div>
+</div><!-- //header -->
+
+<script>
+  $('.top').hover(function(){
+	  $(this).addClass('current');
+	    $(this).find('ul').slideDown(0);
+	  },function(){
+		  $(this).removeClass('current');
+                 $(this).find('ul').slideUp(0);
+                })
+</script>
+<div id="breadcrumb"><div class="container"> <strong>当前位置:</strong> <a href='http://www.tweenmax.com.cn/'>首页</a> > <a href='/demo/'>TweenMax 基础案例</a> </div></div>
+
+
+<div class="container">
+<h1>TweenMax的演示</h1>
+
+<a href="https://pan.baidu.com/s/1kWkawMN" class="demo-dowmload-link">下载全部tweenmax的基础demo</a>
+<div class="demo"><h3>01-基本补间动画</h3><div class="demo-iframe"><iframe data-src="/demo/01-tween.html"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>02-css动画</h3><div class="demo-iframe"><iframe data-src="/demo/02-CSSPlugin.html"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>03-动画控制</h3><div class="demo-iframe"><iframe data-src="/demo/03-Control.html"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>04-来回反复运动</h3><div class="demo-iframe"><iframe data-src="/demo/04-yoyo.html"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>05-排列运动</h3><div class="demo-iframe"><iframe data-src="/demo/05-stagger.html"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>06-排列运动回调</h3><div class="demo-iframe"><iframe data-src="/demo/06-stagger-callbacks.html" style="height:350px;"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>07-排列运动的循环属性运用</h3><div class="demo-iframe"><iframe data-src="/demo/07-stagger-cycle.html" style="height:350px;"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>10-时间轴</h3><div class="demo-iframe"><iframe data-src="/demo/10-timeline.html" style="height:500px;"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>11-重复动画和动画属性</h3><div class="demo-iframe"><iframe data-src="/demo/11-timelinemax.html" style="height:350px;"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>12-贝塞尔曲线运动</h3><div class="demo-iframe"><iframe data-src="/demo/12-Bezier.html" style="height:500px;"></iframe><div class="restart"></div></div></div>
+<div class="demo"><h3>21-拖动组件 <a href="/demo/21-Draggable.html" target="_blank">全屏显示</a></h3><div class="demo-iframe"><iframe data-src="/demo/21-Draggable.html" style="width:1200px;height:710px;"></iframe><div class="restart"></div></div></div>
+
+<div class="demo"><h3>22-哈尔的移动城堡 <a href="/demo/22-Howls.html" target="_blank">全屏显示</a></h3><div class="demo-iframe"><iframe data-src="/demo/22-Howls.html" style="height:600px;"></iframe><div class="restart"></div></div></div>
+
+
+<div class="demo"><h3>23-圆形预加载动画</h3><div class="demo-iframe"><iframe data-src="/demo/23-Preloader.html" style="height:500px;"></iframe><div class="restart"></div></div></div>
+
+
+<div class="demo"><h3>27-结合KineticJS制作画布</h3><div class="demo-iframe"><iframe data-src="/demo/27-KineticJS.html" style="height:500px;"></iframe><div class="restart"></div></div></div>
+
+<div class="demo"><h3>28-3D文字效果</h3><div class="demo-iframe"><iframe data-src="/demo/28-3Dtext.html" style="height:550px;"></iframe><div class="restart"></div></div></div>
+
+<div class="demo"><h3>29-3D变形</h3><div class="demo-iframe"><iframe data-src="/demo/29-Transforms.html" style="height:500px;"></iframe><div class="restart"></div></div></div>
+
+<div class="demo"><h3>31-文字分割，按单个文字，词组和行</h3><div class="demo-iframe"><iframe data-src="/demo/31-SplitText.html" style="height:400px;"></iframe><div class="restart"></div></div></div>
+
+
+<script language="javascript">
+function lazyLoadDemos() {
+		$('.demo').each(function() {
+			var frameHolder = $(this).find('.demo-iframe');
+			if (frameHolder.hasClass('loaded')) return;
+			var frame = frameHolder.find('iframe');
+			var src = frame.attr('data-src');
+			if (frameHolder.offset().top < ($(window).scrollTop() + $(window).height() + 50)) {
+				frameHolder.addClass('loaded');
+				frame.attr('src', src);
+			}
+		});
+	}
+
+
+$(window).on('scroll resize', function() {
+			lazyLoadDemos();
+		});		
+		lazyLoadDemos();
+	$(".restart").click(function(){
+		frm=$(this).parent().find("iframe");
+		src=frm.attr('data-src');
+		frm.attr('src',src);
+		})	
+</script>
+</div>
+
+<!-- //底部模板 -->
+<div id="footer">
+<div class="container nav clearfix">
+    <ul>
+      	<li class='hover'><a href='/demo/' ><span>TweenMax 基础案例</span></a></li>
+      	<li><a href='/cool/' ><span>Tweenmax 实际应用</span></a></li>
+      	
+      	<li><a href='/start/' ><span>TweenMax使用方法</span></a></li>
+      	
+      	<li><a href='/api/tweenmax/'  rel='dropmenu25'><span>TweenMax API</span></a></li>
+      	
+      	<li><a href='/api/timelinemax/'  rel='dropmenu38'><span>TimelineMax API</span></a></li>
+      	
+      	<li><a href='/source/' ><span>下载TweenMax</span></a></li>
+      	
+      	<li><a href='/license/' ><span>许可证</span></a></li>
+      	
+      	<li><a href='/cdn/' ><span>Tweenmax CDN</span></a></li>
+      	
+      	<li><a href='/about/'  rel='dropmenu1'><span>关于我们</span></a></li>
+      	
+    </ul>
+</div>
+<div class="container">
+© www.tweenmax.com.cn 2017 <a href="#" style="color:inherit; text-decoration:none;" onclick="javascript:window.open('http://www.miitbeian.gov.cn');return false;"> 粤ICP备18011012号</a>
+</div>
+</div>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b6bd9fe7159a867fa1c3a1c8d5a818a9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
