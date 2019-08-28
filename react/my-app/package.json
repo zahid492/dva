@@ -3,11 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@emotion/styled": "^10.0.15",
     "@rematch/core": "^1.1.0",
     "antd": "^3.15.2",
+    "apollo-boost": "^0.4.4",
+    "apollo-server": "^2.8.2",
+    "emotion": "^10.0.14",
+    "emotion-normalize": "^10.1.0",
+    "graphql": "^14.4.2",
+    "grid-styled": "^5.0.2",
     "immer": "^2.1.4",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "ramda": "^0.26.1",
+    "react": "16.9.0",
+    "react-adopt": "^0.6.0",
+    "react-apollo": "^3.0.1",
+    "react-dom": "16.9.0",
+    "react-emotion": "^10.0.0",
+    "react-feather": "^2.0.3",
+    "react-powerplug": "^1.0.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
@@ -29,8 +45,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@craco/craco": "^3.2.0",
-    "babel-plugin-import": "^1.11.0",
+    "@craco/craco": "5.3.0",
+    "babel-plugin-import": "1.12.0",
     "node-sass": "^4.11.0"
   }
 }
