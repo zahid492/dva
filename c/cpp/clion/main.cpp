@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <iterator>
 #include <functional>
-#include <vector>
 
 using namespace std;
 
@@ -35,9 +34,8 @@ int main() {
     cout << str1 << " " << str2;
 
     cout << endl;
-	vector<char>::iterator result1;
-    find(str1.begin(), str1.end(), '2');
-
+    cout << (*find(str1.begin(), str1.end(), '2') == '2') << " "
+         << (*find(str1.begin(), str1.end(), '0') == '0') << endl;
     return 0;
 }
 
