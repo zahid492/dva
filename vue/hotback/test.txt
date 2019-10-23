@@ -1,0 +1,2 @@
+http://191.167.20.217:1001/api/Framework/GetList?page=1&limit=15&DataTypeName=%E5%81%A5%E5%BA%B7&SubTypeName=
+http://191.167.20.217:1001/api/Framework/GetList?page=1&limit=15&dataType=%E5%81%A5%E5%BA%B7&SubTypeName=

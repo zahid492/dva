@@ -1,0 +1,26 @@
+.pd20 {
+    padding:20px;
+}
+
+.layui-container {
+    margin:20px;
+}
+
+.el-container .el-row {
+    margin-bottom: 15px;
+}
+
+.layui-table-cell {
+    height: auto;
+    line-height: 28px;
+    padding: 0 15px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space :normal;
+    box-sizing: border-box;
+}
+
+.article-category-form .el-textarea__inner{
+    height: 100%;
+}
