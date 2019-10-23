@@ -2,3 +2,4 @@
 /dva-test-failer/node_modules
 .idea
 /vue/vue-cli-4.0.0-alpha.5
+/react/hooks-test/.gitignore
