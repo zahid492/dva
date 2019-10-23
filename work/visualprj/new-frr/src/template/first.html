@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="/static/css/styles.css?v=2018072001">
+    <link rel="stylesheet" href="/static/css/index.css?v=2018072001">
+
+    <script src="static/lib/libs.js?v=2018072001" type="text/javascript"></script>
+    <script src="static/lib/d3.js?v=2018072001" type="text/javascript"></script>
+    <script src="static/lib/topojson.v3.min.js"></script>
+    <script src="static/lib/d3.layout.cloud.js?v=2018072001" type="text/javascript"></script>
+    <style>
+        svg,
+        .fist-content-r {
+            overflow: scroll;
+        }
+
+        .nan {
+            stroke: #0D1647;
+            stroke-width: 2px;
+        }
+    </style>
+    <title>腾讯可视化</title>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <header id="header"></header>
+        <content>
+            <section class="fist-content-l">
+                <div class="content-l__fist">
+                    <h2 class="title">
+                        <span class="gradientLine"></span>
+                        <span class="title__txt">广告曝光与点击数据</span>
+
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box" id="js-adClick"></div>
+                </div>
+                <div class="content-l__second">
+                    <h2 class="title--sub">
+                        <span class="gradientLine"></span>
+                        <div class="title__box">
+                            <p class="title__txt">广告曝光之网站分布</p>
+                            <p class="title__sub js-week"></p>
+                        </div>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <div class="wordCloud" id="js-wordc">
+                            <!--<canvas id="tagCanvas" style=""></canvas>-->
+                        </div>
+                        <p class="explain">说明：</p>
+                        <p class="description">词云分布为近一周网站曝光分布，字体越大代表曝光量越大</p>
+                        <!--<div id="tags" style="display:none;"></div>-->
+                    </div>
+                </div>
+            </section>
+            <section class="fist-content-r">
+                <div>
+                    <div class="title-box">
+                        <h2 class="title">
+                            <span class="gradientLine"></span>
+                            <span class="title__txt">点击广告用户分布（实时）</span>
+                            <span class="gradientLine--full"></span>
+                        </h2>
+                    </div>
+                    <div class="content__box">
+                        <div class="map-box" id="js-map">
+
+                        </div>
+                        <div class="explain-box">
+                            <p class="explain">说明：</p>
+                            <p class="description">地图显示为前1分钟点击广告的用户所在城市，圆点越大代表该城市用户量越大，圆点上数字代表点击用户量排名，排名仅显示前1~5名；</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </content>
+        <footer>
+            <span class="left">数据来源：广告投放曝光点击数据来源O2系统和第三方监测公司；数据获取时间：<span id="js-getDate"></span></span>
+            树洞可视化平台由IEG市场部媒介中心、数据中心 联合SNK、捷报数据共同打造
+        </footer>
+    </div>
+
+</body>
+
+</html>

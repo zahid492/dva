@@ -1,0 +1,2 @@
+lodash-4.17.4
+jQuery v3.3.1

@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile"/>
+    <title>情报来也</title>
+
+    <link rel="stylesheet" href="styles/1712/plugin.css?v=0320"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0320"/>
+    <link rel="stylesheet" href="styles/1712/temp.css?v=0320"/>
+
+    <script src="js/lib/libs.js?v=0320"></script>
+    <script src="js/lib/plugins.js" type="text/javascript"></script>
+    <script src="js/jb/jbase.js?v=0320" type="text/javascript"></script>
+    <!--<script src="js/lib/minirefresh/debug/minirefresh.js" type="text/javascript"></script>-->
+    <script src="frontend/src/constants/ActionTypes.js?v=0320" type="text/javascript"></script>
+    <script src="frontend/src/actions/index.js?v=0320" type="text/javascript"></script>
+    <script src="frontend/src/reducers/index.js?v=0320" type="text/javascript"></script>
+    <script src="Scripts/zmain.js?v=0320" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $.config = {
+            swipePanelOnlyClose: true
+        };
+
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+
+        window.onresize = change;
+
+        var ReduxThunk = window.ReduxThunk.default;
+
+    </script>
+    <style>
+        .header .header__title img {
+            width: 100%;
+            width: 0.6rem;
+            opacity: 0.7;
+            margin: 0 0.1rem;
+            border-radius: 50%;
+        }
+        .header__title .head-active img {
+            display: inline-block;
+            opacity: 1;
+            width: 0.8rem;
+        }
+
+    </style>
+
+</head>
+
+
+<body style="overflow: hidden;">
+<div class="wrapper">
+    <div class="indexContainer" id="js-inc">
+        <a id="js-tosearch" class="btn-search"><i class="iconfont icon-sousuo"></i></a>
+    </div>
+</div>
+
+<!-- 媒体显示遮罩 -->
+<div class="shadow" style="display:none;"></div>
+
+<div style="display: none" id='tip' class="message message--success">
+    <i class="iconfont icon-success"></i>
+    <h3>提交成功</h3>
+</div>
+
+<!-- 媒体列表，点击获取后直接放媒体元素中 -->
+<script id="mediaTip" type="text/html">
+    <div class="src-drop">
+        <h3>
+            <span>最先发布的 <%= datas.length %> 家媒体</span>
+            <p class="line-r"></p>
+        </h3>
+        <div class="media-list">
+            <% datas.forEach(function(v) { %>
+            <a><%= v %></a>
+            <% }) %>
+        </div>
+    </div>
+</script>
+<!-- 调性反馈 -->
+<script id="feedbackTip" type="text/html">
+
+    <h3>选择理由，优化推荐<button class="button--danger is-round js-feed">不想看</button></h3>
+    <ul class="close-list">
+        <li class="close-list__item js-feed">内容质量差</li>
+        <li class="close-list__item js-not-stick  js-nolook">不敏感</li>
+        <li class="close-list__item js-feed">内容错误</li>
+    </ul>
+</script>
+
+<!--微信模板-->
+<script id="wxItemTpl" type="text/html">
+    <section class="contentList-item"  itemid="<%= item.RId %>">
+        <div class="contentList-item__top">
+
+            <% if(_.size(item.UserPic)>0){ %>
+            <div class="portrait imgLiquid" data-src="<%= item.UserPic %>" style="background-size:contain;"></div>
+            <% }else{ %>
+            <div class="portrait"><img src="styles/1712/img/wxhead.png" alt=""></div>
+            <% } %>
+
+            <h3><%= item.MediaName %> <span class="iconfont icon-wx1"></span>
+                <% if(item.MediaView == '负面'){ %>
+                <span class="iconfont icon-mg"></span>
+                <% } %>
+                <!--事件有事件id-->
+                <% if(!_.isNull(item.EventName)){ %>
+                <span class="iconfont icon-shijian js-event" eid="<%= item.EventName %>"></span>
+                <% } %>
+            </h3>
+
+            <p>
+                <span><%= item.time %></span>
+                <% if(!_.isNull(item.VerifyInfo)){ %>
+                <%=item.VerifyInfo %>
+                <% } %>
+            </p>
+
+        </div>
+        <div class="contentList-item__article contentList-item__article--wx">
+            <a class="js-rec" href="<%= item.Url %>" target="_blank">
+                <% if(item.ImageCount > 2){ %>
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>" ><%= item.Title %></h3>
+                <ul class="article-image--list js-img js-li">
+                    <li data-src="<%=item.ImageUrl %>thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                    <li data-src="<%=item.ImageUrl %>-2thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                    <li data-src="<%=item.ImageUrl %>-3thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                </ul>
+                <% }%>
+
+                <% if(item.ImageCount==1 || item.ImageCount==2){ %>
+                <div data-src="<%=item.ImageUrl %>.jpg" class="article-image--left js-img js-wx imgLiquidFill imgLiquid" style="background-size:cover; ">
+                </div>
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>" ><%= item.Title %></h3>
+                <% } %>
+
+                <% if(item.ImageCount==0){ %>
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>" ><%= item.Title %></h3>
+                <% } %>
+
+            </a>
+        </div>
+        <button class="js-check button--colse iconfont icon-close" data-lan="<%= etitle %>" data-url="<%= item.Url %>" data-title="<%= item.Title %>"  data-meida="<%= item.MediaView %>" ></button>
+    </section>
+</script>
+<!--其他媒体模板-->
+<script id="otherItemTpl" type="text/html">
+    <section  itemid="<%= item.RId %>" class="contentList-item" style="visibility: hidden;">
+        <div class="contentList-item__article">
+            <!--无图-->
+            <% if(item.ImageCount == 0){ %>
+            <a class="js-rec" href="<%= item.Url %>" target="_blank">
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+            </a>
+            <% } %>
+            <!-- 单图 -->
+            <% if(item.ImageCount == 1 || item.ImageCount == 2){ %>
+            <a class="js-rec" href="<%= item.Url %>" target="_blank">
+                <div data-src="<%=item.ImageUrl %>thu.jpg" class="article-image--left js-img js-ot-one imgLiquidFill imgLiquid" style="background-size:cover; "></div>
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+            </a>
+            <% } %>
+            <!--三图-->
+            <% if(item.ImageCount > 2){ %>
+            <a class="js-rec" href="<%= item.Url %>" target="_blank">
+
+                <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+
+                <ul class="article-image--list js-img js-li">
+                    <li data-src="<%=item.ImageUrl %>thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                    <li data-src="<%=item.ImageUrl %>-2thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                    <li data-src="<%=item.ImageUrl %>-3thu.jpg" class="imgLiquidFill imgLiquid" style="background-size:cover;"></li>
+                </ul>
+            </a>
+            <% } %>
+        </div>
+
+        <div class="info">
+            <% if(item.MediaView == '负面'){ %>
+            <span class="iconfont icon-mg"></span>
+            <% } %>
+            <!--事件-->
+            <% if(!_.isNull(item.EventName)){ %>
+            <span class="iconfont icon-shijian js-event" eid="<%= item.EventName %>" idd="<%= item.SimilarId %>"></span>
+            <% } %>
+            <!-- src-is-active-->
+            <% if(etitle == 'choiceness' || etitle == 'trade'){ %>
+            <a class="src" item-similar-id="<%= item.SimilarId %>" item-clicked="0" style="text-decoration:none;"><%= item.MediaName %></a>
+            <a class="time"><%= item.time %></a>
+            <% }else{ %>
+            <% if(item.SimilarMediaCount > 1 && etitle!="trade" && etitle!="choiceness") { %>
+            <a class="src js-media" item-similar-id="<%= item.SimilarId %>" item-clicked="0"><%= item.MediaName %>
+                +</a>
+            <% }else{ %>
+            <a class="src" style="text-decoration:none;" item-similar-id="<%= item.SimilarId %>" item-clicked="0"><%= item.MediaName %></a>
+            <% } %>
+
+            <a class="time"><%= item.time %></a>
+            <% if(item.SimilarCount > 1  && etitle!="trade" && etitle!="choiceness") { %>
+            <a class="similar"><%= item.SimilarCount %>相似新闻</a>
+            <% } %>
+            <% } %>
+
+            <button class="js-check button--colse iconfont icon-close" data-lan="<%= etitle %>" data-url="<%= item.Url %>" data-title="<%= item.Title %>"  data-meida="<%= item.MediaView %>"></button>
+        </div>
+    </section>
+</script>
+<!--滑动容器不变-->
+<script id="swiperTpl" type="text/html">
+    <% _.forEach(datas.tdic, function(v, i){ %>
+    <div class="swiper-slide js-wrap-box" id="<%= i %><%= datas.slide %>">
+        <div class="wrap-box">
+            <div class="minirefresh-wrap" id="mini-<%= i %><%= datas.slide %>">
+                <div class="minirefresh-scroll">
+                    <% if(v === "敏感"){ %>
+                        <% if(_.size(datas.pics) >0){ %>
+                        <div class="swiper-container swc" id="slide315-<%= i %><%= datas.slide %>">
+                            <div class="swiper-wrapper">
+                                <% _.forEach(datas.pics[datas.slide], function(pic, j){ %>
+                                <div class="swiper-slide" idd="<%= pic._id %>" style="background-image: url(<%= pic.ImageUrl %>); background-size: cover; "><a href="<%= pic.Link %>" style="width:100%; height:100%; display:block;"></a></div>
+                                <% }) %>
+                            </div>
+                            <div class="swiper-pagination" id="page315-<%= i %><%= datas.slide %>"></div>
+                        </div>
+                        <section class="H-block" style="height:0.1rem"></section>
+                        <% }%>
+                    <section class="js-stick-no">
+                        <i class="iconfont icon-smile"></i> 恭喜您今天没有受到敏感攻击
+                    </section>
+                    <% }%>
+
+                    <% if(v === "事件"){ %>
+                    <content class="contentList">
+                        <section class="hot js-hotsec" style="padding-top:0;"></section>
+                    </content>
+                    <% }else{%>
+                    <div class="contentList js-list"></div>
+                    <% }%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</script>
+<!-- Tab -->
+<script id="subjectTab" type="text/html">
+    <header class="header">
+        <a id="js-slide" class="header__icon--l iconfont icon-shezhi js-shezhi">
+        </a>
+        <h2 id="js-header" class="header__title">
+            <ul>
+                <% _.forEach(subjects, function(v, i){
+                var s = _.find(sr, {"Name": v});
+                %>
+                <li><a class="logo" href="#<%= v %>"><img src="/BrandsLogo/<%= s.Logo %>" style=""/></a></li>
+                <% }) %>
+            </ul>
+        </h2>
+        <a id="js-create" class="header__icon--r iconfont icon-add">
+        </a>
+    </header>
+
+    <div class="js-conbox" id="js-tab-box">
+        <% _.forEach(subjects, function(v, i){ %>
+        <div id="<%= v %>" class="js-wrap-box">
+            <div class="swiper-container"  id="<%= v %>container">
+                <nav class="menubar">
+                    <ul id="<%= v %>pagination"></ul>
+                </nav>
+                <div class="swiper-wrapper">
+
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+</script>
+
+<!--事件列表-->
+<script id="hotListTpl" type="text/html">
+    <ul id="js-hotlist">
+        <% _.forEach(lists, function(v, i){ %>
+        <li class="hot__item js-brand <% if(i%2 !== 0){%> li-event <%}%>" item-id="<%= v._id %>">
+            <a class="imgBox" item-type="<%= v.Type %>">
+                <img src="<%= v.PicUrl %>" style="">
+            </a>
+            <h2>
+                <a><%= v.Title %></a>
+            </h2>
+            <p><%= v.PublishDateTimeEnd %></p>
+        </li>
+        <% }) %>
+    </ul>
+</script>
+</body>
+
+</html>

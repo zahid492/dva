@@ -1,0 +1,11 @@
+<% _.forEach(list, function(v, i){ %>
+<div class="swiper-nav-slide <% if(i==2) {%>swiper-nav-slide-active <% } %>" bid="<%= v.seq %>"
+     style="z-index:<%= z[i] %>;">
+    <% if(v.logourl==""){ %>
+    <img src="/static/img/tv.png"/>
+    <% }else{ %>
+    <img src="<%= host+v.logourl %>"/>
+    <% } %>
+    <span><%= v.name %></span>
+</div>
+<% }) %>

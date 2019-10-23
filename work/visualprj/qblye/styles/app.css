@@ -1,0 +1,246 @@
+.index_conBox .conBox {
+    height: 20.4rem;
+}
+
+.index_conBox {
+    margin-top: 0.4rem;
+}
+
+.s_list02 {
+    height: auto;
+}
+
+.swiper-container {
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    margin-top: 5px;
+}
+
+/*.swiper-slide{*/
+/*height: 20rem;*/
+/*}*/
+.minirefresh-wrap {
+    top: 0;
+}
+
+.data-list {
+    position: relative;
+    list-style: none;
+    background-color: #fff;
+}
+
+.page {
+    background: linear-gradient(to bottom, #4174d4, #4dbadd);
+}
+
+.linear {
+    width: 100%;
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#4dbadd, endColorStr=#4174d4);
+    /*IE 6 7 8*/
+    background: -ms-linear-gradient(bottom, #4dbadd, #4174d4);
+    /* IE 10 */
+    background: -moz-linear-gradient(bottom, #4dbadd, #4174d4);
+    /*火狐*/
+    background: -webkit-gradient(linear, 100% 0%, 0% 0%, from(#4dbadd), to(#4174d4));
+    /*谷歌*/
+    background: -webkit-gradient(linear, 100% 0%, 0% 0%, from(#4dbadd), to(#4174d4));
+    /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(bottom, #4dbadd, #4174d4);
+    /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(bottom, #4dbadd, #4174d4);
+    /*Opera 11.10+*/
+}
+
+.i_imgBox {
+    max-height: 150px;
+}
+
+#hyHeader {
+    overflow: hidden;
+}
+
+#hyHeader a {
+    float: left;
+    display: inline-block;
+}
+
+.minirefresh-wrap-hide {
+    display: none;
+}
+
+.minirefresh-wrap-show {
+    display: block;
+}
+
+.s_setNotic {
+    width: 10rem;
+}
+
+.slideout-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 12rem;
+    min-height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+}
+
+.slideout-menu-left {
+    left: 0;
+}
+
+.slideout-menu-right {
+    right: 0;
+}
+
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    background-color: #FFF; /* A background-color is required */
+    /*min-height: 100vh;*/
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+    display: block;
+}
+
+.page:before {
+    content: '';
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease-in-out;
+}
+
+.js-panel-open:before {
+    position: absolute;
+    top: 0;
+    left: 0.4rem;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(65, 118, 212, .5);
+    z-index: 99;
+}
+
+.shadow-bg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 200;
+}
+
+.tipBox {
+    max-width: 14rem;
+    border-color: #d0d6d6;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+.s_list02 ul li div .xs span {
+    margin-left: 3px;
+}
+
+.s_list02 ul li div .xs {
+    width: 60px;
+}
+
+.xs_list {
+    width: 12rem;
+    background: url(../images/temp/bg.png) no-repeat;
+    box-sizing: border-box;
+}
+
+.xs_list_in {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    background: #fff;
+    margin-top: 0.6rem;
+    max-height: 218px;
+    overflow: hidden;
+}
+
+.xs_list_bottom {
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    padding-bottom: 0.4rem;
+    background: #fff url(../images/temp/line.png) no-repeat center 11px;
+    background-size: 75%;
+}
+
+.xs_list_in:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.xs_list_li {
+    float: left;
+    width: 45%;
+    line-height: 1rem;
+    height: 1rem;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.3rem;
+    text-align: center;
+    color: #292d35;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+.xs_list_li:nth-child(2n) {
+    float: right;
+}
+
+.nimg {
+    width: 2.64rem;
+    height: 2.64rem;
+    overflow: hidden;
+    float: left;
+    padding: 1px;
+    margin-right: 0.4rem;
+    border-radius: 0.2rem;
+    background-size: cover;
+}
+
+.checkBox {
+    line-height: 1rem;
+    color: #fff;
+    font-size: 0.56rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    background: #d0021b !important;
+}
+
+.checkBox .qtip-tip {
+    border-color: #d0021b;
+    background: #d0021b;
+}
+
+.checkBox .qtip-content {
+    text-align: center;
+}
+
+.tipconf {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}

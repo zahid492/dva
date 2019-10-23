@@ -1,0 +1,10 @@
+<% _.forEach(list, function(v, i){ %>
+<div class="swiper-nav-slide slide<%= i %> <% if(i==midPos) {%>swiper-nav-slide-active <% } %>" <% if(i==midPos) {%> style="width:<%= midWidth %>px" <% } %> >
+    <% if(v.logourl==""){ %>
+    <img src="/img/tv.png"/>
+    <% }else{ %>
+    <img src="<%= host+v.logourl %>"/>
+    <% } %>
+    <span><%= v.name %></span>
+</div>
+<% }) %>

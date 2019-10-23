@@ -1,0 +1,202 @@
+ 
+       /* .article_content .right {
+            width: 20%;
+            height: 100%;
+            float: right;
+            background: lightblue;
+        } */
+
+       .left p {
+           text-indent: 2em;
+           line-height: 2;
+           position: relative;
+       }
+
+       .left .text {
+           height: 25px;
+           line-height: 25px;
+       }
+
+       /* 文章预览对比注释 add at 2018-7-20 */
+
+.articleOne__box__read .article_content {
+    width: 1342px;
+    margin: 100px auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .articleOne__box__read .article_content .left {
+   /*  width: 85%; 
+    height: 100%;
+    float: left;*/
+    padding-right: 190px;
+    /* background: pink; */
+  }
+  .articleOne__box__read .article_content img{
+    width: 50%;
+    padding: 30px;
+    margin-left: 25%;
+  }
+  .articleOne__box__edit .textarea img{
+    width: 50%;
+    padding-top: 30px;
+    margin-left: 25%;
+  }
+  .articleOne__box__edit .textarea p{
+    text-indent: 2em;
+    position: relative;
+    line-height: 1.8;
+  }
+   
+  /* .article_content .right {
+     width: 20%;
+     height: 100%;
+     float: right;
+     background: lightblue;
+  } */
+  .articleOne__box__read .articleauthor{
+     font-weight: bold; 
+     font-style: oblique;
+}
+  .articleOne__box__read  p {
+    text-indent: 2em;
+    position: relative;
+    line-height: 1.8;
+  }
+   .articleOne__box__read .title{
+    font-family:'Microsoft YaHei';
+    font-size: 20px;
+    color:#303030;
+  
+  }
+  /*.articleOne__box__read  .title::after{
+    content: '';
+    border-radius: 50%;
+    color: #fc8b55;
+    position: absolute;
+    right: -110px;
+    top:-4px;
+    width:90px;
+    text-indent:1em;
+  } */
+  .articleOne__box__read  i {
+     display: inline-block;
+    width: 3px;
+    height: 18px;
+    /* border-radius: 50%; */
+    background: #f01c12;
+    position: absolute;
+    right: -30px; 
+  }
+  
+  .articleOne__box__read  .articleaddcontent {
+    /* display: block; 
+    width: 929px;*/
+    /* padding-right: 200px; */
+    /* border-right: 3px solid #12b3f0; */
+    /* text-decoration: none; */
+    color: #f01c12;
+  }
+  
+  .articleOne__box__read  .articleaddcontent i {
+    /* background: #12b3f0; */ 
+    background: #f01c12;
+  
+  }
+  
+  .articleOne__box__read  .articleaddcontent i em {
+    position: absolute;
+    top: -5px;
+    left: 0; 
+  }
+  
+  .articleOne__box__read  .articledeletecontent i em {
+    position: absolute;
+    top: -5px;
+    left: 0; 
+  }
+  
+  .articleOne__box__read  .edit i em {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+  
+  .articleOne__box__read  .articledeletecontent {
+    /* display: block; 
+    width: 929px;*/
+    /* padding-right: 200px; */
+    color: #f01c12;
+    /* border-right: 3px solid #f01c12; */
+  }
+  
+  .articleOne__box__read  .articledeletecontent i {
+    background: #f01c12;
+  }
+  /*.articleOne__box__read  .edit {*/
+    /* display: block; 
+    width: 929px;*/
+    /* padding-right: 200px; */
+    /* color: #f01c12; */
+    /* border-right: 3px solid #fc8b55; */
+  /*}*/
+  
+  .articleOne__box__read  .edit i {
+   /*  background: #fc8b55; */
+    background: #f01c12;
+  
+  }
+  
+  .articleOne__box__read em {
+    width: 150px;
+    position: absolute;
+    top: 0;
+    right: -390px;
+    float: right;
+    font-style: normal;
+    font-size: 12px;
+    font-family:'Microsoft YaHei'; 
+  }
+  
+  .articleOne__box__read .articleaddcontent em {
+    /* color: #12b3f0; */
+    color: #f01c12;
+  
+  }
+  
+  .articleOne__box__read .articledeletecontent em {
+    color: #f01c12;
+  }
+  
+  .articleOne__box__read .edit em {
+    /* color: #fc8b55; */
+    color: #f01c12;
+  
+  }
+  
+  .articleOne__box__read .articlesummary{
+    background-color: #f3f3f3;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    font-family:Microsoft YaHei;
+    font-size: 14px;
+    color:#303030;
+  }
+  
+  
+ 
+  /* 文章预览对比注释 end */
+  
+  .articleOne__box a:link{
+    text-decoration: none;
+  }
+  .articleOne__box a:hover{ 
+    text-decoration: underline;
+    cursor: pointer;
+  }
+       .last_bg {
+           width: 13rem;
+           text-align: center;
+           margin: 0 auto;
+       }

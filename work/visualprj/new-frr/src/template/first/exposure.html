@@ -1,0 +1,103 @@
+<div>
+    <p class="date">
+        <span><%= one.enddate %></span>
+    </p>
+    <p class="number">
+        <strong class="aniNum"><%= one.impressions %></strong>
+        <span>(次)</span>
+    </p>
+    <p class="ratio">
+        <strong>单日曝光</strong>
+        <% if(one.impressionsratio>0){ %>
+        <button class="ratio--up"><i class="iconfont icon-trend-up"></i><span class="percent"><%= (one.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <% }else if(one.impressionsratio==0){ %>
+        <button class="ratio--flat"><i class="iconfont icon-chiping"></i><span class="percent"><%= (one.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}else { %>
+        <button class="ratio--down"><i class="iconfont icon-trend-down"></i><span class="percent"><%= (one.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}%>
+    </p>
+</div>
+<div>
+    <p class="date">
+        <span><%= two.sedate %></span>
+    </p>
+    <p class="number">
+        <strong class="aniNum"><%= two.impressions %></strong>
+        <span>(次)</span>
+    </p>
+    <p class="ratio">
+        <strong>近七日曝光</strong>
+        <% if(two.impressionsratio>0){ %>
+        <button class="ratio--up"><i class="iconfont icon-trend-up"></i><span class="percent"><%= (two.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <% } else if(two.impressionsratio==0){ %>
+        <button class="ratio--flat"><i class="iconfont icon-chiping"></i><span class="percent"><%= (two.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <% } else{ %>
+        <button class="ratio--down"><i class="iconfont icon-trend-down"></i><span class="percent"><%= (two.impressionsratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}%>
+    </p>
+</div>
+<span class="gradientLine"></span>
+<span class="gradientLine--vertical"></span>
+<div>
+    <p class="date">
+        <span><%= one.enddate %></span>
+    </p>
+    <p class="number">
+        <strong class="aniNum"><%= one.clicks %></strong>
+        <span>(次)</span>
+    </p>
+    <p class="ratio">
+        <strong>单日点击</strong>
+        <% if(one.clicksratio >0){ %>
+        <button class="ratio--up"><i class="iconfont icon-trend-up"></i><span class="percent"><%= (one.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <% }else if(one.clicksratio ==0){ %>
+        <button class="ratio--flat"><i class="iconfont icon-chiping"></i><span class="percent"><%= (one.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}else{%>
+        <button class="ratio--down"><i class="iconfont icon-trend-down"></i><span class="percent"><%= (one.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}%>
+    </p>
+</div>
+<div>
+    <p class="date">
+        <span><%= two.sedate %></span>
+    </p>
+    <p class="number">
+        <strong class="aniNum"><%= two.clicks %></strong>
+        <span>(次)</span>
+    </p>
+    <p class="ratio">
+        <strong>近七日点击</strong>
+        <% if(two.clicksratio >0){ %>
+        <button class="ratio--up"><i class="iconfont icon-trend-up"></i><span class="percent"><%= (two.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <% } else if(two.clicksratio ==0){ %>
+        <button class="ratio--flat"><i class="iconfont icon-chiping"></i><span class="percent"><%= (two.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}else{%>
+        <button class="ratio--down"><i class="iconfont icon-trend-down"></i><span class="percent"><%= (two.clicksratio*100).toFixed(0) %>%</span>
+            <span class="litt"></span>
+        </button>
+        <%}%>
+
+    </p>
+</div>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>妙笔撰稿机器人，了解一下</title>
+    <script src="/js/conf.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="./collection/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./collection/css/styles.css">
+    <link rel="stylesheet" href="./collection/css/index.css">
+    <script src="./collection/js/jquery-1.12.1.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+    <script src="./collection/js/fullpage.js"></script>
+    <script src="./collection/js/bootstrap.min.js"></script>
+    <script src="./collection/js/index.js"></script>
+    <style>
+    .none {
+        display: none !important
+    }
+
+    #cover {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 18888;
+        background-color: #000000;
+        opacity: 0.7;
+    }
+
+    #guide {
+        display: none;
+        position: absolute;
+        right: 18px;
+        top: 5px;
+        z-index: 19999;
+    }
+
+    #guide img {
+        width: 260px;
+        height: 180px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div id="fullpage">
+            <div class="section section1">
+                <div class="bg1">
+                    <div class="logo">
+                        <img src="./collection/img/logo1_03.png" alt="" class="logo1">
+                        <img src="./collection/img/line_03.png" alt="" class="line">
+                        <img src="./collection/img/logo2_05.png" alt="" class="logo2">
+                    </div>
+                    <div class="told">
+                        <img src="./collection/img/对话框.png" alt="">
+                    </div>
+                    <div class="jqr">
+                        <img src="./collection/img/jqr.png" alt="">
+                    </div>
+                    <a href="javaScript:;" class="btn btnDown"> </a>
+                </div>
+                <div class="no"></div>
+            </div>
+            <!-- 第二页 -->
+            <div class="section section2" id="section2">
+                <div class="bg2">
+                    <!-- <div class="logo">
+                    <img src="./collection/img/logo1_03.png" alt="" class="logo1">
+                    <img src="./collection/img/line_03.png" alt="" class="line">
+                    <img src="./collection/img/logo2_05.png" alt="" class="logo2">
+                </div> -->
+                    <div class="option-box">
+                        <div class="option-list">
+                            <span class="list  option" tag="1">
+                            <span class="iconfont icon-tick check"></span>
+                            <span class="iconfont icon-mp4 icons"></span> 把妙笔介绍发给我
+                            </span>
+                            <span class="list " tag="2">
+                            <span class="iconfont icon-check check"></span>
+                            <span class="iconfont icon-new icons"></span> 帮我改写新闻稿
+                            </span>
+                            <span class="list " tag="3">
+                            <span class="iconfont icon-check check"></span>
+                            <span class="iconfont icon-hot icons"></span> 帮我蹭热点新闻
+                            </span>
+                            <span class="list  " tag="4">
+                            <span class="iconfont icon-check check"></span>
+                            <span class="iconfont icon-ppt-2 icons"></span> 帮我发布稿件
+                            </span>
+                            <span class="list " tag="5">
+                            <span class="iconfont icon-check check"></span>
+                            <span class="iconfont icon-liuyan icons"></span> 再干点其它的
+                            </span>
+                        </div>
+                    </div>
+                    <a href="javaScript:;" class="btn btnDown">
+                    就这些
+                </a>
+                    <div class="bottom">
+                        <img class="left" src="./collection/img/l.png" alt="">
+                        <img class="right" src="./collection/img/r.png" alt="">
+                        <img src="./collection/img/bottom.png" alt="" class="bottom">
+                    </div>
+                    <div id="mask">
+                        <!-- 遮罩层 -->
+                        <div class="layer-box"></div>
+                        <!-- 弹框 -->
+                        <div class="layer">
+                            <div class="layer-title">
+                                其它
+                            </div>
+                            <textarea placeholder="请输入您的需求..."></textarea>
+                            <div class="btns">
+                                <a href="javaScript:;" class="btn1">
+                                确定
+                            </a>
+                                <a href="javaScript:;" class="btn2">
+                                取消
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="no"></div>
+            </div>
+            <!-- 第三页 -->
+            <div class="section section3">
+                <div class="bg3">
+                    <!-- <div class="logo">
+                    <img src="./collection/img/logo1_03.png" alt="" class="logo1">
+                    <img src="./collection/img/line_03.png" alt="" class="line">
+                    <img src="./collection/img/logo2_05.png" alt="" class="logo2">
+                </div> -->
+                    <div class="book">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="firstname" class=" control-label">*您的姓名</label>
+                                <input type="txtname" class="form-control" id="txtname" placeholder="请输入您的姓名">
+                                <span class="none verify-name errlabelname">请输入姓名！</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtemail" class=" control-label">*工作邮箱</label>
+                                <input type="text" class="form-control" id="txtemail" placeholder="请输入您的工作邮箱">
+                                <span class="none verify-name errlabelemail">请输入邮箱！</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtbrand" class=" control-label">*服务品牌</label>
+                                <input type="text" class="form-control" id="txtbrand" placeholder="乙方写爸爸的，甲方写自己的">
+                                <span class="none verify-name errlabelbrand">请输入服务品牌！</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="txttel" class=" control-label">您的电话</label>
+                                <input type="text" class="form-control" id="txttel" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtteam" class=" control-label">所在公司</label>
+                                <input type="text" class="form-control" id="txtteam" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+                    <a href="javaScript:;" class="btn  thiBtn">
+                    好了，提交
+                </a>
+                </div>
+                <div class="no"></div>
+            </div>
+            <!-- 第四页 -->
+            <div class="section section4">
+                <div class="bg4">
+                    <div class="dyj">
+                        <div class="dyj-top"></div>
+                        <div class="zhi-box">
+                            <div class="zhi">
+                                <div class="logo">
+                                    <img src="./collection/img/logo4-1.png" alt="" class="logo1">
+                                    <span class="line"></span>
+                                    <img src="./collection/img/logo4-2.png" alt="" class="logo2">
+                                </div>
+                                <p class="text">
+                                    请到邮箱查收您所订阅的如下服务：
+                                </p>
+                                <p class="content-text" id="serviceContent">
+                                </p>
+                                <div class="kdy">
+                                    <img src="./collection/img/kdy.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javaScript:;" class="btn fouBtn">
+                    告诉我的朋友们
+                </a>
+                    <div class="bdsharebuttonbox none" data-tag="share_1" style="position: absolute;bottom: 110px; right: 30px;">
+                        <a class="bds_weixin" data-cmd="weixin" href="javascript:;"></a>
+                        <a class="bds_sqq" data-cmd="sqq" href="javascript:;"></a>
+                        <a class="bds_qzone" data-cmd="qzone" href="javascript:;"></a>
+                        <a class="bds_tsina" data-cmd="tsina" href="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="no"></div>
+            </div>
+        </div>
+    </div>
+    <!--  <script>
+        window._bd_share_config = {
+            common : {
+                bdText : '“蓝标” “妙笔”了解一下！',
+                bdDesc : '“蓝标” “妙笔”了解一下！',
+                bdUrl : window.location.host + '/collection.html',
+                bdPic : ''
+            },
+            share : [{
+                "bdSize" : 24
+            }],
+
+            image : [{
+                viewType : 'list',
+                viewPos : 'top',
+                viewColor : 'black',
+                viewSize : '24',
+                viewList : ['weixin','sqq','qzone','tsina']
+            }],
+            selectShare : [{
+                "bdselectMiniList" : ['weixin','sqq','qzone','tsina']
+            }]
+        }
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+    </script> -->
+    <script type="text/javascript">
+    var _system = {
+        $: function(id) { return document.getElementById(id); },
+        _client: function() {
+            return { w: document.documentElement.scrollWidth, h: document.documentElement.scrollHeight, bw: document.documentElement.clientWidth, bh: document.documentElement.clientHeight };
+        },
+        _scroll: function() {
+            return { x: document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft, y: document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop };
+        },
+        _cover: function(show) {
+            if (show) {
+                this.$("cover").style.display = "block";
+                this.$("cover").style.width = (this._client().bw > this._client().w ? this._client().bw : this._client().w) + "px";
+                this.$("cover").style.height = (this._client().bh > this._client().h ? this._client().bh : this._client().h) + "px";
+            } else {
+                this.$("cover").style.display = "none";
+            }
+        },
+        _guide: function(click) {
+            this._cover(true);
+            this.$("guide").style.display = "block";
+            this.$("guide").style.top = (_system._scroll().y + 5) + "px";
+            window.onresize = function() { _system._cover(true);
+                _system.$("guide").style.top = (_system._scroll().y + 5) + "px"; };
+            if (click) {
+                _system.$("cover").onclick = function() {
+                    _system._cover();
+                    _system.$("guide").style.display = "none";
+                    _system.$("cover").onclick = null;
+                    window.onresize = null;
+                };
+            }
+        },
+        _zero: function(n) {
+            return n < 0 ? 0 : n;
+        }
+    }
+    </script>
+    <div id="cover"></div>
+    <div id="guide">
+        <img src="./collection/img/guide1.png">
+    </div>
+</body>
+
+</html>

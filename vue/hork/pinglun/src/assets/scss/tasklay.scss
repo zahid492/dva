@@ -1,0 +1,298 @@
+// 定义的全局变量
+$btn-color: #6967CE;
+$border-color: #E5E7F3;
+$operation-color: #0179FF;
+.el-row {
+  width: 100%;
+}
+
+.maintain-top .el-form-item__label {
+  float: none !important;
+  text-align: left !important;
+  color: #333C48 !important;
+}
+
+.maintain-top .el-form-item__content {
+  margin-left: 0 !important;
+}
+
+.task-list-box .el-collapse-item__header {
+  height: 80px !important;
+  text-align: left;
+}
+
+.task-list-box .el-collapse-item__wrap {
+  background: #F3F4F8 !important;
+}
+
+.task-list-box .el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #6967CE !important;
+}
+
+// 重要按钮
+.urgent-btn {
+  width: 40px;
+  height: 20px;
+  background: #d55742;
+  border-radius: 3px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+
+  span {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  span:nth-child(1) {
+    background: #e5715e;
+  }
+
+  span:nth-child(2) {
+    margin-left: 14px;
+  }
+}
+
+.maintain-client-form {
+
+    height: 105px;
+    border-bottom: 1px solid #CACFE7;
+    position: relative;
+
+    .search {
+      width: 150px;
+      height: 36px;
+      background-color: $btn-color;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #fff;
+      border: none;
+      position: absolute;
+      bottom: -80px;
+      right: 0;
+    }
+
+
+    .el-form-item {
+      width: 14%;
+      float: left;
+      margin-right: 2%;
+      text-align: left;
+    }
+
+
+}
+
+
+.task-top {
+  height: 110px;
+  position: relative;
+
+  .title {
+    color: #2C343D;
+    font-size: 20px;
+    line-height: 110px;
+    float: left;
+  }
+
+  .el-input {
+    float: right;
+    width: 220px;
+    margin-top: 37px;
+  }
+
+  .search {
+    width: 150px;
+    height: 36px;
+    background-color: $btn-color;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    float: right;
+    margin: 37px 0 0 20px;
+  }
+}
+
+
+.task-num {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(93, 83, 134, 1);
+}
+
+.task-time {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(34, 34, 34, 1);
+}
+
+.task-topbar {
+  width: 100%;
+  line-height: 70px;
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+}
+
+.task-topbar2 {
+padding-right: 20px;
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+
+}
+
+
+.task-title-time {
+  .task-title {
+    font-size: 14px;
+    font-weight: normal;
+    color: rgba(34, 34, 34, 1);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+
+  .task-time2 {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(127, 143, 164, 1);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+}
+
+.task-platformc {
+  font-size: 14px;
+  font-weight: normal;
+
+  color: #2E323F;
+  .task-name {
+    color: #45B854;
+  }
+}
+
+.task-name-fans {
+  width: 100px;
+
+  .task-name {
+    font-size: 14px;
+    font-weight: normal;
+    color: #45B854;
+  }
+
+  .task-fans {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(127, 143, 164, 1);
+  }
+}
+
+.task-percent-proportion {
+  .task-percent {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(211, 88, 71, 1);
+  }
+
+  .task-proportion {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(127, 143, 164, 1);
+  }
+}
+
+.task-caozuo {
+  font-size: 14px;
+  font-weight: 400;
+  color: $operation-color;
+  cursor: pointer;
+}
+
+
+// 子任务样式
+.task-child-box {
+  .task-child-item {
+    width: 100%;
+    height: 57px;
+    line-height: 57px;
+  }
+
+  .child-time {
+    font-size: 14px;
+    font-weight: 400;
+    color: #93979D;
+    padding-left: 15px;
+    position: relative;
+    .child-dot {
+      width: 6px;
+      height: 6px;
+      background: rgba(230, 230, 230, 1);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -3px;
+    }
+
+    .child-line {
+      width: 1px;
+      height: 45px;
+      background: #000;
+      opacity: 0.1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -50px;
+    }
+  }
+
+  .child-type {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4B5971;
+  }
+
+  .child-supplier {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4B5971;
+  }
+
+  .child-state {
+    font-weight: 400;
+    color: rgba(105, 119, 143, 1);
+    opacity: 0.8;
+  }
+
+  .child-check {
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: $operation-color;
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+  }
+}
+.task-wh-child-box {
+  text-align: left;
+}

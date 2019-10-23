@@ -1,0 +1,85 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+}
+
+body,ul,li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    overflow: hidden; /* this is important to prevent the whole page to bounce */
+}
+
+.contentList {
+    position:relative;
+    margin:0;
+    left:0;
+    top:1.5rem;
+    z-index:1;
+    width:100%;
+    height:auto;
+}
+
+#swrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0rem;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+#scroller {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.imgLiquidFill {
+    border: 1px solid #d9d9d9;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
+.data p {
+    font-family: inherit;
+}
+
+.shadowBox .keyWord{
+    margin:0;
+}

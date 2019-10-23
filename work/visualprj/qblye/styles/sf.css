@@ -1,0 +1,90 @@
+.shadow-bg {
+    background: url(../images/temp/li_bg.png) repeat !important
+}
+
+.s_list02 ul li .xs_box {
+    margin-top: 5px;
+    color: #9b9b9b;
+    position: relative;
+    line-height: 22px;
+    font-size: 0.55rem
+}
+
+.s_list02 ul li div .xs {
+    float: right;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #b6b6b6;
+    border-radius: 10px;
+    text-align: center;
+    color: #b6b6b6;
+    margin-left: 0.3rem;
+    padding: 0 0.4rem
+}
+
+.s_list02 ul li div .xs.active {
+    background: #1e90ff;
+    border: 1px solid #1e90ff;
+    color: #fff;
+}
+
+.s_list02 ul li div .xs span {
+    margin-left: 5px;
+}
+
+.s_list02 ul li div .xs_list {
+    position: absolute;
+    width: 100%;
+    top: 24px;
+    background: url(../images/temp/bg.png) no-repeat;
+    z-index: 100;
+    background-size: 100%;
+    box-sizing: border-box;
+}
+
+.s_list02 ul li div .xs_list_in {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    background: #fff;
+    margin-top: 0.6rem;
+    max-height: 218px;
+    overflow: hidden;
+}
+
+.xs_list_bottom {
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    padding-bottom: 0.4rem;
+    background: #fff url(../images/temp/line.png) no-repeat center 11px;
+    background-size: 75%;
+}
+
+.s_list02 ul li div .xs_list_in:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.s_list02 ul li div .xs_list_li {
+    float: left;
+    width: 47%;
+    line-height: 28px;
+    height: 28px;
+    border: 1px solid #bbbbbb;
+    border-radius: 6px;
+    text-align: center;
+    color: #292d35;
+    margin-bottom: 0.5rem;
+}
+
+.s_list02 ul li div .xs_list_li:nth-child(2n) {
+    float: right;
+}
+
+.xs_box .icon-wx:before {
+    color: #96d77c;
+    margin-right: 0.1rem
+}
