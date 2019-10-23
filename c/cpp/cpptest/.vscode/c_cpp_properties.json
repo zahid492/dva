@@ -3,17 +3,36 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:/MinGW/include/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tr1/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/experimental/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "\"D:\\Software\\Run\\VC6\\VC98\\Bin\\cl.exe\"",
+            "compilerPath": "C:/MinGW/bin/g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "C:/MinGW/include/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tr1/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/**",
+                    "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/experimental/**"
+                ]
+            }
         }
     ],
     "version": 4
