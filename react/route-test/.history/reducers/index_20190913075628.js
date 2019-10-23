@@ -12,7 +12,6 @@ function entities(state = { users: {}, repos: {} }, action) {
     return state;
 }
 
-
 // Updates error message to notify about the failed fetches.
 function errorMessage(state = null, action) {
     const { type, error } = action;

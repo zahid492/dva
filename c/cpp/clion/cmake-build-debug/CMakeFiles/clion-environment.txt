@@ -1,4 +1,0 @@
-ToolSet: 5.2 (local)@D:\Software\MinGW
-Options: msvc.arch=x86_amd64, msvc.platform=uwp
-
-Options:
