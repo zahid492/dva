@@ -1,0 +1,14 @@
+<!--3 主流媒体近期舆情-->
+<% _.forEach(dls, function(w, j){ %>
+<div class="swiper-slide" id="slide<%= j %>">
+    <ul>
+        <% _.forEach(w, function(v, i){ %>
+        <li>
+            <span class="num"><%= 15*j+i+1 %></span>
+            <span class="mediaName"><%= v.name %></span>
+            <span class="new"><%= v.title %></span>
+        </li>
+        <% }) %>
+    </ul>
+</div>
+<% }) %>

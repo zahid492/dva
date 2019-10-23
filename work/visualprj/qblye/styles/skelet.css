@@ -1,0 +1,48 @@
+/**
+ * BlankPlate | Yet another HTML5 Starter Kit
+ *
+ * BlankPlate Main stylesheet
+ *
+ * @copyright	Copyright 2012, Dimitris Krestos
+ * @license		Apache License, Version 2.0 (http://www.opensource.org/licenses/apache2.0.php)
+ * @link		http://vdw.staytuned.gr/html5-starter-kit-blankplate/
+ * @package		BlankPlate
+ * @version		v1.2.3
+ */
+.tabs{
+	position:relative;
+	z-index: 1;
+}
+
+.link {
+	color: white;
+	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 48px;
+	margin-top: 20px;
+	margin-left: 6px;
+	text-decoration: none;
+}
+
+.link:hover {
+	text-decoration: underline;
+	color: inherit;
+}
+
+.prev,
+.next {
+	background: white !important;
+	color: #a0cac0 !important;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.prev:hover,
+.next:hover {
+	background: #a0cac0 !important;
+	color: white !important;
+}
+
+

@@ -1,0 +1,76 @@
+<!--// 新闻发布情况总览-->
+<section class="col-2">
+    <div class="top">
+        <strong class="num">
+            <%= oNews.count %>
+        </strong>
+        <p>
+            <strong>近七日外发新闻</strong>（篇）</p>
+        <div class="ratio">
+            <% if (oNews.rate>0) { %>
+            <button class="ratio--up" style="width:1.3rem;">
+                <i class="iconfont icon-trend-up"></i>
+                <span class="percent">
+
+                                    <%= (oNews.rate*100).toFixed(0) %>
+                                </span>% 环比
+            </button>
+            <% }else if(oNews.rate==0){ %>
+            <button class="ratio--flat" style="width:1.3rem;">
+                <i class="iconfont icon-chiping"></i>
+                <span class="percent">
+                                        <%= (oNews.rate*100).toFixed(0) %>
+                                    </span>% 环比
+            </button>
+            <% }else{ %>
+            <button class="ratio--down" style="width:1.3rem;">
+                <i class="iconfont icon-trend-down"></i>
+                <span class="percent">
+                                            <%= (oNews.rate*100).toFixed(0) %>
+                                        </span>% 环比
+            </button>
+            <% } %>
+        </div>
+    </div>
+    <div class="chart" id="chartTpl1">
+
+    </div>
+</section>
+<i class="gradientLine--vertical"></i>
+<section class="col-2">
+    <div class="top">
+        <strong class="num">
+            <%= gMedia.count %>
+        </strong>
+        <p>
+            <strong>近七日新闻报道数量</strong>（家）</p>
+        <div class="ratio">
+            <% if(gMedia.rate>0) { %>
+            <button class="ratio--up" style="width:1.3rem;">
+                <i class="iconfont icon-trend-up"></i>
+                <span class="percent">
+
+                                    <%= (gMedia.rate*100).toFixed(0) %>
+                                </span>% 环比
+            </button>
+            <% }else if(gMedia.rate==0){ %>
+            <button class="ratio--flat" style="width:1.3rem;">
+                <i class="iconfont icon-chiping"></i>
+                <span class="percent">
+                                            <%= (gMedia.rate*100).toFixed(0) %>
+                                        </span>% 环比
+            </button>
+            <% }else{ %>
+            <button class="ratio--down" style="width:1.3rem;">
+                <i class="iconfont icon-trend-down"></i>
+                <span class="percent">
+                                        <%= (gMedia.rate*100).toFixed(0) %>
+                                    </span>% 环比
+            </button>
+            <% } %>
+        </div>
+    </div>
+    <div class="chart" id="chartTpl2">
+
+    </div>
+</section>

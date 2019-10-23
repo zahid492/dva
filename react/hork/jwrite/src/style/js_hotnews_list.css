@@ -1,0 +1,13 @@
+ .jtrend .hotWord {
+        margin: 10px 0 0 42px;
+    
+    }
+ .jtrend .hotWord .hot {
+        font-size: 14px;
+        font-weight: normal;
+        color: #666;
+    
+    }
+ .jtrend .list__item .content {
+        color: #777;
+    }

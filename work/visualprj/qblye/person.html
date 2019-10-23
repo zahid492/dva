@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0119"/>
+    <script src="js/lib/libs.js?v=0119"></script>
+    <script src="Scripts/person.js?v=0119" data-psd="750" type="text/javascript"></script>
+    <title>情报来也-设置</title>
+    <script>
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+        change();
+        window.onresize = change;
+
+    </script>
+    <style>
+        .setNotic-head > div{
+            background: url(img/set-bg.png) no-repeat left bottom;
+            background-size: 100%;
+        }
+         .shadow-bg {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: 200;
+            background: url(images/temp/li_bg.png) repeat !important
+        }
+        .s_win1 p:before,
+        .s_win2 p:before {
+            background: url(images/s_icon.png?ver=201711161443) no-repeat;
+            background-size: 6rem 6rem;
+        }
+
+        .s_win1 {
+            position: absolute;
+            width: 4.5rem;
+            padding: 0 0.5rem;
+            height: 3rem;
+            background-color: #fff;
+            border-radius: 0.1rem;
+            left: 50%;
+            margin-left: -2.3rem;
+            top: 50%;
+            margin-top: -1.5rem;
+            z-index: 11;
+        }
+
+        .s_win1 p {
+            position: relative;
+            text-align: center;
+            padding-top: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #de8900;
+            font-size: 0.32rem;
+        }
+
+        .s_win1 p:before {
+            position: absolute;
+            content: '';
+            width: 0.8rem;
+            height: 0.8rem;
+            background-position: 0 -0.6rem;
+            left: 50%;
+            margin-left: -0.3rem;
+            top: 0.3rem;
+        }
+
+        .s_win1 .btnBox {
+            border-top: 1px solid #dbdbdb;
+            height: 0.86rem;
+            line-height: 0.86rem;
+            padding-top: 0.08rem;
+        }
+
+        .s_win1 .btnBox a {
+            float: left;
+            position: relative;
+            width: 50%;
+            height: 0.86rem;
+            text-align: center;
+            font-size: 0.32rem;
+            color: #292d35;
+        }
+
+        .s_win1 .btnBox a:after {
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 0.86rem;
+            background-color: #dbdbdb;
+            top: 0.08rem;
+            right: 0;
+        }
+
+        .s_win1 .btnBox a:last-child:after {
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="indexContainer">
+            <section class="setNotic-head">
+                <div>
+                    <h3>
+                        <a class="iconfont icon-right return js-return"></a>
+                        设置
+                    </h3>
+                    <div class="user">
+                        <div class="user__logo">
+                            <img src="img/sigle.png" class="border">
+                            <img src="img/user.png" class="js-head user">
+                        </div>
+                        <h3 class="user__name"></h3>
+                    </div>
+                </div>
+            </section>
+            <section class="setNotic-list">
+                <ul>
+                    <li class="js-user">
+                        <span class="iconfont icon-people"></span>
+                        <a href="#">个人中心</a>
+                        <i class="iconfont icon-left"></i>
+                    </li>
+                    <li class="js-setting">
+                        <span class="iconfont icon-setting"></span>
+                        <a href="#">通知设置</a>
+                        <i class="iconfont icon-left"></i>
+                    </li>
+                    <li class="js-feedback">
+                        <span class="iconfont icon-tucao"></span>
+                        <a href="#">我要吐槽</a>
+                        <i class="iconfont icon-left"></i>
+                    </li>
+                </ul>
+            </section>
+            <button class='js-cancel button-signout button--info'>退出订阅</button>
+        </div>
+    </div>
+    <div class="shadow" style="display:none;"></div>
+    <div style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 99999;
+            display: none" id='confirm'>
+        <div class="s_win1">
+            <p>
+                确定退出订阅？</p>
+            <div class="btnBox">
+                <a href="#" id="confirmOK">确认</a> <a href="#" id="confirmCancel">取消</a>
+            </div>
+        </div>
+        <div class="s_shade">
+        </div>
+    </div>
+</body>
+
+</html>

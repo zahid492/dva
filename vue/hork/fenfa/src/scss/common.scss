@@ -1,0 +1,103 @@
+// 弹框
+.van-popup {
+  width: 90%;
+  height: 380px;
+  border-radius: 8px;
+
+  .start-btn {
+    margin-top: 50px;
+  }
+
+  .ok-btn {
+    margin-top: 80px;
+  }
+
+  .end-btn {
+    margin-top: 110px;
+    background: none !important;
+    color: #4b4e5f !important;
+    border: 0.0625rem solid #bfbfbf !important;
+  }
+
+  .text {
+    font-size: 18px;
+    color: #4b4e5f;
+    font-weight: bold;
+    margin-top: -20px;
+  }
+}
+
+.tanimg {
+  width: 80%;
+  margin: 30px 10% 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+// 选中样式
+.chakan {
+  color: #FF9F02 !important;
+  .iconfont {
+     color: #FF9F02 !important;
+  }
+}
+// 输入框
+.van-cell {
+  height: 100% !important;
+  background: none !important;
+}
+// btn
+.btn-box {
+  width: 100%;
+  height: 44px;
+  padding: 0 20px;
+  margin: 50px 0 60px;
+
+  .prev {
+    width: 30%;
+    height: 100%;
+
+  }
+
+  .next {
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(0deg, #FF9B02, #FFC801);
+    border-radius: 22px;
+    font-size: 16px;
+    color: #fff;
+  }
+}
+// 暂无图片
+.zanwu {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -100px;
+}
+// 标题
+.van-cell {
+  font-size: 18px;
+  color: #4B4E5F;
+  font-weight: 500;
+  text-align: left;
+  margin: 15px 0 0;
+  border: none;
+  padding: 20px 0 ;
+  background: #F7F7FA !important;
+}
+.van-cell:not(:last-child):after,
+.van-hairline--top-bottom:after {
+  border: none !important;
+}
+.van-field__body {
+    height: 100% !important;
+}
+.van-field--min-height .van-field__control {
+  max-height: 100% !important;
+}

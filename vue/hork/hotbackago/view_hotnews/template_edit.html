@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>模板-添加修改</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/js/layui/css/layui.css" media="all">
+</head>
+
+<body style="padding: 15px">
+    <form class="layui-form" action="" lay-filter="example">
+        <div class="layui-form-item">
+          <label class="layui-form-label">模板名称</label>
+          <div class="layui-input-block">
+            <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入名称" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">内容</label>
+          <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea"   style="height: 500px"  name="content"></textarea>
+          </div>
+        </div>
+
+        <div class="layui-form-item">
+          <div class="layui-input-block" style="text-align: right;">
+            <button class="layui-btn" lay-submit="" name='test' lay-filter="test">验证</button>
+
+            <button class="layui-btn" lay-submit="" name = 'submit' lay-filter="demo1">确认</button>
+
+          </div>
+        </div>
+      </form>
+
+    <script src="/js/jquery/jquery-1.12.1.min.js" charset="utf-8"></script>
+    <script src="/js/layui/layui.js" charset="utf-8"></script>
+    <script src="/js/store2.min.js" charset="utf-8"></script>
+<script src="/config.js" charset="utf-8"></script><script src="/scripts/Dictionaries.js" charset="utf-8"></script>
+    <script src="/scripts/Common.js" charset="utf-8"></script>
+
+    <script src="/scripts/hotnews/template_eidt.js" charset="utf-8"></script>
+
+
+
+</body>
+
+</html>

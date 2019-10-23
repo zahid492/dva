@@ -1,0 +1,19 @@
+@import './variables';
+
+.ap {
+  display: inline-flex;
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: -999px;
+  // padding-left: 20px;
+  box-sizing: border-box;
+  // For emoji fallback
+  font-size: 20px;
+  line-height: 1;
+  overflow: hidden;
+  margin-top: -3px;
+}
+
+    

@@ -1,0 +1,567 @@
+/**
+ * BlankPlate | Yet another HTML5 Starter Kit
+ *
+ * BlankPlate Main stylesheet
+ *
+ * @copyright	Copyright 2012, Dimitris Krestos
+ * @license		Apache License, Version 2.0 (http://www.opensource.org/licenses/apache2.0.php)
+ * @link		http://vdw.staytuned.gr/html5-starter-kit-blankplate/
+ * @package		BlankPlate
+ * @version		v1.2.3
+ */
+.tabs{
+    position:relative;
+    z-index: 1;
+}
+
+.link {
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 48px;
+    margin-top: 20px;
+    margin-left: 6px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.prev,
+.next {
+    background: white !important;
+    color: #a0cac0 !important;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.prev:hover,
+.next:hover {
+    background: #a0cac0 !important;
+    color: white !important;
+}
+
+.header__title ul {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.header__title li {
+    display: inline-block;
+}
+
+.header__title .head-active img {
+    display: inline-block;
+    opacity: 1;
+    width: 0.8rem;
+}
+
+.js-conbox{
+    position:relative;
+    z-index: 1;
+}
+.swiper-container{
+    position: relative;
+    top:1rem;
+    left:0;
+    z-index: 10;
+}
+.menubar  {
+    top: 1rem;
+}
+.swiper-wrapper{
+    top: 0.7rem;
+}
+
+.swiper-pagination-bullet {
+    width: 20%;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    display: inline-block;
+    border-radius: 0;
+    background: none;
+    opacity: 1;
+    text-align: center;
+}
+
+.swiper-pagination-bullet a{
+    display:inline-block;
+    line-height:0.7rem;
+}
+
+.menubar .menu-item {
+    width: 100%;
+}
+
+.menubar .menu-item--active a {
+    color: #000;
+    font-size: 0.3rem;
+    font-weight: bold;
+}
+.contentList {
+    position: relative;
+    display: block;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    /* hotevent border-bottom bg */
+    /* background:#fff; */
+}
+
+.wrap-box {
+    position: relative;
+    top: 0;
+    left: 0px;
+    z-index: 1;
+    display: block;
+    float: left;
+    height: 100vh;
+    width: 100%;
+}
+
+.contentList-item {
+    padding: 0.25rem 0rem 0.25rem 0rem;
+}
+
+.contentList-item--nopadding {
+    padding: 0.25rem 0 0 0;
+    margin: 0;
+}
+
+.contentList-item__article .article-image--list li {
+    width: 31.3%;
+    /*border: 1px solid #d9d9d9;*/
+    overflow: hidden;
+}
+
+.contentList-item__article .article-image--list li img{
+    border:0 none;
+}
+
+.contentList-item .contentList-item__top h3 span{
+    margin-left:2px;
+}
+
+.contentList-item .info a {
+    border: 1px solid #fff;
+    border-bottom: none;
+    padding: 0.07rem 0.12rem 0.15rem;
+    margin-top: -0.07rem;
+    margin-right: 0;
+}
+
+.contentList-item .info .src-is-active{
+    padding: 0.07rem 0.12rem 0.15rem;
+}
+
+.contentList-item .info span {
+    margin-right: 0.1rem;
+}
+
+.icon-mg, .icon-shijian {
+    margin-top:0.037rem;
+}
+
+.contentList-item__article .article-image--left{
+    /*float: none;*/
+    /*margin: 0.1rem auto;*/
+    max-height:none;
+}
+
+.shadow-bg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 200;
+    background: url(../../images/temp/li_bg.png) repeat !important;
+}
+
+.downwrap-tips img {
+    width: 100%;
+    display: block;
+}
+
+/* >div 作为 box */
+.close-box {
+    position: fixed;
+    z-index: 999;
+    max-width: 84%;
+    /*width: 100%;*/
+    background: #fff;
+    padding: 0.4rem 0.3rem;
+    border-radius: 0.15rem;
+}
+
+.close-box > div {
+    padding: 0;
+    border-radius: 0;
+    position: static;
+}
+
+.close-box > div:before {
+    background: none;
+    width: 0;
+    height: 0;
+    content: '';
+}
+
+.close-box .qtip-tip {
+    border-color: #fff;
+    background: #fff;
+}
+
+.close-box .qtip-content {
+
+}
+
+/* line 298, ../sass/partials/_main.scss */
+.close-box button {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    display: block;
+    font-size: 0.3rem;
+    color: #fff;
+    padding: 0.08rem 0.25rem;
+    text-align: center;
+}
+
+/* line 308, ../sass/partials/_main.scss */
+.close-box h3 {
+    position: relative;
+    font-size: 0.26rem;
+    color: #999;
+    font-weight: normal;
+    line-height: 0.54rem;
+}
+
+/* line 317, ../sass/partials/_main.scss */
+.close-list {
+    zoom: 1;
+}
+
+/* line 3, ../sass/partials/_mixins.scss */
+.close-list:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* line 319, ../sass/partials/_main.scss */
+.close-list li {
+    margin-top: 0.3rem;
+    margin-right: 4%;
+    float: left;
+    width: 48%;
+    border: 1px solid #edeff3;
+    -moz-border-radius: 0.1rem;
+    -webkit-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+    line-height: 0.55rem;
+    height: 0.55rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    color: #565656;
+    font-size: 0.26rem;
+}
+
+/* line 333, ../sass/partials/_main.scss */
+.close-list li:nth-child(2n) {
+    margin-right: 0%;
+}
+
+.close-list li.js-not-stick {
+    display: none;
+}
+
+.upTip {
+    position: fixed;
+    left:0;
+    top: 1.7rem;
+    z-index: 999;
+    max-width: 100%;
+    width:100%;
+    background: #edf4f9;
+    padding: 0rem 0.3rem;
+    border-radius: 0;
+    height: 0.64rem;
+}
+
+.upTip .qtip-content {
+    color: #2a90d7;
+    text-align: center;
+    font-size: 0.26rem;
+    padding:0;
+    line-height: 0.64rem;
+}
+
+/* setting */
+.notice-setting-head {
+    background: url(img/n-setting-bg.png) no-repeat left top;
+    background-size: 100%;
+}
+
+.setNotic-head > div {
+    display: block;
+    background: url(img/set-bg.png) no-repeat left bottom;
+    background-size: 100%;
+    height: 100%;
+}
+
+.s_win1 p:before,
+.s_win2 p:before {
+    background: url(../../images/s_icon.png?ver=201711161443) no-repeat;
+    background-size: 6rem 6rem;
+}
+.s_win1 {
+    position: absolute;
+    width: 5.5rem;
+    padding: 0 0.55rem;
+    height: 3rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    left: 50%;
+    margin-left: -2.75rem;
+    top: 50%;
+    margin-top: -1.5rem;
+    z-index: 11;
+}
+
+.s_win1 p {
+    position: relative;
+    text-align: center;
+    padding-top: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: #de8900;
+    font-size: 0.32rem;
+}
+
+.s_win1 p:before {
+    position: absolute;
+    content: '';
+    width: 0.78rem;
+    height: 0.78rem;
+    background-position: 0 -0.58rem;
+    left: 50%;
+    margin-left: -0.29rem;
+    top: 0.3rem;
+}
+
+.s_win1 .btnBox {
+    border-top: 1px solid #dbdbdb;
+    height: 0.86rem;
+    line-height: 0.86rem;
+    padding-top: 0.08rem;
+}
+
+.s_win1 .btnBox a {
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 0.86rem;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #292d35;
+}
+
+.s_win1 .btnBox a:after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 0.66rem;
+    background-color: #dbdbdb;
+    top: 0.08rem;
+    right: 0;
+}
+
+.s_win1 .btnBox a:last-child:after {
+    background-color: #fff;
+}
+
+
+.s_win2 {
+    position: absolute;
+    width: 4rem;
+    background-color: #fff;
+    left: 50%;
+    margin-left: -2rem;
+    top: 50%;
+    margin-top: -1.125rem;
+    border-radius: 0.1rem;
+    z-index: 11;
+    padding: 6px;
+}
+
+.s_win2 p {
+    position: relative;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #1e90ff;
+    padding-top: 1.2rem;
+}
+
+.s_win2 p:before {
+    position: absolute;
+    content: '';
+    width: 0.78rem;
+    height: 0.78rem;
+    background-position: -0.78rem -0.58rem;
+    left: 50%;
+    margin-left: -0.39rem;
+    top: 0.2rem;
+}
+
+.s_win2 p.wrong {
+    color: #d0021b;
+}
+
+.s_win2 p.wrong:before {
+    background-position: 0 -1.92rem;
+}
+
+.s_win2 p.tip {
+    color: #de8900;
+}
+
+.s_win2 p.tip:before {
+    background-position: -0.78rem -1.92rem;
+}
+
+
+.s_shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.js-stick-no {
+    display:none;
+}
+
+.no-data {
+    display:block;
+}
+
+#tip {
+    display: block;
+    z-index: 1000;
+}
+
+.mbhide {
+    visibility: hidden;
+}
+
+.imgLiquid {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid #d9d9d9;
+}
+.contentList-item .contentList-item__top .portrait{
+    width: 0.66rem;
+    height: 0.66rem;
+    float: left;
+    margin-right: 0.23rem;
+}
+
+.contentList-item .contentList-item__top img {
+    width: 0.66rem;
+    height: 0.66rem;
+}
+
+
+#js-bind {
+    display: none;
+}
+
+.setNotic-list--warnning .switch-button {
+    background: url(./img/switch-ss.png) no-repeat left center;
+    background-size: 100%;
+}
+
+.setNotic-list--warnning .is-checked {
+    background: url(./img/switch-ss-check.png) no-repeat left center;
+    background-size: 100%;
+}
+.contentList {
+
+    margin-bottom: 0;
+
+}
+.minirefresh-theme-default .minirefresh-upwrap {
+    min-height: 0.6rem;
+    padding: 0 0 1rem 0;
+    /*display:none;*/
+}
+.minirefresh-totop{
+    display:none;
+}
+
+.hot__item {
+    height:3.3rem;
+    margin: 0.15rem 0.21rem 0.15rem 0.08rem;
+}
+/* lory */
+.swc {
+    position: relative;
+    top:0;
+    width: 100%;
+    height: 2.4rem;
+    margin: 0 auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+    z-index: 200;
+}
+
+.swc .swiper-wrapper {
+    position: relative;
+    box-sizing: content-box;
+    top:0;
+    z-index: 201;
+}
+
+.swc .swiper-wrapper .swiper-slide {
+    position: relative;
+    z-index: 202;
+    display: inline-block;
+    width: 100%;
+    height: 2.4rem;
+    background: #fff;
+    color: #f00;
+    font-size: 1rem;
+}
+
+.swc .swiper-wrapper .swiper-slide img {
+    width: 100%;
+}
+
+.swc .swiper-pagination{
+    bottom: 0.03rem;
+    z-index: 211;
+}
+.swc .swiper-pagination-bullet {
+    width: 0.1rem;
+    height: 0.1rem;
+    line-height: 0.1rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #c1d1e6;
+}
+
+.swc .swiper-pagination-bullet-active{
+    background: #129aee;
+}

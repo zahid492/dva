@@ -1,0 +1,116 @@
+.jtrend .articleList .list .list__item {
+    position: relative;
+    padding: 15px 20px 35px 20px;
+    border: none;
+}
+
+.jtrend .list__item .title {
+    position: absolute;
+    top: 10px;
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.jtrend .list__item .content {
+    margin: 20px 25px 20px 28px;
+    text-indent: 2em;
+}
+
+.jtrend .list__item .first_content {
+    margin: 58px 25px 20px 28px;
+    text-indent: 2em;
+}
+
+.jtrend .author {
+    width: 906px;
+    height: 30px;
+    line-height: 30px;
+    background: #f7f7f7;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 16px;
+}
+
+.jtrend .author .author_list {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 40px;
+
+}
+
+.jtrend .author .author_list:first-child {
+    margin-left: 266px;
+}
+
+.jtrend .hotWord {
+    margin-left: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 20px;
+}
+
+.jtrend .hotWord .hot {
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+.jtrend .hotWord .hot_list {
+    float: left;
+    width: 47%;
+    font-weight: normal;
+}
+
+.jtrend .hotWord .operation_list {
+    float: right;
+    width: 42%;
+    font-weight: normal;
+    margin-right: 28px;
+}
+
+.jtrend .hotWord .operation_list li {
+    float: right;
+    border-radius: 20px;
+    margin-left: 20px;
+    height: 24px;
+    line-height: 24px;
+
+}
+
+.jtrend .hotWord .operation_list li .oneAdapt{
+    margin-left:3px;
+    font-size: 12px;
+    line-height: 24px;
+}
+.jtrend .hotWord .operation_list li .lookList{
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.jtrend .hotWord .operation_list .read_only {
+    background: #d6d9d9;
+}
+
+.jtrend .hotWord .operation_list .look_list {
+    background: #fc8b55;
+}
+
+.jtrend .hotWord .operation_list .read_edit {
+    background: #3db035;
+}
+
+.jtrend .unfold {
+    width: 904px;
+    height: 13px;
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+
+.jtrend .unfold img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

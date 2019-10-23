@@ -1,0 +1,56 @@
+.articleListBox {
+    margin-top: 0.3rem
+}
+.articleList {
+      border: 1px solid #d6d9d9;
+}
+.articleList .list__item:nth-child(2n) {
+    background: #f7f7f7;
+}
+
+.article .top {
+      background: #1c68d4;
+}
+html body .wrap content .content__box .title {
+    font-size: 16px;
+}
+.article .content {
+    color: #222;
+    font-size: 14px;
+}
+.articleList .bottom {
+    color: #777;
+    font-size: 12px;
+}
+.title,
+.change {
+    cursor: pointer;
+}
+/* -----------第二版后更新的---------------- */
+.article .change_box {
+    margin:20px 0 0 43px;
+    font-size: 14px;
+}
+.article .change_box .change1{
+    margin-right: 20px;
+    font-size: 14px;
+    color: #222;
+}
+.article .change_box .change2{
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+.article .change_box .change3{
+    display: inline-block;
+    width: 57px;
+    height: 18px;
+    margin: 2px 20px 0 0;
+    padding-left:25px;
+    font-size: 12px;
+    background: url(/img/status.png) no-repeat;
+    color: #1ba6ff;
+    font-weight: bold;
+}
+
+/* -----------第二版后更新的 over----------- */

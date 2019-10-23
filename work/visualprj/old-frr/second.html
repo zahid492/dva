@@ -1,0 +1,325 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="css/video-js.min.css?v=2018072001">
+    <link rel="stylesheet" href="css/styles.css?v=2018072001">
+    <link rel="stylesheet" href="css/swiper.min.css?v=2018072001">
+    <link rel="stylesheet" href="css/index.css?v=2018072001">
+    <script src="lib/libs.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/video.js?v=2018072001" type="text/javascript"></script>
+
+    <script src="lib/d3.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/echarts4.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/index.browser.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/plugs/chimee-plugin-center-state/index.browser.js?v=2018072001" type="text/javascript"></script>
+    <script src="js/config.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/tBase.js?v=20180711" type="text/javascript"></script>
+    <script src="js/second.js?v=2018072001" type="text/javascript"></script>
+    <title>腾讯可视化</title>
+    <style>
+        content {
+            padding:0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <header id="header"></header>
+    <div class="swiper-container" id="page" style="width: 99.5%; margin:0.2rem auto 0 auto;">
+        <div class="swiper-wrapper">
+            <content class="swiper-slide" id="page1">
+                <section style="width:38%;" class="second-content-l">
+                    <div>
+                        <h2 class="title--sub">
+                            <span class="gradientLine"></span>
+                            <div class="title__box">
+                                <p class="title__txt" id="baotao">曝光量TOP 5（近7日）</p>
+                                <p class="title__sub js-week"></p>
+                            </div>
+                            <span class="gradientLine--full"></span>
+                        </h2>
+                        <div class="content__box">
+                            <div class="exposure-top">
+                                <span>游戏</span>
+                                <i class="gradientLine--vertical"></i>
+                                <span>7日累计曝光</span>
+                                <i class="gradientLine--vertical"></i>
+                                <span>预算消耗进度</span>
+                            </div>
+                            <div class="exposure-con" id="js-top5"></div>
+                        </div>
+                    </div>
+                </section>
+                <section style="width:61%;" class="second-content-r">
+                    <h2 class="title">
+                        <span class="gradientLine"></span>
+                        <span class="title__txt">曝光量变化趋势（近7日）</span>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <!--<div class="chart-top" id="js-topLegend"></div>-->
+                        <div class="chart" id="js-main2line" style="height: 8.5rem;">
+
+                        </div>
+                    </div>
+                </section>
+            </content>
+            <content class="swiper-slide" id="page2" style="">
+                <div class="swiper-tab">
+                    <div class="swiper-nav">
+                        <span class="gradientLine"></span>
+                        <div class="swiper-nav__con" id="js-topBullet" style="visibility: hidden">
+
+                        </div>
+                        <span class="gradientLine"></span>
+                    </div>
+                    <div class="swiper-container" id="page2slide">
+                        <div class="swiper-wrapper" >
+
+                        </div>
+                    </div>
+                </div>
+            </content>
+        </div>
+    </div>
+    <footer>
+        <span class="left"><span id="js-footdes">数据来源：广告投放曝光点击数据来源O2系统和第三方监测公司；</span>数据获取时间：<span id="js-getDate"></span></span>
+        树洞可视化平台由IEG市场部媒介中心、数据中心 联合SNK、捷报数据共同打造
+    </footer>
+</div>
+<script id="topFiveTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(v, i){ %>
+        <section class="exposure-con__item exposure-con__item--<%= en2num[i] %> js-topitem">
+            <h2>
+                                    <span class="ranking">TOP
+                                        <strong style="color:<%= i>2?"":colorSeq[i] %>"><%= i+1 %></strong>
+                                    </span>
+                <span class="game-title"><%= v.gamename %></span>
+            </h2>
+            <div>
+                                    <span class="col-3">
+                                        <div class="imgBox">
+                                            <% if(i<=2) {%>
+                                            <img class="medal" src="img/medal/<%= medalImg[i] %>"/>
+                                            <% }else{ %>
+                                            <img class="medal" src="img/medal/<%= medalImg[3] %>"/>
+                                            <% } %>
+                                            <img class="game" src="<%= logos[i].logo %>">
+                                        </div>
+                                    </span>
+                <i class="gradientLine--vertical"></i>
+                <span class="col-3">
+                                        <div class="number">
+                                            <strong><%= jb.util.numSplit(v.impressions) %></strong>（次）
+                                        </div>
+                                    </span>
+                <i class="gradientLine--vertical"></i>
+                <span class="col-3">
+                                        <div class="progressbar">
+                                            <div class="progess" style="width:<%= jb.util.fixed(v.consume,2) %>%"></div>
+                                        </div>
+                                        <div class="percentCount"><%= _.round(v.consume*100,0) %>%</div>
+                                    </span>
+            </div>
+        </section>
+        <span class="gradientLine"></span>
+        <% }) %>
+    </div>
+</script>
+
+<script id="topChartLegendTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(v, i){ %>
+        <div>
+            <img src="img/line<%= i+1 %>.png"/>
+            <span><%= v.gamename %></span>
+        </div>
+        <% }) %>
+    </div>
+</script>
+
+<script id="topBulletTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(v, i){ %>
+
+        <div class="swiper-nav-slide <% if(i==2) {%>swiper-nav-slide-active <% } %>" bid="<%= v.seq %>" style="z-index: <%= z[i] %>;">
+            <img src="<%= v.icon %>">
+            <span><%= v.name %></span>
+        </div>
+        <% }) %>
+    </div>
+</script>
+
+<script id="slideTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(v, i){ %>
+        <div class="swiper-slide" id="twoSlide<%= i %>">
+            <section style="width:41%;" class="secondTow-content-l">
+                <div class="content-l__fist">
+                    <h2 class="title">
+                        <span class="gradientLine"></span>
+                        <span class="title__txt">游戏曝光量（近7日）</span>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <div class="content__box__l">
+                            <ul>
+                                <li>
+                                    <h2>曝光量</h2>
+                                    <p class="number"><%= jb.util.numSplit(v.impressions) %></p>
+                                    <p class="date">(<%= jb.util.weekDay(dataTime.start, dataTime.end)%>)</p>
+                                </li>
+                                <li>
+                                    <h2>预算消耗进度</h2>
+                                    <p class="number"><%= _.round(v.consume*100, 0) %>%</p>
+                                    <p class="date">(<%= jb.util.weekDay(dataTime.start, dataTime.end)%>)</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="content__box__r">
+                            <h2>
+                                <span>每日曝光量</span></h2>
+                            <ul>
+                                <% _.forEach(v.gamelist, function(w, j){ %>
+                                <li>
+                                    <div class="date"><%= w.date %></div>
+                                    <div class="progressbar">
+                                        <% if(v.impressions!==0){ %>
+                                        <div class="progess" pw="<%= w.impressions*100/v.maxi %>%"></div>
+                                        <% }else { %>
+                                        <div class="progess" style="width:0"></div>
+                                        <% } %>
+                                    </div>
+                                    <div class="percentCount"><%= jb.util.numSplit(w.impressions) %></div>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-l__second">
+                    <%
+                    var hinfo = _.find(info, {name: v.gamename});
+                    %>
+                    <h2 class="title">
+                        <span class="gradientLine"></span>
+                        <span class="title__txt">优秀广告素材展示</span>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <div class="content__box__l"  style="width:99%;">
+                            <div class="swiper-container second-swc" id="bl<%= i %>">
+                                <div class="swiper-wrapper">
+
+                                    <% if(hinfo && hinfo.images.length>0) {%>
+                                    <% _.forEach(hinfo.images, function(x, k){ %>
+                                        <% if(!jb.util.hasVideo(x.path)){ %>
+                                        <div class="swiper-slide p2slide" style="width:100%;">
+                                            <div class="vv">
+                                                <img src="<%= host+x.path %>" alt="">
+                                            </div>
+
+                                            <div class="content__box__r" style="width:26%;">
+                                                <div id="piectr<%= i %><%= k %>">
+                                                </div>
+                                                <span class="gradientLine"></span>
+                                                <div id="piecvr<%= i %><%= k %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% }else{ %>
+                                        <div id="bl<%= i %><%= k %>" style="width:100%;" class="swiper-slide p2slide video" vpath="<%= host+x.path %>">
+                                            <div class="vv">
+                                                <video class="video-js" id="vbl<%= i %><%= k %>">
+                                                </video>
+                                            </div>
+
+                                            <div class="content__box__r" style="width:26%;">
+                                                <div id="piectr<%= i %><%= k %>">
+                                                </div>
+                                                <span class="gradientLine"></span>
+                                                <div id="piecvr<%= i %><%= k %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    <% }) %>
+                                    <% }else{ %>
+                                        <div class="swiper-slide p2slide" style="width:100%;"><img src="/img/3bei.png" style="height:100%;" alt=""></div>
+                                    <% } %>
+                                </div>
+                                <div class="swiper-pagination js-play" id="blp<%= i %>"></div>
+                            </div>
+
+                        </div>
+                        <!--<div class="content__box__r" style="width:26%;">-->
+                            <!--<div id="piectr<%= i %>">-->
+                            <!--</div>-->
+                            <!--<span class="gradientLine"></span>-->
+                            <!--<div id="piecvr<%= i %>">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <p>
+                            <span class="explain">说明:</span>
+                            <span class="description">1、CTR（点击率）=点击/曝光；2、大盘CTR指该素材所在最优广告位的平均CTR；</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section style="width:58%;" class="secondTow-content-r">
+                <div class="content-r__fist">
+                    <h2 class="title--sub">
+                        <span class="gradientLine"></span>
+                        <div class="title__box">
+                            <p class="title__txt">微信搜索指数变化趋势（30日）</p>
+                            <% if(_.size(slides)>0 && _.has(slides[i], "wechatlist") && slides[i].wechatlist.length>0){ %>
+                            <p class="title__sub">(<%= jb.util.weekDay(slides[i].wechatlist[0].date, slides[i].wechatlist[slides[i].wechatlist.length-1].date) %>)</p>
+                            <% }%>
+                        </div>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <% if(_.size(slides)>0 && _.has(slides[i], "wechatlist") && slides[i].wechatlist.length>0){ %>
+                        <div class="chart"></div>
+                        <% }else{ %>
+                        <img src="/img/300.png" alt="">
+                        <% }%>
+                    </div>
+                </div>
+                <div class="content-r__second">
+                    <h2 class="title--sub">
+                        <span class="gradientLine"></span>
+                        <div class="title__box">
+                            <p class="title__txt"> AppStore（中国区）榜单趋势（30日）</p>
+                            <% if(_.size(slides)>0 && _.has(slides[i], "appstorelist") && slides[i].appstorelist.length>0){ %>
+                            <p class="title__sub">(<%= jb.util.weekDay(slides[i].appstorelist[0].date, slides[i].appstorelist[slides[i].appstorelist.length-1].date) %>)</p>
+                            <% }%>
+                        </div>
+                        <span class="gradientLine--full"></span>
+                    </h2>
+                    <div class="content__box">
+                        <% if(_.size(slides)>0 && !_.isUndefined(slides[i]) && slides[i].gtype==2){ %>
+                        <img src="/img/310.png" alt="">
+                        <% }else if(_.size(slides)>0 && _.has(slides[i], "appstorelist") && slides[i].appstorelist.length>0){ %>
+                        <div class="chart" style="height:3.55rem;"></div>
+                        <% }else{ %>
+                        <img src="/img/300.png" alt="">
+                        <% }%>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <% }) %>
+    </div>
+</script>
+</body>
+
+</html>

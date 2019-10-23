@@ -1,0 +1,28 @@
+<!--新闻报道案例-->
+<div class="content__box__l" style="">
+    <div id="slide3d" class="slide-carousel slide-3d">
+        <ul class="item-list clearfix">
+            <% _.forEach(newLists, function(v, i){ %>
+            <li class="item<%= i %>">
+                <div class="item-content" id="<%= i %>">
+                    <a href="javascript:void(0);">
+                        <img class="cover-img" src="<%= host + v.caseimgurl %>">
+                    </a>
+                </div>
+            </li>
+            <% }) %>
+        </ul>
+        <!--indicators-->
+        <div class="indicator-list" style="display:none">
+            <% _.forEach(newLists, function(v, i){ %>
+            <a href="javascript:void(0);" data-slide-index="<%= i %>" class="selected"></a>
+            <% }) %>
+        </div>
+        <!--controls-->
+        <div class="controls">
+            <a class="item-prev glyphicon glyphicon-menu-left" href="javascript:void(0);"></a>
+            <a class="item-next glyphicon glyphicon-menu-right" href="javascript:void(0);"></a>
+        </div>
+    </div>
+</div>
+<div class="content__box__r" id="js-contentBoxR" style=""></div>

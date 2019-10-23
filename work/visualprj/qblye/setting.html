@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1, minimal-uiuser-scalable=no" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile">
+    <title>通知设置</title>
+
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+        window.onresize = change;
+    </script>
+    <script src="js/lib/libs.js"></script>
+    <script src="js/lib/nouislider.js"></script>
+    <script src="js/lib/switch.js" type="text/javascript"></script>
+    <script src="Scripts/Common.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0124"/>
+    <link rel="stylesheet" href="styles/1712/nouislider.css"/>
+    <link rel="stylesheet" href="styles/1712/temp.css?v=0124"/>
+    <link rel="stylesheet" href="styles/1712/switch.css?v=0124"/>
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0124">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="indexContainer">
+        <section class="notice-setting-head">
+            <h3>
+                <a class="iconfont icon-right return js-back"></a>
+                通知设置
+            </h3>
+        </section>
+        <section class="setNotic-list">
+            <div class="setCon">
+                <ul>
+                    <li>
+                        <span class="iconfont icon-warnning"></span>
+                        <a href="#">预警推送</a>
+                        <i class="js-notic plug-notic">
+                            <input type="checkbox" id="notic" style="display:none;" />
+                        </i>
+                    </li>
+                    <li class="is-no-border">
+                        <span class="iconfont icon-time"></span>
+                        <a href="#">预警时段</a>
+                        <!-- todo 需要动态选择时段 -->
+                        <div class="time-interval js-notic-time">
+                            <span text-time="9:00-18:00" class="9-18">9:00-18:00  周一至周五</span>
+                            <span text-time="8:00-23:00" class="8-23">8:00-23:00  周一至周五</span>
+                            <span text-time="0:00-24:00" class="0-24">7x24小时不间断</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="setNotic-list" id="freqbox">
+            <ul>
+                <li class="setNotic-list--warnning">
+                    <span  class="iconfont icon-pinshuai" style="font-size:0.25rem"></span>
+                    <a href="#">预警频率</a>
+                    <i class="plug-notic" id="freq-notic">
+                        <div class="ofbtn"></div>
+                        <input type="checkbox" id="freqNotic" style="display:none;" />
+                    </i>
+                    <!--<i class="switch-button" id="js-switch" style="margin-right:0rem;"></i>-->
+                </li>
+                <li class="is-no-border freq-box">
+                    <div id="notic-freq"></div>
+                </li>
+
+            </ul>
+        </section>
+
+        <section class="H-block"></section>
+        <section class="setNotic-list">
+            <ul>
+                <li class="is-no-border">
+                    <span class="iconfont icon-daily"></span>
+                    <a href="#">日报推送</a>
+                    <i class="plug-notic"><input type="checkbox" id="dailyNotic" style="display:none;" /></i>
+                </li>
+            </ul>
+        </section>
+        <section class="H-block"></section>
+
+    </div>
+</div>
+
+<script id="layTipCancelTpl" type="text/html">
+    <i class="iconfont icon-problem"></i>
+    <h3>预警状态关闭后，您将<br>无法收到预警提醒，确认关闭？</h3>
+</script>
+
+<script id="layTipDailyCancelTpl" type="text/html">
+    <i class="iconfont icon-problem"></i>
+    <h3>日报推送关闭后，您将<br>无法收到日报，确认关闭？</h3>
+</script>
+
+<script id="layTipNeedOpenTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>请先开启预警提醒</h3>
+</script>
+
+<script id="layTipSubmitSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>提交成功</h3>
+</script>
+
+<script src="Scripts/setting.js" type="text/javascript"></script>
+
+</body>
+</html>

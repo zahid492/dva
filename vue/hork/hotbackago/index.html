@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>妙笔热搜-后台管理</title>
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <style type="text/css">
+        .layui-body {
+            overflow-y: hidden;
+            overflow: hidden;
+        }
+
+        .layui-nav-child a {
+            padding-left: 38px !important;
+        }
+    </style>
+
+</head>
+
+<body class="layui-layout-body">
+
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">热搜-后台管理</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <span id="uName">妙笔</span>
+                </a>
+            </li>
+            <li class="layui-nav-item">
+                <a style="cursor:pointer" id="exit">退了</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="sidebar">
+
+                <!--自媒体账号管理-->
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-read"></i>
+                        <cite>自媒体账号管理</cite>
+                        <span class="layui-nav-more"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" url="/view_mymedia/platform.html">平台列表</a>
+                        </dd>
+                        <dd class="layui-this">
+                            <a href="javascript:;" url="/view_mymedia/accounts.html">账号列表</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_mymedia/articles.html">文章列表</a>
+                        </dd>
+                    </dl>
+                </li>
+
+                <!--对应关系-->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-read"></i>
+                        <cite>对应关系</cite>
+                        <span class="layui-nav-more"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" url="/view_relation/article_category.html">文章分类</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_relation/publish_category.html">账号发布类型</a>
+                        </dd>
+                    </dl>
+                </li>
+
+                <!--统计分析-->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-read"></i>
+                        <cite>统计分析</cite>
+                        <span class="layui-nav-more"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" url="/view_statistics/account.html">账号</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_statistics/platform.html">平台</a>
+                        </dd>
+                    </dl>
+                </li>
+
+                <!--热文管理-->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-read"></i>
+                        <cite>热文管理</cite>
+                        <span class="layui-nav-more"></span>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/mediaAccount.html">新闻源</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/template.html">模板</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/frame.html">框架</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/modular.html">模块</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/subdivision.html">细分</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" url="/view_hotnews/tplng.html">模板语言</a>
+                        </dd>
+
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <iframe src="/view_mymedia/account.html"
+                frameborder="0"
+                id="iframeC"
+                style="width: 100%; height: 100%;"></iframe>
+    </div>
+</div>
+
+<script src="/js/jquery/jquery-1.12.1.min.js" charset="utf-8"></script>
+<script src="/js/layui/layui.js" charset="utf-8"></script>
+<script src="/js/lodash.min.js" charset="utf-8"></script>
+<script src="/js/oidc-client.js" charset="utf-8"></script>
+<script src="/js/store2.min.js" charset="utf-8"></script>
+
+<!--<script src="http://navigator.aimiaobi.rd/head.js"></script>-->
+
+<script src="/config.js" charset="utf-8"></script>
+<script src="/scripts/Dictionaries.js" charset="utf-8"></script>
+<script src="/scripts/Common.js" charset="utf-8"></script>
+<script src="/scripts/oidc.js" charset="utf-8"></script>
+
+<script>
+    var user = store.get("oidc_user");
+
+    console.log("user:", user);
+
+    if (_.isNil(user)) {
+        startSigninMainWindow();
+    } else {
+        $("#uName").text(user.profile.name);
+
+        $("#exit").click(function () {
+            startSignoutMainWindow();
+            removeUser();
+            endSignoutMainWindow();
+        });
+    }
+
+    getUser();
+
+    //JavaScript代码区域
+    $(function () {
+
+        //点击菜单打开，关闭其他的菜单为折叠的样式
+        $(".layui-nav-tree li").click(function () {
+            var classStr = $(this).attr("class");
+            if (classStr == "layui-nav-item layui-nav-itemed") {
+                $(".layui-nav-tree li").attr("class", "layui-nav-item");
+                $(this).attr("class", "layui-nav-item layui-nav-itemed");
+            }
+        });
+
+        layui.use(['element', 'layer'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+
+            element.on('nav(sidebar)', function (elem) {
+                /*使用DOM操作获取超链接的自定义data属性值*/
+                var url = $(elem.context).attr("url");
+                if (url != undefined) {
+                    $("#iframeC").attr("src", url);
+                }
+            });
+        });
+    });
+
+
+</script>
+</body>
+
+</html>

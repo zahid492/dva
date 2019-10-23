@@ -1,0 +1,48 @@
+<!--// 一月游戏产品新闻发布一览-->
+<h2 class="top">
+    <span class="li__l">游戏</span>
+    <span class="li__m">外发新闻量<em>（篇）</em></span>
+    <span class="li__r">新闻报道数量<em>（家）</em></span>
+</h2>
+<div class="carousel">
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <% _.forEach(list, function(v, j){ %>
+
+            <div class="swiper-slide" id="slide<%= j %>">
+                <ul>
+                    <% _.forEach(v, function(o, i){ %>
+                    <li style="height:0;">
+                        <div class="ranking">
+                            <span class="num">
+                                <%= 15*j+i+1 %>
+                            </span>
+                            <span class="gameName">
+                                <%= o.gamename %>
+                            </span>
+                        </div>
+                        <div class="amount">
+                            <%= o.outboundnewscount %>
+
+                        </div>
+                        <div class="progress-box">
+                            <div class="progressbar">
+                                <div class="progess"
+                                     style="width:<%= (o.groundmediacount/(maxNum*1.2))*100 %>%"></div>
+                            </div>
+                            <div class="percentCount">
+                                <%= o.groundmediacount %>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <% }) %>
+
+        </div>
+        <div class="pagination">
+
+        </div>
+    </div>
+</div>

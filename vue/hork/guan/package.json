@@ -1,0 +1,39 @@
+{
+  "name": "miaobi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "better-scroll": "^1.14.1",
+    "element-ui": "^2.4.11",
+    "mint-ui": "^2.2.13",
+    "properjs-resizecontroller": "^0.2.2",
+    "store2": "^2.7.1",
+    "vue": "^2.5.21",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "3.5.1",
+    "@vue/cli-service": "3.5.1",
+    "babel-plugin-component": "^1.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 5%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
+}

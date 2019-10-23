@@ -1,0 +1,62 @@
+/* .my_articleListBox {
+    margin: 190px auto 0;
+} */
+.my_articleListBox .articleList {
+    border: 1px solid #d6d9d9;
+}
+.article .top {
+    background: #1c68d4;
+}
+.articleOne__box {
+    background: #ededed;
+}
+.uEidt img {
+    border-radius: 5px;
+}
+.myArticle .list__item .con h3 {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+.myArticle .list__item .con span {
+    color: #4d73ff;
+}
+.myArticle .list__item .button {
+    float: right;
+}
+.myArticle .list__item .button span {
+    color: #777;
+    float: right;
+    font-size: 12px;
+    display: block;
+    width: 90px;
+}
+.myArticle .list__item .button i {
+    position: absolute;
+    right: 16px;
+    top: 15px;
+}
+.myArticle .list__item .button .change {
+    cursor: pointer;
+}
+.article .button button {
+    background: #3db035;
+    color: #fff;
+    width: 80px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+.article .button .btn_list {
+    background: #3db035;
+}
+.article .button .btn_news {
+    background: #fc8b55;
+}
+.myArticle .list__item .ys-con p {
+    margin: 0 25px 0 48px;
+}
+.myArticle .list__item .con p {
+    font-size: 14px;
+    color: #222;
+}

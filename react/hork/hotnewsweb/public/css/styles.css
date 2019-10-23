@@ -1,0 +1,550 @@
+@charset "UTF-8";
+/*! Taken from the book, 'Sass and Compass for designers' by Ben Frain */
+/*过渡属性*/
+/* line 1, ../sass/partials/_base.scss */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+/* line 11, ../sass/partials/_base.scss */
+body {
+  font-size: 14px;
+  color: #303030;
+  font-family: "Microsoft Yahei";
+}
+
+/* line 17, ../sass/partials/_base.scss */
+body,
+div,
+dl,
+dt,
+dd,
+del,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+button,
+input,
+select,
+textarea,
+p,
+blockquote,
+th,
+td,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 48, ../sass/partials/_base.scss */
+ol,
+ul {
+  list-style: none;
+}
+
+/* line 53, ../sass/partials/_base.scss */
+a {
+  color: #262626;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* line 59, ../sass/partials/_base.scss */
+input {
+  outline: none;
+  border: none;
+}
+
+/* line 64, ../sass/partials/_base.scss */
+button {
+  background: none;
+}
+
+/* line 68, ../sass/partials/_base.scss */
+button,
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* line 79, ../sass/partials/_base.scss */
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 89, ../sass/partials/_base.scss */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* line 97, ../sass/partials/_base.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 102, ../sass/partials/_base.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* line 107, ../sass/partials/_base.scss */
+select,
+input,
+img,
+select {
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 116, ../sass/partials/_base.scss */
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+/* line 121, ../sass/partials/_base.scss */
+.fl {
+  float: left;
+}
+
+/* line 125, ../sass/partials/_base.scss */
+.fr {
+  float: right;
+}
+
+/* line 129, ../sass/partials/_base.scss */
+.w_1300 {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.w_1800 {
+  width: 1800px;
+  margin: 0 auto;
+}
+.w_100 {
+  width: 95%;
+  margin: 0 auto;
+}
+/* line 134, ../sass/partials/_base.scss */
+content {
+  display: block;
+  margin-top: 40px;
+}
+
+
+
+/*按钮*/
+/* line 168, ../sass/partials/_base.scss */
+.btn {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #fc8b55;
+  border: 1px solid #fc8b55;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+}
+.btn-fh {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, #1ba6ff, #112fde);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+  margin: 0 30px;
+}
+.btn-bc {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, #f9b363, #f27072);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+  margin: 0 30px;
+}
+
+/* line 172, ../sass/partials/_base.scss */
+.btn--blue {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #4d73ff;
+  border: 1px solid #4d73ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+  margin: 0 30px;
+}
+
+/* line 175, ../sass/partials/_base.scss */
+.btn--grayblue {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #6f89b3;
+  border: 1px solid #6f89b3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 130px;
+  margin: 0 30px;
+}
+
+/* line 178, ../sass/partials/_base.scss */
+.tab-btn {
+  text-align: center;
+}
+/* line 181, ../sass/partials/_base.scss */
+.tab-btn button {
+  line-height: 40px;
+  height: 40px;
+  color: #9d9d9d;
+  padding: 0 10px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+/* line 188, ../sass/partials/_base.scss */
+.tab-btn button:nth-child(1) {
+  margin-right: 20px;
+}
+/* line 191, ../sass/partials/_base.scss */
+.tab-btn button.active {
+  color: #fff;
+  background: #12b3f0;
+}
+/* line 194, ../sass/partials/_base.scss */
+.tab-btn button.active span {
+  font-weight: bold;
+}
+/* line 199, ../sass/partials/_base.scss */
+.tab-btn i {
+  font-size: 30px;
+  float: left;
+  margin-right: 5px;
+}
+/* line 204, ../sass/partials/_base.scss */
+.tab-btn span {
+  line-height: 40px;
+  height: 40px;
+}
+
+/* -------------------新增文章列表样式 over--------------- */
+
+
+/* line 259, ../sass/partials/_base.scss */
+.article .button i {
+  font-size: 20px;
+}
+.article .button span {
+  font-size: 20px;
+  margin-left: 18px;
+}
+
+/* line 262, ../sass/partials/_base.scss */
+.article .button .icon-view {
+  margin-right: 10px;
+}
+/* line 265, ../sass/partials/_base.scss */
+.article .button button {
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  background: #12b3f0;
+  color: #fff;
+  text-align: center;
+  margin-right: 25px;
+  border-radius: 20px;
+}
+
+/*滚动条样式*/
+::-webkit-scrollbar {
+  width: 4px;
+  /* height: 100%; */
+}
+
+/* 这是针对缺省样式 (必须的) */
+/* line 279, ../sass/partials/_base.scss
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}*/
+
+/* 滚动条的滑轨背景颜色 */
+/* line 280, ../sass/partials/_base.scss */
+/* ::-webkit-scrollbar-thumb {
+  background-color: #12b3f0;
+  border-radius: 10px;
+} */
+
+/* 滑块颜色 */
+/* line 282, ../sass/partials/_base.scss */
+/* .border {
+  border: 1px solid #12b3f0;
+  border-radius: 10px;
+  width: 100%;
+  background: #fff;
+} */
+
+
+/* line 1, ../sass/partials/_main.scss */
+.wrap {
+  height: 72%;
+ overflow: hidden;
+  /* background: url(../img/bg.png) no-repeat center bottom; */
+}
+
+
+/* line 9, ../sass/partials/_main.scss */
+header .w_1300 {
+  padding-top: 45px;
+  line-height: 44px;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+header .w_1300:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+header .w_1800 {
+  padding-top: 45px;
+  line-height: 44px;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+header .w_1800:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+header .w_100 {
+  padding-top: 45px;
+  line-height: 44px;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+header .w_100:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 14, ../sass/partials/_main.scss */
+header .logo {
+  float: left;
+}
+/* line 18, ../sass/partials/_main.scss */
+header nav {
+  float: left;
+  /* margin-left: 100px; */
+  /* margin-top: 20px; */
+}
+/* line 20, ../sass/partials/_main.scss */
+header nav li {
+  float: left;
+}
+/* line 23, ../sass/partials/_main.scss */
+header nav li a {
+  color: #888;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 29, ../sass/partials/_main.scss */
+header nav li.active a {
+  color: #fff;
+  background: #12b3f0;
+  padding: 4.5px 18px;
+  border-radius: 20px;
+}
+/* line 38, ../sass/partials/_main.scss */
+header .login {
+  float: right;
+  position: relative;
+  cursor: pointer;
+  right: 50px;
+}
+/* line 42, ../sass/partials/_main.scss */
+header .login .login__box {
+  font-size: 16px;
+}
+/* line 44, ../sass/partials/_main.scss */
+header .login .login__box strong {
+  margin-right: 10px;
+}
+/* line 47, ../sass/partials/_main.scss */
+header .login .login__box i {
+  font-size: 12px;
+  margin-left: 10px;
+}
+/* line 53, ../sass/partials/_main.scss */
+header .logon__dropdown {
+  box-shadow: 4px 4px 9px #e8e8e8;
+  padding-left: 15px;
+  left: -15px;
+  position: absolute;
+  width: 150px;
+  padding-bottom: 5px;
+  display: none;
+  background: #fff;
+}
+/* line 62, ../sass/partials/_main.scss */
+header .logon__dropdown li {
+  line-height: 42px;
+}
+/* line 64, ../sass/partials/_main.scss */
+header .logon__dropdown li i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+/* line 68, ../sass/partials/_main.scss */
+header .logon__dropdown li:hover {
+  color: #12b3f0;
+}
+/* line 70, ../sass/partials/_main.scss */
+header .logon__dropdown li:hover a {-
+  color: #12b3f0;
+}
+
+/* line 78, ../sass/partials/_main.scss */
+.form-drop {
+  line-height: 28px;
+}
+/* line 80, ../sass/partials/_main.scss */
+.form-drop label {
+  font-size: 18px;
+  /* color: #fff; */
+  margin-right: 20px;
+}
+/* line 85, ../sass/partials/_main.scss */
+.form-drop .from-control {
+  background: #fff url(../img/dropdown.png) no-repeat 80px center;
+  width: 103px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 10px;
+  box-shadow: 0px 2px 15px #d8d8d8;
+}
+
+
+.articleOne__box__edit-seo .news-adapt__statistic {
+  position: relative;
+  width: 102%;
+  position: relative;
+  line-height: 35px;
+  height: 35px;
+  left: -12.5px;
+  top: -4px;
+  margin-bottom: 0;
+}
+
+
+
+/*底部*/
+/* line 885, ../sass/partials/_main.scss */
+footer {
+  zoom: 1;
+  width: 1300px;
+  margin: 80px auto 20px;
+  color: #fff;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+footer:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 890, ../sass/partials/_main.scss */
+footer a {
+  color: #fff;
+}
+/* line 893, ../sass/partials/_main.scss */
+footer .footer__nav {
+  float: left;
+}
+/* line 895, ../sass/partials/_main.scss */
+footer .footer__nav a {
+  margin-right: 40px;
+  font-weight: bold;
+}
+/* line 900, ../sass/partials/_main.scss */
+footer .footer__info {
+  float: right;
+}
+/* line 902, ../sass/partials/_main.scss */
+footer .footer__info i {
+  margin-right: 3px;
+  font-size: 18px;
+}
+/* line 906, ../sass/partials/_main.scss */
+footer .footer__info span {
+  margin-left: 40px;
+}
+  /* line 456, ../sass/partials/_main.scss */
+.btn-box {
+  text-align: center;
+  margin: 20px auto 0;
+}

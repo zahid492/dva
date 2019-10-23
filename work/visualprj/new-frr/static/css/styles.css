@@ -1,0 +1,2417 @@
+@charset "UTF-8";
+/*! Taken from the book, 'Sass and Compass for designers' by Ben Frain */
+/*过渡属性*/
+/*透明度渐变线*/
+/*两种纯色渐变*/
+/*等分*/
+/*模块统一样式*/
+/*进度条*/
+/*轮播小圆点*/
+@font-face {
+  font-family: "iconfont";
+  src: url("iconfont.eot?t=1525316026571");
+  /* IE9*/
+  src: url("iconfont.eot?t=1525316026571#iefix") format("embedded-opentype"), url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff"), url("iconfont.ttf?t=1525316026571") format("truetype"), url("iconfont.svg?t=1525316026571#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 10, ../sass/partials/_iconfonts.scss */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 18, ../sass/partials/_iconfonts.scss */
+.icon-close:before {
+  content: "\e622";
+}
+
+/* line 20, ../sass/partials/_iconfonts.scss */
+.icon-user:before {
+  content: "\e650";
+}
+
+/* line 22, ../sass/partials/_iconfonts.scss */
+.icon-exit:before {
+  content: "\e653";
+}
+
+/* line 24, ../sass/partials/_iconfonts.scss */
+.icon-pwd:before {
+  content: "\e654";
+}
+
+/* line 26, ../sass/partials/_iconfonts.scss */
+.icon-sure:before {
+  content: "\e655";
+}
+
+/* line 28, ../sass/partials/_iconfonts.scss */
+.icon-chiping:before {
+  content: "\e798";
+}
+
+/* line 30, ../sass/partials/_iconfonts.scss */
+.icon-up:before {
+  content: "\e656";
+}
+
+/* line 32, ../sass/partials/_iconfonts.scss */
+.icon-sign:before {
+  content: "\e657";
+}
+
+/* line 34, ../sass/partials/_iconfonts.scss */
+.icon-time:before {
+  content: "\e658";
+}
+
+/* line 36, ../sass/partials/_iconfonts.scss */
+.icon-down:before {
+  content: "\e659";
+}
+
+/* line 38, ../sass/partials/_iconfonts.scss */
+.icon-data:before {
+  content: "\e65a";
+}
+
+/* line 40, ../sass/partials/_iconfonts.scss */
+.icon-overview:before {
+  content: "\e65b";
+}
+
+/* line 42, ../sass/partials/_iconfonts.scss */
+.icon-material:before {
+  content: "\e65c";
+}
+
+/* line 44, ../sass/partials/_iconfonts.scss */
+.icon-map:before {
+  content: "\e65e";
+}
+
+/* line 46, ../sass/partials/_iconfonts.scss */
+.icon-trend-up:before {
+  content: "\e65f";
+}
+
+/* line 48, ../sass/partials/_iconfonts.scss */
+.icon-trend-down:before {
+  content: "\e660";
+}
+
+/* line 50, ../sass/partials/_iconfonts.scss */
+.icon-icon:before {
+  content: "\e661";
+}
+
+/* line 52, ../sass/partials/_iconfonts.scss */
+.icon-icon1:before {
+  content: "\e662";
+}
+
+/* line 54, ../sass/partials/_iconfonts.scss */
+.icon-zhuyi:before {
+  content: "\e663";
+}
+
+/* line 1, ../sass/partials/_base.scss */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 9, ../sass/partials/_base.scss */
+body {
+  font-family: Microsoft YaHei;
+  font-size: 0.14rem;
+  background: #191c33;
+  color: #fff;
+}
+
+/* line 16, ../sass/partials/_base.scss */
+body,
+div,
+dl,
+dt,
+dd,
+del,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+button,
+input,
+select,
+textarea,
+p,
+blockquote,
+th,
+td,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 47, ../sass/partials/_base.scss */
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+/* line 53, ../sass/partials/_base.scss */
+a {
+  color: #303c69;
+  text-decoration: none;
+}
+
+/* line 58, ../sass/partials/_base.scss */
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+/* line 63, ../sass/partials/_base.scss */
+button {
+  background: none;
+  border: none;
+}
+
+/* line 68, ../sass/partials/_base.scss */
+.fl {
+  float: left;
+}
+
+/* line 72, ../sass/partials/_base.scss */
+.fr {
+  float: right;
+}
+
+/**
+* 一些公用样式
+*/
+/*等分*/
+/* line 80, ../sass/partials/_base.scss */
+.col-2 {
+  float: left;
+  width: 49.9%;
+}
+
+/* line 83, ../sass/partials/_base.scss */
+.col-3 {
+  float: left;
+  width: 33%;
+}
+
+/*渐变线*/
+/* line 88, ../sass/partials/_base.scss */
+.gradientLine {
+  display: block;
+  height: 0.01rem;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+/* line 94, ../sass/partials/_base.scss */
+.gradientLine--vertical {
+  display: block;
+  width: 0.01rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+/* line 100, ../sass/partials/_base.scss */
+.gradientLine--lr {
+  display: block;
+  height: 0.01rem;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0));
+}
+
+/* line 106, ../sass/partials/_base.scss */
+.gradientLine--full {
+  display: block;
+  height: 0.01rem;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0));
+}
+
+/*模块标题*/
+/* line 114, ../sass/partials/_base.scss */
+.title-box {
+  background: #303c69;
+  border-radius: 0.06rem 0.06rem 0 0;
+}
+
+/* line 119, ../sass/partials/_base.scss */
+.title {
+  height: 0.56rem;
+  line-height: 0.54rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -ms-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -moz-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -webkit-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -o-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  box-shadow: 0px 9px 62px #231d50;
+}
+/* line 130, ../sass/partials/_base.scss */
+.title .gradientLine {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+}
+/* line 133, ../sass/partials/_base.scss */
+.title .title__txt {
+  font-size: 0.2rem;
+}
+
+/* line 138, ../sass/partials/_base.scss */
+.title--sub {
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -ms-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -moz-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -webkit-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  background: -o-linear-gradient(left, rgba(59, 74, 130, 0), #3b4a82, rgba(59, 74, 130, 0));
+  box-shadow: 0px 9px 62px #231d50;
+}
+/* line 147, ../sass/partials/_base.scss */
+.title--sub .gradientLine {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+}
+/* line 150, ../sass/partials/_base.scss */
+.title--sub .title__box {
+  padding: 0.06rem 0;
+}
+/* line 152, ../sass/partials/_base.scss */
+.title--sub .title__box .title__txt {
+  font-size: 0.2rem;
+}
+/* line 155, ../sass/partials/_base.scss */
+.title--sub .title__box .title__sub {
+  font-size: 0.12rem;
+  color: #b2b9db;
+  font-weight: normal;
+}
+
+/*解释说明文字*/
+/* line 166, ../sass/partials/_base.scss */
+.explain {
+  line-height: 0.24rem;
+  font-weight: bold;
+  color: #b2b9db;
+}
+
+/* line 172, ../sass/partials/_base.scss */
+.description {
+  line-height: 0.24rem;
+  color: #b2b9db;
+  font-size: 0.14rem;
+}
+
+/*比率按钮*/
+/* line 182, ../sass/partials/_base.scss */
+.ratio button {
+  width: 1rem;
+  height: 0.22rem;
+  line-height: 0.22rem;
+  font-size: 0.12rem;
+  color: #fff;
+  border-radius: 0.1rem;
+  margin-top: 0.01rem;
+}
+/* line 190, ../sass/partials/_base.scss */
+.ratio button i {
+  font-size: 0.12rem;
+  margin-right: 0.08rem;
+}
+/* line 195, ../sass/partials/_base.scss */
+.ratio .ratio--up {
+  background: linear-gradient(to right, #ba040f, #ff4200);
+}
+/* line 198, ../sass/partials/_base.scss */
+.ratio .ratio--down {
+  background: linear-gradient(to right, #007e21, #00b52f);
+}
+/* line 201, ../sass/partials/_base.scss */
+.ratio .ratio--flat {
+  background: linear-gradient(to right, #045aba, #009cff);
+}
+
+/* line 206, ../sass/partials/_base.scss */
+.exposure-top {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  box-shadow: 0 0.09rem 0.58rem #202d5c;
+  text-align: center;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.exposure-top:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 212, ../sass/partials/_base.scss */
+.exposure-top span {
+  font-weight: bold;
+  font-size: 0.18rem;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 219, ../sass/partials/_base.scss */
+.exposure-top i {
+  float: left;
+  height: 0.3rem;
+  margin: 0.25rem 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+
+/* line 227, ../sass/partials/_base.scss */
+.chart-top {
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.chart-top:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 229, ../sass/partials/_base.scss */
+.chart-top div {
+  float: left;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  font-weight: bold;
+  text-align: center;
+}
+/* line 235, ../sass/partials/_base.scss */
+.chart-top div img {
+  margin-right: 0.1rem;
+  width: 0.48rem;
+}
+
+/*头部样式*/
+/* line 3, ../sass/partials/_main.scss */
+header {
+  height: 0.82rem;
+  background: #303c69;
+  padding: 0 0.1rem 0 0.2rem;
+}
+/* line 8, ../sass/partials/_main.scss */
+header .headerBox {
+  line-height: 0.82rem;
+}
+/* line 11, ../sass/partials/_main.scss */
+header .header-time {
+  font-size: 0.16rem;
+  float: left;
+}
+/* line 14, ../sass/partials/_main.scss */
+header .header-time i {
+  margin-right: 0.08rem;
+  font-size: 0.19rem;
+}
+/* line 19, ../sass/partials/_main.scss */
+header .header-logo {
+  width: 25%;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 23, ../sass/partials/_main.scss */
+header .header-logo .header-logo__box {
+  cursor: pointer;
+  height: 0.82rem;
+  vertical-align: middle;
+}
+/* line 27, ../sass/partials/_main.scss */
+header .header-logo .header-logo__box img {
+  line-height: 0.75rem;
+  margin-top: -0.15rem;
+  width: 0.46rem;
+}
+/* line 32, ../sass/partials/_main.scss */
+header .header-logo .header-logo__box span {
+  font-size: 0.3rem;
+  font-weight: bold;
+  margin: 0 0.15rem 0 0.1rem;
+}
+/* line 37, ../sass/partials/_main.scss */
+header .header-logo .header-logo__box i {
+  color: #8796dc;
+  font-size: 0.12rem;
+  position: relative;
+  top: -0.05rem;
+}
+/* line 44, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown {
+  display: none;
+  background: #303c69;
+  width: 3.6rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.16rem;
+  position: relative;
+  z-index: 10;
+  top: 0.08rem;
+  box-shadow: 0 0.09rem 0.62rem #231d50;
+}
+/* line 55, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 0.08rem solid transparent;
+  border-right: 0.08rem solid transparent;
+  border-bottom: 0.08rem #303c69 solid;
+  position: absolute;
+  top: -0.08rem;
+  left: 50%;
+  margin-left: -0.04rem;
+}
+/* line 68, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul a {
+  color: #fff;
+}
+/* line 71, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li {
+  line-height: 0.54rem;
+  padding: 0 0.2rem;
+  border-left: 0.05rem solid #3d4e8f;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  cursor: pointer;
+}
+/* line 77, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li span {
+  opacity: 0.6;
+}
+/* line 80, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li i {
+  float: right;
+  opacity: 0.6;
+}
+/* line 84, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li:hover {
+  border-left: 0.05rem solid #1197dd;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+/* line 87, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li:hover i {
+  opacity: 1;
+}
+/* line 90, ../sass/partials/_main.scss */
+header .header-logo .header-logo__dropdown ul li:hover span {
+  opacity: 1;
+}
+/* line 98, ../sass/partials/_main.scss */
+header .header-logon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  width: 1.2rem;
+}
+/* line 104, ../sass/partials/_main.scss */
+header .header-logon .icon-sign {
+  display: block;
+  text-align: center;
+  font-size: 0.3rem;
+  cursor: pointer;
+  color: #8796dc;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+}
+/* line 111, ../sass/partials/_main.scss */
+header .header-logon .icon-sign:hover {
+  color: #fff;
+}
+/* line 115, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown {
+  width: 1.2rem;
+  background: #303c69;
+  text-align: center;
+  display: none;
+  box-shadow: 0rem 0.09rem 0.62rem #231d50;
+}
+/* line 121, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown div {
+  line-height: 0.5rem;
+  height: 0.5rem;
+  cursor: pointer;
+  color: #8796dc;
+  transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+}
+/* line 127, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown div:hover {
+  color: #fff;
+}
+/* line 131, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown i {
+  margin-right: 0.05rem;
+}
+/* line 134, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown .gradientLine {
+  width: 100%;
+}
+/* line 137, ../sass/partials/_main.scss */
+header .header-logon .header-logon__dropdown .icon-pwd {
+  display: inline-block;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -moz-transform: rotate(45deg);
+  /* Firefox */
+  -webkit-transform: rotate(45deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(45deg);
+}
+
+/* line 152, ../sass/partials/_main.scss */
+content {
+  margin-top: 0.2rem;
+  padding: 0 0.1rem;
+  display: block;
+  zoom: 1;
+  width: 19.2rem;
+  box-sizing: border-box;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+content:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/*登录页*/
+/* line 163, ../sass/partials/_main.scss */
+.loginBox {
+  background: #eceff4 url(../img/login-bg.jpg) no-repeat;
+  background-size: 100%;
+  text-align: center;
+}
+/* line 167, ../sass/partials/_main.scss */
+.loginBox .login-logo {
+  margin-top: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+/* line 171, ../sass/partials/_main.scss */
+.loginBox .loginBox__con {
+  background: #fff url(../img/small-login-bg.jpg) no-repeat;
+  background-size: 100%;
+  width: 4rem;
+  padding: 0 0.45rem;
+  height: 6.6rem;
+  margin: 0 auto;
+  box-shadow: 0 0.09rem 0.62rem #dedede;
+  border-radius: 0.1rem;
+  position: relative;
+}
+/* line 181, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .alert {
+  display: none;
+  width: 1.5rem;
+  height: 0.24rem;
+  line-height: 0.24rem;
+  background: #f50000;
+  border-radius: 0.05rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.75rem;
+  top: 2.6rem;
+}
+/* line 192, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .alert i {
+  margin-right: 0.05rem;
+}
+/* line 196, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .user-logo {
+  margin: 1.45rem 0 0.25rem;
+  border-radius: 50%;
+}
+/* line 200, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li {
+  margin: 0.25rem auto 0;
+  height: 0.56rem;
+  border: #f1f0ed solid 1px;
+  padding: 0.01rem;
+  position: relative;
+}
+/* line 206, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li input {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f4;
+  padding-left: 0.53rem;
+  color: #444649 !important;
+  border: none;
+}
+/* line 214, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li .userName {
+  background: #f3f3f4 url(../img/icon-user.png) no-repeat 15px center;
+}
+/* line 217, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li .passWord {
+  background: #f3f3f4 url(../img/icon-pass.png) no-repeat 15px center;
+}
+/* line 220, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li .tip {
+  display: none;
+  position: absolute;
+  background: #f50000;
+  width: 1.26rem;
+  height: 0.24rem;
+  line-height: 0.24rem;
+  text-align: center;
+  border-radius: 0.05rem;
+  left: 3.3rem;
+  top: 0.15rem;
+}
+/* line 231, ../sass/partials/_main.scss */
+.loginBox .loginBox__con li .tip::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 0.04rem solid transparent;
+  border-bottom: 0.04rem solid transparent;
+  border-right: 0.06rem #f50000 solid;
+  position: absolute;
+  left: -0.06rem;
+  top: 0.08rem;
+}
+/* line 244, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .login-btn {
+  display: block;
+  width: 100%;
+  height: 0.48rem;
+  /*border-radius: 0.06rem;*/
+  background: #1197dd;
+  line-height: 0.48rem;
+  text-align: center;
+  font-size: 0.16rem;
+  margin: 0.25rem auto 0;
+  color: #fff;
+}
+/* line 255, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .login-btn:hover {
+  opacity: 0.7;
+}
+/* line 259, ../sass/partials/_main.scss */
+.loginBox .loginBox__con .login-forget {
+  margin-top: 0.15rem;
+  color: #848484;
+  text-align: left;
+}
+
+/*第一屏*/
+/* line 269, ../sass/partials/_main.scss */
+.fist-content-l {
+  width: 4.4rem;
+  float: left;
+  overflow: hidden;
+}
+/* line 273, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist {
+  height: 3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 276, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box {
+  margin-top: 0.1rem;
+  position: relative;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.fist-content-l .content-l__fist .content__box:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 280, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box .gradientLine {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+/* line 285, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box .gradientLine--vertical {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+}
+/* line 290, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div {
+  float: left;
+  width: 50%;
+  padding: 0.2rem 0.15rem 0.15rem 0.15rem;
+  box-sizing: border-box;
+}
+/* line 295, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div .date {
+  font-size: 0.12rem;
+  color: #b2b9db;
+}
+/* line 299, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div .number {
+  margin: 0.05rem 0 0.1rem;
+  line-height: 0.3rem;
+  height: 0.3rem;
+}
+/* line 303, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div .number strong {
+  font-size: 0.24rem;
+}
+/* line 306, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div .number span {
+  font-size: 0.12rem;
+  float: right;
+  line-height: 0.35rem;
+}
+/* line 313, ../sass/partials/_main.scss */
+.fist-content-l .content-l__fist .content__box > div .ratio button {
+  float: right;
+}
+/* line 320, ../sass/partials/_main.scss */
+.fist-content-l .content-l__second {
+  height: 6.15rem;
+  margin-top: 0.15rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 324, ../sass/partials/_main.scss */
+.fist-content-l .content-l__second .content__box {
+  padding: 0.2rem;
+}
+/* line 326, ../sass/partials/_main.scss */
+.fist-content-l .content-l__second .content__box .wordCloud {
+  margin-top: 0.35rem;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  height: 4.19rem;
+}
+/* line 331, ../sass/partials/_main.scss */
+.fist-content-l .content-l__second .content__box .wordCloud img {
+  width: 100%;
+}
+
+/* line 339, ../sass/partials/_main.scss */
+.fist-content-r {
+  width: 14.45rem;
+  height: 9.3rem;
+  float: right;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+  background: #303c69 url(../img/grid.png) repeat;
+}
+/* line 345, ../sass/partials/_main.scss */
+.fist-content-r .content__box {
+  position: relative;
+  height: 8.74rem;
+}
+/* line 349, ../sass/partials/_main.scss */
+.fist-content-r .map-box__map {
+  width: 10.88rem;
+  height: 8.65rem;
+  position: absolute;
+  bottom: 0.1rem;
+  left: 1.3rem;
+}
+/* line 356, ../sass/partials/_main.scss */
+.fist-content-r .map-box__diagram {
+  width: 1.51rem;
+  height: 2.21rem;
+  position: absolute;
+  bottom: 0.1rem;
+  left: 11.3rem;
+}
+/* line 363, ../sass/partials/_main.scss */
+.fist-content-r .map-box__legend {
+  width: 0.4rem;
+  height: 3.63rem;
+  position: absolute;
+  bottom: 0.25rem;
+  left: 13.4rem;
+}
+/* line 370, ../sass/partials/_main.scss */
+.fist-content-r .explain-box {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0.2rem;
+}
+/* line 375, ../sass/partials/_main.scss */
+.fist-content-r img {
+  width: 100%;
+}
+
+/*第二屏 */
+/* line 382, ../sass/partials/_main.scss */
+.second-content-l {
+  float: left;
+  width: 7.9rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 388, ../sass/partials/_main.scss */
+.second-content-l .exposure-top span {
+  float: left;
+  width: 33%;
+}
+/* line 393, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item {
+  height: 1.58rem;
+  overflow: hidden;
+}
+/* line 396, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item h2 {
+  margin-top: 0.1rem;
+  padding-left: 0.2rem;
+}
+/* line 399, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item h2 .ranking {
+  font-weight: normal;
+  color: #b2b9db;
+  font-size: 0.12rem;
+  margin-right: 0.2rem;
+}
+/* line 404, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item h2 .ranking strong {
+  font-weight: bold;
+  font-size: 0.24rem;
+  color: #fff;
+}
+/* line 410, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item h2 .game-title {
+  font-size: 0.16rem;
+}
+/* line 414, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item > div {
+  height: 1rem;
+  line-height: 1rem;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.second-content-l .exposure-con__item > div:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 418, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item > div .gradientLine--vertical {
+  height: 0.5rem;
+  margin-top: 0.25rem;
+  float: left;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+/* line 425, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .col-3 {
+  float: left;
+  width: 33%;
+}
+/* line 428, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .imgBox {
+  padding-left: 0.2rem;
+}
+/* line 430, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .imgBox .medal {
+  width: 0.4rem;
+  margin-right:0.2rem;
+}
+/* line 433, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .imgBox .game {
+  max-width: 1.4rem;
+}
+/* line 437, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .number {
+  color: #b2b9db;
+  text-align: center;
+}
+/* line 440, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .number strong {
+  font-size: 0.24rem;
+  color: #fff;
+}
+/* line 445, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .progressbar {
+  float: left;
+  margin: 0 0.15rem 0 0.15rem;
+  width: 1.6rem;
+  height: 0.2rem;
+  background: #1d2b61;
+  border-radius: 0.4rem;
+  margin-top: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+/* line 455, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .progess {
+  height: 100%;
+  border-radius: 0.4rem;
+}
+/* line 459, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item .percentCount {
+  float: right;
+  padding-right: 0.2rem;
+  font-size: 0.16rem;
+  font-weight: bold;
+}
+/* line 467, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item--first .progess {
+  width: 80%;
+  background: linear-gradient(to left, #f095ff, #f64848);
+  background: -webkit-linear-gradient(right, #f095ff, #f64848);
+  background: -moz-linear-gradient(right, #f095ff, #f64848);
+  background: -ms-linear-gradient(right, #f095ff, #f64848);
+  background: -o-linear-gradient(right, #f095ff, #f64848);
+}
+/* line 473, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item--second .progess {
+  width: 76%;
+  background: linear-gradient(to right, #d278f2, #fcc989);
+  background: -webkit-linear-gradient(left, #d278f2, #fcc989);
+  background: -moz-linear-gradient(left, #d278f2, #fcc989);
+  background: -ms-linear-gradient(left, #d278f2, #fcc989);
+  background: -o-linear-gradient(left, #d278f2, #fcc989);
+}
+/* line 479, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item--third .progess {
+  width: 59%;
+  background: linear-gradient(to left, #f5d961, #fe9c88);
+  background: -webkit-linear-gradient(right, #f5d961, #fe9c88);
+  background: -moz-linear-gradient(right, #f5d961, #fe9c88);
+  background: -ms-linear-gradient(right, #f5d961, #fe9c88);
+  background: -o-linear-gradient(right, #f5d961, #fe9c88);
+}
+/* line 485, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item--fourth .progess {
+  width: 38%;
+  background: linear-gradient(to right, #80f9b7, #9abdeb);
+  background: -webkit-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -moz-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -ms-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -o-linear-gradient(left, #80f9b7, #9abdeb);
+}
+/* line 491, ../sass/partials/_main.scss */
+.second-content-l .exposure-con__item--fifth .progess {
+  width: 22%;
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+
+/* line 498, ../sass/partials/_main.scss */
+.second-content-r {
+  float: right;
+  width: 10.95rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 503, ../sass/partials/_main.scss */
+.second-content-r .content__box {
+  padding: 0 0.3rem;
+}
+/* line 507, ../sass/partials/_main.scss */
+.second-content-r .chart-top div {
+  width: 20%;
+}
+/* line 511, ../sass/partials/_main.scss */
+.second-content-r .chart {
+  width: 10.39rem;
+  height: 7.71rem;
+}
+/* line 514, ../sass/partials/_main.scss */
+.second-content-r .chart img {
+  width: 100%;
+}
+
+/*第二屏具体页面*/
+/* line 523, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav {
+  height: 0.56rem;
+  line-height: 0.56rem;
+}
+/* line 526, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .gradientLine {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+}
+/* line 529, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .swiper-nav__con {
+  height: 0.56rem;
+  line-height: 0.56rem;
+  width: 4.3rem;
+  margin: 0 auto;
+  position: relative;
+}
+/* line 534, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .swiper-nav__con .swiper-nav-slide {
+  display:block;
+  position: absolute;
+  top: 10px;
+  z-index:1;
+  width: 30px;
+}
+/* line 537, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .swiper-nav__con .swiper-nav-slide img {
+  width: 100%;
+  border-radius: 50%;
+  border: 0.01rem solid #5e92d9;
+}
+
+/* line 561, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .swiper-nav__con .swiper-nav-slide-active {
+  font-size: 0.24rem;
+  font-weight: bold;
+  color: #fefeff;
+  /*margin: 0 0.25rem;*/
+  opacity: 1;
+}
+/* line 567, ../sass/partials/_main.scss */
+.swiper-tab .swiper-nav .swiper-nav__con .swiper-nav-slide-active img {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.1rem;
+  border-radius: 0;
+  border: 0;
+  margin-top: -0.05rem;
+}
+/* line 578, ../sass/partials/_main.scss */
+.swiper-tab .swiper-container {
+  margin-top: 0.2rem;
+}
+
+/* line 583, ../sass/partials/_main.scss */
+.secondTow-content-l {
+  float: left;
+  width: 7.9rem;
+}
+/* line 586, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist {
+  height: 3.9rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 589, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box {
+  padding: 0.29rem 0.2rem 0.2rem 0.15rem;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.secondTow-content-l .content-l__fist .content__box:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 593, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l {
+  float: left;
+  width: 3.03rem;
+}
+/* line 596, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li {
+  width: 100%;
+  height: 1.32rem;
+  border-radius: 0.05rem;
+  padding: 0.15rem;
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+/* line 602, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li:nth-child(2) {
+  margin-top: 0.2rem;
+  background: linear-gradient(to right, #f5d961, #fe9c88);
+  background: -webkit-linear-gradient(left, #f5d961, #fe9c88);
+  background: -moz-linear-gradient(left, #f5d961, #fe9c88);
+  background: -ms-linear-gradient(left, #f5d961, #fe9c88);
+  background: -o-linear-gradient(left, #f5d961, #fe9c88);
+}
+/* line 605, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li:nth-child(2) .number {
+  text-shadow: 0px 7px 10px #d86c2e;
+}
+/* line 609, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li h2 {
+  font-size: 0.16rem;
+}
+/* line 612, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li .number {
+  text-align: center;
+  font-size: 0.36rem;
+  margin: 0.1rem 0;
+  text-shadow: 0px 7px 10px #0f8edb;
+  font-weight: bold;
+}
+/* line 619, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__l li .date {
+  text-align: center;
+}
+/* line 624, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r {
+  float: right;
+  width: 4.3rem;
+}
+/* line 627, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r h2 {
+  color: #b2b9db;
+  font-weight: normal;
+  font-size: 0.14rem;
+  margin-bottom: 0.1rem;
+}
+/* line 632, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r h2 span {
+  font-size: 0.18rem;
+  font-weight: bold;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 640, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r li {
+  zoom: 1;
+  margin-bottom: 0.19rem;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.secondTow-content-l .content-l__fist .content__box__r li:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 643, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r li div {
+  float: left;
+  font-weight: bold;
+}
+/* line 647, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r li .progressbar {
+  margin: 0.05rem 0.15rem 0;
+  width: 2.5rem;
+  height: 0.1rem;
+  background: #1d2b61;
+  border-radius: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+/* line 650, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__fist .content__box__r li .progressbar .progess {
+  height: 100%;
+  border-radius: 0.4rem;
+  width: 56%;
+  background: linear-gradient(to left, #f095ff, #f64848);
+  background: -webkit-linear-gradient(right, #f095ff, #f64848);
+  background: -moz-linear-gradient(right, #f095ff, #f64848);
+  background: -ms-linear-gradient(right, #f095ff, #f64848);
+  background: -o-linear-gradient(right, #f095ff, #f64848);
+}
+/* line 660, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second {
+  margin-top: 0.15rem;
+  height: 4.48rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 664, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box {
+  padding: 0.2rem 0.15rem 0.15rem 0.15rem;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.secondTow-content-l .content-l__second .content__box:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 668, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l {
+  float: left;
+  width: 5.6rem;
+  height: 3.4rem;
+}
+/* line 672, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container {
+  margin-top: 0;
+}
+/* line 674, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container .swiper-wrapper {
+  width: 5.6rem;
+  height: 3.14rem;
+}
+/* line 677, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container .swiper-wrapper img {
+  width: 100%;
+}
+/* line 681, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container .swiper-pagination {
+  text-align: center;
+  line-height: 0.25rem;
+}
+/* line 684, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container .swiper-pagination span {
+  width: 0.08rem;
+  height: 0.08rem;
+  display: inline-block;
+  margin: 0 0.05rem;
+  background: #7f8da4;
+  border-radius: 50%;
+}
+/* line 686, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__l .swiper-container .swiper-pagination span.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+/* line 693, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__r {
+  float: right;
+  width: 2rem;
+  height: 3.4rem;
+  padding: 0 0.3rem;
+}
+/* line 698, ../sass/partials/_main.scss */
+.secondTow-content-l .content-l__second .content__box__r div {
+  width: 1.14rem;
+  height: 1.19rem;
+  margin: 0.2rem auto;
+}
+
+/* line 707, ../sass/partials/_main.scss */
+.secondTow-content-r {
+  float: right;
+  width: 10.95rem;
+}
+/* line 710, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__fist {
+  height: 3.9rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 713, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__fist .chart {
+  width: 10.37rem;
+  height: 2.79rem;
+  margin: 0.2rem auto 0;
+}
+/* line 717, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__fist .chart img {
+  width: 100%;
+}
+/* line 722, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__second {
+  margin-top: 0.15rem;
+  height: 4.48rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+
+.secondTow-content-r .content-r__second .content__box img{
+    margin-top: -5px;
+}
+
+/* line 727, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__second .chart-top div {
+  width: 16.6%;
+}
+/* line 731, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__second .chart {
+  width: 10rem;
+  height: 2.85rem;
+  margin: 0.15rem auto 0;
+}
+/* line 735, ../sass/partials/_main.scss */
+.secondTow-content-r .content-r__second .chart img {
+  width: 100%;
+}
+
+/*第三屏*/
+/* line 744, ../sass/partials/_main.scss */
+.third-content-l {
+  float: left;
+  width: 11.35rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 750, ../sass/partials/_main.scss */
+.third-content-l .exposure-top .col-2 {
+  padding: 0.12rem 0;
+}
+/* line 752, ../sass/partials/_main.scss */
+.third-content-l .exposure-top .col-2 p {
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0.28rem;
+}
+/* line 758, ../sass/partials/_main.scss */
+.third-content-l .exposure-top .col-2 .title__txt {
+  font-size: 0.18rem;
+  font-weight: bold;
+}
+/* line 764, ../sass/partials/_main.scss */
+.third-content-l .exposure-con {
+  height: 3.2rem;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.third-content-l .exposure-con:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 767, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .top {
+  height: 0.5rem;
+  line-height: 0.5rem !important;
+}
+/* line 770, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .top .li__r {
+  padding-right: 1rem;
+  float: right;
+}
+/* line 774, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .top span {
+  font-size: 0.18rem;
+  font-weight: bold;
+  height: 0.5rem;
+  line-height: 0.5rem !important;
+  padding-left: 0.4rem;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 785, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 {
+  height: 3.2rem;
+}
+/* line 788, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li {
+  height: 0.9rem;
+  position: relative;
+}
+/* line 791, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__l {
+  padding-left: 0.2rem;
+  font-size: 0.18rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+}
+/* line 797, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__r {
+  float: right;
+  padding-right: 0.3rem;
+  padding-top: 0.2rem;
+}
+/* line 801, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__r .percentCount {
+  font-size: 0.12rem;
+}
+/* line 803, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__r .percentCount span {
+  font-size: 0.16rem;
+  font-weight: bold;
+}
+/* line 808, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__r .progressbar {
+  margin-top: 0.1rem;
+  width: 2.95rem;
+  height: 0.2rem;
+  background: #1d2b61;
+  border-radius: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+/* line 812, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .li__r .progess {
+  height: 100%;
+  border-radius: 0.4rem;
+}
+/* line 817, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li .gradientLine {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* line 823, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li:nth-child(1) .progess {
+  width: 80%;
+  background: linear-gradient(to left, #f095ff, #f64848);
+  background: -webkit-linear-gradient(right, #f095ff, #f64848);
+  background: -moz-linear-gradient(right, #f095ff, #f64848);
+  background: -ms-linear-gradient(right, #f095ff, #f64848);
+  background: -o-linear-gradient(right, #f095ff, #f64848);
+}
+/* line 829, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li:nth-child(2) .progess {
+  width: 65%;
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+/* line 835, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 ul li:nth-child(3) .progess {
+  width: 50%;
+  background: linear-gradient(to right, #80f9b7, #9abdeb);
+  background: -webkit-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -moz-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -ms-linear-gradient(left, #80f9b7, #9abdeb);
+  background: -o-linear-gradient(left, #80f9b7, #9abdeb);
+}
+/* line 842, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 .chart {
+  width: 5.27rem;
+  height: 2.57rem;
+  margin: 0.4rem auto 0.2rem;
+}
+/* line 846, ../sass/partials/_main.scss */
+.third-content-l .exposure-con .col-2 .chart img {
+  width: 100%;
+}
+/* line 851, ../sass/partials/_main.scss */
+.third-content-l .exposure-con i {
+  float: left;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+/* line 858, ../sass/partials/_main.scss */
+.third-content-l .chart-top div {
+  width: 33%;
+}
+/* line 862, ../sass/partials/_main.scss */
+.third-content-l .chart {
+  width: 11rem;
+  height: 3.05rem;
+  margin: 0.1rem auto 0;
+}
+/* line 866, ../sass/partials/_main.scss */
+.third-content-l .chart img {
+  width: 100%;
+}
+
+/* line 872, ../sass/partials/_main.scss */
+.third-content-r {
+  float: right;
+  width: 7.5rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 877, ../sass/partials/_main.scss */
+.third-content-r .top {
+  height: 0.63rem;
+  line-height: 0.63rem;
+}
+/* line 880, ../sass/partials/_main.scss */
+.third-content-r .top span {
+  font-size: 0.18rem;
+  font-weight: bold;
+  margin-left: 0.7rem;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 888, ../sass/partials/_main.scss */
+.third-content-r .top .li__r {
+  margin-left: 13.3%;
+}
+
+/* line 895, ../sass/partials/_main.scss */
+.carousel li {
+  height: 0.51rem;
+  line-height: 0.51rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 0.1rem
+}
+/* line 898, ../sass/partials/_main.scss */
+.carousel li .num {
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.18rem;
+  line-height: 0.18rem;
+  color: #38457c;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  border-radius: 0.4rem;
+  margin: 0 0.15rem;
+}
+/* line 910, ../sass/partials/_main.scss */
+.carousel li .mediaName {
+  font-weight: bold;
+}
+/* line 913, ../sass/partials/_main.scss */
+.carousel li .new {
+  margin-left: 15%;
+}
+/* line 916, ../sass/partials/_main.scss */
+.carousel li:nth-child(odd) {
+  background: #38457c;
+}
+/* line 920, ../sass/partials/_main.scss */
+.carousel .pagination {
+  line-height: 0.45rem;
+  text-align: center;
+}
+/* line 923, ../sass/partials/_main.scss */
+.carousel .pagination span {
+  width: 0.08rem;
+  height: 0.08rem;
+  display: inline-block;
+  margin: 0 0.05rem;
+  background: #7f8da4;
+  border-radius: 50%;
+}
+/* line 925, ../sass/partials/_main.scss */
+.carousel .pagination span.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+
+/*第四屏*/
+/* line 934, ../sass/partials/_main.scss */
+.fourth-content-l {
+  float: left;
+  width: 7.9rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 939, ../sass/partials/_main.scss */
+.fourth-content-l p {
+  line-height: 0.1rem;
+  margin-left: 0.15rem;
+  color: #b2b9db;
+  font-size: 0.14rem;
+}
+/* line 945, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box {
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.fourth-content-l .ranking-box:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 948, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li {
+  margin: 0.07rem 0.15rem 0rem;
+  position: relative;
+}
+/* line 951, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li h2 {
+  height: 0.4rem;
+  line-height: 0.4rem;
+  position: relative;
+  z-index: 3;
+  padding-left: 0.5rem;
+}
+/* line 957, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li h2 img {
+  position: absolute;
+  top: 0.05rem;
+  left: 0;
+  width: 0.4rem;
+}
+/* line 963, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li h2 strong {
+  font-size: 0.24rem;
+}
+/* line 966, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li h2 .ranking {
+  font-weight: normal;
+  font-size: 0.12rem;
+  color: #b2b9db;
+  margin-right: 0.1rem;
+}
+/* line 972, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li h2 .game-title {
+  font-size: 0.16rem;
+}
+/* line 976, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .li__img {
+  width: 3.64rem;
+  height: 2.06rem;
+  position: relative;
+  z-index: 1;
+}
+/* line 982, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box {
+  position: absolute;
+  bottom: 0.15rem;
+  right: 0.15rem;
+  z-index: 3;
+  height: 0.3rem;
+  line-height: 0.3rem;
+}
+/* line 989, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box .gradientLine--vertical {
+  margin: 0 0.1rem;
+  display: inline-block;
+  height: 0.3rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+/* line 996, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box span strong {
+  font-size: 0.4rem;
+  background: linear-gradient(to top, #f5d961, #fe9c88);
+  background: -webkit-linear-gradient(bottom, #f5d961, #fe9c88);
+  background: -moz-linear-gradient(bottom, #f5d961, #fe9c88);
+  background: -ms-linear-gradient(bottom, #f5d961, #fe9c88);
+  background: -o-linear-gradient(bottom, #f5d961, #fe9c88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 1002, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box span i {
+  font-style: normal;
+  font-size: 0.12rem;
+  position: relative;
+  top: -0.2rem;
+}
+/* line 1010, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box .span--r strong {
+  background: linear-gradient(to top, #80f9b7, #9abdeb);
+  background: -webkit-linear-gradient(bottom, #80f9b7, #9abdeb);
+  background: -moz-linear-gradient(bottom, #80f9b7, #9abdeb);
+  background: -ms-linear-gradient(bottom, #80f9b7, #9abdeb);
+  background: -o-linear-gradient(bottom, #80f9b7, #9abdeb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 1017, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .tr-box .span--cvr strong {
+  background: linear-gradient(to top, #e8c3fd, #86c5fc);
+  background: -webkit-linear-gradient(bottom, #e8c3fd, #86c5fc);
+  background: -moz-linear-gradient(bottom, #e8c3fd, #86c5fc);
+  background: -ms-linear-gradient(bottom, #e8c3fd, #86c5fc);
+  background: -o-linear-gradient(bottom, #e8c3fd, #86c5fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* line 1024, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li .bg {
+  position: absolute;
+  width: 100%;
+  height: 0.8rem;
+  background: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0));
+  bottom: 0;
+  z-index: 2;
+}
+/* line 1033, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li.active .li__img {
+  border: 0.01rem solid #8bfcfe;
+  box-shadow: 0.03rem 0.09rem 0.3rem #64a1ff;
+  width: 3.64rem;
+}
+/* line 1038, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box li.active .bg {
+  width: 3.62rem;
+  bottom: 1px;
+  left: 1px;
+}
+/* line 1045, ../sass/partials/_main.scss */
+.fourth-content-l .ranking-box .gradientLine {
+  float: left;
+  width: 0.01rem;
+  height: 7.7rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+/* line 1054, ../sass/partials/_main.scss */
+.fourth-content-r {
+  float: right;
+  width: 10.95rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 1059, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__top {
+  padding: 0.2rem 0 0.25rem;
+  margin: 0 auto;
+}
+/* line 1062, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__top img {
+  float: left;
+  width: 0.57rem;
+  margin-right: 0.15rem;
+  margin-top: 0.2rem;
+}
+/* line 1068, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__top .ranking {
+  display: block;
+  font-size: 0.18rem;
+  color: #b2b9db;
+}
+/* line 1072, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__top .ranking strong {
+  font-size: 0.36rem;
+}
+/* line 1076, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__top .game-title {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.3rem;
+}
+/* line 1083, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .swiper-wrapper {
+  width: 10.65rem;
+  margin: 0 auto;
+}
+/* line 1086, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .swiper-wrapper img {
+  width: 100%;
+}
+/* line 1090, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .swiper-pagination {
+  text-align: center;
+}
+/* line 1092, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .swiper-pagination span {
+  width: 0.08rem;
+  height: 0.08rem;
+  display: inline-block;
+  margin: 0 0.05rem;
+  background: #7f8da4;
+  border-radius: 50%;
+}
+/* line 1094, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .swiper-pagination span.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+/* line 1099, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col {
+  zoom: 1;
+  height: 1.15rem;
+  margin-top: -0.08rem;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.fourth-content-r .carousel__con .carousel__col:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 1103, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col .box {
+  width: 1.14rem;
+  height: 1.19rem;
+}
+/* line 1106, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col .box img {
+  width: 100%;
+}
+/* line 1110, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col .gradientLine--vertical {
+  float: left;
+  height: 100%;
+}
+/* line 1114, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col .carousel__col--l {
+  padding-right: 0.5rem;
+  float: right;
+}
+/* line 1118, ../sass/partials/_main.scss */
+.fourth-content-r .carousel__con .carousel__col .carousel__col--r {
+  padding-left: 0.5rem;
+  float: left;
+}
+
+/*第五屏*/
+/* line 1128, ../sass/partials/_main.scss */
+.fifth-content-l {
+  float: left;
+  width: 13rem;
+  height: 9.3rem;
+  zoom: 1;
+}
+/* line 3, ../sass/partials/_mixins.scss */
+.fifth-content-l:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 1133, ../sass/partials/_main.scss */
+.fifth-content-l .content-l__fist {
+  height: 3.48rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 1137, ../sass/partials/_main.scss */
+.fifth-content-l .content-l__second {
+  margin-top: 0.15rem;
+  height: 5.67rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 1142, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 {
+  height: 3.2rem;
+}
+/* line 1144, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .top {
+  height: 0.64rem;
+  margin: 0.05rem 0;
+}
+/* line 1147, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .top .num {
+  float: left;
+  font-size: 0.48rem;
+  padding: 0 0.15rem 0 0.2rem;
+  text-shadow: 0px 7px 10px #0f8edb;
+}
+/* line 1153, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .top p {
+  font-size: 0.12rem;
+  font-weight: bold;
+  padding: 0.05rem 0;
+  text-shadow: 0px 3px 10px #0f8edb;
+}
+/* line 1158, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .top p strong {
+  font-size: 0.16rem;
+}
+/* line 1163, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .top button i {
+  margin-right: 0;
+}
+/* line 1168, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .chart {
+  width: 6.09rem;
+  height: 1.97rem;
+  margin: 0 auto;
+}
+/* line 1172, ../sass/partials/_main.scss */
+.fifth-content-l .col-2 .chart img {
+  width: 100%;
+}
+/* line 1177, ../sass/partials/_main.scss */
+.fifth-content-l .gradientLine--vertical {
+  float: left;
+  height: 2.92rem;
+}
+/* line 1181, ../sass/partials/_main.scss */
+
+/* line 1189, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r {
+  float: left;
+  width: 2.65rem;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+/* line 1194, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r h2 {
+  text-align: left;
+  margin-top: 0.1rem;
+}
+/* line 1197, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r h2 span {
+  font-weight: normal;
+  font-size: 0.18rem;
+  color: #b2b9db;
+}
+/* line 1202, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r h2 i {
+  display: block;
+  width: 0.36rem;
+  height: 0.03rem;
+  margin-top: 0.05rem;
+  background: linear-gradient(to right, #fe9c88, #f5d961);
+  background: -webkit-linear-gradient(left, #fe9c88, #f5d961);
+  background: -moz-linear-gradient(left, #fe9c88, #f5d961);
+  background: -ms-linear-gradient(left, #fe9c88, #f5d961);
+  background: -o-linear-gradient(left, #fe9c88, #f5d961);
+}
+/* line 1210, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r strong {
+  display: block;
+  font-size: 0.3rem;
+  margin: 0.25rem auto 0.3rem;
+}
+/* line 1215, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r .gradientLine {
+  width: 1.52rem;
+  margin: 0 auto;
+}
+/* line 1220, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r .gameBox img {
+  width: 1.4rem;
+  height: 0.7rem;
+}
+/* line 1224, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r .gameBox strong {
+  margin: 0rem auto 0.3rem;
+}
+/* line 1230, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__r .dateBox h2 i {
+  width: 1.1rem;
+}
+
+/* line 1238, ../sass/partials/_main.scss */
+.fifth-content-r {
+  float: right;
+  width: 5.85rem;
+  height: 9.3rem;
+  background: #303c69;
+  border-radius: 0.06rem;
+  overflow: hidden;
+  box-shadow: 0 0.09rem 0.62rem #171b2e;
+}
+/* line 1243, ../sass/partials/_main.scss */
+.fifth-content-r .top {
+  height: 0.63rem;
+  line-height: 0.63rem;
+}
+/* line 1246, ../sass/partials/_main.scss */
+.fifth-content-r .top span {
+  font-size: 0.18rem;
+  font-weight: bold;
+  margin-left: 0.75rem;
+  background: linear-gradient(to top, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(bottom, #64a1ff, #8bfcfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fifth-content-r .top span.li__r{
+    margin-left: 0.7rem;
+}
+/* line 1253, ../sass/partials/_main.scss */
+.fifth-content-r .top span em {
+  font-size: 0.12rem;
+  font-style: normal;
+}
+/* line 1261, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .ranking {
+  float: left;
+  width: 36%;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 1266, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .amount {
+  float: left;
+  text-align: center;
+  width: 15%;
+  font-size: 0.18rem;
+  font-weight: bold;
+}
+/* line 1273, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .progress-box {
+  float: right;
+  width: 40%;
+}
+/* line 1277, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .progressbar {
+  float: left;
+  margin-top: 0.15rem;
+  width: 1.48rem;
+  height: 0.2rem;
+  background: #1d2b61;
+  border-radius: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+/* line 1281, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .progressbar .progess {
+  height: 100%;
+  border-radius: 0.4rem;
+  width: 56%;
+  background: linear-gradient(to right, #64a1ff, #8bfcfe);
+  background: -webkit-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -moz-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -ms-linear-gradient(left, #64a1ff, #8bfcfe);
+  background: -o-linear-gradient(left, #64a1ff, #8bfcfe);
+}
+/* line 1288, ../sass/partials/_main.scss */
+.fifth-content-r .carousel li .percentCount {
+  float: right;
+  font-size: 0.18rem;
+  font-weight: bold;
+  margin: 0 0.15rem 0 0.1rem;
+}
+
+/* line 1298, ../sass/partials/_main.scss */
+.fifth-content-l .content__box__l {
+  float: left;
+  position: relative;
+  width: 9.4rem;
+  height: 4.7rem;
+  margin: 0.2rem 0.45rem 0.34rem 0.5rem;
+  overflow: hidden;
+}
+
+/* line 1306, ../sass/partials/_main.scss */
+.slide-3d .item-list li {
+  width: 8.1rem;
+  height: 4.7rem;
+  transition: all 0.5s ease-out;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 1316, ../sass/partials/_main.scss */
+.slide-3d .item-list li img {
+  width: 100%;
+}
+
+/*无连接页面*/
+/* line 1322, ../sass/partials/_main.scss */
+.nolink {
+  width: 100%;
+  height: 100%;
+  background: url(../img/nolink-bg.png) no-repeat center 1.36rem;
+  text-align: center;
+  font-size: 0.36rem;
+}
+/* line 1328, ../sass/partials/_main.scss */
+.nolink img {
+  margin-top: 1.36rem;
+}
+
+/* line 1333, ../sass/partials/_main.scss */
+footer {
+  line-height: 0.48rem;
+  height: 0.48rem;
+  font-size: 0.12rem;
+  color: #b2b9db;
+  text-align: right;
+  padding: 0 0.15rem;
+}
+/* line 1340, ../sass/partials/_main.scss */
+footer .left {
+  float: left;
+}
+
+/*弹窗*/
+/* line 1346, ../sass/partials/_main.scss */
+.modal {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+}
+/* line 1355, ../sass/partials/_main.scss */
+.modal .modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #303c69;
+  background-color: rgba(48, 60, 105, 0.78);
+  height: 100%;
+  z-index: 1000;
+  filter: alpha(opacity=70);
+}
+/* line 1367, ../sass/partials/_main.scss */
+.modal .modal-content {
+  width: 2.65rem;
+  height: 2.69rem;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  z-index: 1001;
+  top: 50%;
+  margin-top: -1.34rem;
+}
+/* line 1376, ../sass/partials/_main.scss */
+.modal .modal-content .alert {
+  display: none;
+  width: 2rem;
+  height: 0.24rem;
+  line-height: 0.24rem;
+  background: #f50000;
+  border-radius: 0.05rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -1rem;
+  top: 0.07rem;
+  text-align: center;
+}
+/* line 1388, ../sass/partials/_main.scss */
+.modal .modal-content .alert i {
+  margin-right: 0.05rem;
+}
+/* line 1392, ../sass/partials/_main.scss */
+.modal .modal-content .modal-close {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  font-size: 0.13rem;
+  color: #113462;
+  opacity: 0.45;
+  cursor: pointer;
+}
+/* line 1401, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body {
+  padding-top: 0.45rem;
+}
+/* line 1403, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body .inputBox {
+  position: relative;
+}
+/* line 1405, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body .inputBox .tip {
+  display: none;
+  position: absolute;
+  background: #f50000;
+  width: 0.8rem;
+  height: 0.24rem;
+  line-height: 0.24rem;
+  text-align: center;
+  border-radius: 0.05rem;
+  left: 2.5rem;
+  top: 0.04rem;
+}
+/* line 1416, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body .inputBox .tip::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 0.04rem solid transparent;
+  border-bottom: 0.04rem solid transparent;
+  border-right: 0.06rem #f50000 solid;
+  position: absolute;
+  left: -0.06rem;
+  top: 0.08rem;
+}
+/* line 1430, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body input {
+  width: 2.19rem;
+  height: 0.32rem;
+  line-height: 0.32rem;
+  background: #ebebeb;
+  border: none;
+  margin: 0 auto;
+  display: block;
+  border-radius: 0.05rem;
+  padding: 0 0.15rem;
+}
+/* line 1441, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body .o-password {
+  margin-bottom: 0.15rem;
+}
+/* line 1444, ../sass/partials/_main.scss */
+.modal .modal-content .modal-body p {
+  color: #e7970e;
+  font-size: 0.12rem;
+  text-align: center;
+  margin: 0.05rem 0;
+}
+/* line 1451, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer {
+  margin: 0.2rem 0;
+  text-align: center;
+}
+/* line 1454, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer button {
+  width: 0.8rem;
+  height: 0.34rem;
+  line-height: 0.34rem;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 1460, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer button:hover {
+  height: 0.32rem;
+  border-bottom: 0.02rem;
+}
+/* line 1466, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer .btn-sure {
+  background: #f3b03e;
+  border-bottom: 0.03rem solid #f19e39;
+  margin-right: 0.5rem;
+}
+/* line 1470, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer .btn-sure:hover {
+  border-bottom: 0.02rem solid #f19e39;
+}
+/* line 1474, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer .btn-close {
+  background: #cacaca;
+  border-bottom: 0.03rem solid #b1b1b1;
+}
+/* line 1477, ../sass/partials/_main.scss */
+.modal .modal-content .modal-footer .btn-close:hover {
+  border-bottom: 0.02rem solid #b1b1b1;
+}

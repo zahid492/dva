@@ -1,0 +1,21 @@
+.admin p{
+    text-indent: 2em;
+}
+.admin img{
+     margin-left: 25%;
+}
+.editBox ul li{ 
+    display: block;
+    padding:5px;
+}
+.editBox ul li label{
+    width: 60px;
+    display: inline-block;
+}
+.editBox ul li .editBox-link{
+    display: inline-block;
+    margin-left: 10px;
+}
+.ant-modal-close-x { 
+    color: #ccc;
+}

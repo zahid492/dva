@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile">
+    <title>申请品牌年度大事件-情报来也</title>
+    <script src="js/lib/libs.js?v=0201"></script>
+    <script src="js/lib/plugins.js?v=0201" type="text/javascript"></script>
+    <script src="js/lib/iscroll-probe.js?v=0201"></script>
+    <script src="Scripts/Common.js?v=0201" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+        window.onresize = change;
+    </script>
+    <link rel="stylesheet" href="styles/1712/plugin.css?v=0201"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0201">
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0201">
+
+    <script src="Scripts/eventApply.js?v=0201" type="text/javascript"></script>
+    <style>
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .header-event {
+            background: url(./styles/1712/img/e-bg.png) no-repeat left center;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="indexContainer">
+        <header class="header header-event">
+            <h2 class="header__title">申请品牌年度大事件</h2>
+        </header>
+        <div id="js-sq">
+            <content>
+                <div class="content-event">
+                    <div class="imgBox">
+                        <img src="styles/1712/img/event-img.png "/>
+                    </div>
+                    <div class="inputBox js-genevent">
+                        <p class="mb30"><span>品牌名称</span><input type="text" id="eventName"></p>
+                        <p><span>所属行业</span><input type="text" id="industry"></p>
+                    </div>
+                </div>
+            </content>
+            <button class="button-signout button--primary js-submit">生成大事件</button>
+        </div>
+
+        <div class="js-success hide">
+            <content>
+                <div class="content-event">
+                    <i class="iconfont icon-success"></i>
+                    <h2>申请成功</h2>
+                    <p>我们会选取申请次数最多的品牌词</br> 为此品牌精心制作年度大事件回顾 </br>快推荐你的小伙伴一起来申请吧！</p>
+                </div>
+            </content>
+            <button class="button-signout button--primary js-more">获取更多品牌情报</button>
+        </div>
+    </div>
+</div>
+
+<script id="layTipAlertTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>警告</h3>
+</script>
+
+<script id="layTipSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>成功</h3>
+</script>
+
+<script id="layTipErrorTpl" type="text/html">
+    <i class="iconfont icon-false"></i>
+    <h3>失败</h3>
+</script>
+
+<script id="layTipCancelTpl" type="text/html">
+    <i class="iconfont icon-problem"></i>
+    <h3></h3>
+</script>
+
+</body>
+
+</html>

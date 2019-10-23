@@ -1,0 +1,95 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="styles/1712/plugin.css"/>
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0304">
+    <link rel="stylesheet" href="styles/315/styles.css?v=0304"/>
+    <script src="js/lib/libs.js?v=0304"></script>
+    <script src="js/lib/plugins.js?v=0304" type="text/javascript"></script>
+    <title>情报来也</title>
+    <style>
+        .fake {
+            background: url(styles/img/fake.jpg) no-repeat center bottom;
+            background-size: cover;
+        }
+
+        .box {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+        }
+
+        /*.box input, .box button {*/
+        /*margin: 0 auto 0.25rem auto;*/
+        /*}*/
+
+        /*.fake button {*/
+        /*margin-top: 1.0rem;*/
+        /*}*/
+    </style>
+    <script>
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+        window.onresize = change;
+
+        function window_H() {
+            var window_H = $(window).height(); //屏幕的高度
+            $('.fake').css('height', window_H + 'px');
+        }
+
+        $(function () {
+            window_H();
+
+        });
+    </script>
+
+    <script src="Scripts/315dy.js?v=0304" type="text/javascript"></script>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="fake">
+
+        <input class="js-p" placeholder="品牌/企业"/>
+        <input class="js-p" placeholder="品牌/企业"/>
+        <input class="js-p" placeholder="品牌/企业"/>
+
+        <input type="text" class="js-ph" placeholder="邮箱/手机号"/>
+        <p>留下联系方式可以第一时间收到3.15资讯</p>
+        <button class="js-tj button-signout">免费订阅</button>
+
+    </div>
+</div>
+<script id="layTipAlertTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>警告</h3>
+</script>
+<script id="layTipSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>成功</h3>
+</script>
+<script id="layTipErrorTpl" type="text/html">
+    <i class="iconfont icon-false"></i>
+    <h3>失败</h3>
+</script>
+</body>
+
+</html>

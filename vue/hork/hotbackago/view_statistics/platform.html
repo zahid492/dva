@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>平台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/js/layui/css/layui.css" media="all">
+
+    <link rel="stylesheet" href="/css/element-ui.css" media="all">
+    <link rel="stylesheet" href="/css/common.css" media="all">
+
+    <script src="/js/store2.min.js" charset="utf-8"></script>
+    <script src="/js/jquery/jquery.min.js" charset="utf-8"></script>
+    <script src="/js/lodash.min.js" charset="utf-8"></script>
+    <script src="/js/vue.min.js" charset="utf-8"></script>
+    <script src="/js/element-ui.js"></script>
+    <script src="/js/zh-CN.js"></script>
+    <script src="/js/moment.min.js"></script>
+</head>
+
+<body>
+
+<div class="el-container" id="editor">
+    <el-main>
+        <div class="el-row">
+            <div class="el-col" :span="24">
+                <div id="sentence_search">
+                    <el-form ref="form" :inline="true"
+                             label-width="50px"
+                             size="small"
+                             class="sentence-form">
+                        <el-form-item label="平台："
+                                      label-width="50">
+                            <el-select v-model="PlatForm"
+                                       placeholder="全部"
+                                       size="small"
+                                       style="width:120px"
+                            >
+                                <el-option
+                                        v-for="(item, k) in platformList"
+                                        :key="item"
+                                        :label="item"
+                                        :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-form-item>
+
+                        <el-form-item label="统计方式：" label-width="50">
+                            <el-radio-group v-model="DateTimeType" style="width:110px">
+                                <el-radio :label="0">日</el-radio>
+                                <el-radio :label="1">月</el-radio>
+                            </el-radio-group>
+                        </el-form-item>
+
+                        <el-form-item label="时间：" label-width="50">
+
+                            <el-date-picker
+                                    style="width:280px"
+                                    size="small"
+                                    type="datetimerange"
+                                    start-placeholder="开始时间"
+                                    end-placeholder="结束时间"
+                                    v-model="dateRange"
+                                    format="yyyy-MM-dd"
+                                    value-format="yyyyMMdd"
+                                    :picker-options="pickerOptions"
+                            ></el-date-picker>
+
+                        </el-form-item>
+
+                        <el-form-item>
+                            <el-button size="small" type="primary" @click="search">查询</el-button>
+                        </el-form-item>
+
+                        <el-form-item>
+                            <el-button size="small" type="primary" @click="exportTaskExcel">导出</el-button>
+                        </el-form-item>
+                    </el-form>
+                </div>
+            </div>
+        </div>
+
+        <el-row>
+            <el-col :span="24">
+                <el-table
+                        :data="list"
+                        :border="true"
+                        :stripe="true"
+                        size="mini"
+                        style="width:100%;"
+                >
+                    <el-table-column
+                            label="序号"
+                            type="index"
+                            width="80"
+                            :index="indexMethod"
+                    ></el-table-column>
+
+
+                    <el-table-column
+                            prop="date"
+                            label="日期"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="platForm"
+                            label="平台"
+                            width="150"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="articleCnt"
+                            label="文章数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="recommendCnt"
+                            label="推荐数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="readCnt"
+                            label="阅读数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="commentCnt"
+                            label="评论数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="transmitCnt"
+                            label="转发数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="collectCnt"
+                            label="收藏数"
+                            width="100"
+                    ></el-table-column>
+
+                    <el-table-column
+                            prop="likeCnt"
+                            label="点赞数"
+                    ></el-table-column>
+
+                </el-table>
+            </el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="24">
+                <!-- 分页 -->
+                <div class="pagination-block">
+                    <el-pagination
+                            @current-change="search"
+                            :current-page.sync="Page"
+                            :page-size="Size"
+                            layout="prev, pager, next, jumper"
+                            :total="count">
+                    </el-pagination>
+                </div>
+            </el-col>
+        </el-row>
+    </el-main>
+</div>
+
+
+<script src="/config.js" charset="utf-8"></script>
+<script src="/scripts/Dictionaries.js" charset="utf-8"></script>
+<script src="/scripts/Common.js" charset="utf-8"></script>
+
+<script src="/scripts/statistics/platform.js" charset="utf-8"></script>
+</body>
+
+</html>
