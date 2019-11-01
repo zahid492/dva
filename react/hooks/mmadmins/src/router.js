@@ -46,6 +46,12 @@ const LogsLog = Loadable({
     loading: Loading
 });
 
+//test
+const Test = Loadable({
+    loader: () => import('./views/Test/index'),
+    loading: Loading
+});
+
 function menuItemClick({item, key, keyPath, domEvent}) {
     console.log("push: ", key, `/${key}`)
     history.push(`/${key}`);
@@ -71,6 +77,7 @@ var routes = <div>
                             }
                         >
                             <Menu.Item key="media-account">媒体账号管理</Menu.Item>
+                            <Menu.Item key="test">Test</Menu.Item>
                             <Menu.Item key="hotNews_2">新闻源</Menu.Item>
                             <Menu.Item key="hotNews_3">模板</Menu.Item>
                             <Menu.Item key="hotNews_4">框架</Menu.Item>
@@ -109,6 +116,8 @@ var routes = <div>
                         <Route exact path="/statistics-platform" component={TplLang}/>
 
                         <Route exact path="/logs-log" component={LogsLog}/>
+
+                        <Route exact path="/test" component={Test}/>
 
                         <Route component={NotFound}/>
                     </Switch>
