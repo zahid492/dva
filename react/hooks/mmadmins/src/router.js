@@ -65,6 +65,7 @@ var routes = <div>
                     <Menu
                         theme="dark"
                         mode="inline"
+
                         defaultSelectedKeys={['hotNews_1']}
                         defaultOpenKeys={['hotNews']}
                         style={{height: '100%', borderRight: 0}}
