@@ -1,0 +1,3 @@
+E:/www/dva/c/cpp/cpptest1/cmake-build-default-mingw/CMakeFiles/cpptest1.dir
+E:/www/dva/c/cpp/cpptest1/cmake-build-default-mingw/CMakeFiles/edit_cache.dir
+E:/www/dva/c/cpp/cpptest1/cmake-build-default-mingw/CMakeFiles/rebuild_cache.dir

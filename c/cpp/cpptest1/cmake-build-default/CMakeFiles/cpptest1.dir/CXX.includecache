@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/www/dva/c/cpp/cpptest1/cpptest.cpp
+iostream
+-
+string
+-
+algorithm
+-
+iterator
+-
+functional
+-
+vector
+-
+
