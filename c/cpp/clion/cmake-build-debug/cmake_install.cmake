@@ -1,4 +1,4 @@
-# Install script for directory: D:/www/React/hooks/dva/c/cpp/clion
+# Install script for directory: E:/www/dva/c/cpp/clion
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/www/React/hooks/dva/c/cpp/clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/www/dva/c/cpp/clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
