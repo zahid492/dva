@@ -1,0 +1,211 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+}
+
+body,ul,li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    overflow: scroll; /* this is important to prevent the whole page to bounce */
+}
+
+.contentList {
+    position:relative;
+    margin:0;
+    left:0;
+    top:1rem;
+    z-index:1;
+    width:100%;
+    height:auto;
+}
+
+#swrapper {
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*top: 0rem;*/
+    /*bottom: 0px;*/
+    /*left: 0;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+#scroller {
+    /*position: absolute;*/
+    /*top: 0rem;*/
+    /*left: 0rem;*/
+    /*z-index: 1;*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.imgLiquidFill {
+    border: 1px solid #d9d9d9;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
+.data p {
+    font-family: inherit;
+}
+/*.ndate {*/
+    /*font-family: "方正兰亭中黑_GBK";*/
+    /*font-weight: normal;*/
+/*}*/
+
+.contentList--danger .ewm--top .imgBox {
+    background: url(./img/ewm-bg.png) no-repeat center bottom;
+    background-size: 26%;
+}
+
+.contentList--danger {
+    background: url(./img/ny-bg.jpg) no-repeat center top;
+    background-size: 100%;
+}
+
+.contentList--danger .bg--first {
+    background: url(./img/newYear1.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1364, ../sass/partials/_main.scss */
+.contentList--danger .bg--second {
+    background: url(./img/newYear2.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1368, ../sass/partials/_main.scss */
+.contentList--danger .bg--fourth {
+    background: url(./img/newYear4.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1372, ../sass/partials/_main.scss */
+.contentList--danger .bg--fifth {
+    background: #fff url(./img/newYear5.png) no-repeat center top;
+    background-size: 100%;
+    position: relative;
+    z-index: 6;
+}
+
+.shadowBox .keyWord {
+    margin: 0 0 0;
+}
+
+.media .title {
+    background: url(./img/title-line.png) no-repeat center center;
+    background-size: 100%;
+}
+
+.contentList--danger .ewmBox .ewm--bottom {
+    background: url(./img/ewm-bottom.jpg) no-repeat center top;
+    background-size: 100%;
+}
+
+/*315*/
+.s315{
+    background: #2a84ff;
+}
+.s315 .shadowBox {
+    box-shadow:none;
+}
+.s315 .contentList--danger .shadowBox--danger .data ul li strong{
+    color:#005fdf;
+}
+.s315 .contentList--danger {
+    /* background: url(./img/315-top.gif) no-repeat center top; */
+    background: none;
+    background-size: 100%;
+}
+
+.s315 .contentList--danger .bg--first {
+    background: url(./img/315-01.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1364, ../sass/partials/_main.scss */
+.s315 .contentList--danger .bg--second {
+    background: url(./img/315-02.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1368, ../sass/partials/_main.scss */
+.s315 .contentList--danger .bg--fourth {
+    background: url(./img/315-03.png) no-repeat center top;
+    background-size: 100%;
+}
+/* line 1372, ../sass/partials/_main.scss */
+.s315 .contentList--danger .bg--fifth {
+    background: #fff url(./img/315-04.png) no-repeat center top;
+    background-size: 100%;
+    position: relative;
+    z-index: 6;
+}
+
+.s315 .contentList--danger .shadowBox--danger .trend .content, .s315 .media, .s315 .content {
+    background: #fff;
+    padding: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+.s315 .media {
+    background: #fff;
+    padding: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    border-top-left-radius: 0.2rem;
+}
+.s315 .header--danger {
+    background: #005fe1;
+}
+.s315 .contentList--danger .shadowBox--danger .media .title,
+.s315 .contentList--danger .shadowBox--danger .event .list .time--first,
+.s315 .contentList--danger .shadowBox--danger .event .more {
+    color:#005fdd;
+}
+
+.s315 .shadowBox--danger{
+    padding:0;
+}
+
+.s315 .contentList--danger .shadowBox--danger .event .list .contentList-item {
+    border-left: 0.02rem solid #005fdd;
+}
+.s315 .ewmBox {
+    color:#fff;
+    height: 7.3rem;
+    background: url(./img/315-bottom.jpg) no-repeat center top;
+    background-size: 100%;
+}
+.s315 .shadowBox .title{
+    font-weight: bold;
+}
+
+.s315 .data ul li strong{
+    font-size: 0.4rem;
+}

@@ -1,0 +1,17 @@
+<!--媒体曝光贡献，曝光量 top3-->
+<% _.forEach(list, function(v, i){ %>
+<li>
+    <div style="display:inline-block; width:42%; text-align:center;">
+        <span class="li__l"><%= v.medianame %></span>
+    </div>
+    <div class="li__r">
+        <div class="percentCount">
+            <span class="percentNum"><%= v.impressions %></span> (次)
+        </div>
+        <div class="progressbar">
+            <div class="progess" pw="<%= v.impressionsPer %>%"></div>
+        </div>
+    </div>
+    <span class="gradientLine"></span>
+</li>
+<% }) %>

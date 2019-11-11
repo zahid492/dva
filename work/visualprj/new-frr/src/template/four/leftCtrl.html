@@ -1,0 +1,96 @@
+<% _.forEach(lists, function(x, k){ %>
+<div class="swiper-slide">
+    <div class="col-2">
+        <ul id="js-navCtr<%= k %>">
+            <% _.forEach(x.ctr, function(v, i){ %>
+            <li nid="<%= k %>-<%= i %>">
+                <h2>
+                    <% if(i == 0) {%>
+                    <img src="/static/img/medal/gold-medal.png">
+                    <% } %>
+                    <% if(i == 1) {%>
+                    <img src="/static/img/medal/silver-medal.png">
+                    <% } %>
+                    <% if(i == 2) {%>
+                    <img src="/static/img/medal/bronze-medal.png">
+                    <% } %>
+                    <span class="ranking">TOP
+                            <% if(i == 0) {%>
+                            <strong style="color:#fdbd00">1</strong>
+                            <% } %>
+                            <% if(i == 1) {%>
+                            <strong style="color:#d7dbde">2</strong>
+                            <% } %>
+                            <% if(i == 2) {%>
+                            <strong style="color:#e0ab08">3</strong>
+                            <% } %>
+                            </span>
+                    <span class="game-title"><%= v.name||"" %></span>
+                </h2>
+                <% if(_.isNil(v.thumbnail)) {%>
+                <img class="li__img" src="<%= '/img/thumb4.png' %>">
+                <% } else {%>
+                <img class="li__img" src="<%= host + v.thumbnail %>">
+                <% } %>
+                <div class="tr-box">
+                            <span>CTR
+                                <strong><%= v.ctr %></strong>
+                                <i>%</i>
+                            </span>
+                    <i class="gradientLine--vertical"></i>
+                    <span class="span--r">大盘CTR
+                            <strong><%= v.mctr %></strong>
+                            <i>%</i>
+                            </span>
+                </div>
+                <div class="bg"></div>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <i class="gradientLine"></i>
+    <div class="col-2">
+        <ul id="js-navCvr<%= k %>">
+            <% _.forEach(x.cvr, function(v, i){ %>
+            <li nid="<%= k %>-<%= x.ctr.length+i %>">
+                <h2>
+                    <% if(i == 0) {%>
+                    <img src="/static/img/medal/gold-medal.png">
+                    <% } %>
+                    <% if(i == 1) {%>
+                    <img src="/static/img/medal/silver-medal.png">
+                    <% } %>
+                    <% if(i == 2) {%>
+                    <img src="/static/img/medal/bronze-medal.png">
+                    <% } %>
+                    <span class="ranking">TOP
+                                <% if(i == 0) {%>
+                                <strong style="color:#fdbd00">1</strong>
+                                <% } %>
+                                <% if(i == 1) {%>
+                                <strong style="color:#d7dbde">2</strong>
+                                <% } %>
+                                <% if(i == 2) {%>
+                                <strong style="color:#e0ab08">3</strong>
+                                <% } %>
+                            </span>
+                    <span class="game-title"><%= v.name||"" %></span>
+                </h2>
+                <% if(_.isNil(v.thumbnail)) {%>
+                <img class="li__img" src="<%= '/img/thumb4.png' %>">
+                <% } else {%>
+                <img class="li__img" src="<%= host + v.thumbnail %>">
+                <% } %>
+                <div class="tr-box">
+                        <span class="span--cvr">CVR
+                            <strong><%= v.cvr %></strong>
+                            <i>%</i>
+                        </span>
+                </div>
+                <div class="bg"></div>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+<% }) %>

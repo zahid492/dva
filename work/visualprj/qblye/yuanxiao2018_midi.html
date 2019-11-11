@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>狗年开运秘籍</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+
+    <link rel="stylesheet" href="styles/1712/plugin.css"/>
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0211">
+    <link rel="stylesheet" href="styles/yuanxiao2018/styles.css?v=0210"/>
+
+    <script src="js/lib/libs.js?v=0210"></script>
+    <script src="js/lib/plugins.js?v=0210" type="text/javascript"></script>
+    <script src="Scripts/Common.js?v=0210" type="text/javascript"></script>
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+        change();
+        window.onresize = change;
+
+        function window_H() {
+            var window_H = $(window).height(); //屏幕的高度
+            $('.AnswerContainer').css('height', window_H + 'px');
+        }
+        $(function () {
+            window_H();
+        })
+        // $(window).resize(function () {
+        //     window_H();
+        // });
+    </script>
+
+    <script src="Scripts/yuanxiao2018_midi.js?v=0210" type="text/javascript"></script>
+    <style>
+        .yx, div.laytip {
+            width: 5rem!important;
+            height: 6.6rem!important;
+            background-color: transparent;
+        }
+        .yx .layui-m-layercont {
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<!--谜底-->
+<div class="wrapper">
+    <div class="AnswerContainer">
+        <section class="Answercontent">
+            <div>
+                <h2 class="title" id="md"></h2>
+                <!--<p>小贴士：<span id="mdTip"></span></p>-->
+            </div>
+            <div>
+                <button class="js-tj">
+                    <img src="styles/img/btn-yxj3.png">
+                </button>
+            </div>
+        </section>
+    </div>
+</div>
+<script id="layTipAlertTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>警告</h3>
+</script>
+
+<script id="layTipSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>成功</h3>
+</script>
+
+<script id="layTipErrorTpl" type="text/html">
+    <i class="iconfont icon-false"></i>
+    <h3>失败</h3>
+</script>
+
+<script id="layYuanXiaoTpl" type="text/html">
+    <img src="styles/yuanxiao2018/yx.gif" alt="">
+</script>
+</body>
+</html>

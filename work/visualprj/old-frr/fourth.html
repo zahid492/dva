@@ -1,0 +1,324 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="css/video-js.min.css?v=2018072001">
+    <link rel="stylesheet" href="css/styles.css?v=2018072001">
+    <link rel="stylesheet" href="css/swiper.min.css?v=2018072001">
+    <link rel="stylesheet" href="css/index.css?v=2018072001">
+    <script src="lib/libs.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/d3.js?v=2018072001" type="text/javascript"></script>
+    <!--<script src="lib/index.browser.js?v=2018072001" type="text/javascript"></script>-->
+    <!--<script src="lib/plugs/chimee-plugin-center-state/index.browser.js?v=2018072001" type="text/javascript"></script>-->
+    <script src="lib/video.js?v=2018072001" type="text/javascript"></script>
+    <script src="js/config.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/tBase.js?v=2018072001" type="text/javascript"></script>
+    <script src="js/four.js?v=2018072001" type="text/javascript"></script>
+    <title>腾讯可视化</title>
+</head>
+
+<body>
+<div class="wrap">
+    <header id="header"></header>
+    <content>
+
+        <section class="fourth-content-l">
+            <h2 class="title">
+                <span class="gradientLine"></span>
+                <div class="swiper-tab">
+                    <div class="swiper-nav">
+                        <div class="swiper-nav__con" id="js-topBullet">
+
+                        </div>
+                        <div class="js-week four-time"></div>
+                    </div>
+                </div>
+                <span class="gradientLine--full"></span>
+            </h2>
+            <div class="content__box">
+                <div class="exposure-top">
+                    <div class="col-2">
+                        <span>CTR排名</span>
+                    </div>
+                    <i class="gradientLine--vertical"></i>
+                    <div class="col-2">
+                        <span>CVR排名</span>
+                    </div>
+                </div>
+                <div class="ranking-box">
+                    <div class="swiper-container" id="js-navbox">
+                        <div class="swiper-wrapper" >
+
+                        </div>
+                    </div>
+                </div>
+                <p>CTR（点击率）=点击量/曝光量，CVR（转化率）=激活量/点击量；</p>
+            </div>
+        </section>
+        <section class="fourth-content-r">
+            <h2 class="title">
+                <span class="gradientLine"></span>
+                <span class="title__txt">TOP素材展示</span>
+                <span class="gradientLine--full"></span>
+            </h2>
+            <div class="swiper-container" id="js-rsbox">
+                <div class="swiper-wrapper" >
+
+                </div>
+            </div>
+        </section>
+    </content>
+    <footer>
+        <span class="left">数据来源：广告投放曝光点击数据来源O2系统和第三方监测公司；数据获取时间：<span id="js-getDate"></span></span>
+        树洞可视化平台由IEG市场部媒介中心、数据中心 联合SNK、捷报数据共同打造
+    </footer>
+</div>
+
+<script id="topBulletTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(v, i){ %>
+
+        <div class="swiper-nav-slide <% if(i==2) {%>swiper-nav-slide-active <% } %>" bid="<%= v.seq %>" style="z-index:<%= z[i] %>;">
+            <% if(v.logourl==""){ %>
+            <img src="img/tv.png"/>
+            <% }else{ %>
+            <img src="<%= host+v.logourl %>"/>
+            <% } %>
+            <span><%= v.name %></span>
+        </div>
+        <% }) %>
+    </div>
+</script>
+
+<script id="topCTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(x, k){ %>
+        <div class="swiper-slide">
+            <div class="col-2">
+                <ul id="js-navCtr<%= k %>">
+                    <% _.forEach(x.ctr, function(v, i){ %>
+                    <li nid="<%= k %><%= i %>" >
+                        <h2>
+                            <% if(i == 0) {%>
+                            <img src="img/medal/gold-medal.png">
+                            <% } %>
+                            <% if(i == 1) {%>
+                            <img src="img/medal/silver-medal.png">
+                            <% } %>
+                            <% if(i == 2) {%>
+                            <img src="img/medal/bronze-medal.png">
+                            <% } %>
+                            <span class="ranking">TOP
+                            <% if(i == 0) {%>
+                            <strong style="color:#fdbd00">1</strong>
+                            <% } %>
+                            <% if(i == 1) {%>
+                            <strong style="color:#d7dbde">2</strong>
+                            <% } %>
+                            <% if(i == 2) {%>
+                            <strong style="color:#e0ab08">3</strong>
+                            <% } %>
+                            </span>
+                            <span class="game-title"><%= v.name %></span>
+                        </h2>
+                        <% if(_.isUndefined(v.thumbnail) || _.isNull(v.thumbnail)) {%>
+                        <img class="li__img" src="<%= '/img/thumb4.png' %>">
+                        <% } else {%>
+                        <img class="li__img" src="<%= host + v.thumbnail %>">
+                        <% } %>
+                        <div class="tr-box">
+                            <span>CTR
+                                <strong><%= jb.util.fixed(v.ctr, 3) %></strong>
+                                <i>%</i>
+                            </span>
+                            <i class="gradientLine--vertical"></i>
+                            <span class="span--r">大盘CTR
+                            <strong><%= jb.util.fixed(v.mctr, 3) %></strong>
+                            <i>%</i>
+                            </span>
+                        </div>
+                        <div class="bg"></div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+            <i class="gradientLine"></i>
+            <div class="col-2">
+                <ul id="js-navCvr<%= k %>">
+                    <% _.forEach(x.cvr, function(v, i){ %>
+                    <li nid="<%= k %><%= x.ctr.length+i %>">
+                        <h2>
+                            <% if(i == 0) {%>
+                            <img src="img/medal/gold-medal.png">
+                            <% } %>
+                            <% if(i == 1) {%>
+                            <img src="img/medal/silver-medal.png">
+                            <% } %>
+                            <% if(i == 2) {%>
+                            <img src="img/medal/bronze-medal.png">
+                            <% } %>
+                            <span class="ranking">TOP
+                                <% if(i == 0) {%>
+                                <strong style="color:#fdbd00">1</strong>
+                                <% } %>
+                                <% if(i == 1) {%>
+                                <strong style="color:#d7dbde">2</strong>
+                                <% } %>
+                                <% if(i == 2) {%>
+                                <strong style="color:#e0ab08">3</strong>
+                                <% } %>
+                            </span>
+                            <span class="game-title"><%= v.name %></span>
+                        </h2>
+                        <% if(_.isUndefined(v.thumbnail) || _.isNull(v.thumbnail)) {%>
+                        <img class="li__img" src="<%= '/img/thumb4.png' %>">
+                        <% } else {%>
+                        <img class="li__img" src="<%= host + v.thumbnail %>">
+                        <% } %>
+                        <div class="tr-box">
+                        <span class="span--cvr">CVR
+                            <strong><%= jb.util.fixed(v.cvr,3) %></strong>
+                            <i>%</i>
+                        </span>
+                        </div>
+                        <div class="bg"></div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</script>
+
+<script id="slideTpl" type="text/html">
+    <div>
+        <% _.forEach(list, function(w, y){ %>
+        <div class="swiper-slide">
+        <div class="swiper-container" id="js-pbox<%= y %>">
+            <div class="swiper-wrapper" >
+            <% _.forEach(_.concat(w.ctr, w.cvr), function(v, i){ %>
+            <div class="swiper-slide">
+                <div class="content__box">
+                    <div class="carousel">
+                        <div class="css-mid">
+                            <div class="carousel__top" style="width:<%= jb.util.getTextWidth({txt: v.name, fontSize: fz*0.31})+72 %>px">
+                                <% if((i%w.ctr.length) == 0) {%>
+                                <img src="img/medal/gold-medal.png">
+                                <% } %>
+                                <% if((i%w.ctr.length) == 1) {%>
+                                <img src="img/medal/silver-medal.png">
+                                <% } %>
+                                <% if((i%w.ctr.length) == 2) {%>
+                                <img src="img/medal/bronze-medal.png">
+                                <% } %>
+                                <span class="ranking">TOP
+                                    <% if((i%w.ctr.length) == 0) {%>
+                                    <strong style="color:#fdbd00">1</strong>
+                                    <% } %>
+                                    <% if((i%w.ctr.length) == 1) {%>
+                                    <strong style="color:#d7dbde">2</strong>
+                                    <% } %>
+                                    <% if((i%w.ctr.length) == 2) {%>
+                                    <strong style="color:#e0ab08">3</strong>
+                                    <% } %>
+                                </span>
+                                <span class="game-title"><%= v.name %></span>
+                            </div>
+                        </div>
+                        <div class="carousel__con">
+                            <div class="swiper-container four-swc" id="bl<%= y %><%= i %>">
+                                <div class="swiper-wrapper">
+                                    <% if(_.size(v.images)>0) { %>
+                                        <% _.forEach(v.images, function(x, k){ %>
+                                            <% if(!jb.util.hasVideo(x.path)){ %>
+                                            <div class="swiper-slide">
+                                                <img src="<%= host+x.path %>" alt="">
+                                                <div class="pie carousel__col">
+                                                    <% if(i<=(w.ctr.length-1)) {%>
+                                                    <div class="col-2">
+                                                    <div class="carousel__col--l" id="piectr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <i class="gradientLine--vertical" style="width:0.02rem;"></i>
+                                                    <div class="col-2">
+                                                    <div class="carousel__col--r" id="piemctr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <% }else{ %>
+                                                    <div class="col-44">
+                                                    <div class="carousel__col--l" id="piecvr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <% } %>
+
+                                                </div>
+                                            </div>
+                                            <% }else{ %>
+                                            <div id="bl<%= y %><%= i %><%= k %>" class="swiper-slide video" vpath="<%= host+x.path %>">
+                                                <div class="vv4">
+                                                    <video class="video-js" id="vbl<%= y %><%= i %><%= k %>">
+                                                        <!--<source src="<%= host+x.path %>" type="video/mp4">-->
+                                                    </video>
+                                                </div>
+                                                <div class="pie carousel__col">
+                                                    <% if(i<=(w.ctr.length-1)) {%>
+                                                    <div class="col-2">
+                                                        <div class="carousel__col--l" id="piectr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <i class="gradientLine--vertical" style="width:0.02rem;"></i>
+                                                    <div class="col-2">
+                                                        <div class="carousel__col--r" id="piemctr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <% }else{ %>
+                                                    <div class="col-44">
+                                                        <div class="carousel__col--l" id="piecvr<%= y %><%= i %><%= k %>"></div>
+                                                    </div>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            <% } %>
+
+                                        <% }) %>
+                                    <% } else { %>
+                                        <div class="swiper-slide"><img src="/img/slide4.png" alt=""></div>
+                                    <% } %>
+                                </div>
+                                <div class="swiper-pagination" id="blp<%= y %><%= i %>"></div>
+                            </div>
+                            <!--<div class="carousel__col">-->
+                                <!--<% if(i<=(w.ctr.length-1)) {%>-->
+                                <!--<div class="col-2">-->
+                                    <!--<div class="carousel__col&#45;&#45;l" id="piectr<%= y %><%= i %>"></div>-->
+                                <!--</div>-->
+                                <!--<i class="gradientLine&#45;&#45;vertical"></i>-->
+                                <!--<div class="col-2">-->
+                                    <!--<div class="carousel__col&#45;&#45;r" id="piemctr<%= y %><%= i %>"></div>-->
+                                <!--</div>-->
+                                <!--<% }else{ %>-->
+                                <!--<div class="col-44">-->
+                                    <!--<div class="carousel__col&#45;&#45;l" id="piecvr<%= y %><%= i %>"></div>-->
+                                <!--</div>-->
+                                <!--<% } %>-->
+
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            </div>
+        </div>
+        </div>
+        <% }) %>
+    </div>
+</script>
+
+<style>
+    chimee-center-state{
+        display:none;
+    }
+</style>
+</body>
+
+</html>

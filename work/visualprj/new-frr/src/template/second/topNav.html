@@ -1,0 +1,7 @@
+
+    <% _.forEach(list, function(v, i){ %>
+    <div class="swiper-nav-slide <% if(i==2) {%>swiper-nav-slide-active <% } %>" bid="<%= v.seq %>" style="z-index: <%= z[i] %>;">
+        <img src="<%= v.icon %>">
+        <span><%= v.name %></span>
+    </div>
+    <% }) %>

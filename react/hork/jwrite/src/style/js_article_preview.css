@@ -1,0 +1,132 @@
+.jtrend .article_content {
+    border-radius: 10px;
+}
+
+.jtrend .article_content .left {
+    width: 100%;
+    padding: 0%
+}
+
+.jtrend .article_content .left .title {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 28px;
+}
+
+.jtrend .article_content .left p {
+    margin-bottom: 15px;
+}
+
+.jtrend .article_content {
+    width: 100%;
+    padding: 0 40px;
+}
+
+.jtrend .articleOneEidt .articleOne__box {
+    border-radius: 10px;
+    background: #fff;
+}
+
+.jtrend .broadcast .key_label {
+    height: 150px;
+    width: 920px;
+    margin: 0 40px;
+    position: static;
+    bottom: 0;
+    border-top: 1px solid #d6d9d9;
+}
+
+.jtrend .product_label {
+    float: left;
+    width: 880px;
+    margin: 20px 0 30px 20px;
+}
+
+.jtrend .product_label img {
+    float: left;
+    position: absolute;
+    left: 120px;
+    top: 2px;
+}
+
+/* .product_label .label_list {
+    width: 80%;
+    margin-left: 100px;
+}
+
+.jtrend .product_label h3 {
+    float: left;
+    color: #050505;
+}
+
+.jtrend .product_label .label_list li {
+    float: left;
+    display: block;
+    padding: 1px 12px 1px 12px;
+    border-radius: 20px;
+    margin:0 6px 20px;
+    background: #fc8b55;
+} */
+
+/* 添加的弹层 */
+
+.jtrend .add_box {
+    width: 440px;
+    height: 220px;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+.jtrend .topbar {
+    height: 50px;
+    width: 100%;
+    background: #1c68d4;
+    border-radius: 5px 5px 0 0;
+}
+
+.jtrend .topbar .addlist {
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    padding: 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.jtrend .topbar .close {
+    display: block;
+    float: right;
+    margin: 15px 20px 0 0;
+    color: #fff;
+}
+
+.jtrend .product_name {
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+    padding-left: 20px;
+    color: #050505;
+}
+
+.jtrend .product_name input {
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    padding-left: 15px;
+    border: 1px solid #12b3f0;
+}
+
+.jtrend .add_box .buts {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+    
+    
+    

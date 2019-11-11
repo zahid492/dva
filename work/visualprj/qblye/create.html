@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="applicable-device" content="mobile">
+    <title>创建关注</title>
+    <script src="js/lib/libs.js?v=0201"></script>
+    <script src="js/lib/plugins.js?v=0201" type="text/javascript"></script>
+    <script src="js/lib/iscroll-probe.js?v=0201"></script>
+    <script src="Scripts/Common.js?v=0201" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+        change();
+        window.onresize = change;
+    </script>
+    <link rel="stylesheet" href="styles/1712/plugin.css?v=0201"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0201">
+    <link rel="stylesheet" href="styles/1712/create.css?v=0201">
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0201">
+
+    <script src="Scripts/create.js?v=0201" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="indexContainer">
+        <header class="header">
+            <a class="header__icon--l iconfont icon-right return">
+            </a>
+            <h2 class="header__title">
+                创建关注
+            </h2>
+            <a class="header__icon--r iconfont icon-search js-search">
+            </a>
+        </header>
+        <section class="header-logo">
+            <h2>
+            </h2>
+            <a class="header__icon--r iconfont icon-success js-submit">
+            </a>
+        </section>
+
+        <nav id="pagination"  class="menubar menubar--attention" style="top:2.2rem"></nav>
+
+        <content class="contentList">
+            <div class="brand">
+                <h2>
+                    <span>热门品牌</span>
+                </h2>
+                <div class="swiper-container" id="container">
+                    <div class="swiper-wrapper">
+
+                    </div>
+                </div>
+            </div>
+        </content>
+    </div>
+</div>
+
+    <script id="layTipOneTpl" type="text/html">
+            <i class="iconfont icon-alert"></i>
+            <h3>关注词至少关注一个</h3>
+    </script>
+
+    <script id="layTipErrorTpl" type="text/html">
+        <i class="iconfont icon-false"></i>
+        <h3>设置失败</h3>
+    </script>
+
+    <script id="layTipThreeTpl" type="text/html">
+        <i class="iconfont icon-alert"></i>
+        <h3>最多关注3个品牌</br>点击已关注品牌可取消</h3>
+    </script>
+
+    <script id="layTipCancelTpl" type="text/html">
+        <i class="iconfont icon-problem"></i>
+        <h3></h3>
+    </script>
+
+
+    <!-- 滑动容器 -->
+    <script id="slideTpl" type="text/html">
+        <% _.forEach(cats, function(v){ %>
+        <div class="swiper-slide js-wrap-box" id="sw<%= v %>">
+            <div class="wrap-box" id="sc<%= v %>">
+                <div class="scroller"><ul class="brand__list"></ul></div>
+            </div>
+        </div>
+        <% }) %>
+    </script>
+    <!-- 关注词列表 -->
+    <script id="contentTpl" type="text/html">
+
+        <% _.forEach(lists, function(v, i){ %>
+            <li title="<%= v.Name %>" <% if(_.indexOf(selectedSubjects, v.Name)!= -1){ %> class="js-brand active" <% }else{ %> class="js-brand" <% }%> <% if(i%4 == 0){ %> style="clear:both; margin-left:0.3rem;" <% }%>>
+                <a>
+                    <div class="shade">
+                        <i class="iconfont icon-true"></i>
+                    </div>
+                    <img data-src="<%= v.Logo %>" class="swiper-lazy" style="width:1.35rem; height:1.35rem;">
+                    <h3><%= v.Name %></h3>
+                </a>
+            </li>
+        <% }) %>
+            <li class="last" <% if(lists.length%4 == 0){ %> style="clear:both; margin-left:0.3rem;" <% }%>>
+                <div class="button">
+                    <i class="iconfont icon-add"></i>
+                </div>
+            </li>
+
+    </script>
+
+</body>
+
+</html>

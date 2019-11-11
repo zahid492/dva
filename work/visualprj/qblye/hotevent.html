@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile">
+    <title>情报来也</title>
+    <script src="js/lib/libs.js?v=0319"></script>
+    <script src="js/lib/plugins.js?v=0319" type="text/javascript"></script>
+
+    <script src="js/lib/iscroll-probe.js?v=0319"></script>
+
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+        window.onresize = change;
+    </script>
+    <link rel="stylesheet" href="styles/1712/plugin.css?v=0319"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0319">
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0319">
+    <link rel="stylesheet" href="styles/1712/hotevent.css?v=0319">
+
+    <script src="js/jb/jbase.js?v=0319" type="text/javascript"></script>
+    <script src="Scripts/hotevent.js?v=0319" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="indexContainer">
+        <header class="header">
+            <div class="header__search search" id="js-ser">
+                <i class="search-button iconfont icon-right js-esc" style="left:0;color:#fff"></i>
+                <input type="text" placeholder="搜索" class="search-input"
+                       style="width:5.81rem;padding-left: 0.1rem; margin-left:0.3rem">
+                <span class="js-i">搜索</span>
+            </div>
+        </header>
+
+        <content class="contentList">
+            <section class="hot js-hotsec">
+                <div id="swrapper">
+                    <div id="scroller">
+                        <div>
+                            <h2 class="tit-line" id="js-hottit">
+                                <span>热门事件</span>
+                            </h2>
+
+                            <section id="gzYes" class="contentList-brand__list brand__list js-gz js-hasgz hide">
+                                <ul>
+
+                                </ul>
+                                <a class="yg">
+                                    已关注
+                                </a>
+                            </section>
+                            <section id="gzNo" class="js-gz hide">
+                                <h2 class="tit--bg">推荐关注词</h2>
+                                <div class="contentList-brand__list brand__list">
+                                    <h2><ul></ul></h2>
+                                </div>
+                            </section>
+                            <section id="split1" class="H-block hide"></section>
+
+                            <ul id="js-hotlist"></ul>
+                            <!--关键词相关信息-->
+                            <section class="H-block js-line"></section>
+
+                            <section id="js-info">
+                                <div class="tab">
+                                    <div class="tab__nav">
+                                        <span class="tit active">近七天</span>
+                                        <span class="tit">近30天</span>
+                                        <span class="tit">近90天</span>
+                                    </div>
+                                    <div class="tab__con tab__con--active" id="d7">
+                                        <div class="data">
+                                        </div>
+                                    </div>
+                                    <div class="tab__con" id="d30">
+                                        <div class="data">
+                                        </div>
+                                    </div>
+                                    <div class="tab__con" id="d90">
+                                        <div class="data">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content" id="dcontent">
+                                    <div class="minirefresh-wrap" id="dcmin">
+                                        <div class="minirefresh-scroll">
+                                            <div class="js-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--什么信息都没有-->
+            <div class="searchNull js-null">
+                <img src="styles/1712/img/search--nothing.jpg"/>
+                <p>您搜索的内容无法找到</p>
+            </div>
+        </content>
+    </div>
+</div>
+<!-- 关注列表 -->
+<script id="gzListTpl" type="text/html">
+     <% _.forEach(lists, function(v, i){ %>
+        <li class="<% if(v.checked){ %>active<% } %>" title="<%= v.Name %>">
+            <div class="shade">
+                <i class="iconfont icon-true"></i>
+            </div>
+            <img src="<%= v.Logo %>"/>
+            <% if(gz==="0"){ %>
+            <h3><%= v.Name %></h3>
+            <% } %>
+        </li>
+     <% }) %>
+
+</script>
+
+
+<!-- 列表 -->
+<script id="hotListTpl" type="text/html">
+    <% _.forEach(lists, function(v, i){ %>
+    <li class="hot__item js-brand <% if(i%2 !== 0){%> li-event <%}%>" item-id="<%= v._id %>">
+        <a class="imgBox" item-type="<%= v.Type %>">
+            <img src="<%= v.PicUrl %>">
+        </a>
+
+        <h2>
+            <a><%= v.Title %></a>
+        </h2>
+        <p><%= v.PublishDateTimeEnd %></p>
+    </li>
+    <% }) %>
+</script>
+<!-- 信息列表头 -->
+<script id="hotSHeadTpl" type="text/html">
+    <div class="data__item">
+        <strong><%= AllNewsCount %></strong>
+        <span>全网信息量</span>
+        <i class="iconfont icon-xinxi"></i>
+    </div>
+    <div class="data__item">
+        <strong><%= OriginalNewsCount %></strong>
+        <span>原创</span>
+        <i class="iconfont icon-yuanchuang"></i>
+    </div>
+    <div class="data__item">
+        <strong><%= ForwardNewsCount %></strong>
+        <span>转载</span>
+        <i class="iconfont icon-zhuanfa"></i>
+    </div>
+</script>
+
+<!-- 信息列表 -->
+<script id="hotSListTpl" type="text/html">
+    <% _.forEach(lists, function(v, i){ %>
+    <div class="contentList-item" item-id="<%= v.RId %>">
+        <div class="contentList-item__article">
+            <h3>
+                <a href="<%= v.Url %>" target="_blank">
+                    <h3><%= v.Title %></h3>
+                </a>
+            </h3>
+        </div>
+        <div class="info">
+            <a><%= v.MediaName %></a>
+            <a class="time"><%= v.time %></a>
+            <a class="similar"><%= v.SimilarCount %>相似新闻</a>
+        </div>
+    </div>
+    <% }) %>
+</script>
+
+<script id="layTipAlertTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>警告</h3>
+</script>
+
+<script id="layTipSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>成功</h3>
+</script>
+
+<script id="layTipErrorTpl" type="text/html">
+    <i class="iconfont icon-false"></i>
+    <h3>失败</h3>
+</script>
+
+<script id="layTipCancelTpl" type="text/html">
+    <i class="iconfont icon-problem"></i>
+    <h3></h3>
+</script>
+
+</body>
+
+</html>

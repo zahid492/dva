@@ -1,0 +1,46 @@
+/* 新闻理解 */
+.news-understand {
+    margin: 30px auto 0;
+}
+.news-understand .section-box__con .top {
+    background: #1c68d4;
+}
+.news-understand .section-box__con {
+    border: 1px solid #d6d9d9;
+}
+.news-understand .news-original .dropdownBox .down {
+    background: url(/img/nextla_03.png) no-repeat center bottom;
+}
+html body .wrap content .content__box .title
+{
+    font-size: 16px;
+    cursor: unset;
+}
+.form-drop {
+    width: 1000px;
+    color: #222;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.form-drop label {
+    color: #222;
+}
+.news-understand .section-box__con ul li span i{
+    display: inline-block;
+    font-style: normal;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    background: #89a4c7;
+    position: absolute;
+    left: -5px;
+}
+.news-understand .news-original .dropdownBox p {
+    color: #777;
+    font-size: 12px;
+}
+ 

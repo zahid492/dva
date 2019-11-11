@@ -1,0 +1,38 @@
+<div>
+    <% _.forEach(list, function(v, i){ %>
+    <section class="exposure-con__item exposure-con__item--<%= en2num[i] %> js-topitem">
+        <h2>
+            <span class="ranking">TOP
+                <strong style="color:<%= i>2 ? "":colorSeq[i] %>"><%= i+1 %></strong>
+            </span>
+            <span class="game-title"><%= v.gamename %></span>
+        </h2>
+        <div>
+            <span class="col-3">
+                <div class="imgBox">
+                    <% if(i<=2) {%>
+                    <img class="medal" src="/static/img/medal/<%= medalImg[i] %>"/>
+                    <% }else{ %>
+                    <img class="medal" src="/static/img/medal/<%= medalImg[3] %>"/>
+                    <% } %>
+                    <img class="game" src="<%= logos[i].logo %>">
+                </div>
+            </span>
+            <i class="gradientLine--vertical"></i>
+            <span class="col-3">
+                <div class="number">
+                    <strong><%= v.impressions %></strong>（次）
+                </div>
+            </span>
+            <i class="gradientLine--vertical"></i>
+            <span class="col-3">
+                <div class="progressbar">
+                    <div class="progess" style="width:<%= v.consume %>%"></div>
+                </div>
+                <div class="percentCount"><%= _.round(v.consume*100,0) %>%</div>
+            </span>
+        </div>
+    </section>
+    <span class="gradientLine"></span>
+    <% }) %>
+</div>

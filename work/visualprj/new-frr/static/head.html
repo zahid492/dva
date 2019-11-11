@@ -1,0 +1,114 @@
+<div>
+    <div class="headerBox">
+        <section id="fu">
+            <div class="header-time">
+                <i class="iconfont icon-time"></i>
+                <span id="time"></span>
+            </div>
+        </section>
+        <section>
+            <div class="header-logo">
+                <div class="header-logo__box">
+                    <img src="/static/img/logo.png">
+                    <span id="js-name"></span>
+                    <i class="iconfont icon-up"></i>
+                </div>
+                <div class="header-logo__dropdown">
+                    <ul id="headlink">
+                        <a shref="first.html">
+                            <li>
+                                <span title="树洞可视化平台—腾讯游戏推广效果概览">腾讯游戏推广效果概览</span>
+                                <i class="iconfont icon-map"></i>
+                                <span class="gradientLine--lr"></span>
+                            </li>
+                        </a>
+                        <a shref="second.html">
+                            <li>
+                                <span title="树洞可视化平台—游戏营销效果">游戏营销效果</span>
+                                <i class="iconfont icon-icon"></i>
+                                <span class="gradientLine--lr"></span>
+                            </li>
+                        </a>
+                        <a shref="third.html">
+                            <li>
+                                <span title="树洞可视化平台—网站营销效果">网站营销效果</span>
+                                <i class="iconfont icon-data"></i>
+                                <span class="gradientLine--lr"></span>
+                            </li>
+                        </a>
+                        <a shref="fourth.html">
+                            <li>
+                                <span title="树洞可视化平台—优秀广告素材">优秀广告素材</span>
+                                <i class="iconfont icon-material"></i>
+                                <span class="gradientLine--lr"></span>
+                            </li>
+                        </a>
+                        <a shref="fifth.html">
+                            <li>
+                                <span title="树洞可视化平台—传播资源概览">传播资源概览</span>
+                                <i class="iconfont icon-overview"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="header-logon">
+                <i class="iconfont icon-sign"></i>
+                <div class="header-logon__dropdown">
+                    <div class="password" id="js-passWord">
+                        <i class="iconfont icon-pwd"></i>
+                        <span>修改密码</span>
+                        <span class="gradientLine"></span>
+                    </div>
+                    <div class="logonOut" id="js-logonOut">
+                        <i class="iconfont icon-exit"></i>
+                        <span>退出登录</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal" id="js-modal">
+        <div class="modal-mask"></div>
+        <div class="modal-content">
+            <div class="alert" id="js-alert">
+                <i class="iconfont icon-zhuyi"></i>
+                <span></span>
+            </div>
+            <button class="modal-close" id="js-modal-close">
+                <span class="iconfont icon-close"></span>
+            </button>
+            <div class="modal-body">
+                <div class="inputBox">
+                    <input autocomplete="off" class="o-password" id="o-password" placeholder="原始密码" type="text" value="">
+                    <div class="tip" id="o-tip">
+                        <span>不能为空</span>
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input autocomplete="off" class="n-password" id="n-password" placeholder="新密码" type="text" value="">
+                    <div class="tip" id="n-tip">
+                        <span>不能为空</span>
+                    </div>
+                </div>
+                <p>6-16位，区分大小写</br>只能使用字母、数字、特殊字符</p>
+                <div class="inputBox">
+                    <input autocomplete="off" class="c-password" id="c-password" placeholder="确认密码" type="text" value="">
+                    <div class="tip" id="c-tip">
+                        <span>不能为空</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-sure" id="js-btn-sure">
+                    <span class="iconfont icon-sure"></span>
+                </button>
+                <button class="btn-close" id="js-btn-close">
+                    <span class="iconfont icon-close"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html  lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="applicable-device" content="mobile">
+
+    <title>情报来也</title>
+    <script>
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+        change();
+        window.onresize = change;
+    </script>
+    <script src="js/lib/libs.js?v=0119" type="text/javascript"></script>
+    <script src="js/lib/plugins.js?v=0119" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0119">
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0119">
+    <script src="Scripts/search.js?v=0119" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="indexContainer">
+            <header class="header">
+                <a class="header__icon--l iconfont icon-right return"></a>
+                <h2 class="header__title">搜索</h2>
+            </header>
+            <content class="contentList" style="margin-top:1rem">
+                <div class="brand">
+                    <div class="search">
+                        <i class="search-button iconfont icon-sousuo"></i>
+                        <input type="text" placeholder="网易"class="search-input js-search">
+                    </div>
+                    <ul class="search__list brand__list" id="js-blist">
+
+                    </ul>
+
+                    <div class="searchNull" style="display:none;">
+                        <img src="styles/1712/img/search--nothing.jpg" />
+                        <p>您搜索的内容无法找到</p>
+                        <button class="button-signout button--primary" id="js-skey">申请添加关注词</button>
+                    </div>
+                </div>
+            </content>
+        </div>
+    </div>
+
+    <script id="layTipThreeTpl" type="text/html">
+        <i class="iconfont icon-alert"></i>
+        <h3>最多关注3个品牌</h3>
+    </script>
+
+    <script id="layTipHasTpl" type="text/html">
+        <i class="iconfont icon-alert"></i>
+        <h3>已关注该品牌</h3>
+    </script>
+
+    <script id="layTipErrorTpl" type="text/html">
+        <i class="iconfont icon-false"></i>
+        <h3>关注失败</h3>
+    </script>
+    <!-- 关注词列表 -->
+    <script id="contentTpl" type="text/html">
+
+        <% _.forEach(lists, function(v, i){ %>
+        <li title="<%= v.Name %>" class="js-brand">
+            <img src="<%= v.Logo %>" style="width:1.35rem; height:1.35rem;">
+            <h3><%= v.Name %></h3>
+        </li>
+        <% }) %>
+
+    </script>
+
+</body>
+
+</html>

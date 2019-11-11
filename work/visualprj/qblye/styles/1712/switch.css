@@ -1,0 +1,137 @@
+.switch {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: content-box;
+    outline: none
+}
+
+.switch, .switch small {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent
+}
+
+.switch small {
+    font-size: 12px;
+    top: 0;
+    /*border-radius: 100%;*/
+    border-radius: 0.42rem;
+    text-align: center;
+    display: block;
+    background: #fff;
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, .4);*/
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    overflow: hidden;
+    color: #000
+}
+
+.switch-default {
+    width: 1.027rem;
+    height: 0.41rem;
+    /*border-radius: 0.205rem;*/
+    border-radius: 0.41rem;
+    line-height: 0.41rem;
+}
+
+.switch-disabled {
+    opacity: .5
+}
+
+.switch-default small {
+    width: 0.40rem;
+    height: 0.41rem;
+}
+
+.setNotic-list li.freq-box {
+    padding-top: 0.3rem;
+    line-height: 0.3rem;
+    display: block;
+    height: 1.2rem;
+    position: relative;
+}
+
+#notic-freq .noUi-connect {
+    background: #129AEE;
+}
+
+#notic-freq[disabled] .noUi-connect {
+    background: #B8B8B8;
+}
+
+#notic-freq {
+    width: 84%;
+    margin: 0 auto;
+    height: 0.1rem;
+}
+
+.noUi-target {
+    border: 0 none;
+    background-color: #cccccc;
+}
+
+#notic-freq .noUi-handle {
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 50%;
+    background-color: #129aee;
+    box-shadow: none;
+    left: -0.1rem;
+    top: -0.055rem;
+    border: 0 none;
+}
+
+#notic-freq .noUi-handle:before, .noUi-handle:after {
+    background: none;
+}
+
+#notic-freq .noUi-marker {
+    display: none;
+}
+
+#notic-freq .noUi-pips-horizontal {
+    height: 0.5rem;
+    max-height: 0.5rem;
+    padding: 5px 0;
+    top: 0.15rem;
+}
+
+#notic-freq .noUi-value {
+    top: 0;
+    display: inline-block;
+    width: 0.4rem;
+    font-size: 0.18rem;
+    text-align: center;
+}
+
+
+.plug-notic {
+    position:relative;
+}
+
+.plug-notic span{
+    margin:0 !important;
+}
+.ofbtn {
+    position: absolute;
+    top:0.35rem;
+    z-index: 10;
+    color:#fff;
+    font-size:0.2rem !important;
+    font-style:normal;
+    height: 0.41rem;
+    line-height: 0.41rem;
+}
+
+.onbtn {
+    left:0.1rem;
+}
+
+.offbtn {
+    right:0.15rem;
+}

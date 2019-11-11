@@ -1,0 +1,103 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+
+    <title>腾讯可视化1</title>
+    <script src="static/lib/libs.js" type="text/javascript"></script>
+    <script src="static/js/config.js?v=2018072001" type="text/javascript"></script>
+    <script src="static/js/tBase.js?v=2018072001" type="text/javascript"></script>
+</head>
+
+<body style="background: #cacaca">
+<div class="swiper-tab">
+    <div class="swiper-nav">
+        <div class="swiper-nav__con" id="js-topBullet">
+
+        </div>
+    </div>
+</div>
+<style>
+     .swiper-nav {
+        width: 500px;
+        margin: 0 auto;
+        height: 0.56rem;
+        line-height: 0.56rem;
+        background: linear-gradient(to right, rgba(32, 38, 66, 0), #202642, rgba(32, 38, 66, 0));
+    }
+
+     .swiper-nav .swiper-nav__con {
+        height: 0.56rem;
+        line-height: 0.56rem;
+        position: relative;
+        margin: 0 auto;
+    }
+
+     .swiper-nav .swiper-nav__con .swiper-nav-slide {
+        opacity: 0.8;
+        display: block;
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+        width: 30px;
+        height: 0.56rem;
+        line-height: 0.56rem;
+        transition: all 0.5s ease-out;
+    }
+
+     .swiper-nav .swiper-nav__con .swiper-nav-slide img {
+        border-radius: 50%;
+        border: 0.01rem solid #5e92d9;
+        width: auto;
+        height: 100%;
+        display: inline-block;
+    }
+
+     .swiper-nav .swiper-nav__con .swiper-nav-slide-active {
+        font-size: 0.24rem;
+        font-weight: bold;
+        color: #fefeff;
+        margin: 0;
+        opacity: 1;
+    }
+
+     .swiper-nav .swiper-nav__con .swiper-nav-slide-active img {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0;
+        border: 0;
+        margin-right: 0.06rem;
+    }
+
+    .swiper-nav-slide span {
+        display: none;
+        font-size: 0.20rem;
+    }
+
+    .swiper-nav-slide-active span {
+        display: inline-block;
+    }
+
+     .swiper-nav .swiper-nav__con .slide0 {
+        transform: translate3d(-50px, 0, 0) scale(0.8);
+    }
+
+     .swiper-nav .swiper-nav__con .slide1 {
+        transform: translate3d(0px, 0, 0) scale(0.8);
+    }
+
+     .swiper-nav .swiper-nav__con .slide2 {
+        transform: translate3d(50px,0, 0) scale(0.8);
+    }
+
+     .swiper-nav .swiper-nav__con .slide3 {
+        transform: translate3d(100px,0, 0) scale(0.8);
+    }
+</style>
+
+</body>
+
+</html>

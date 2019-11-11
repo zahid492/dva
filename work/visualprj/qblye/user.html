@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile">
+    <title>个人中心</title>
+    <script src="js/lib/libs.js"></script>
+    <script src="js/lib/plugins.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+
+        change();
+        window.onresize = change;
+
+        function window_H() {
+            var window_H = $(window).height(); //屏幕的高度
+            $('.setNotic-head').css('height', window_H + 'px');
+        }
+
+        $(function () {
+            window_H();
+        });
+//        $(window).resize(function () {
+//            window_H();
+//        });
+    </script>
+
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0119">
+    <link rel="stylesheet" href="styles/1712/temp.css?v=0119"/>
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0119">
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="indexContainer">
+        <section class="setNotic-head">
+            <div>
+                <section>
+                    <h3>
+                        <a class="iconfont icon-right return js-return"></a>
+                        设置
+                    </h3>
+                    <div class="user">
+                        <div class="user__logo">
+                            <img src="img/sigle.png" class="border">
+                            <img src="img/user.png" class="js-head user">
+                        </div>
+                        <h3 class="user__name"></h3>
+                    </div>
+                </section>
+                <section class="loginBox">
+                    <div class="loginMode">
+                        <div class="loginMode--phone is-active">
+                            <i class="iconfont icon-phone"></i>
+                            <i class="iconfont icon-phone-active js-pa"></i>
+                            <span>手机</span>
+                        </div>
+                        <span class="line">|</span>
+                        <div class="loginMode--email ">
+                            <i class="iconfont icon-email"></i>
+                            <i class="iconfont js-ea"></i>
+                            <span>邮箱</span>
+                        </div>
+                    </div>
+                    <div id="js-etbox"></div>
+
+                    <div id="js-bind"></div>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script id="userEmailTpl" type="text/html">
+
+    <% if(email.length === 0){ %>
+        <div class="loginState">
+            <img src="styles/1712/img/email-no-binding.png">
+            <h3><i class="iconfont icon-no-binding"></i><span>邮箱未绑定</span></h3>
+        </div>
+        <button class="button-signout  button--primary js-noemail" style="margin-top:0.45rem">去绑定<i class="iconfont icon-jiantou"></i></button>
+    <% }else{ %>
+        <div class="loginState">
+            <img src="styles/1712/img/email-binding.png">
+            <h3><i class="iconfont icon-binding"></i><span>邮箱已绑定 (<%= email %>)</span></h3>
+            <p><a class="js-noemail">重新绑定 <i class="iconfont icon-jiantou"></i></a></p>
+        </div>
+    <% } %>
+
+</script>
+
+<script id="userEmailBindTpl" type="text/html">
+
+    <div class="loginVerify" id="js-ei">
+        <div class="tel"><input style="width:90%;" type="email" placeholder="请输入邮箱地址"></div>
+    </div>
+    <button id="js-esub" class="button-signout button--primary" style="margin-top:2.05rem">提交</button>
+
+</script>
+
+<script id="userPhoneTpl" type="text/html">
+
+    <% if(tel.length === 4){ %>
+        <div class="loginState">
+            <img src="styles/1712/img/phone-no-binding.png">
+            <h3><i class="iconfont icon-no-binding"></i><span>手机未绑定</span></h3>
+        </div>
+    <button class="button-signout button--primary js-notel" style="margin-top:0.45rem">去绑定 <i class="iconfont icon-jiantou"></i></button>
+    <% }else{ %>
+        <div class="loginState">
+            <img src="styles/1712/img/phone-binding.png">
+            <h3><i class="iconfont icon-binding"></i><span>手机已绑定 (<%= tel %>)</span></h3>
+            <p><a class="js-notel">重新绑定 <i class="iconfont icon-jiantou"></i></a></p>
+        </div>
+    <% } %>
+
+</script>
+
+<script id="userPhoneBindTpl" type="text/html">
+
+    <div class="loginVerify" id="js-pi">
+        <div class="tel"><input type="text" placeholder="请输入手机号" name="phone" style="width:100%;"></div>
+        <div class="code"><input type="text" placeholder="请填写验证码" name="pcheck" style="width:200px;"><button class="is-plain pcheck">获取验证码</button></div>
+    </div>
+    <button id="js-psub" class="button-signout button--primary" style="margin-top:1rem">提交</button>
+
+</script>
+
+<script id="layTipErrorEmailTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>请正确输入邮箱</h3>
+</script>
+
+<script id="layTipErrorPhoneTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>请正确输入手机号</h3>
+</script>
+
+<script id="layTipCheckTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>验证码必须4位数字</h3>
+</script>
+
+<script id="layTipEmptyPhoneTpl" type="text/html">
+    <i class="iconfont icon-alert"></i>
+    <h3>请输入手机号</h3>
+</script>
+
+<script id="layTipSuccessTpl" type="text/html">
+    <i class="iconfont icon-success"></i>
+    <h3>绑定成功</h3>
+</script>
+
+<script id="layTipErrorTpl" type="text/html">
+    <i class="iconfont icon-false"></i>
+    <h3>绑定失败</h3>
+</script>
+<script src="Scripts/user.js?v=0119" type="text/javascript"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,142 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+}
+
+body,ul,li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    overflow: scroll; /* this is important to prevent the whole page to bounce */
+}
+
+.js-null {
+    margin-top:1rem;
+    display:none;
+}
+
+.contentList {
+    /*position:relative;*/
+    /*left:0;*/
+    /*top:1rem;*/
+    /*z-index:1;*/
+
+    margin:0;
+    width:100%;
+    height:auto;
+}
+.js-hotsec {
+    margin-top:0;
+    width:100%;
+    padding:0;
+    /*top:0;*/
+    /*left:0;*/
+    /*position:relative;*/
+    /*height:100vh;*/
+    /*z-index: 1;*/
+}
+
+#js-hottit {
+    padding:0.35rem 0 0 0.3rem;
+    line-height:0.32rem;
+}
+
+#swrapper {
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*top: 1rem;*/
+    /*bottom: 0px;*/
+    /*left: 0;*/
+    /*overflow: hidden;*/
+    width: 100%;
+    margin-top:1rem;
+}
+
+#scroller {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*z-index: 1;*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller #js-hotlist {
+    list-style: none;
+    padding: 0.3rem 0 0.3rem 0.2rem;
+    margin: 0;
+    width: 100%;
+}
+#scroller #js-hotlist li {
+    height:3.3rem;
+    margin: 0.15rem 0.21rem 0.15rem 0.08rem;
+}
+
+.content {
+    position: relative;
+    top: 0;
+    left: 0px;
+    z-index: 10;
+    display: block;
+    float: left;
+    height: 300px;
+    width: 100%;
+    padding: 0.1rem 0.3rem;
+    overflow: hidden;
+
+}
+
+.js-list {
+    position: relative;
+    display: block;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    background: #fff;
+}
+
+#js-info {
+    display: none;
+}
+
+.bgwhite {
+    background: #fff;
+}
+
+/*.hot .hot__item p {*/
+    /*font-family: Arial;*/
+    /*font-size: 0.24rem;*/
+/*}*/
+.hide {
+    display:none;
+}
+
+.show {
+    display:block;
+}
+
+.hot ul {
+    margin-top:0;
+}

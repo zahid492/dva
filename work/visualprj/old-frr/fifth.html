@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/slide.css">
+
+    <script src="lib/libs.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/d3.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/echarts4.js?v=2018072001" type="text/javascript"></script>
+    <script src="js/config.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/tBase.js?v=2018072001" type="text/javascript"></script>
+    <script src="lib/slide.min.js?v=2018072001" type="text/javascript"></script>
+    <script src="js/fifth.js?v=2018072001" type="text/javascript"></script>
+
+    <style>
+        .carousel li {
+            height: 0;
+            opacity: 0;
+        }
+        header .header-logo {
+            width: 38%;
+        }
+    </style>
+    <title>腾讯可视化</title>
+</head>
+
+<body>
+<div class="wrap">
+    <header id="header"></header>
+    <content>
+        <section class="fifth-content-l">
+            <div class="content-l__fist">
+                <h2 class="title--sub">
+                    <span class="gradientLine"></span>
+                    <div class="title__box">
+                        <p class="title__txt">新闻发布情况总览</p>
+                        <p class="title__sub" id="js-week1"></p>
+                    </div>
+                    <span class="gradientLine--full"></span>
+                </h2>
+                <div class="content__box" id="js-newsPublishOverview">
+
+                </div>
+            </div>
+            <div class="content-l__second">
+                <h2 class="title--sub">
+                    <span class="gradientLine"></span>
+                    <div class="title__box">
+                        <p class="title__txt">新闻报道案例</p>
+                        <p class="title__sub" id="js-week2"></p>
+                    </div>
+                    <span class="gradientLine--full"></span>
+                </h2>
+                <div class="content__box" id="js-newsPublishCases">
+
+                </div>
+            </div>
+        </section>
+        <section class="fifth-content-r">
+            <h2 class="title">
+                <span class="gradientLine"></span>
+                <span class="title__txt">
+                        <span id="js-month"></span>月游戏产品新闻发布一览</span>
+                <span class="gradientLine--full"></span>
+            </h2>
+            <div class="content__box" id="js-gameNewsStatisticsByMonth">
+
+
+            </div>
+        </section>
+    </content>
+    <footer>
+            <span class="left">数据来源：媒介广告投放后台；数据获取时间：
+                <span id="js-getDate"></span>
+            </span>
+        树洞可视化平台由IEG市场部媒介中心、数据中心 联合SNK、捷报数据共同打造
+    </footer>
+</div>
+<!--// 新闻发布情况总览-->
+<script id="newsPublishOverviewTpl" type="text/html">
+    <div>
+        <section class="col-2">
+            <div class="top">
+                <strong class="num">
+                    <%= oNews.count %>
+                </strong>
+                <p>
+                    <strong>近七日外发新闻</strong>（篇）</p>
+                <div class="ratio">
+                    <% if (oNews.rate>0) { %>
+                    <button class="ratio--up" style="width:1.3rem;">
+                        <i class="iconfont icon-trend-up"></i>
+                        <span class="percent">
+
+                                    <%= (oNews.rate*100).toFixed(0) %>
+                                </span>% 环比
+                    </button>
+                    <% }else if(oNews.rate==0){ %>
+                    <button class="ratio--flat" style="width:1.3rem;">
+                        <i class="iconfont icon-chiping"></i>
+                        <span class="percent">
+                                        <%= (oNews.rate*100).toFixed(0) %>
+                                    </span>% 环比
+                    </button>
+                    <% }else{ %>
+                    <button class="ratio--down" style="width:1.3rem;">
+                        <i class="iconfont icon-trend-down"></i>
+                        <span class="percent">
+                                            <%= (oNews.rate*100).toFixed(0) %>
+                                        </span>% 环比
+                    </button>
+                    <% } %>
+                </div>
+            </div>
+            <div class="chart" id="chartTpl1">
+
+            </div>
+        </section>
+        <i class="gradientLine--vertical"></i>
+        <section class="col-2">
+            <div class="top">
+                <strong class="num">
+                    <%= gMedia.count %>
+                </strong>
+                <p>
+                    <strong>近七日新闻报道数量</strong>（家）</p>
+                <div class="ratio">
+                    <% if(gMedia.rate>0) { %>
+                    <button class="ratio--up" style="width:1.3rem;">
+                        <i class="iconfont icon-trend-up"></i>
+                        <span class="percent">
+
+                                    <%= (gMedia.rate*100).toFixed(0) %>
+                                </span>% 环比
+                    </button>
+                    <% }else if(gMedia.rate==0){ %>
+                    <button class="ratio--flat" style="width:1.3rem;">
+                        <i class="iconfont icon-chiping"></i>
+                        <span class="percent">
+                                            <%= (gMedia.rate*100).toFixed(0) %>
+                                        </span>% 环比
+                    </button>
+                    <% }else{ %>
+                    <button class="ratio--down" style="width:1.3rem;">
+                        <i class="iconfont icon-trend-down"></i>
+                        <span class="percent">
+                                        <%= (gMedia.rate*100).toFixed(0) %>
+                                    </span>% 环比
+                    </button>
+                    <% } %>
+                </div>
+            </div>
+            <div class="chart" id="chartTpl2">
+
+            </div>
+        </section>
+    </div>
+</script>
+<!--// 一月游戏产品新闻发布一览-->
+<script id="gameNewsStatisticsByMonthTpl" type="text/html">
+    <div>
+        <h2 class="top">
+            <span class="li__l">游戏</span>
+            <span class="li__m">外发新闻量
+                    <em>（篇）</em>
+                </span>
+            <span class="li__r">新闻报道数量
+                    <em>（家）</em>
+                </span>
+        </h2>
+        <div class="carousel">
+            <div class="swiper-container" id="swiper1">
+                <div class="swiper-wrapper">
+                    <% _.forEach(list, function(v, j){ %>
+
+                    <div class="swiper-slide" id="slide<%= j %>">
+                        <ul>
+
+                            <% _.forEach(v, function(o, i){ %>
+                            <li style="height:0;">
+                                <div class="ranking">
+                                                <span class="num">
+                                                    <%= 15*j+i+1 %>
+                                                </span>
+                                    <span class="gameName">
+                                                    <%= o.gamename %>
+                                                </span>
+                                </div>
+                                <div class="amount">
+                                    <%= o.outboundnewscount %>
+
+                                </div>
+                                <div class="progress-box">
+                                    <div class="progressbar">
+                                        <div class="progess"
+                                             style="width:<%= (o.groundmediacount/(maxNum*1.2))*100 %>%"></div>
+                                    </div>
+                                    <div class="percentCount">
+                                        <%= o.groundmediacount %>
+                                    </div>
+                                </div>
+                            </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                    <% }) %>
+
+                </div>
+                <div class="pagination">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--新闻报道案例-->
+<script id="newsPublishCasesTpl" type="text/html">
+    <div>
+        <div class="content__box__l" style="">
+            <div id="slide3d" class="slide-carousel slide-3d">
+                <ul class="item-list clearfix">
+                    <% _.forEach(newLists, function(v, i){ %>
+                    <li class="item<%= i %>">
+                        <div class="item-content" id="<%= i %>">
+                            <a href="javascript:void(0);">
+                                <img class="cover-img" src="<%= host + v.caseimgurl %>">
+                            </a>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <!--indicators-->
+                <div class="indicator-list" style="display:none">
+                    <% _.forEach(newLists, function(v, i){ %>
+                    <a href="javascript:void(0);" data-slide-index="<%= i %>" class="selected"></a>
+                    <% }) %>
+                </div>
+                <!--controls-->
+                <div class="controls">
+                    <a class="item-prev glyphicon glyphicon-menu-left" href="javascript:void(0);"></a>
+                    <a class="item-next glyphicon glyphicon-menu-right" href="javascript:void(0);"></a>
+                </div>
+            </div>
+        </div>
+        <div class="content__box__r" id="js-contentBoxR" style="">
+
+        </div>
+    </div>
+</script>
+</body>
+
+</html>

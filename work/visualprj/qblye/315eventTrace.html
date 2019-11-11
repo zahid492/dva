@@ -1,0 +1,129 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="applicable-device" content="mobile"/>
+    <title>315 曝光了啥-情报来也</title>
+
+    <link rel="stylesheet" href="styles/1712/plugin.css?v=0316"/>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0316"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+
+    <script src="js/lib/libs.js?v=0316"></script>
+    <script src="js/lib/plugins.js" type="text/javascript"></script>
+    <script>
+        function change() {
+            document.documentElement.style.fontSize = 100 * (document.documentElement.clientWidth / 750) + 'px';
+        }
+        change();
+        window.onresize = change;
+    </script>
+    <link rel="stylesheet" href="styles/1712/styles171215.css?v=0316">
+    <link rel="stylesheet" href="styles/1712/laytip.css?v=0316">
+    <link rel="stylesheet" href="styles/1712/event.css?v=0316">
+    <!--获取客户 ip-->
+    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="js/jb/jbase.js?v=0316" type="text/javascript"></script>
+    <script src="Scripts/315eventTrace.js?v=0316" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles/1712/styles171215.css">
+    <style>
+        body {
+            overflow: scroll; /* this is important to prevent the whole page to bounce */
+            background: #36509a;
+
+        }
+        .indexContainer-fake {
+            background: #36509a url(./styles/1712/img/fake-bg.png) no-repeat center top;
+            background-size: 100%;
+            padding-top: 2.5rem;
+            padding-bottom: 1rem;
+        }
+        .shadowBox--blue {
+            background: #fff url(./styles/1712/img/fake.png) no-repeat center top;
+            background-size: 100%;
+            margin-bottom: 0;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+<img id="wxlogo" src="" alt="" style="display: none; left: -1000px; top:0;">
+    <div class="wrapper">
+        <div class="indexContainer indexContainer-fake">
+            <content class="contentList">
+                <section class="shadowBox shadowBox--blue" id="js-eventTrack">
+                    <div class="event">
+                        <h2 class="title">事件跟踪</h2>
+                        <div class="content">
+                            <div id="js-event">
+                                <div class="js-three"></div>
+                                <div class="js-bigthree hide"></div>
+                            </div>
+                            <a class="more js-toggle" style="font-size:14px;">查看剩余条数>></a>
+                        </div>
+                    </div>
+                </section>
+            </content>
+        </div>
+    </div>
+    <div><img src="./styles/img/bottom2.jpg" alt="" style="width:100%; height:7rem;"></div>
+
+
+
+    <!--事件模板-->
+    <script id="eventTpl" type="text/html">
+        <div class="list" itemid="<%= item.RId %>">
+            <p class="time time--first"><%= item.time %></p>
+            <div class="contentList-item">
+                <div>
+                    <div class="contentList-item__article">
+                        <!--无图-->
+                        <% if(item.ImageCount == 0){ %>
+                        <a class="js-rec" href="<%= item.Url %>" target="_blank">
+                            <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+                        </a>
+                        <% } %>
+                        <!-- 单图 -->
+                        <% if(item.ImageCount == 1 || item.ImageCount == 2){ %>
+                        <a class="js-rec" href="<%= item.Url %>" target="_blank">
+                            <div class="article-image--left js-img js-ot-one imgLiquidFill imgLiquid" style="background-size:cover; background-image: url(<%= item.ImageUrl %>thu.jpg);"></div>
+                            <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+                        </a>
+                        <% } %>
+                        <!--三图-->
+                        <% if(item.ImageCount > 2){ %>
+                        <a class="js-rec" href="<%= item.Url %>" target="_blank">
+
+                            <h3 class="js-title" url="<%= item.Url %>" item-rid="<%= item.RId %>"><%= item.Title %></h3>
+
+                            <ul class="article-image--list js-img js-li">
+                                <li class="imgLiquidFill imgLiquid" style="background-size:cover; background-image: url(<%= item.ImageUrl %>thu.jpg);"></li>
+                                <li class="imgLiquidFill imgLiquid" style="background-size:cover; background-image: url(<%= item.ImageUrl %>-2thu.jpg);"></li>
+                                <li class="imgLiquidFill imgLiquid" style="background-size:cover; background-image: url(<%= item.ImageUrl %>-3thu.jpg);"></li>
+                            </ul>
+                        </a>
+                        <% } %>
+                    </div>
+                    <div class="info">
+                        <a><%= item.MediaName %></a>
+                        <% if(item.SimilarCount>0){ %>
+                        <a class="similar">相似新闻<%= item.SimilarCount %>条</a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</body>
+
+</html>
